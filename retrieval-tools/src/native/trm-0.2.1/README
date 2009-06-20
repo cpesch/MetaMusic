@@ -1,0 +1,55 @@
+README for the trm Utility
+-----------------------------
+
+Note: 0.1.0 does not properly work on Windows yet.
+
+You'll need the MusicBrainz client library and MAD MP3 decode library or
+Ogg/Vorbis installed installed to compile this program.
+
+   MusicBrainz client library (2.0.0-pre1 or later):
+
+       ftp://ftp.musicbrainz.org/pub/musicbrainz
+
+   MAD MP3 Decoder:
+
+       http://www.mars.org/home/rob/proj/mpeg
+
+   Ogg/Vorbis
+
+       http://vorbis.com
+
+The usage is simple:
+
+   trm [-m|-o|-w] <mp3 | ogg/vorbis | wav file>
+
+The trm program will decode the first 30 seconds of audio file and
+then spit out a TRM id (see http://www.relatable.com for details) on
+stdout. If some error occurs, the error message is printed to stderr.
+
+trmtest.pl TRM test script
+--------------------------
+
+If you'd like to test the TRM server, use the test/trmtest.pl script. 
+To run this script, you need the following programs installed:
+
+ - perl
+ - cdparanoia
+ - lame
+ - oggenc (ogg/vorbis/vorbistools)
+ - trm (this package compiled/installed)
+
+To run:
+
+1. Insert a CD into your primary CD-ROM drive
+2. run test/trmtest.pl <output csv file>
+
+The script will call cdparanoia to rip the first 30 seconds of each track,
+encode to mp3 with lame, to ogg/vorbis with oggenc and then use the
+trm utility to get the TRM for each of the three versions. Once the
+entire CD has been processed, it writes a CVS (comma seperated values)
+file as the output file.
+
+
+
+
+Questions, comments, beer donations:  rob@eorbit.net

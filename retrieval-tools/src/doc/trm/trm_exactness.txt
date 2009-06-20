@@ -1,0 +1,28 @@
+MP3-Encoding with LAME to test TRM exactness:
+
+R.E.M. - Radio song 
+WAV:           aa3a610e-34e2-458a-9b55-3e9373f14ad4
+64 kBit, VBR:  aa3a610e-34e2-458a-9b55-3e9373f14ad4
+128 kBit:      aa3a610e-34e2-458a-9b55-3e9373f14ad4
+128 kBit, VBR: aa3a610e-34e2-458a-9b55-3e9373f14ad4
+192 kBit:      aa3a610e-34e2-458a-9b55-3e9373f14ad4
+256 kBit:      aa3a610e-34e2-458a-9b55-3e9373f14ad4
+
+R.E.M. - Losing my religion
+WAV:           d4311c78-806b-48c3-8631-a10240d9bb40
+64 kBit, VBR:  d4311c78-806b-48c3-8631-a10240d9bb40
+128 kBit:      d4311c78-806b-48c3-8631-a10240d9bb40
+128 kBit, VBR: d4311c78-806b-48c3-8631-a10240d9bb40
+192 kBit:      d4311c78-806b-48c3-8631-a10240d9bb40
+256 kBit:      d4311c78-806b-48c3-8631-a10240d9bb40
+
+R.E.M. - Low
+WAV:           f6c94474-806d-4ec5-b9ef-9dd75a9f6f8d
+64 kBit, VBR:  f6c94474-806d-4ec5-b9ef-9dd75a9f6f8d
+128 kBit:      f6c94474-806d-4ec5-b9ef-9dd75a9f6f8d
+128 kBit, VBR: f6c94474-806d-4ec5-b9ef-9dd75a9f6f8d
+192 kBit:      f6c94474-806d-4ec5-b9ef-9dd75a9f6f8d
+256 kBit:      f6c94474-806d-4ec5-b9ef-9dd75a9f6f8d
+
+
+

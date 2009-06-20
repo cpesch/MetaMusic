@@ -1,0 +1,40 @@
+<html><head><title>the M3U file format</title></head>
+<body bgcolor="#ffffff">
+<p><b>The M3U (.m3u) Playlist File Format</b> (December 2001, &lt;<a href="mailto:xunker@pyxidis.org">xunker@pyxidis.org</a>&gt;)</p>
+<p>
+M3U is a media queue format, also generally known to humans as <b>a playlist</b>.  It is the default playlist save format of <a href="http://winamp.com/">WinAMP</a> and most other media programs.  It allows multiple files to be queued in a program in a specific format.
+</p>
+<p>The actual format is really simple, though; not complicated at all.  A sample M3U list could be:
+</p><blockquote>
+<pre>#EXTM3U
+#EXTINF:111,3rd Bass - Al z A-B-Cee z
+mp3/3rd Bass/3rd bass - Al z A-B-Cee z.mp3
+#EXTINF:462,Apoptygma Berzerk - Kathy´s song (VNV Nation rmx)
+mp3/Apoptygma Berzerk/Apoptygma Berzerk - Kathy's Song (Victoria Mix by VNV Nation).mp3
+#EXTINF:394,Apoptygma Berzerk - Kathy's Song
+mp3/Apoptygma Berzerk/Apoptygma Berzerk - Kathy's Song.mp3
+#EXTINF:307,Apoptygma Bezerk - Starsign
+mp3/Apoptygma Berzerk/Apoptygma Berzerk - Starsign.mp3
+#EXTINF:282,Various_Artists - Butthole Surfers: They Came In
+mp3/Butthole_Surfers-They_Came_In.mp3
+</pre>
+</blockquote>
+<p></p>
+<p>The First line, "#EXTM3U" is the format descriptor, in this case M3U
+(or Extended M3U as it can be called). It does not change, it's always
+this.
+</p>
+<p>The second and third operate in a pair. The second begins "#EXTINF:"
+which serves as the record marker. The "#EXTINF" is unchanging. After
+the colon is a number: this number is the length of the track in whole
+seconds (not minutes:seconds or anything else. Then comes a comma and
+the name of the tune (not the FILE NAME). A good list generator will
+suck this data from the ID3 tag if there is one, and if not it will
+take the file name with the extension chopped off.
+</p><p>The second line of this pair (the third line) is the actual
+file name of the media in question. In my example they aren't fully
+qualified because I run this list by typing "noatun foo.m3u" in my home
+directory and my music is in ~/mp3, so it just follows the paths as
+relative from the path of invocation.
+</p>
+</body></html>

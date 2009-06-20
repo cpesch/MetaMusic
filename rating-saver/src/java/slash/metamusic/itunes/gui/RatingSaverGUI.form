@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="slash.metamusic.itunes.gui.RatingSaverGUI">
+  <grid id="cbd77" binding="contentPane" row-count="3" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="10" left="10" bottom="10" right="10"/>
+    <constraints>
+      <xy x="48" y="54" width="469" height="310"/>
+      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <grid id="94766" row-count="1" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints>
+          <xy x="10" y="275" width="449" height="25"/>
+          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="3" anchor="4" fill="1"/>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <hspacer id="98af6">
+            <constraints>
+              <xy x="0" y="7" width="317" height="11"/>
+              <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="1" hsize-policy="6" anchor="0" fill="1"/>
+            </constraints>
+          </hspacer>
+          <grid id="9538f" row-count="1" column-count="2" same-size-horizontally="true" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="0" left="0" bottom="0" right="0"/>
+            <constraints>
+              <xy x="317" y="0" width="132" height="25"/>
+              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <component id="e7465" class="javax.swing.JButton" binding="buttonStart">
+                <constraints>
+                  <xy x="0" y="0" width="61" height="25"/>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1"/>
+                </constraints>
+                <properties>
+                  <enabled value="false"/>
+                  <text resource-bundle="slash/metamusic/itunes/gui/RatingSaverGUI" key="start"/>
+                </properties>
+              </component>
+              <component id="5723f" class="javax.swing.JButton" binding="buttonExit">
+                <constraints>
+                  <xy x="71" y="0" width="61" height="25"/>
+                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1"/>
+                </constraints>
+                <properties>
+                  <text resource-bundle="slash/metamusic/itunes/gui/RatingSaverGUI" key="exit"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+        </children>
+      </grid>
+      <grid id="e3588" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints>
+          <xy x="10" y="10" width="449" height="70"/>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3"/>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <grid id="a086b" row-count="3" column-count="6" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="0" left="0" bottom="0" right="0"/>
+            <constraints>
+              <xy x="0" y="0" width="449" height="70"/>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="3" anchor="0" fill="3"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <component id="6240a" class="javax.swing.JLabel" binding="labelVersion">
+                <constraints>
+                  <xy x="114" y="3" width="8" height="14"/>
+                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0"/>
+                </constraints>
+                <properties>
+                  <horizontalAlignment value="2"/>
+                  <horizontalTextPosition value="2"/>
+                  <text value="-"/>
+                </properties>
+              </component>
+              <component id="86f30" class="javax.swing.JLabel">
+                <constraints>
+                  <xy x="0" y="28" width="89" height="14"/>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0"/>
+                </constraints>
+                <properties>
+                  <inheritsPopupMenu value="false"/>
+                  <text resource-bundle="slash/metamusic/itunes/gui/RatingSaverGUI" key="processed-tracks"/>
+                </properties>
+              </component>
+              <component id="e6da2" class="javax.swing.JLabel" binding="labelProcessedTracks">
+                <constraints>
+                  <xy x="114" y="28" width="8" height="14"/>
+                  <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0"/>
+                </constraints>
+                <properties>
+                  <horizontalAlignment value="2"/>
+                  <horizontalTextPosition value="2"/>
+                  <text value="-"/>
+                </properties>
+              </component>
+              <component id="90a71" class="javax.swing.JLabel">
+                <constraints>
+                  <xy x="306" y="53" width="85" height="14"/>
+                  <grid row="2" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0"/>
+                </constraints>
+                <properties>
+                  <text resource-bundle="slash/metamusic/itunes/gui/RatingSaverGUI" key="removed-tracks"/>
+                </properties>
+              </component>
+              <component id="bcab3" class="javax.swing.JLabel">
+                <constraints>
+                  <xy x="306" y="28" width="68" height="14"/>
+                  <grid row="1" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0"/>
+                </constraints>
+                <properties>
+                  <text resource-bundle="slash/metamusic/itunes/gui/RatingSaverGUI" key="failed-tracks"/>
+                </properties>
+              </component>
+              <component id="588c6" class="javax.swing.JLabel" binding="labelFailedTracks">
+                <constraints>
+                  <xy x="415" y="28" width="8" height="14"/>
+                  <grid row="1" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0"/>
+                </constraints>
+                <properties>
+                  <text value="-"/>
+                </properties>
+              </component>
+              <component id="f1896" class="javax.swing.JLabel" binding="labelRemovedTracks">
+                <constraints>
+                  <xy x="415" y="53" width="8" height="14"/>
+                  <grid row="2" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0"/>
+                </constraints>
+                <properties>
+                  <text value="-"/>
+                </properties>
+              </component>
+              <component id="ac372" class="javax.swing.JLabel">
+                <constraints>
+                  <xy x="158" y="3" width="64" height="14"/>
+                  <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0"/>
+                </constraints>
+                <properties>
+                  <text resource-bundle="slash/metamusic/itunes/gui/RatingSaverGUI" key="track-count"/>
+                </properties>
+              </component>
+              <component id="c1126" class="javax.swing.JLabel" binding="labelFileCount">
+                <constraints>
+                  <xy x="262" y="3" width="8" height="14"/>
+                  <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0"/>
+                </constraints>
+                <properties>
+                  <horizontalAlignment value="2"/>
+                  <text value="-"/>
+                </properties>
+              </component>
+              <component id="60e43" class="javax.swing.JLabel" binding="labelPlaylistCount">
+                <constraints>
+                  <xy x="415" y="3" width="8" height="14"/>
+                  <grid row="0" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0"/>
+                </constraints>
+                <properties>
+                  <text value="-"/>
+                </properties>
+              </component>
+              <component id="feada" class="javax.swing.JLabel">
+                <constraints>
+                  <xy x="306" y="3" width="71" height="14"/>
+                  <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0"/>
+                </constraints>
+                <properties>
+                  <text resource-bundle="slash/metamusic/itunes/gui/RatingSaverGUI" key="playlist-count"/>
+                </properties>
+              </component>
+              <component id="9ee5f" class="javax.swing.JLabel">
+                <constraints>
+                  <xy x="158" y="28" width="80" height="14"/>
+                  <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0"/>
+                </constraints>
+                <properties>
+                  <text resource-bundle="slash/metamusic/itunes/gui/RatingSaverGUI" key="modified-tracks"/>
+                </properties>
+              </component>
+              <component id="4a531" class="javax.swing.JLabel" binding="labelModifiedTracks">
+                <constraints>
+                  <xy x="262" y="28" width="8" height="14"/>
+                  <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0"/>
+                </constraints>
+                <properties>
+                  <text value="-"/>
+                </properties>
+              </component>
+              <component id="5a84" class="javax.swing.JLabel">
+                <constraints>
+                  <xy x="158" y="53" width="70" height="14"/>
+                  <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0"/>
+                </constraints>
+                <properties>
+                  <text resource-bundle="slash/metamusic/itunes/gui/RatingSaverGUI" key="modified-files"/>
+                </properties>
+              </component>
+              <component id="6d8d1" class="javax.swing.JLabel" binding="labelModifiedFiles">
+                <constraints>
+                  <xy x="262" y="53" width="8" height="14"/>
+                  <grid row="2" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0"/>
+                </constraints>
+                <properties>
+                  <inheritsPopupMenu value="true"/>
+                  <text value="-"/>
+                </properties>
+              </component>
+              <component id="3e5af" class="javax.swing.JLabel">
+                <constraints>
+                  <xy x="0" y="3" width="77" height="14"/>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0"/>
+                </constraints>
+                <properties>
+                  <text resource-bundle="slash/metamusic/itunes/gui/RatingSaverGUI" key="version"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+        </children>
+      </grid>
+      <grid id="31646" row-count="2" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints>
+          <xy x="10" y="85" width="449" height="185"/>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="3" anchor="8" fill="3"/>
+        </constraints>
+        <properties>
+          <visible value="true"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <component id="5ef31" class="javax.swing.JProgressBar" binding="progressBar">
+            <constraints>
+              <xy x="65" y="166" width="384" height="18"/>
+              <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="7" anchor="8" fill="1"/>
+            </constraints>
+            <properties/>
+          </component>
+          <component id="fa397" class="javax.swing.JLabel">
+            <constraints>
+              <xy x="0" y="168" width="50" height="14"/>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0"/>
+            </constraints>
+            <properties>
+              <text resource-bundle="slash/metamusic/itunes/gui/RatingSaverGUI" key="progress"/>
+            </properties>
+          </component>
+          <component id="46a01" class="javax.swing.JLabel">
+            <constraints>
+              <xy x="0" y="0" width="55" height="14"/>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0"/>
+            </constraints>
+            <properties>
+              <text resource-bundle="slash/metamusic/itunes/gui/RatingSaverGUI" key="messages"/>
+            </properties>
+          </component>
+          <scrollpane id="66917">
+            <constraints>
+              <xy x="65" y="0" width="384" height="160"/>
+              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <component id="1176" class="javax.swing.JList" binding="listMessages">
+                <constraints/>
+                <properties/>
+              </component>
+            </children>
+          </scrollpane>
+        </children>
+      </grid>
+    </children>
+  </grid>
+</form>

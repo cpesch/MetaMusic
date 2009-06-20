@@ -1,0 +1,23 @@
+Album Attribute Definitions
+
+Album attributes define the type and status of an audio release and provide information about the contents of the release.
+
+Album attributes should apply to most of the tracks on the album. Its OK to have a couple of tracks that do not fit the album attribute, as long as the attribute applies to the album overall.
+
+Release type: Definition:
+Album An album release primarily consists of previously unreleased material.
+Single A single typically has one main song and possibly a handful of additional tracks or remixes of the main track. A single is usually named after its main song.
+EP An EP is an Extended Play release which should contain the letters EP in the title. EP releases have become rare.
+Compilation A compilation is a collection of previously released tracks by one or more artists.
+Soundtrack A soundtrack is the musical score to a movie.
+Spokenword Non-music spoken word releases.
+Interview An interview release contains an interview with the Artist.
+Audiobook An audiobook is a book read by a narrator without music.
+Live A release that was recorded live.
+Remix A release that was (re)mixed from previously released material.
+Other Any release that does not fit any of the categories above.
+Release Status: Definition:
+Official Any release officially sanctioned by the artist and/or their record company. (Most releases will fit into this category.)
+Promotion A giveaway release or a release intended to promote an upcoming official release. (e.g. prerelease albums or releases included with a magazine)
+Bootleg An unofficial/underground release that was not sanctioned by the artist and/or the record company.
+   

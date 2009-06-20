@@ -1,0 +1,10 @@
+LIBRARY      "trm"
+DESCRIPTION  'TRM Generation Library'
+
+EXPORTS
+    MP3_generateTRM      
+    OggVorbis_generateTRM
+    Wav_generateTRM      
+
+
+   

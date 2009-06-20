@@ -1,0 +1,112 @@
+dnl Copyright (C) 2002 Robert Kaye
+dnl
+dnl $Id: configure.in 9 2003-10-13 12:45:19Z cpesch $
+AC_INIT(main.cpp)
+VERSION="0.2.1"
+AM_INIT_AUTOMAKE(trm, "$VERSION")
+
+CFLAGS="-Wall -g -O2"
+
+dnl Checks for programs.
+AC_PROG_CC
+AC_PROG_CXX
+AC_PROG_INSTALL
+
+dnl Checks for libraries.
+
+dnl Checks for header files.
+
+dnl Checks for typedefs, structures, and compiler characteristics.
+
+dnl Check for MAD decoder lib for mp3 support
+AC_CHECK_LIB(mad,mad_version,,
+             echo "*"
+             echo "*  The MAD mp3 decoder is not installed. Please download "
+             echo "*  the decoder from http://www.mars.org/home/rob/proj/mpeg"
+             echo "*  to include MP3 TRM generation capabilities."
+             echo "*"
+             ,-lm)
+
+
+AC_CHECK_LIB(ogg, ogg_sync_init, have_ogg="yes",)
+AC_CHECK_LIB(vorbisfile, ov_info, have_vorbis="yes",, -lvorbis -logg)
+
+dnl Check for Ogg/Vorbis
+if test "$have_ogg" = "yes"; then
+  if test "$have_vorbis" = "yes"; then
+     AC_DEFINE(HAVE_OGGVORBIS,1,[Ogg/Vorbis Support])
+     LIBS="$LIBS -logg -lvorbis -lvorbisfile"
+  else
+     AC_MSG_RESULT([*** NOT compiling ogg/vorbis support])
+  fi
+fi
+
+AC_LANG_SAVE
+AC_LANG_CPLUSPLUS
+AC_CHECK_LIB(musicbrainz, mb_GetVersion,,
+             echo "*"
+             echo "*  The MusicBrainz client library needs to be installed "
+             echo "*  to build this plugin. Please download the library from "
+             echo "*  http://www.musicbrainz.org/download " 
+             echo "*"
+             AC_MSG_ERROR("Cannot build. Stop.")
+             ,-ldl)
+
+AC_TRY_RUN([
+#include <musicbrainz/mb_c.h>
+
+int main ()
+{
+  int           major, minor, rev;
+  musicbrainz_t o;
+
+  o = mb_New();
+  mb_GetVersion(o, &major, &minor, &rev);
+  mb_Delete(o);
+  if (major < 2)
+     return 1;
+
+  return 0;
+}
+],have_mbver=true,have_mbver=false,have_mbver=false)
+
+AC_MSG_CHECKING("for version >= 2.0.0 in -lmusicbrainz")
+if test "$have_mbver" = "false"; then
+    AC_MSG_RESULT("no")
+    echo "*"
+    echo "*  Version 2.0.0 or higher of the MusicBrainz "
+    echo "*  client library needs to be installed to build this application. "
+    echo "*  Please download the library from: "
+    echo "*  http://www.musicbrainz.org/download " 
+    echo "*"
+    AC_MSG_ERROR("Cannot build. Stop.")
+else
+    AC_MSG_RESULT("yes")
+fi
+
+AC_CHECK_LIB(id3,ID3Tag_New,have_id3=true,
+             echo "*"
+             echo "*  The id3lib library is not installed. In order to "
+             echo "*  enable the taglookup program please install id3lib from"
+             echo "*  http://id3lib.sourceforge.net"
+             echo "*"
+             have_id3=false,-lz)
+
+ID3_LIBS=""
+if test "$have_id3" = "true"; then
+    ID3_LIBS="-lid3 -lz"
+    AC_DEFINE(HAVE_LIBID3,1,[libid3 support])
+fi
+AC_SUBST(ID3_LIBS)
+
+AC_LANG_RESTORE
+
+if test "${prefix}" = "NONE"; then
+  prefix="/usr/local" 
+fi
+
+AC_SUBST(CFLAGS)  
+AC_DEFINE_UNQUOTED(PREFIX, "${prefix}", "PREFIX") 
+AM_CONFIG_HEADER(config.h)
+AC_OUTPUT(Makefile)
+touch .config.check
