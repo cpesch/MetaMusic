@@ -1,0 +1,1067 @@
+TYPELIB iTunesLib
+CLASS IITObject;TKIND_DISPATCH
+EXTENDS;IDispatch
+INVOKE_FUNC;VT_VOID ;QueryInterface;[{in-}GUID riid,{out-}VT_PTR LastParam]
+INVOKE_FUNC;VT_UI4 ;AddRef;[]
+INVOKE_FUNC;VT_UI4 ;Release;[]
+INVOKE_FUNC;VT_VOID ;GetTypeInfoCount;[{out-}VT_UINT LastParam]
+INVOKE_FUNC;VT_VOID ;GetTypeInfo;[{in-}VT_UINT itinfo,{in-}VT_UI4 lcid,{out-}VT_PTR LastParam]
+INVOKE_FUNC;VT_VOID ;GetIDsOfNames;[{in-}GUID riid,{in-}VT_PTR rgszNames,{in-}VT_UINT cNames,{in-}VT_UI4 lcid,{out-}VT_I4 LastParam]
+INVOKE_FUNC;VT_VOID ;Invoke;[{in-}VT_I4 dispidMember,{in-}GUID riid,{in-}VT_UI4 lcid,{in-}VT_UI2 wFlags,{in-}DISPPARAMS pdispparams,{out-}VT_VARIANT pvarResult,{out-}EXCEPINFO pexcepinfo,{out-}VT_UINT LastParam]
+INVOKE_FUNC;VT_VOID ;GetITObjectIDs;[{out-}VT_I4 sourceID,{out-}VT_I4 playlistID,{out-}VT_I4 trackID,{out-}VT_I4 LastParam]
+INVOKE_PROPERTYGET;VT_BSTR ;Name;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Name;[{in-}VT_BSTR LastParam]
+INVOKE_PROPERTYGET;VT_I4 ;Index;[]
+INVOKE_PROPERTYGET;VT_I4 ;sourceID;[]
+INVOKE_PROPERTYGET;VT_I4 ;playlistID;[]
+INVOKE_PROPERTYGET;VT_I4 ;trackID;[]
+INVOKE_PROPERTYGET;VT_I4 ;TrackDatabaseID;[]
+CLASS IITSource;TKIND_DISPATCH
+EXTENDS;IDispatch
+INVOKE_FUNC;VT_VOID ;QueryInterface;[{in-}GUID riid,{out-}VT_PTR LastParam]
+INVOKE_FUNC;VT_UI4 ;AddRef;[]
+INVOKE_FUNC;VT_UI4 ;Release;[]
+INVOKE_FUNC;VT_VOID ;GetTypeInfoCount;[{out-}VT_UINT LastParam]
+INVOKE_FUNC;VT_VOID ;GetTypeInfo;[{in-}VT_UINT itinfo,{in-}VT_UI4 lcid,{out-}VT_PTR LastParam]
+INVOKE_FUNC;VT_VOID ;GetIDsOfNames;[{in-}GUID riid,{in-}VT_PTR rgszNames,{in-}VT_UINT cNames,{in-}VT_UI4 lcid,{out-}VT_I4 LastParam]
+INVOKE_FUNC;VT_VOID ;Invoke;[{in-}VT_I4 dispidMember,{in-}GUID riid,{in-}VT_UI4 lcid,{in-}VT_UI2 wFlags,{in-}DISPPARAMS pdispparams,{out-}VT_VARIANT pvarResult,{out-}EXCEPINFO pexcepinfo,{out-}VT_UINT LastParam]
+INVOKE_FUNC;VT_VOID ;GetITObjectIDs;[{out-}VT_I4 sourceID,{out-}VT_I4 playlistID,{out-}VT_I4 trackID,{out-}VT_I4 LastParam]
+INVOKE_PROPERTYGET;VT_BSTR ;Name;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Name;[{in-}VT_BSTR LastParam]
+INVOKE_PROPERTYGET;VT_I4 ;Index;[]
+INVOKE_PROPERTYGET;VT_I4 ;sourceID;[]
+INVOKE_PROPERTYGET;VT_I4 ;playlistID;[]
+INVOKE_PROPERTYGET;VT_I4 ;trackID;[]
+INVOKE_PROPERTYGET;VT_I4 ;TrackDatabaseID;[]
+INVOKE_PROPERTYGET;ITSourceKind ;Kind;[]
+INVOKE_PROPERTYGET;VT_R8 ;Capacity;[]
+INVOKE_PROPERTYGET;VT_R8 ;FreeSpace;[]
+INVOKE_PROPERTYGET;IITPlaylistCollection ;Playlists;[]
+CLASS ITSourceKind;TKIND_ALIAS
+EXTENDS;__MIDL___MIDL_itf_iTunesCOMInterface_0283_0001
+CLASS __MIDL___MIDL_itf_iTunesCOMInterface_0283_0001;TKIND_ENUM
+VAR_CONST;ITSourceKindUnknown;VT_I4;0
+VAR_CONST;ITSourceKindLibrary;VT_I4;1
+VAR_CONST;ITSourceKindIPod;VT_I4;2
+VAR_CONST;ITSourceKindAudioCD;VT_I4;3
+VAR_CONST;ITSourceKindMP3CD;VT_I4;4
+VAR_CONST;ITSourceKindDevice;VT_I4;5
+VAR_CONST;ITSourceKindRadioTuner;VT_I4;6
+VAR_CONST;ITSourceKindSharedLibrary;VT_I4;7
+CLASS IITPlaylistCollection;TKIND_DISPATCH
+EXTENDS;IDispatch
+INVOKE_FUNC;VT_VOID ;QueryInterface;[{in-}GUID riid,{out-}VT_PTR LastParam]
+INVOKE_FUNC;VT_UI4 ;AddRef;[]
+INVOKE_FUNC;VT_UI4 ;Release;[]
+INVOKE_FUNC;VT_VOID ;GetTypeInfoCount;[{out-}VT_UINT LastParam]
+INVOKE_FUNC;VT_VOID ;GetTypeInfo;[{in-}VT_UINT itinfo,{in-}VT_UI4 lcid,{out-}VT_PTR LastParam]
+INVOKE_FUNC;VT_VOID ;GetIDsOfNames;[{in-}GUID riid,{in-}VT_PTR rgszNames,{in-}VT_UINT cNames,{in-}VT_UI4 lcid,{out-}VT_I4 LastParam]
+INVOKE_FUNC;VT_VOID ;Invoke;[{in-}VT_I4 dispidMember,{in-}GUID riid,{in-}VT_UI4 lcid,{in-}VT_UI2 wFlags,{in-}DISPPARAMS pdispparams,{out-}VT_VARIANT pvarResult,{out-}EXCEPINFO pexcepinfo,{out-}VT_UINT LastParam]
+INVOKE_PROPERTYGET;VT_I4 ;Count;[]
+INVOKE_PROPERTYGET;IITPlaylist ;Item;[{in-}VT_I4 LastParam]
+INVOKE_PROPERTYGET;IITPlaylist ;ItemByName;[{in-}VT_BSTR LastParam]
+INVOKE_PROPERTYGET;VT_UNKNOWN ;_NewEnum;[]
+CLASS IITPlaylist;TKIND_DISPATCH
+EXTENDS;IDispatch
+INVOKE_FUNC;VT_VOID ;QueryInterface;[{in-}GUID riid,{out-}VT_PTR LastParam]
+INVOKE_FUNC;VT_UI4 ;AddRef;[]
+INVOKE_FUNC;VT_UI4 ;Release;[]
+INVOKE_FUNC;VT_VOID ;GetTypeInfoCount;[{out-}VT_UINT LastParam]
+INVOKE_FUNC;VT_VOID ;GetTypeInfo;[{in-}VT_UINT itinfo,{in-}VT_UI4 lcid,{out-}VT_PTR LastParam]
+INVOKE_FUNC;VT_VOID ;GetIDsOfNames;[{in-}GUID riid,{in-}VT_PTR rgszNames,{in-}VT_UINT cNames,{in-}VT_UI4 lcid,{out-}VT_I4 LastParam]
+INVOKE_FUNC;VT_VOID ;Invoke;[{in-}VT_I4 dispidMember,{in-}GUID riid,{in-}VT_UI4 lcid,{in-}VT_UI2 wFlags,{in-}DISPPARAMS pdispparams,{out-}VT_VARIANT pvarResult,{out-}EXCEPINFO pexcepinfo,{out-}VT_UINT LastParam]
+INVOKE_FUNC;VT_VOID ;GetITObjectIDs;[{out-}VT_I4 sourceID,{out-}VT_I4 playlistID,{out-}VT_I4 trackID,{out-}VT_I4 LastParam]
+INVOKE_PROPERTYGET;VT_BSTR ;Name;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Name;[{in-}VT_BSTR LastParam]
+INVOKE_PROPERTYGET;VT_I4 ;Index;[]
+INVOKE_PROPERTYGET;VT_I4 ;sourceID;[]
+INVOKE_PROPERTYGET;VT_I4 ;playlistID;[]
+INVOKE_PROPERTYGET;VT_I4 ;trackID;[]
+INVOKE_PROPERTYGET;VT_I4 ;TrackDatabaseID;[]
+INVOKE_FUNC;VT_VOID ;Delete;[]
+INVOKE_FUNC;VT_VOID ;PlayFirstTrack;[]
+INVOKE_FUNC;VT_VOID ;Print;[{in-}VT_BOOL showPrintDialog,{in-}ITPlaylistPrintKind printKind,{in-}VT_BSTR LastParam]
+INVOKE_FUNC;IITTrackCollection ;Search;[{in-}VT_BSTR searchText,{in-}ITPlaylistSearchField LastParam]
+INVOKE_PROPERTYGET;ITPlaylistKind ;Kind;[]
+INVOKE_PROPERTYGET;IITSource ;Source;[]
+INVOKE_PROPERTYGET;VT_I4 ;Duration;[]
+INVOKE_PROPERTYGET;VT_BOOL ;Shuffle;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Shuffle;[{in-}VT_BOOL LastParam]
+INVOKE_PROPERTYGET;VT_R8 ;Size;[]
+INVOKE_PROPERTYGET;ITPlaylistRepeatMode ;SongRepeat;[]
+INVOKE_PROPERTYPUT;VT_VOID ;SongRepeat;[{in-}ITPlaylistRepeatMode LastParam]
+INVOKE_PROPERTYGET;VT_BSTR ;Time;[]
+INVOKE_PROPERTYGET;VT_BOOL ;Visible;[]
+INVOKE_PROPERTYGET;IITTrackCollection ;Tracks;[]
+CLASS ITPlaylistPrintKind;TKIND_ALIAS
+EXTENDS;__MIDL___MIDL_itf_iTunesCOMInterface_0278_0003
+CLASS __MIDL___MIDL_itf_iTunesCOMInterface_0278_0003;TKIND_ENUM
+VAR_CONST;ITPlaylistPrintKindPlaylist;VT_I4;0
+VAR_CONST;ITPlaylistPrintKindAlbumlist;VT_I4;1
+VAR_CONST;ITPlaylistPrintKindInsert;VT_I4;2
+CLASS ITPlaylistSearchField;TKIND_ALIAS
+EXTENDS;__MIDL___MIDL_itf_iTunesCOMInterface_0278_0004
+CLASS __MIDL___MIDL_itf_iTunesCOMInterface_0278_0004;TKIND_ENUM
+VAR_CONST;ITPlaylistSearchFieldAll;VT_I4;0
+VAR_CONST;ITPlaylistSearchFieldVisible;VT_I4;1
+VAR_CONST;ITPlaylistSearchFieldArtists;VT_I4;2
+VAR_CONST;ITPlaylistSearchFieldAlbums;VT_I4;3
+VAR_CONST;ITPlaylistSearchFieldComposers;VT_I4;4
+VAR_CONST;ITPlaylistSearchFieldSongNames;VT_I4;5
+CLASS IITTrackCollection;TKIND_DISPATCH
+EXTENDS;IDispatch
+INVOKE_FUNC;VT_VOID ;QueryInterface;[{in-}GUID riid,{out-}VT_PTR LastParam]
+INVOKE_FUNC;VT_UI4 ;AddRef;[]
+INVOKE_FUNC;VT_UI4 ;Release;[]
+INVOKE_FUNC;VT_VOID ;GetTypeInfoCount;[{out-}VT_UINT LastParam]
+INVOKE_FUNC;VT_VOID ;GetTypeInfo;[{in-}VT_UINT itinfo,{in-}VT_UI4 lcid,{out-}VT_PTR LastParam]
+INVOKE_FUNC;VT_VOID ;GetIDsOfNames;[{in-}GUID riid,{in-}VT_PTR rgszNames,{in-}VT_UINT cNames,{in-}VT_UI4 lcid,{out-}VT_I4 LastParam]
+INVOKE_FUNC;VT_VOID ;Invoke;[{in-}VT_I4 dispidMember,{in-}GUID riid,{in-}VT_UI4 lcid,{in-}VT_UI2 wFlags,{in-}DISPPARAMS pdispparams,{out-}VT_VARIANT pvarResult,{out-}EXCEPINFO pexcepinfo,{out-}VT_UINT LastParam]
+INVOKE_PROPERTYGET;VT_I4 ;Count;[]
+INVOKE_PROPERTYGET;IITTrack ;Item;[{in-}VT_I4 LastParam]
+INVOKE_PROPERTYGET;IITTrack ;ItemByPlayOrder;[{in-}VT_I4 LastParam]
+INVOKE_PROPERTYGET;IITTrack ;ItemByName;[{in-}VT_BSTR LastParam]
+INVOKE_PROPERTYGET;VT_UNKNOWN ;_NewEnum;[]
+CLASS IITTrack;TKIND_DISPATCH
+EXTENDS;IDispatch
+INVOKE_FUNC;VT_VOID ;QueryInterface;[{in-}GUID riid,{out-}VT_PTR LastParam]
+INVOKE_FUNC;VT_UI4 ;AddRef;[]
+INVOKE_FUNC;VT_UI4 ;Release;[]
+INVOKE_FUNC;VT_VOID ;GetTypeInfoCount;[{out-}VT_UINT LastParam]
+INVOKE_FUNC;VT_VOID ;GetTypeInfo;[{in-}VT_UINT itinfo,{in-}VT_UI4 lcid,{out-}VT_PTR LastParam]
+INVOKE_FUNC;VT_VOID ;GetIDsOfNames;[{in-}GUID riid,{in-}VT_PTR rgszNames,{in-}VT_UINT cNames,{in-}VT_UI4 lcid,{out-}VT_I4 LastParam]
+INVOKE_FUNC;VT_VOID ;Invoke;[{in-}VT_I4 dispidMember,{in-}GUID riid,{in-}VT_UI4 lcid,{in-}VT_UI2 wFlags,{in-}DISPPARAMS pdispparams,{out-}VT_VARIANT pvarResult,{out-}EXCEPINFO pexcepinfo,{out-}VT_UINT LastParam]
+INVOKE_FUNC;VT_VOID ;GetITObjectIDs;[{out-}VT_I4 sourceID,{out-}VT_I4 playlistID,{out-}VT_I4 trackID,{out-}VT_I4 LastParam]
+INVOKE_PROPERTYGET;VT_BSTR ;Name;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Name;[{in-}VT_BSTR LastParam]
+INVOKE_PROPERTYGET;VT_I4 ;Index;[]
+INVOKE_PROPERTYGET;VT_I4 ;sourceID;[]
+INVOKE_PROPERTYGET;VT_I4 ;playlistID;[]
+INVOKE_PROPERTYGET;VT_I4 ;trackID;[]
+INVOKE_PROPERTYGET;VT_I4 ;TrackDatabaseID;[]
+INVOKE_FUNC;VT_VOID ;Delete;[]
+INVOKE_FUNC;VT_VOID ;Play;[]
+INVOKE_FUNC;IITArtwork ;AddArtworkFromFile;[{in-}VT_BSTR LastParam]
+INVOKE_PROPERTYGET;ITTrackKind ;Kind;[]
+INVOKE_PROPERTYGET;IITPlaylist ;Playlist;[]
+INVOKE_PROPERTYGET;VT_BSTR ;Album;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Album;[{in-}VT_BSTR LastParam]
+INVOKE_PROPERTYGET;VT_BSTR ;Artist;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Artist;[{in-}VT_BSTR LastParam]
+INVOKE_PROPERTYGET;VT_I4 ;BitRate;[]
+INVOKE_PROPERTYGET;VT_I4 ;BPM;[]
+INVOKE_PROPERTYPUT;VT_VOID ;BPM;[{in-}VT_I4 LastParam]
+INVOKE_PROPERTYGET;VT_BSTR ;Comment;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Comment;[{in-}VT_BSTR LastParam]
+INVOKE_PROPERTYGET;VT_BOOL ;Compilation;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Compilation;[{in-}VT_BOOL LastParam]
+INVOKE_PROPERTYGET;VT_BSTR ;Composer;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Composer;[{in-}VT_BSTR LastParam]
+INVOKE_PROPERTYGET;VT_DATE ;DateAdded;[]
+INVOKE_PROPERTYGET;VT_I4 ;DiscCount;[]
+INVOKE_PROPERTYPUT;VT_VOID ;DiscCount;[{in-}VT_I4 LastParam]
+INVOKE_PROPERTYGET;VT_I4 ;DiscNumber;[]
+INVOKE_PROPERTYPUT;VT_VOID ;DiscNumber;[{in-}VT_I4 LastParam]
+INVOKE_PROPERTYGET;VT_I4 ;Duration;[]
+INVOKE_PROPERTYGET;VT_BOOL ;Enabled;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Enabled;[{in-}VT_BOOL LastParam]
+INVOKE_PROPERTYGET;VT_BSTR ;EQ;[]
+INVOKE_PROPERTYPUT;VT_VOID ;EQ;[{in-}VT_BSTR LastParam]
+INVOKE_PROPERTYPUT;VT_VOID ;Finish;[{in-}VT_I4 LastParam]
+INVOKE_PROPERTYGET;VT_I4 ;Finish;[]
+INVOKE_PROPERTYGET;VT_BSTR ;Genre;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Genre;[{in-}VT_BSTR LastParam]
+INVOKE_PROPERTYGET;VT_BSTR ;Grouping;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Grouping;[{in-}VT_BSTR LastParam]
+INVOKE_PROPERTYGET;VT_BSTR ;KindAsString;[]
+INVOKE_PROPERTYGET;VT_DATE ;ModificationDate;[]
+INVOKE_PROPERTYGET;VT_I4 ;PlayedCount;[]
+INVOKE_PROPERTYPUT;VT_VOID ;PlayedCount;[{in-}VT_I4 LastParam]
+INVOKE_PROPERTYGET;VT_DATE ;PlayedDate;[]
+INVOKE_PROPERTYPUT;VT_VOID ;PlayedDate;[{in-}VT_DATE LastParam]
+INVOKE_PROPERTYGET;VT_I4 ;PlayOrderIndex;[]
+INVOKE_PROPERTYGET;VT_I4 ;Rating;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Rating;[{in-}VT_I4 LastParam]
+INVOKE_PROPERTYGET;VT_I4 ;SampleRate;[]
+INVOKE_PROPERTYGET;VT_I4 ;Size;[]
+INVOKE_PROPERTYGET;VT_I4 ;Start;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Start;[{in-}VT_I4 LastParam]
+INVOKE_PROPERTYGET;VT_BSTR ;Time;[]
+INVOKE_PROPERTYGET;VT_I4 ;TrackCount;[]
+INVOKE_PROPERTYPUT;VT_VOID ;TrackCount;[{in-}VT_I4 LastParam]
+INVOKE_PROPERTYGET;VT_I4 ;TrackNumber;[]
+INVOKE_PROPERTYPUT;VT_VOID ;TrackNumber;[{in-}VT_I4 LastParam]
+INVOKE_PROPERTYGET;VT_I4 ;VolumeAdjustment;[]
+INVOKE_PROPERTYPUT;VT_VOID ;VolumeAdjustment;[{in-}VT_I4 LastParam]
+INVOKE_PROPERTYGET;VT_I4 ;Year;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Year;[{in-}VT_I4 LastParam]
+INVOKE_PROPERTYGET;IITArtworkCollection ;Artwork;[]
+CLASS IITArtwork;TKIND_DISPATCH
+EXTENDS;IDispatch
+INVOKE_FUNC;VT_VOID ;QueryInterface;[{in-}GUID riid,{out-}VT_PTR LastParam]
+INVOKE_FUNC;VT_UI4 ;AddRef;[]
+INVOKE_FUNC;VT_UI4 ;Release;[]
+INVOKE_FUNC;VT_VOID ;GetTypeInfoCount;[{out-}VT_UINT LastParam]
+INVOKE_FUNC;VT_VOID ;GetTypeInfo;[{in-}VT_UINT itinfo,{in-}VT_UI4 lcid,{out-}VT_PTR LastParam]
+INVOKE_FUNC;VT_VOID ;GetIDsOfNames;[{in-}GUID riid,{in-}VT_PTR rgszNames,{in-}VT_UINT cNames,{in-}VT_UI4 lcid,{out-}VT_I4 LastParam]
+INVOKE_FUNC;VT_VOID ;Invoke;[{in-}VT_I4 dispidMember,{in-}GUID riid,{in-}VT_UI4 lcid,{in-}VT_UI2 wFlags,{in-}DISPPARAMS pdispparams,{out-}VT_VARIANT pvarResult,{out-}EXCEPINFO pexcepinfo,{out-}VT_UINT LastParam]
+INVOKE_FUNC;VT_VOID ;Delete;[]
+INVOKE_FUNC;VT_VOID ;SetArtworkFromFile;[{in-}VT_BSTR LastParam]
+INVOKE_FUNC;VT_VOID ;SaveArtworkToFile;[{in-}VT_BSTR LastParam]
+INVOKE_PROPERTYGET;ITArtworkFormat ;Format;[]
+INVOKE_PROPERTYGET;VT_BOOL ;IsDownloadedArtwork;[]
+CLASS ITArtworkFormat;TKIND_ALIAS
+EXTENDS;__MIDL___MIDL_itf_iTunesCOMInterface_0272_0001
+CLASS __MIDL___MIDL_itf_iTunesCOMInterface_0272_0001;TKIND_ENUM
+VAR_CONST;ITArtworkFormatUnknown;VT_I4;0
+VAR_CONST;ITArtworkFormatJPEG;VT_I4;1
+VAR_CONST;ITArtworkFormatPNG;VT_I4;2
+VAR_CONST;ITArtworkFormatBMP;VT_I4;3
+CLASS ITTrackKind;TKIND_ALIAS
+EXTENDS;__MIDL___MIDL_itf_iTunesCOMInterface_0286_0001
+CLASS __MIDL___MIDL_itf_iTunesCOMInterface_0286_0001;TKIND_ENUM
+VAR_CONST;ITTrackKindUnknown;VT_I4;0
+VAR_CONST;ITTrackKindFile;VT_I4;1
+VAR_CONST;ITTrackKindCD;VT_I4;2
+VAR_CONST;ITTrackKindURL;VT_I4;3
+VAR_CONST;ITTrackKindDevice;VT_I4;4
+VAR_CONST;ITTrackKindSharedLibrary;VT_I4;5
+CLASS IITArtworkCollection;TKIND_DISPATCH
+EXTENDS;IDispatch
+INVOKE_FUNC;VT_VOID ;QueryInterface;[{in-}GUID riid,{out-}VT_PTR LastParam]
+INVOKE_FUNC;VT_UI4 ;AddRef;[]
+INVOKE_FUNC;VT_UI4 ;Release;[]
+INVOKE_FUNC;VT_VOID ;GetTypeInfoCount;[{out-}VT_UINT LastParam]
+INVOKE_FUNC;VT_VOID ;GetTypeInfo;[{in-}VT_UINT itinfo,{in-}VT_UI4 lcid,{out-}VT_PTR LastParam]
+INVOKE_FUNC;VT_VOID ;GetIDsOfNames;[{in-}GUID riid,{in-}VT_PTR rgszNames,{in-}VT_UINT cNames,{in-}VT_UI4 lcid,{out-}VT_I4 LastParam]
+INVOKE_FUNC;VT_VOID ;Invoke;[{in-}VT_I4 dispidMember,{in-}GUID riid,{in-}VT_UI4 lcid,{in-}VT_UI2 wFlags,{in-}DISPPARAMS pdispparams,{out-}VT_VARIANT pvarResult,{out-}EXCEPINFO pexcepinfo,{out-}VT_UINT LastParam]
+INVOKE_PROPERTYGET;VT_I4 ;Count;[]
+INVOKE_PROPERTYGET;IITArtwork ;Item;[{in-}VT_I4 LastParam]
+INVOKE_PROPERTYGET;VT_UNKNOWN ;_NewEnum;[]
+CLASS ITPlaylistKind;TKIND_ALIAS
+EXTENDS;__MIDL___MIDL_itf_iTunesCOMInterface_0278_0001
+CLASS __MIDL___MIDL_itf_iTunesCOMInterface_0278_0001;TKIND_ENUM
+VAR_CONST;ITPlaylistKindUnknown;VT_I4;0
+VAR_CONST;ITPlaylistKindLibrary;VT_I4;1
+VAR_CONST;ITPlaylistKindUser;VT_I4;2
+VAR_CONST;ITPlaylistKindCD;VT_I4;3
+VAR_CONST;ITPlaylistKindDevice;VT_I4;4
+VAR_CONST;ITPlaylistKindRadioTuner;VT_I4;5
+CLASS ITPlaylistRepeatMode;TKIND_ALIAS
+EXTENDS;__MIDL___MIDL_itf_iTunesCOMInterface_0278_0002
+CLASS __MIDL___MIDL_itf_iTunesCOMInterface_0278_0002;TKIND_ENUM
+VAR_CONST;ITPlaylistRepeatModeOff;VT_I4;0
+VAR_CONST;ITPlaylistRepeatModeOne;VT_I4;1
+VAR_CONST;ITPlaylistRepeatModeAll;VT_I4;2
+CLASS IITSourceCollection;TKIND_DISPATCH
+EXTENDS;IDispatch
+INVOKE_FUNC;VT_VOID ;QueryInterface;[{in-}GUID riid,{out-}VT_PTR LastParam]
+INVOKE_FUNC;VT_UI4 ;AddRef;[]
+INVOKE_FUNC;VT_UI4 ;Release;[]
+INVOKE_FUNC;VT_VOID ;GetTypeInfoCount;[{out-}VT_UINT LastParam]
+INVOKE_FUNC;VT_VOID ;GetTypeInfo;[{in-}VT_UINT itinfo,{in-}VT_UI4 lcid,{out-}VT_PTR LastParam]
+INVOKE_FUNC;VT_VOID ;GetIDsOfNames;[{in-}GUID riid,{in-}VT_PTR rgszNames,{in-}VT_UINT cNames,{in-}VT_UI4 lcid,{out-}VT_I4 LastParam]
+INVOKE_FUNC;VT_VOID ;Invoke;[{in-}VT_I4 dispidMember,{in-}GUID riid,{in-}VT_UI4 lcid,{in-}VT_UI2 wFlags,{in-}DISPPARAMS pdispparams,{out-}VT_VARIANT pvarResult,{out-}EXCEPINFO pexcepinfo,{out-}VT_UINT LastParam]
+INVOKE_PROPERTYGET;VT_I4 ;Count;[]
+INVOKE_PROPERTYGET;IITSource ;Item;[{in-}VT_I4 LastParam]
+INVOKE_PROPERTYGET;IITSource ;ItemByName;[{in-}VT_BSTR LastParam]
+INVOKE_PROPERTYGET;VT_UNKNOWN ;_NewEnum;[]
+CLASS IITEncoder;TKIND_DISPATCH
+EXTENDS;IDispatch
+INVOKE_FUNC;VT_VOID ;QueryInterface;[{in-}GUID riid,{out-}VT_PTR LastParam]
+INVOKE_FUNC;VT_UI4 ;AddRef;[]
+INVOKE_FUNC;VT_UI4 ;Release;[]
+INVOKE_FUNC;VT_VOID ;GetTypeInfoCount;[{out-}VT_UINT LastParam]
+INVOKE_FUNC;VT_VOID ;GetTypeInfo;[{in-}VT_UINT itinfo,{in-}VT_UI4 lcid,{out-}VT_PTR LastParam]
+INVOKE_FUNC;VT_VOID ;GetIDsOfNames;[{in-}GUID riid,{in-}VT_PTR rgszNames,{in-}VT_UINT cNames,{in-}VT_UI4 lcid,{out-}VT_I4 LastParam]
+INVOKE_FUNC;VT_VOID ;Invoke;[{in-}VT_I4 dispidMember,{in-}GUID riid,{in-}VT_UI4 lcid,{in-}VT_UI2 wFlags,{in-}DISPPARAMS pdispparams,{out-}VT_VARIANT pvarResult,{out-}EXCEPINFO pexcepinfo,{out-}VT_UINT LastParam]
+INVOKE_PROPERTYGET;VT_BSTR ;Name;[]
+INVOKE_PROPERTYGET;VT_BSTR ;Format;[]
+CLASS IITEncoderCollection;TKIND_DISPATCH
+EXTENDS;IDispatch
+INVOKE_FUNC;VT_VOID ;QueryInterface;[{in-}GUID riid,{out-}VT_PTR LastParam]
+INVOKE_FUNC;VT_UI4 ;AddRef;[]
+INVOKE_FUNC;VT_UI4 ;Release;[]
+INVOKE_FUNC;VT_VOID ;GetTypeInfoCount;[{out-}VT_UINT LastParam]
+INVOKE_FUNC;VT_VOID ;GetTypeInfo;[{in-}VT_UINT itinfo,{in-}VT_UI4 lcid,{out-}VT_PTR LastParam]
+INVOKE_FUNC;VT_VOID ;GetIDsOfNames;[{in-}GUID riid,{in-}VT_PTR rgszNames,{in-}VT_UINT cNames,{in-}VT_UI4 lcid,{out-}VT_I4 LastParam]
+INVOKE_FUNC;VT_VOID ;Invoke;[{in-}VT_I4 dispidMember,{in-}GUID riid,{in-}VT_UI4 lcid,{in-}VT_UI2 wFlags,{in-}DISPPARAMS pdispparams,{out-}VT_VARIANT pvarResult,{out-}EXCEPINFO pexcepinfo,{out-}VT_UINT LastParam]
+INVOKE_PROPERTYGET;VT_I4 ;Count;[]
+INVOKE_PROPERTYGET;IITEncoder ;Item;[{in-}VT_I4 LastParam]
+INVOKE_PROPERTYGET;IITEncoder ;ItemByName;[{in-}VT_BSTR LastParam]
+INVOKE_PROPERTYGET;VT_UNKNOWN ;_NewEnum;[]
+CLASS IITEQPreset;TKIND_DISPATCH
+EXTENDS;IDispatch
+INVOKE_FUNC;VT_VOID ;QueryInterface;[{in-}GUID riid,{out-}VT_PTR LastParam]
+INVOKE_FUNC;VT_UI4 ;AddRef;[]
+INVOKE_FUNC;VT_UI4 ;Release;[]
+INVOKE_FUNC;VT_VOID ;GetTypeInfoCount;[{out-}VT_UINT LastParam]
+INVOKE_FUNC;VT_VOID ;GetTypeInfo;[{in-}VT_UINT itinfo,{in-}VT_UI4 lcid,{out-}VT_PTR LastParam]
+INVOKE_FUNC;VT_VOID ;GetIDsOfNames;[{in-}GUID riid,{in-}VT_PTR rgszNames,{in-}VT_UINT cNames,{in-}VT_UI4 lcid,{out-}VT_I4 LastParam]
+INVOKE_FUNC;VT_VOID ;Invoke;[{in-}VT_I4 dispidMember,{in-}GUID riid,{in-}VT_UI4 lcid,{in-}VT_UI2 wFlags,{in-}DISPPARAMS pdispparams,{out-}VT_VARIANT pvarResult,{out-}EXCEPINFO pexcepinfo,{out-}VT_UINT LastParam]
+INVOKE_PROPERTYGET;VT_BSTR ;Name;[]
+INVOKE_PROPERTYGET;VT_BOOL ;Modifiable;[]
+INVOKE_PROPERTYGET;VT_R8 ;Preamp;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Preamp;[{in-}VT_R8 LastParam]
+INVOKE_PROPERTYGET;VT_R8 ;Band1;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Band1;[{in-}VT_R8 LastParam]
+INVOKE_PROPERTYGET;VT_R8 ;Band2;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Band2;[{in-}VT_R8 LastParam]
+INVOKE_PROPERTYGET;VT_R8 ;Band3;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Band3;[{in-}VT_R8 LastParam]
+INVOKE_PROPERTYGET;VT_R8 ;Band4;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Band4;[{in-}VT_R8 LastParam]
+INVOKE_PROPERTYGET;VT_R8 ;Band5;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Band5;[{in-}VT_R8 LastParam]
+INVOKE_PROPERTYGET;VT_R8 ;Band6;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Band6;[{in-}VT_R8 LastParam]
+INVOKE_PROPERTYGET;VT_R8 ;Band7;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Band7;[{in-}VT_R8 LastParam]
+INVOKE_PROPERTYGET;VT_R8 ;Band8;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Band8;[{in-}VT_R8 LastParam]
+INVOKE_PROPERTYGET;VT_R8 ;Band9;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Band9;[{in-}VT_R8 LastParam]
+INVOKE_PROPERTYGET;VT_R8 ;Band10;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Band10;[{in-}VT_R8 LastParam]
+INVOKE_FUNC;VT_VOID ;Delete;[{in-}VT_BOOL LastParam]
+INVOKE_FUNC;VT_VOID ;Rename;[{in-}VT_BSTR newName,{in-}VT_BOOL LastParam]
+CLASS IITEQPresetCollection;TKIND_DISPATCH
+EXTENDS;IDispatch
+INVOKE_FUNC;VT_VOID ;QueryInterface;[{in-}GUID riid,{out-}VT_PTR LastParam]
+INVOKE_FUNC;VT_UI4 ;AddRef;[]
+INVOKE_FUNC;VT_UI4 ;Release;[]
+INVOKE_FUNC;VT_VOID ;GetTypeInfoCount;[{out-}VT_UINT LastParam]
+INVOKE_FUNC;VT_VOID ;GetTypeInfo;[{in-}VT_UINT itinfo,{in-}VT_UI4 lcid,{out-}VT_PTR LastParam]
+INVOKE_FUNC;VT_VOID ;GetIDsOfNames;[{in-}GUID riid,{in-}VT_PTR rgszNames,{in-}VT_UINT cNames,{in-}VT_UI4 lcid,{out-}VT_I4 LastParam]
+INVOKE_FUNC;VT_VOID ;Invoke;[{in-}VT_I4 dispidMember,{in-}GUID riid,{in-}VT_UI4 lcid,{in-}VT_UI2 wFlags,{in-}DISPPARAMS pdispparams,{out-}VT_VARIANT pvarResult,{out-}EXCEPINFO pexcepinfo,{out-}VT_UINT LastParam]
+INVOKE_PROPERTYGET;VT_I4 ;Count;[]
+INVOKE_PROPERTYGET;IITEQPreset ;Item;[{in-}VT_I4 LastParam]
+INVOKE_PROPERTYGET;IITEQPreset ;ItemByName;[{in-}VT_BSTR LastParam]
+INVOKE_PROPERTYGET;VT_UNKNOWN ;_NewEnum;[]
+CLASS IITOperationStatus;TKIND_DISPATCH
+EXTENDS;IDispatch
+INVOKE_FUNC;VT_VOID ;QueryInterface;[{in-}GUID riid,{out-}VT_PTR LastParam]
+INVOKE_FUNC;VT_UI4 ;AddRef;[]
+INVOKE_FUNC;VT_UI4 ;Release;[]
+INVOKE_FUNC;VT_VOID ;GetTypeInfoCount;[{out-}VT_UINT LastParam]
+INVOKE_FUNC;VT_VOID ;GetTypeInfo;[{in-}VT_UINT itinfo,{in-}VT_UI4 lcid,{out-}VT_PTR LastParam]
+INVOKE_FUNC;VT_VOID ;GetIDsOfNames;[{in-}GUID riid,{in-}VT_PTR rgszNames,{in-}VT_UINT cNames,{in-}VT_UI4 lcid,{out-}VT_I4 LastParam]
+INVOKE_FUNC;VT_VOID ;Invoke;[{in-}VT_I4 dispidMember,{in-}GUID riid,{in-}VT_UI4 lcid,{in-}VT_UI2 wFlags,{in-}DISPPARAMS pdispparams,{out-}VT_VARIANT pvarResult,{out-}EXCEPINFO pexcepinfo,{out-}VT_UINT LastParam]
+INVOKE_PROPERTYGET;VT_BOOL ;InProgress;[]
+INVOKE_PROPERTYGET;IITTrackCollection ;Tracks;[]
+CLASS IITConvertOperationStatus;TKIND_DISPATCH
+EXTENDS;IDispatch
+INVOKE_FUNC;VT_VOID ;QueryInterface;[{in-}GUID riid,{out-}VT_PTR LastParam]
+INVOKE_FUNC;VT_UI4 ;AddRef;[]
+INVOKE_FUNC;VT_UI4 ;Release;[]
+INVOKE_FUNC;VT_VOID ;GetTypeInfoCount;[{out-}VT_UINT LastParam]
+INVOKE_FUNC;VT_VOID ;GetTypeInfo;[{in-}VT_UINT itinfo,{in-}VT_UI4 lcid,{out-}VT_PTR LastParam]
+INVOKE_FUNC;VT_VOID ;GetIDsOfNames;[{in-}GUID riid,{in-}VT_PTR rgszNames,{in-}VT_UINT cNames,{in-}VT_UI4 lcid,{out-}VT_I4 LastParam]
+INVOKE_FUNC;VT_VOID ;Invoke;[{in-}VT_I4 dispidMember,{in-}GUID riid,{in-}VT_UI4 lcid,{in-}VT_UI2 wFlags,{in-}DISPPARAMS pdispparams,{out-}VT_VARIANT pvarResult,{out-}EXCEPINFO pexcepinfo,{out-}VT_UINT LastParam]
+INVOKE_PROPERTYGET;VT_BOOL ;InProgress;[]
+INVOKE_PROPERTYGET;IITTrackCollection ;Tracks;[]
+INVOKE_FUNC;VT_VOID ;GetConversionStatus;[{out-}VT_BSTR trackName,{out-}VT_I4 progressValue,{out-}VT_I4 LastParam]
+INVOKE_FUNC;VT_VOID ;StopConversion;[]
+INVOKE_PROPERTYGET;VT_BSTR ;trackName;[]
+INVOKE_PROPERTYGET;VT_I4 ;progressValue;[]
+INVOKE_PROPERTYGET;VT_I4 ;maxProgressValue;[]
+CLASS IITLibraryPlaylist;TKIND_DISPATCH
+EXTENDS;IDispatch
+INVOKE_FUNC;VT_VOID ;QueryInterface;[{in-}GUID riid,{out-}VT_PTR LastParam]
+INVOKE_FUNC;VT_UI4 ;AddRef;[]
+INVOKE_FUNC;VT_UI4 ;Release;[]
+INVOKE_FUNC;VT_VOID ;GetTypeInfoCount;[{out-}VT_UINT LastParam]
+INVOKE_FUNC;VT_VOID ;GetTypeInfo;[{in-}VT_UINT itinfo,{in-}VT_UI4 lcid,{out-}VT_PTR LastParam]
+INVOKE_FUNC;VT_VOID ;GetIDsOfNames;[{in-}GUID riid,{in-}VT_PTR rgszNames,{in-}VT_UINT cNames,{in-}VT_UI4 lcid,{out-}VT_I4 LastParam]
+INVOKE_FUNC;VT_VOID ;Invoke;[{in-}VT_I4 dispidMember,{in-}GUID riid,{in-}VT_UI4 lcid,{in-}VT_UI2 wFlags,{in-}DISPPARAMS pdispparams,{out-}VT_VARIANT pvarResult,{out-}EXCEPINFO pexcepinfo,{out-}VT_UINT LastParam]
+INVOKE_FUNC;VT_VOID ;GetITObjectIDs;[{out-}VT_I4 sourceID,{out-}VT_I4 playlistID,{out-}VT_I4 trackID,{out-}VT_I4 LastParam]
+INVOKE_PROPERTYGET;VT_BSTR ;Name;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Name;[{in-}VT_BSTR LastParam]
+INVOKE_PROPERTYGET;VT_I4 ;Index;[]
+INVOKE_PROPERTYGET;VT_I4 ;sourceID;[]
+INVOKE_PROPERTYGET;VT_I4 ;playlistID;[]
+INVOKE_PROPERTYGET;VT_I4 ;trackID;[]
+INVOKE_PROPERTYGET;VT_I4 ;TrackDatabaseID;[]
+INVOKE_FUNC;VT_VOID ;Delete;[]
+INVOKE_FUNC;VT_VOID ;PlayFirstTrack;[]
+INVOKE_FUNC;VT_VOID ;Print;[{in-}VT_BOOL showPrintDialog,{in-}ITPlaylistPrintKind printKind,{in-}VT_BSTR LastParam]
+INVOKE_FUNC;IITTrackCollection ;Search;[{in-}VT_BSTR searchText,{in-}ITPlaylistSearchField LastParam]
+INVOKE_PROPERTYGET;ITPlaylistKind ;Kind;[]
+INVOKE_PROPERTYGET;IITSource ;Source;[]
+INVOKE_PROPERTYGET;VT_I4 ;Duration;[]
+INVOKE_PROPERTYGET;VT_BOOL ;Shuffle;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Shuffle;[{in-}VT_BOOL LastParam]
+INVOKE_PROPERTYGET;VT_R8 ;Size;[]
+INVOKE_PROPERTYGET;ITPlaylistRepeatMode ;SongRepeat;[]
+INVOKE_PROPERTYPUT;VT_VOID ;SongRepeat;[{in-}ITPlaylistRepeatMode LastParam]
+INVOKE_PROPERTYGET;VT_BSTR ;Time;[]
+INVOKE_PROPERTYGET;VT_BOOL ;Visible;[]
+INVOKE_PROPERTYGET;IITTrackCollection ;Tracks;[]
+INVOKE_FUNC;IITOperationStatus ;AddFile;[{in-}VT_BSTR LastParam]
+INVOKE_FUNC;IITOperationStatus ;AddFiles;[{in-}VT_VARIANT LastParam]
+INVOKE_FUNC;IITURLTrack ;AddURL;[{in-}VT_BSTR LastParam]
+INVOKE_FUNC;IITTrack ;AddTrack;[{in-}VT_VARIANT LastParam]
+CLASS IITURLTrack;TKIND_DISPATCH
+EXTENDS;IDispatch
+INVOKE_FUNC;VT_VOID ;QueryInterface;[{in-}GUID riid,{out-}VT_PTR LastParam]
+INVOKE_FUNC;VT_UI4 ;AddRef;[]
+INVOKE_FUNC;VT_UI4 ;Release;[]
+INVOKE_FUNC;VT_VOID ;GetTypeInfoCount;[{out-}VT_UINT LastParam]
+INVOKE_FUNC;VT_VOID ;GetTypeInfo;[{in-}VT_UINT itinfo,{in-}VT_UI4 lcid,{out-}VT_PTR LastParam]
+INVOKE_FUNC;VT_VOID ;GetIDsOfNames;[{in-}GUID riid,{in-}VT_PTR rgszNames,{in-}VT_UINT cNames,{in-}VT_UI4 lcid,{out-}VT_I4 LastParam]
+INVOKE_FUNC;VT_VOID ;Invoke;[{in-}VT_I4 dispidMember,{in-}GUID riid,{in-}VT_UI4 lcid,{in-}VT_UI2 wFlags,{in-}DISPPARAMS pdispparams,{out-}VT_VARIANT pvarResult,{out-}EXCEPINFO pexcepinfo,{out-}VT_UINT LastParam]
+INVOKE_FUNC;VT_VOID ;GetITObjectIDs;[{out-}VT_I4 sourceID,{out-}VT_I4 playlistID,{out-}VT_I4 trackID,{out-}VT_I4 LastParam]
+INVOKE_PROPERTYGET;VT_BSTR ;Name;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Name;[{in-}VT_BSTR LastParam]
+INVOKE_PROPERTYGET;VT_I4 ;Index;[]
+INVOKE_PROPERTYGET;VT_I4 ;sourceID;[]
+INVOKE_PROPERTYGET;VT_I4 ;playlistID;[]
+INVOKE_PROPERTYGET;VT_I4 ;trackID;[]
+INVOKE_PROPERTYGET;VT_I4 ;TrackDatabaseID;[]
+INVOKE_FUNC;VT_VOID ;Delete;[]
+INVOKE_FUNC;VT_VOID ;Play;[]
+INVOKE_FUNC;IITArtwork ;AddArtworkFromFile;[{in-}VT_BSTR LastParam]
+INVOKE_PROPERTYGET;ITTrackKind ;Kind;[]
+INVOKE_PROPERTYGET;IITPlaylist ;Playlist;[]
+INVOKE_PROPERTYGET;VT_BSTR ;Album;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Album;[{in-}VT_BSTR LastParam]
+INVOKE_PROPERTYGET;VT_BSTR ;Artist;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Artist;[{in-}VT_BSTR LastParam]
+INVOKE_PROPERTYGET;VT_I4 ;BitRate;[]
+INVOKE_PROPERTYGET;VT_I4 ;BPM;[]
+INVOKE_PROPERTYPUT;VT_VOID ;BPM;[{in-}VT_I4 LastParam]
+INVOKE_PROPERTYGET;VT_BSTR ;Comment;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Comment;[{in-}VT_BSTR LastParam]
+INVOKE_PROPERTYGET;VT_BOOL ;Compilation;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Compilation;[{in-}VT_BOOL LastParam]
+INVOKE_PROPERTYGET;VT_BSTR ;Composer;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Composer;[{in-}VT_BSTR LastParam]
+INVOKE_PROPERTYGET;VT_DATE ;DateAdded;[]
+INVOKE_PROPERTYGET;VT_I4 ;DiscCount;[]
+INVOKE_PROPERTYPUT;VT_VOID ;DiscCount;[{in-}VT_I4 LastParam]
+INVOKE_PROPERTYGET;VT_I4 ;DiscNumber;[]
+INVOKE_PROPERTYPUT;VT_VOID ;DiscNumber;[{in-}VT_I4 LastParam]
+INVOKE_PROPERTYGET;VT_I4 ;Duration;[]
+INVOKE_PROPERTYGET;VT_BOOL ;Enabled;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Enabled;[{in-}VT_BOOL LastParam]
+INVOKE_PROPERTYGET;VT_BSTR ;EQ;[]
+INVOKE_PROPERTYPUT;VT_VOID ;EQ;[{in-}VT_BSTR LastParam]
+INVOKE_PROPERTYPUT;VT_VOID ;Finish;[{in-}VT_I4 LastParam]
+INVOKE_PROPERTYGET;VT_I4 ;Finish;[]
+INVOKE_PROPERTYGET;VT_BSTR ;Genre;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Genre;[{in-}VT_BSTR LastParam]
+INVOKE_PROPERTYGET;VT_BSTR ;Grouping;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Grouping;[{in-}VT_BSTR LastParam]
+INVOKE_PROPERTYGET;VT_BSTR ;KindAsString;[]
+INVOKE_PROPERTYGET;VT_DATE ;ModificationDate;[]
+INVOKE_PROPERTYGET;VT_I4 ;PlayedCount;[]
+INVOKE_PROPERTYPUT;VT_VOID ;PlayedCount;[{in-}VT_I4 LastParam]
+INVOKE_PROPERTYGET;VT_DATE ;PlayedDate;[]
+INVOKE_PROPERTYPUT;VT_VOID ;PlayedDate;[{in-}VT_DATE LastParam]
+INVOKE_PROPERTYGET;VT_I4 ;PlayOrderIndex;[]
+INVOKE_PROPERTYGET;VT_I4 ;Rating;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Rating;[{in-}VT_I4 LastParam]
+INVOKE_PROPERTYGET;VT_I4 ;SampleRate;[]
+INVOKE_PROPERTYGET;VT_I4 ;Size;[]
+INVOKE_PROPERTYGET;VT_I4 ;Start;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Start;[{in-}VT_I4 LastParam]
+INVOKE_PROPERTYGET;VT_BSTR ;Time;[]
+INVOKE_PROPERTYGET;VT_I4 ;TrackCount;[]
+INVOKE_PROPERTYPUT;VT_VOID ;TrackCount;[{in-}VT_I4 LastParam]
+INVOKE_PROPERTYGET;VT_I4 ;TrackNumber;[]
+INVOKE_PROPERTYPUT;VT_VOID ;TrackNumber;[{in-}VT_I4 LastParam]
+INVOKE_PROPERTYGET;VT_I4 ;VolumeAdjustment;[]
+INVOKE_PROPERTYPUT;VT_VOID ;VolumeAdjustment;[{in-}VT_I4 LastParam]
+INVOKE_PROPERTYGET;VT_I4 ;Year;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Year;[{in-}VT_I4 LastParam]
+INVOKE_PROPERTYGET;IITArtworkCollection ;Artwork;[]
+INVOKE_PROPERTYGET;VT_BSTR ;URL;[]
+INVOKE_PROPERTYPUT;VT_VOID ;URL;[{in-}VT_BSTR LastParam]
+INVOKE_PROPERTYGET;VT_BOOL ;Podcast;[]
+INVOKE_FUNC;VT_VOID ;UpdatePodcastFeed;[]
+INVOKE_FUNC;VT_VOID ;DownloadPodcastEpisode;[]
+INVOKE_PROPERTYGET;VT_BSTR ;Category;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Category;[{in-}VT_BSTR LastParam]
+INVOKE_PROPERTYGET;VT_BSTR ;Description;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Description;[{in-}VT_BSTR LastParam]
+INVOKE_PROPERTYGET;VT_BSTR ;LongDescription;[]
+INVOKE_PROPERTYPUT;VT_VOID ;LongDescription;[{in-}VT_BSTR LastParam]
+CLASS IITUserPlaylist;TKIND_DISPATCH
+EXTENDS;IDispatch
+INVOKE_FUNC;VT_VOID ;QueryInterface;[{in-}GUID riid,{out-}VT_PTR LastParam]
+INVOKE_FUNC;VT_UI4 ;AddRef;[]
+INVOKE_FUNC;VT_UI4 ;Release;[]
+INVOKE_FUNC;VT_VOID ;GetTypeInfoCount;[{out-}VT_UINT LastParam]
+INVOKE_FUNC;VT_VOID ;GetTypeInfo;[{in-}VT_UINT itinfo,{in-}VT_UI4 lcid,{out-}VT_PTR LastParam]
+INVOKE_FUNC;VT_VOID ;GetIDsOfNames;[{in-}GUID riid,{in-}VT_PTR rgszNames,{in-}VT_UINT cNames,{in-}VT_UI4 lcid,{out-}VT_I4 LastParam]
+INVOKE_FUNC;VT_VOID ;Invoke;[{in-}VT_I4 dispidMember,{in-}GUID riid,{in-}VT_UI4 lcid,{in-}VT_UI2 wFlags,{in-}DISPPARAMS pdispparams,{out-}VT_VARIANT pvarResult,{out-}EXCEPINFO pexcepinfo,{out-}VT_UINT LastParam]
+INVOKE_FUNC;VT_VOID ;GetITObjectIDs;[{out-}VT_I4 sourceID,{out-}VT_I4 playlistID,{out-}VT_I4 trackID,{out-}VT_I4 LastParam]
+INVOKE_PROPERTYGET;VT_BSTR ;Name;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Name;[{in-}VT_BSTR LastParam]
+INVOKE_PROPERTYGET;VT_I4 ;Index;[]
+INVOKE_PROPERTYGET;VT_I4 ;sourceID;[]
+INVOKE_PROPERTYGET;VT_I4 ;playlistID;[]
+INVOKE_PROPERTYGET;VT_I4 ;trackID;[]
+INVOKE_PROPERTYGET;VT_I4 ;TrackDatabaseID;[]
+INVOKE_FUNC;VT_VOID ;Delete;[]
+INVOKE_FUNC;VT_VOID ;PlayFirstTrack;[]
+INVOKE_FUNC;VT_VOID ;Print;[{in-}VT_BOOL showPrintDialog,{in-}ITPlaylistPrintKind printKind,{in-}VT_BSTR LastParam]
+INVOKE_FUNC;IITTrackCollection ;Search;[{in-}VT_BSTR searchText,{in-}ITPlaylistSearchField LastParam]
+INVOKE_PROPERTYGET;ITPlaylistKind ;Kind;[]
+INVOKE_PROPERTYGET;IITSource ;Source;[]
+INVOKE_PROPERTYGET;VT_I4 ;Duration;[]
+INVOKE_PROPERTYGET;VT_BOOL ;Shuffle;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Shuffle;[{in-}VT_BOOL LastParam]
+INVOKE_PROPERTYGET;VT_R8 ;Size;[]
+INVOKE_PROPERTYGET;ITPlaylistRepeatMode ;SongRepeat;[]
+INVOKE_PROPERTYPUT;VT_VOID ;SongRepeat;[{in-}ITPlaylistRepeatMode LastParam]
+INVOKE_PROPERTYGET;VT_BSTR ;Time;[]
+INVOKE_PROPERTYGET;VT_BOOL ;Visible;[]
+INVOKE_PROPERTYGET;IITTrackCollection ;Tracks;[]
+INVOKE_FUNC;IITOperationStatus ;AddFile;[{in-}VT_BSTR LastParam]
+INVOKE_FUNC;IITOperationStatus ;AddFiles;[{in-}VT_VARIANT LastParam]
+INVOKE_FUNC;IITURLTrack ;AddURL;[{in-}VT_BSTR LastParam]
+INVOKE_FUNC;IITTrack ;AddTrack;[{in-}VT_VARIANT LastParam]
+INVOKE_PROPERTYGET;VT_BOOL ;Shared;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Shared;[{in-}VT_BOOL LastParam]
+INVOKE_PROPERTYGET;VT_BOOL ;Smart;[]
+INVOKE_PROPERTYGET;ITUserPlaylistSpecialKind ;SpecialKind;[]
+INVOKE_PROPERTYGET;IITUserPlaylist ;Parent;[]
+INVOKE_FUNC;IITPlaylist ;CreatePlaylist;[{in-}VT_BSTR LastParam]
+INVOKE_FUNC;IITPlaylist ;CreateFolder;[{in-}VT_BSTR LastParam]
+INVOKE_PROPERTYPUT;VT_VOID ;Parent;[{in-}VT_VARIANT LastParam]
+CLASS ITUserPlaylistSpecialKind;TKIND_ALIAS
+EXTENDS;__MIDL___MIDL_itf_iTunesCOMInterface_0280_0001
+CLASS __MIDL___MIDL_itf_iTunesCOMInterface_0280_0001;TKIND_ENUM
+VAR_CONST;ITUserPlaylistSpecialKindNone;VT_I4;0
+VAR_CONST;ITUserPlaylistSpecialKindPurchasedMusic;VT_I4;1
+VAR_CONST;ITUserPlaylistSpecialKindPartyShuffle;VT_I4;2
+VAR_CONST;ITUserPlaylistSpecialKindPodcasts;VT_I4;3
+VAR_CONST;ITUserPlaylistSpecialKindFolder;VT_I4;4
+VAR_CONST;ITUserPlaylistSpecialKindVideos;VT_I4;5
+VAR_CONST;ITUserPlaylistSpecialKindMusic;VT_I4;6
+VAR_CONST;ITUserPlaylistSpecialKindMovies;VT_I4;7
+VAR_CONST;ITUserPlaylistSpecialKindTVShows;VT_I4;8
+VAR_CONST;ITUserPlaylistSpecialKindAudiobooks;VT_I4;9
+CLASS IITVisual;TKIND_DISPATCH
+EXTENDS;IDispatch
+INVOKE_FUNC;VT_VOID ;QueryInterface;[{in-}GUID riid,{out-}VT_PTR LastParam]
+INVOKE_FUNC;VT_UI4 ;AddRef;[]
+INVOKE_FUNC;VT_UI4 ;Release;[]
+INVOKE_FUNC;VT_VOID ;GetTypeInfoCount;[{out-}VT_UINT LastParam]
+INVOKE_FUNC;VT_VOID ;GetTypeInfo;[{in-}VT_UINT itinfo,{in-}VT_UI4 lcid,{out-}VT_PTR LastParam]
+INVOKE_FUNC;VT_VOID ;GetIDsOfNames;[{in-}GUID riid,{in-}VT_PTR rgszNames,{in-}VT_UINT cNames,{in-}VT_UI4 lcid,{out-}VT_I4 LastParam]
+INVOKE_FUNC;VT_VOID ;Invoke;[{in-}VT_I4 dispidMember,{in-}GUID riid,{in-}VT_UI4 lcid,{in-}VT_UI2 wFlags,{in-}DISPPARAMS pdispparams,{out-}VT_VARIANT pvarResult,{out-}EXCEPINFO pexcepinfo,{out-}VT_UINT LastParam]
+INVOKE_PROPERTYGET;VT_BSTR ;Name;[]
+CLASS IITVisualCollection;TKIND_DISPATCH
+EXTENDS;IDispatch
+INVOKE_FUNC;VT_VOID ;QueryInterface;[{in-}GUID riid,{out-}VT_PTR LastParam]
+INVOKE_FUNC;VT_UI4 ;AddRef;[]
+INVOKE_FUNC;VT_UI4 ;Release;[]
+INVOKE_FUNC;VT_VOID ;GetTypeInfoCount;[{out-}VT_UINT LastParam]
+INVOKE_FUNC;VT_VOID ;GetTypeInfo;[{in-}VT_UINT itinfo,{in-}VT_UI4 lcid,{out-}VT_PTR LastParam]
+INVOKE_FUNC;VT_VOID ;GetIDsOfNames;[{in-}GUID riid,{in-}VT_PTR rgszNames,{in-}VT_UINT cNames,{in-}VT_UI4 lcid,{out-}VT_I4 LastParam]
+INVOKE_FUNC;VT_VOID ;Invoke;[{in-}VT_I4 dispidMember,{in-}GUID riid,{in-}VT_UI4 lcid,{in-}VT_UI2 wFlags,{in-}DISPPARAMS pdispparams,{out-}VT_VARIANT pvarResult,{out-}EXCEPINFO pexcepinfo,{out-}VT_UINT LastParam]
+INVOKE_PROPERTYGET;VT_I4 ;Count;[]
+INVOKE_PROPERTYGET;IITVisual ;Item;[{in-}VT_I4 LastParam]
+INVOKE_PROPERTYGET;IITVisual ;ItemByName;[{in-}VT_BSTR LastParam]
+INVOKE_PROPERTYGET;VT_UNKNOWN ;_NewEnum;[]
+CLASS IITWindow;TKIND_DISPATCH
+EXTENDS;IDispatch
+INVOKE_FUNC;VT_VOID ;QueryInterface;[{in-}GUID riid,{out-}VT_PTR LastParam]
+INVOKE_FUNC;VT_UI4 ;AddRef;[]
+INVOKE_FUNC;VT_UI4 ;Release;[]
+INVOKE_FUNC;VT_VOID ;GetTypeInfoCount;[{out-}VT_UINT LastParam]
+INVOKE_FUNC;VT_VOID ;GetTypeInfo;[{in-}VT_UINT itinfo,{in-}VT_UI4 lcid,{out-}VT_PTR LastParam]
+INVOKE_FUNC;VT_VOID ;GetIDsOfNames;[{in-}GUID riid,{in-}VT_PTR rgszNames,{in-}VT_UINT cNames,{in-}VT_UI4 lcid,{out-}VT_I4 LastParam]
+INVOKE_FUNC;VT_VOID ;Invoke;[{in-}VT_I4 dispidMember,{in-}GUID riid,{in-}VT_UI4 lcid,{in-}VT_UI2 wFlags,{in-}DISPPARAMS pdispparams,{out-}VT_VARIANT pvarResult,{out-}EXCEPINFO pexcepinfo,{out-}VT_UINT LastParam]
+INVOKE_PROPERTYGET;VT_BSTR ;Name;[]
+INVOKE_PROPERTYGET;ITWindowKind ;Kind;[]
+INVOKE_PROPERTYGET;VT_BOOL ;Visible;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Visible;[{in-}VT_BOOL LastParam]
+INVOKE_PROPERTYGET;VT_BOOL ;Resizable;[]
+INVOKE_PROPERTYGET;VT_BOOL ;Minimized;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Minimized;[{in-}VT_BOOL LastParam]
+INVOKE_PROPERTYGET;VT_BOOL ;Maximizable;[]
+INVOKE_PROPERTYGET;VT_BOOL ;Maximized;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Maximized;[{in-}VT_BOOL LastParam]
+INVOKE_PROPERTYGET;VT_BOOL ;Zoomable;[]
+INVOKE_PROPERTYGET;VT_BOOL ;Zoomed;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Zoomed;[{in-}VT_BOOL LastParam]
+INVOKE_PROPERTYGET;VT_I4 ;Top;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Top;[{in-}VT_I4 LastParam]
+INVOKE_PROPERTYGET;VT_I4 ;Left;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Left;[{in-}VT_I4 LastParam]
+INVOKE_PROPERTYGET;VT_I4 ;Bottom;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Bottom;[{in-}VT_I4 LastParam]
+INVOKE_PROPERTYGET;VT_I4 ;Right;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Right;[{in-}VT_I4 LastParam]
+INVOKE_PROPERTYGET;VT_I4 ;Width;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Width;[{in-}VT_I4 LastParam]
+INVOKE_PROPERTYGET;VT_I4 ;Height;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Height;[{in-}VT_I4 LastParam]
+CLASS ITWindowKind;TKIND_ALIAS
+EXTENDS;__MIDL___MIDL_itf_iTunesCOMInterface_0292_0001
+CLASS __MIDL___MIDL_itf_iTunesCOMInterface_0292_0001;TKIND_ENUM
+VAR_CONST;ITWindowKindUnknown;VT_I4;0
+VAR_CONST;ITWindowKindBrowser;VT_I4;1
+VAR_CONST;ITWindowKindPlaylist;VT_I4;2
+VAR_CONST;ITWindowKindEQ;VT_I4;3
+VAR_CONST;ITWindowKindArtwork;VT_I4;4
+VAR_CONST;ITWindowKindNowPlaying;VT_I4;5
+CLASS IITBrowserWindow;TKIND_DISPATCH
+EXTENDS;IDispatch
+INVOKE_FUNC;VT_VOID ;QueryInterface;[{in-}GUID riid,{out-}VT_PTR LastParam]
+INVOKE_FUNC;VT_UI4 ;AddRef;[]
+INVOKE_FUNC;VT_UI4 ;Release;[]
+INVOKE_FUNC;VT_VOID ;GetTypeInfoCount;[{out-}VT_UINT LastParam]
+INVOKE_FUNC;VT_VOID ;GetTypeInfo;[{in-}VT_UINT itinfo,{in-}VT_UI4 lcid,{out-}VT_PTR LastParam]
+INVOKE_FUNC;VT_VOID ;GetIDsOfNames;[{in-}GUID riid,{in-}VT_PTR rgszNames,{in-}VT_UINT cNames,{in-}VT_UI4 lcid,{out-}VT_I4 LastParam]
+INVOKE_FUNC;VT_VOID ;Invoke;[{in-}VT_I4 dispidMember,{in-}GUID riid,{in-}VT_UI4 lcid,{in-}VT_UI2 wFlags,{in-}DISPPARAMS pdispparams,{out-}VT_VARIANT pvarResult,{out-}EXCEPINFO pexcepinfo,{out-}VT_UINT LastParam]
+INVOKE_PROPERTYGET;VT_BSTR ;Name;[]
+INVOKE_PROPERTYGET;ITWindowKind ;Kind;[]
+INVOKE_PROPERTYGET;VT_BOOL ;Visible;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Visible;[{in-}VT_BOOL LastParam]
+INVOKE_PROPERTYGET;VT_BOOL ;Resizable;[]
+INVOKE_PROPERTYGET;VT_BOOL ;Minimized;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Minimized;[{in-}VT_BOOL LastParam]
+INVOKE_PROPERTYGET;VT_BOOL ;Maximizable;[]
+INVOKE_PROPERTYGET;VT_BOOL ;Maximized;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Maximized;[{in-}VT_BOOL LastParam]
+INVOKE_PROPERTYGET;VT_BOOL ;Zoomable;[]
+INVOKE_PROPERTYGET;VT_BOOL ;Zoomed;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Zoomed;[{in-}VT_BOOL LastParam]
+INVOKE_PROPERTYGET;VT_I4 ;Top;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Top;[{in-}VT_I4 LastParam]
+INVOKE_PROPERTYGET;VT_I4 ;Left;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Left;[{in-}VT_I4 LastParam]
+INVOKE_PROPERTYGET;VT_I4 ;Bottom;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Bottom;[{in-}VT_I4 LastParam]
+INVOKE_PROPERTYGET;VT_I4 ;Right;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Right;[{in-}VT_I4 LastParam]
+INVOKE_PROPERTYGET;VT_I4 ;Width;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Width;[{in-}VT_I4 LastParam]
+INVOKE_PROPERTYGET;VT_I4 ;Height;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Height;[{in-}VT_I4 LastParam]
+INVOKE_PROPERTYGET;VT_BOOL ;MiniPlayer;[]
+INVOKE_PROPERTYPUT;VT_VOID ;MiniPlayer;[{in-}VT_BOOL LastParam]
+INVOKE_PROPERTYGET;IITTrackCollection ;SelectedTracks;[]
+INVOKE_PROPERTYGET;IITPlaylist ;SelectedPlaylist;[]
+INVOKE_PROPERTYPUT;VT_VOID ;SelectedPlaylist;[{in-}VT_VARIANT LastParam]
+CLASS IITWindowCollection;TKIND_DISPATCH
+EXTENDS;IDispatch
+INVOKE_FUNC;VT_VOID ;QueryInterface;[{in-}GUID riid,{out-}VT_PTR LastParam]
+INVOKE_FUNC;VT_UI4 ;AddRef;[]
+INVOKE_FUNC;VT_UI4 ;Release;[]
+INVOKE_FUNC;VT_VOID ;GetTypeInfoCount;[{out-}VT_UINT LastParam]
+INVOKE_FUNC;VT_VOID ;GetTypeInfo;[{in-}VT_UINT itinfo,{in-}VT_UI4 lcid,{out-}VT_PTR LastParam]
+INVOKE_FUNC;VT_VOID ;GetIDsOfNames;[{in-}GUID riid,{in-}VT_PTR rgszNames,{in-}VT_UINT cNames,{in-}VT_UI4 lcid,{out-}VT_I4 LastParam]
+INVOKE_FUNC;VT_VOID ;Invoke;[{in-}VT_I4 dispidMember,{in-}GUID riid,{in-}VT_UI4 lcid,{in-}VT_UI2 wFlags,{in-}DISPPARAMS pdispparams,{out-}VT_VARIANT pvarResult,{out-}EXCEPINFO pexcepinfo,{out-}VT_UINT LastParam]
+INVOKE_PROPERTYGET;VT_I4 ;Count;[]
+INVOKE_PROPERTYGET;IITWindow ;Item;[{in-}VT_I4 LastParam]
+INVOKE_PROPERTYGET;IITWindow ;ItemByName;[{in-}VT_BSTR LastParam]
+INVOKE_PROPERTYGET;VT_UNKNOWN ;_NewEnum;[]
+CLASS ITPlayerState;TKIND_ALIAS
+EXTENDS;__MIDL___MIDL_itf_iTunesCOMInterface_0267_0001
+CLASS __MIDL___MIDL_itf_iTunesCOMInterface_0267_0001;TKIND_ENUM
+VAR_CONST;ITPlayerStateStopped;VT_I4;0
+VAR_CONST;ITPlayerStatePlaying;VT_I4;1
+VAR_CONST;ITPlayerStateFastForward;VT_I4;2
+VAR_CONST;ITPlayerStateRewind;VT_I4;3
+CLASS ITVisualSize;TKIND_ALIAS
+EXTENDS;__MIDL___MIDL_itf_iTunesCOMInterface_0267_0002
+CLASS __MIDL___MIDL_itf_iTunesCOMInterface_0267_0002;TKIND_ENUM
+VAR_CONST;ITVisualSizeSmall;VT_I4;0
+VAR_CONST;ITVisualSizeMedium;VT_I4;1
+VAR_CONST;ITVisualSizeLarge;VT_I4;2
+CLASS ITCOMDisabledReason;TKIND_ALIAS
+EXTENDS;__MIDL___MIDL_itf_iTunesCOMInterface_0267_0003
+CLASS __MIDL___MIDL_itf_iTunesCOMInterface_0267_0003;TKIND_ENUM
+VAR_CONST;ITCOMDisabledReasonOther;VT_I4;0
+VAR_CONST;ITCOMDisabledReasonDialog;VT_I4;1
+VAR_CONST;ITCOMDisabledReasonQuitting;VT_I4;2
+CLASS ITPlayButtonState;TKIND_ALIAS
+EXTENDS;__MIDL___MIDL_itf_iTunesCOMInterface_0267_0004
+CLASS __MIDL___MIDL_itf_iTunesCOMInterface_0267_0004;TKIND_ENUM
+VAR_CONST;ITPlayButtonStatePlayDisabled;VT_I4;0
+VAR_CONST;ITPlayButtonStatePlayEnabled;VT_I4;1
+VAR_CONST;ITPlayButtonStatePauseEnabled;VT_I4;2
+VAR_CONST;ITPlayButtonStatePauseDisabled;VT_I4;3
+VAR_CONST;ITPlayButtonStateStopEnabled;VT_I4;4
+VAR_CONST;ITPlayButtonStateStopDisabled;VT_I4;5
+CLASS ITPlayerButton;TKIND_ALIAS
+EXTENDS;__MIDL___MIDL_itf_iTunesCOMInterface_0267_0005
+CLASS __MIDL___MIDL_itf_iTunesCOMInterface_0267_0005;TKIND_ENUM
+VAR_CONST;ITPlayerButtonPrevious;VT_I4;0
+VAR_CONST;ITPlayerButtonPlay;VT_I4;1
+VAR_CONST;ITPlayerButtonNext;VT_I4;2
+CLASS ITPlayerButtonModifierKey;TKIND_ALIAS
+EXTENDS;__MIDL___MIDL_itf_iTunesCOMInterface_0267_0006
+CLASS __MIDL___MIDL_itf_iTunesCOMInterface_0267_0006;TKIND_ENUM
+VAR_CONST;ITPlayerButtonModifierKeyNone;VT_I4;0
+VAR_CONST;ITPlayerButtonModifierKeyShift;VT_I4;1
+VAR_CONST;ITPlayerButtonModifierKeyControl;VT_I4;2
+VAR_CONST;ITPlayerButtonModifierKeyAlt;VT_I4;4
+VAR_CONST;ITPlayerButtonModifierKeyCapsLock;VT_I4;8
+CLASS IiTunes;TKIND_DISPATCH
+EXTENDS;IDispatch
+INVOKE_FUNC;VT_VOID ;QueryInterface;[{in-}GUID riid,{out-}VT_PTR LastParam]
+INVOKE_FUNC;VT_UI4 ;AddRef;[]
+INVOKE_FUNC;VT_UI4 ;Release;[]
+INVOKE_FUNC;VT_VOID ;GetTypeInfoCount;[{out-}VT_UINT LastParam]
+INVOKE_FUNC;VT_VOID ;GetTypeInfo;[{in-}VT_UINT itinfo,{in-}VT_UI4 lcid,{out-}VT_PTR LastParam]
+INVOKE_FUNC;VT_VOID ;GetIDsOfNames;[{in-}GUID riid,{in-}VT_PTR rgszNames,{in-}VT_UINT cNames,{in-}VT_UI4 lcid,{out-}VT_I4 LastParam]
+INVOKE_FUNC;VT_VOID ;Invoke;[{in-}VT_I4 dispidMember,{in-}GUID riid,{in-}VT_UI4 lcid,{in-}VT_UI2 wFlags,{in-}DISPPARAMS pdispparams,{out-}VT_VARIANT pvarResult,{out-}EXCEPINFO pexcepinfo,{out-}VT_UINT LastParam]
+INVOKE_FUNC;VT_VOID ;BackTrack;[]
+INVOKE_FUNC;VT_VOID ;FastForward;[]
+INVOKE_FUNC;VT_VOID ;NextTrack;[]
+INVOKE_FUNC;VT_VOID ;Pause;[]
+INVOKE_FUNC;VT_VOID ;Play;[]
+INVOKE_FUNC;VT_VOID ;PlayFile;[{in-}VT_BSTR LastParam]
+INVOKE_FUNC;VT_VOID ;PlayPause;[]
+INVOKE_FUNC;VT_VOID ;PreviousTrack;[]
+INVOKE_FUNC;VT_VOID ;Resume;[]
+INVOKE_FUNC;VT_VOID ;Rewind;[]
+INVOKE_FUNC;VT_VOID ;Stop;[]
+INVOKE_FUNC;IITOperationStatus ;ConvertFile;[{in-}VT_BSTR LastParam]
+INVOKE_FUNC;IITOperationStatus ;ConvertFiles;[{in-}VT_VARIANT LastParam]
+INVOKE_FUNC;IITOperationStatus ;ConvertTrack;[{in-}VT_VARIANT LastParam]
+INVOKE_FUNC;IITOperationStatus ;ConvertTracks;[{in-}VT_VARIANT LastParam]
+INVOKE_FUNC;VT_BOOL ;CheckVersion;[{in-}VT_I4 majorVersion,{in-}VT_I4 LastParam]
+INVOKE_FUNC;IITObject ;GetITObjectByID;[{in-}VT_I4 sourceID,{in-}VT_I4 playlistID,{in-}VT_I4 trackID,{in-}VT_I4 LastParam]
+INVOKE_FUNC;IITPlaylist ;CreatePlaylist;[{in-}VT_BSTR LastParam]
+INVOKE_FUNC;VT_VOID ;OpenURL;[{in-}VT_BSTR LastParam]
+INVOKE_FUNC;VT_VOID ;GotoMusicStoreHomePage;[]
+INVOKE_FUNC;VT_VOID ;UpdateIPod;[]
+INVOKE_FUNC;VT_VOID ;Authorize;[{in-}VT_I4 numElems,{in-}VT_VARIANT data,{in-}VT_BSTR LastParam]
+INVOKE_FUNC;VT_VOID ;Quit;[]
+INVOKE_PROPERTYGET;IITSourceCollection ;Sources;[]
+INVOKE_PROPERTYGET;IITEncoderCollection ;Encoders;[]
+INVOKE_PROPERTYGET;IITEQPresetCollection ;EQPresets;[]
+INVOKE_PROPERTYGET;IITVisualCollection ;Visuals;[]
+INVOKE_PROPERTYGET;IITWindowCollection ;Windows;[]
+INVOKE_PROPERTYGET;VT_I4 ;SoundVolume;[]
+INVOKE_PROPERTYPUT;VT_VOID ;SoundVolume;[{in-}VT_I4 LastParam]
+INVOKE_PROPERTYGET;VT_BOOL ;Mute;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Mute;[{in-}VT_BOOL LastParam]
+INVOKE_PROPERTYGET;ITPlayerState ;PlayerState;[]
+INVOKE_PROPERTYGET;VT_I4 ;PlayerPosition;[]
+INVOKE_PROPERTYPUT;VT_VOID ;PlayerPosition;[{in-}VT_I4 LastParam]
+INVOKE_PROPERTYGET;IITEncoder ;CurrentEncoder;[]
+INVOKE_PROPERTYPUT;VT_VOID ;CurrentEncoder;[{in-}IITEncoder LastParam]
+INVOKE_PROPERTYGET;VT_BOOL ;VisualsEnabled;[]
+INVOKE_PROPERTYPUT;VT_VOID ;VisualsEnabled;[{in-}VT_BOOL LastParam]
+INVOKE_PROPERTYGET;VT_BOOL ;FullScreenVisuals;[]
+INVOKE_PROPERTYPUT;VT_VOID ;FullScreenVisuals;[{in-}VT_BOOL LastParam]
+INVOKE_PROPERTYGET;ITVisualSize ;VisualSize;[]
+INVOKE_PROPERTYPUT;VT_VOID ;VisualSize;[{in-}ITVisualSize LastParam]
+INVOKE_PROPERTYGET;IITVisual ;CurrentVisual;[]
+INVOKE_PROPERTYPUT;VT_VOID ;CurrentVisual;[{in-}IITVisual LastParam]
+INVOKE_PROPERTYGET;VT_BOOL ;EQEnabled;[]
+INVOKE_PROPERTYPUT;VT_VOID ;EQEnabled;[{in-}VT_BOOL LastParam]
+INVOKE_PROPERTYGET;IITEQPreset ;CurrentEQPreset;[]
+INVOKE_PROPERTYPUT;VT_VOID ;CurrentEQPreset;[{in-}IITEQPreset LastParam]
+INVOKE_PROPERTYGET;VT_BSTR ;CurrentStreamTitle;[]
+INVOKE_PROPERTYGET;VT_BSTR ;CurrentStreamURL;[]
+INVOKE_PROPERTYGET;IITBrowserWindow ;BrowserWindow;[]
+INVOKE_PROPERTYGET;IITWindow ;EQWindow;[]
+INVOKE_PROPERTYGET;IITSource ;LibrarySource;[]
+INVOKE_PROPERTYGET;IITLibraryPlaylist ;LibraryPlaylist;[]
+INVOKE_PROPERTYGET;IITTrack ;CurrentTrack;[]
+INVOKE_PROPERTYGET;IITPlaylist ;CurrentPlaylist;[]
+INVOKE_PROPERTYGET;IITTrackCollection ;SelectedTracks;[]
+INVOKE_PROPERTYGET;VT_BSTR ;Version;[]
+INVOKE_FUNC;VT_VOID ;SetOptions;[{in-}VT_I4 LastParam]
+INVOKE_FUNC;IITConvertOperationStatus ;ConvertFile2;[{in-}VT_BSTR LastParam]
+INVOKE_FUNC;IITConvertOperationStatus ;ConvertFiles2;[{in-}VT_VARIANT LastParam]
+INVOKE_FUNC;IITConvertOperationStatus ;ConvertTrack2;[{in-}VT_VARIANT LastParam]
+INVOKE_FUNC;IITConvertOperationStatus ;ConvertTracks2;[{in-}VT_VARIANT LastParam]
+INVOKE_PROPERTYGET;VT_BOOL ;AppCommandMessageProcessingEnabled;[]
+INVOKE_PROPERTYPUT;VT_VOID ;AppCommandMessageProcessingEnabled;[{in-}VT_BOOL LastParam]
+INVOKE_PROPERTYGET;VT_BOOL ;ForceToForegroundOnDialog;[]
+INVOKE_PROPERTYPUT;VT_VOID ;ForceToForegroundOnDialog;[{in-}VT_BOOL LastParam]
+INVOKE_FUNC;IITEQPreset ;CreateEQPreset;[{in-}VT_BSTR LastParam]
+INVOKE_FUNC;IITPlaylist ;CreatePlaylistInSource;[{in-}VT_BSTR playlistName,{in-}VT_VARIANT LastParam]
+INVOKE_FUNC;VT_VOID ;GetPlayerButtonsState;[{out-}VT_BOOL previousEnabled,{out-}ITPlayButtonState playPauseStopState,{out-}VT_BOOL LastParam]
+INVOKE_FUNC;VT_VOID ;PlayerButtonClicked;[{in-}ITPlayerButton playerButton,{in-}VT_I4 LastParam]
+INVOKE_PROPERTYGET;VT_BOOL ;CanSetShuffle;[{in-}VT_VARIANT LastParam]
+INVOKE_PROPERTYGET;VT_BOOL ;CanSetSongRepeat;[{in-}VT_VARIANT LastParam]
+INVOKE_PROPERTYGET;IITConvertOperationStatus ;ConvertOperationStatus;[]
+INVOKE_FUNC;VT_VOID ;SubscribeToPodcast;[{in-}VT_BSTR LastParam]
+INVOKE_FUNC;VT_VOID ;UpdatePodcastFeeds;[]
+INVOKE_FUNC;IITPlaylist ;CreateFolder;[{in-}VT_BSTR LastParam]
+INVOKE_FUNC;IITPlaylist ;CreateFolderInSource;[{in-}VT_BSTR folderName,{in-}VT_VARIANT LastParam]
+INVOKE_PROPERTYGET;VT_BOOL ;SoundVolumeControlEnabled;[]
+INVOKE_PROPERTYGET;VT_BSTR ;LibraryXMLPath;[]
+CLASS ITEvent;TKIND_ALIAS
+EXTENDS;__MIDL___MIDL_itf_iTunesCOMInterface_0270_0001
+CLASS __MIDL___MIDL_itf_iTunesCOMInterface_0270_0001;TKIND_ENUM
+VAR_CONST;ITEventDatabaseChanged;VT_I4;1
+VAR_CONST;ITEventPlayerPlay;VT_I4;2
+VAR_CONST;ITEventPlayerStop;VT_I4;3
+VAR_CONST;ITEventPlayerPlayingTrackChanged;VT_I4;4
+VAR_CONST;ITEventUserInterfaceEnabled;VT_I4;5
+VAR_CONST;ITEventCOMCallsDisabled;VT_I4;6
+VAR_CONST;ITEventCOMCallsEnabled;VT_I4;7
+VAR_CONST;ITEventQuitting;VT_I4;8
+VAR_CONST;ITEventAboutToPromptUserToQuit;VT_I4;9
+VAR_CONST;ITEventSoundVolumeChanged;VT_I4;10
+CLASS _IiTunesEvents;TKIND_DISPATCH
+EXTENDS;IDispatch
+INVOKE_FUNC;VT_HRESULT ;OnDatabaseChangedEvent;[{in-}VT_VARIANT deletedObjectIDs,{in-}VT_VARIANT LastParam]
+INVOKE_FUNC;VT_HRESULT ;OnPlayerPlayEvent;[{in-}VT_VARIANT LastParam]
+INVOKE_FUNC;VT_HRESULT ;OnPlayerStopEvent;[{in-}VT_VARIANT LastParam]
+INVOKE_FUNC;VT_HRESULT ;OnPlayerPlayingTrackChangedEvent;[{in-}VT_VARIANT LastParam]
+INVOKE_FUNC;VT_HRESULT ;OnUserInterfaceEnabledEvent;[]
+INVOKE_FUNC;VT_HRESULT ;OnCOMCallsDisabledEvent;[{in-}ITCOMDisabledReason LastParam]
+INVOKE_FUNC;VT_HRESULT ;OnCOMCallsEnabledEvent;[]
+INVOKE_FUNC;VT_HRESULT ;OnQuittingEvent;[]
+INVOKE_FUNC;VT_HRESULT ;OnAboutToPromptUserToQuitEvent;[]
+INVOKE_FUNC;VT_HRESULT ;OnSoundVolumeChangedEvent;[{in-}VT_I4 LastParam]
+CLASS ITConvertOperationStatusEvent;TKIND_ALIAS
+EXTENDS;__MIDL___MIDL_itf_iTunesCOMInterface_0271_0001
+CLASS __MIDL___MIDL_itf_iTunesCOMInterface_0271_0001;TKIND_ENUM
+VAR_CONST;ITConvertOperationStatusChanged;VT_I4;1
+VAR_CONST;ITConvertOperationComplete;VT_I4;2
+CLASS _IITConvertOperationStatusEvents;TKIND_DISPATCH
+EXTENDS;IDispatch
+INVOKE_FUNC;VT_HRESULT ;OnConvertOperationStatusChangedEvent;[{in-}VT_BSTR trackName,{in-}VT_I4 progressValue,{in-}VT_I4 LastParam]
+INVOKE_FUNC;VT_HRESULT ;OnConvertOperationCompleteEvent;[]
+CLASS iTunesApp;TKIND_COCLASS
+EXTENDS;IiTunes
+EXTENDS;_IiTunesEvents
+CLASS iTunesConvertOperationStatus;TKIND_COCLASS
+EXTENDS;IITConvertOperationStatus
+EXTENDS;_IITConvertOperationStatusEvents
+CLASS IITAudioCDPlaylist;TKIND_DISPATCH
+EXTENDS;IDispatch
+INVOKE_FUNC;VT_VOID ;QueryInterface;[{in-}GUID riid,{out-}VT_PTR LastParam]
+INVOKE_FUNC;VT_UI4 ;AddRef;[]
+INVOKE_FUNC;VT_UI4 ;Release;[]
+INVOKE_FUNC;VT_VOID ;GetTypeInfoCount;[{out-}VT_UINT LastParam]
+INVOKE_FUNC;VT_VOID ;GetTypeInfo;[{in-}VT_UINT itinfo,{in-}VT_UI4 lcid,{out-}VT_PTR LastParam]
+INVOKE_FUNC;VT_VOID ;GetIDsOfNames;[{in-}GUID riid,{in-}VT_PTR rgszNames,{in-}VT_UINT cNames,{in-}VT_UI4 lcid,{out-}VT_I4 LastParam]
+INVOKE_FUNC;VT_VOID ;Invoke;[{in-}VT_I4 dispidMember,{in-}GUID riid,{in-}VT_UI4 lcid,{in-}VT_UI2 wFlags,{in-}DISPPARAMS pdispparams,{out-}VT_VARIANT pvarResult,{out-}EXCEPINFO pexcepinfo,{out-}VT_UINT LastParam]
+INVOKE_FUNC;VT_VOID ;GetITObjectIDs;[{out-}VT_I4 sourceID,{out-}VT_I4 playlistID,{out-}VT_I4 trackID,{out-}VT_I4 LastParam]
+INVOKE_PROPERTYGET;VT_BSTR ;Name;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Name;[{in-}VT_BSTR LastParam]
+INVOKE_PROPERTYGET;VT_I4 ;Index;[]
+INVOKE_PROPERTYGET;VT_I4 ;sourceID;[]
+INVOKE_PROPERTYGET;VT_I4 ;playlistID;[]
+INVOKE_PROPERTYGET;VT_I4 ;trackID;[]
+INVOKE_PROPERTYGET;VT_I4 ;TrackDatabaseID;[]
+INVOKE_FUNC;VT_VOID ;Delete;[]
+INVOKE_FUNC;VT_VOID ;PlayFirstTrack;[]
+INVOKE_FUNC;VT_VOID ;Print;[{in-}VT_BOOL showPrintDialog,{in-}ITPlaylistPrintKind printKind,{in-}VT_BSTR LastParam]
+INVOKE_FUNC;IITTrackCollection ;Search;[{in-}VT_BSTR searchText,{in-}ITPlaylistSearchField LastParam]
+INVOKE_PROPERTYGET;ITPlaylistKind ;Kind;[]
+INVOKE_PROPERTYGET;IITSource ;Source;[]
+INVOKE_PROPERTYGET;VT_I4 ;Duration;[]
+INVOKE_PROPERTYGET;VT_BOOL ;Shuffle;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Shuffle;[{in-}VT_BOOL LastParam]
+INVOKE_PROPERTYGET;VT_R8 ;Size;[]
+INVOKE_PROPERTYGET;ITPlaylistRepeatMode ;SongRepeat;[]
+INVOKE_PROPERTYPUT;VT_VOID ;SongRepeat;[{in-}ITPlaylistRepeatMode LastParam]
+INVOKE_PROPERTYGET;VT_BSTR ;Time;[]
+INVOKE_PROPERTYGET;VT_BOOL ;Visible;[]
+INVOKE_PROPERTYGET;IITTrackCollection ;Tracks;[]
+INVOKE_PROPERTYGET;VT_BSTR ;Artist;[]
+INVOKE_PROPERTYGET;VT_BOOL ;Compilation;[]
+INVOKE_PROPERTYGET;VT_BSTR ;Composer;[]
+INVOKE_PROPERTYGET;VT_I4 ;DiscCount;[]
+INVOKE_PROPERTYGET;VT_I4 ;DiscNumber;[]
+INVOKE_PROPERTYGET;VT_BSTR ;Genre;[]
+INVOKE_PROPERTYGET;VT_I4 ;Year;[]
+CLASS IITIPodSource;TKIND_DISPATCH
+EXTENDS;IDispatch
+INVOKE_FUNC;VT_VOID ;QueryInterface;[{in-}GUID riid,{out-}VT_PTR LastParam]
+INVOKE_FUNC;VT_UI4 ;AddRef;[]
+INVOKE_FUNC;VT_UI4 ;Release;[]
+INVOKE_FUNC;VT_VOID ;GetTypeInfoCount;[{out-}VT_UINT LastParam]
+INVOKE_FUNC;VT_VOID ;GetTypeInfo;[{in-}VT_UINT itinfo,{in-}VT_UI4 lcid,{out-}VT_PTR LastParam]
+INVOKE_FUNC;VT_VOID ;GetIDsOfNames;[{in-}GUID riid,{in-}VT_PTR rgszNames,{in-}VT_UINT cNames,{in-}VT_UI4 lcid,{out-}VT_I4 LastParam]
+INVOKE_FUNC;VT_VOID ;Invoke;[{in-}VT_I4 dispidMember,{in-}GUID riid,{in-}VT_UI4 lcid,{in-}VT_UI2 wFlags,{in-}DISPPARAMS pdispparams,{out-}VT_VARIANT pvarResult,{out-}EXCEPINFO pexcepinfo,{out-}VT_UINT LastParam]
+INVOKE_FUNC;VT_VOID ;GetITObjectIDs;[{out-}VT_I4 sourceID,{out-}VT_I4 playlistID,{out-}VT_I4 trackID,{out-}VT_I4 LastParam]
+INVOKE_PROPERTYGET;VT_BSTR ;Name;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Name;[{in-}VT_BSTR LastParam]
+INVOKE_PROPERTYGET;VT_I4 ;Index;[]
+INVOKE_PROPERTYGET;VT_I4 ;sourceID;[]
+INVOKE_PROPERTYGET;VT_I4 ;playlistID;[]
+INVOKE_PROPERTYGET;VT_I4 ;trackID;[]
+INVOKE_PROPERTYGET;VT_I4 ;TrackDatabaseID;[]
+INVOKE_PROPERTYGET;ITSourceKind ;Kind;[]
+INVOKE_PROPERTYGET;VT_R8 ;Capacity;[]
+INVOKE_PROPERTYGET;VT_R8 ;FreeSpace;[]
+INVOKE_PROPERTYGET;IITPlaylistCollection ;Playlists;[]
+INVOKE_FUNC;VT_VOID ;UpdateIPod;[]
+INVOKE_FUNC;VT_VOID ;EjectIPod;[]
+INVOKE_PROPERTYGET;VT_BSTR ;SoftwareVersion;[]
+CLASS ITVideoKind;TKIND_ALIAS
+EXTENDS;__MIDL___MIDL_itf_iTunesCOMInterface_0286_0002
+CLASS __MIDL___MIDL_itf_iTunesCOMInterface_0286_0002;TKIND_ENUM
+VAR_CONST;ITVideoKindNone;VT_I4;0
+VAR_CONST;ITVideoKindMovie;VT_I4;1
+VAR_CONST;ITVideoKindMusicVideo;VT_I4;2
+VAR_CONST;ITVideoKindTVShow;VT_I4;3
+CLASS IITFileOrCDTrack;TKIND_DISPATCH
+EXTENDS;IDispatch
+INVOKE_FUNC;VT_VOID ;QueryInterface;[{in-}GUID riid,{out-}VT_PTR LastParam]
+INVOKE_FUNC;VT_UI4 ;AddRef;[]
+INVOKE_FUNC;VT_UI4 ;Release;[]
+INVOKE_FUNC;VT_VOID ;GetTypeInfoCount;[{out-}VT_UINT LastParam]
+INVOKE_FUNC;VT_VOID ;GetTypeInfo;[{in-}VT_UINT itinfo,{in-}VT_UI4 lcid,{out-}VT_PTR LastParam]
+INVOKE_FUNC;VT_VOID ;GetIDsOfNames;[{in-}GUID riid,{in-}VT_PTR rgszNames,{in-}VT_UINT cNames,{in-}VT_UI4 lcid,{out-}VT_I4 LastParam]
+INVOKE_FUNC;VT_VOID ;Invoke;[{in-}VT_I4 dispidMember,{in-}GUID riid,{in-}VT_UI4 lcid,{in-}VT_UI2 wFlags,{in-}DISPPARAMS pdispparams,{out-}VT_VARIANT pvarResult,{out-}EXCEPINFO pexcepinfo,{out-}VT_UINT LastParam]
+INVOKE_FUNC;VT_VOID ;GetITObjectIDs;[{out-}VT_I4 sourceID,{out-}VT_I4 playlistID,{out-}VT_I4 trackID,{out-}VT_I4 LastParam]
+INVOKE_PROPERTYGET;VT_BSTR ;Name;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Name;[{in-}VT_BSTR LastParam]
+INVOKE_PROPERTYGET;VT_I4 ;Index;[]
+INVOKE_PROPERTYGET;VT_I4 ;sourceID;[]
+INVOKE_PROPERTYGET;VT_I4 ;playlistID;[]
+INVOKE_PROPERTYGET;VT_I4 ;trackID;[]
+INVOKE_PROPERTYGET;VT_I4 ;TrackDatabaseID;[]
+INVOKE_FUNC;VT_VOID ;Delete;[]
+INVOKE_FUNC;VT_VOID ;Play;[]
+INVOKE_FUNC;IITArtwork ;AddArtworkFromFile;[{in-}VT_BSTR LastParam]
+INVOKE_PROPERTYGET;ITTrackKind ;Kind;[]
+INVOKE_PROPERTYGET;IITPlaylist ;Playlist;[]
+INVOKE_PROPERTYGET;VT_BSTR ;Album;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Album;[{in-}VT_BSTR LastParam]
+INVOKE_PROPERTYGET;VT_BSTR ;Artist;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Artist;[{in-}VT_BSTR LastParam]
+INVOKE_PROPERTYGET;VT_I4 ;BitRate;[]
+INVOKE_PROPERTYGET;VT_I4 ;BPM;[]
+INVOKE_PROPERTYPUT;VT_VOID ;BPM;[{in-}VT_I4 LastParam]
+INVOKE_PROPERTYGET;VT_BSTR ;Comment;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Comment;[{in-}VT_BSTR LastParam]
+INVOKE_PROPERTYGET;VT_BOOL ;Compilation;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Compilation;[{in-}VT_BOOL LastParam]
+INVOKE_PROPERTYGET;VT_BSTR ;Composer;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Composer;[{in-}VT_BSTR LastParam]
+INVOKE_PROPERTYGET;VT_DATE ;DateAdded;[]
+INVOKE_PROPERTYGET;VT_I4 ;DiscCount;[]
+INVOKE_PROPERTYPUT;VT_VOID ;DiscCount;[{in-}VT_I4 LastParam]
+INVOKE_PROPERTYGET;VT_I4 ;DiscNumber;[]
+INVOKE_PROPERTYPUT;VT_VOID ;DiscNumber;[{in-}VT_I4 LastParam]
+INVOKE_PROPERTYGET;VT_I4 ;Duration;[]
+INVOKE_PROPERTYGET;VT_BOOL ;Enabled;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Enabled;[{in-}VT_BOOL LastParam]
+INVOKE_PROPERTYGET;VT_BSTR ;EQ;[]
+INVOKE_PROPERTYPUT;VT_VOID ;EQ;[{in-}VT_BSTR LastParam]
+INVOKE_PROPERTYPUT;VT_VOID ;Finish;[{in-}VT_I4 LastParam]
+INVOKE_PROPERTYGET;VT_I4 ;Finish;[]
+INVOKE_PROPERTYGET;VT_BSTR ;Genre;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Genre;[{in-}VT_BSTR LastParam]
+INVOKE_PROPERTYGET;VT_BSTR ;Grouping;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Grouping;[{in-}VT_BSTR LastParam]
+INVOKE_PROPERTYGET;VT_BSTR ;KindAsString;[]
+INVOKE_PROPERTYGET;VT_DATE ;ModificationDate;[]
+INVOKE_PROPERTYGET;VT_I4 ;PlayedCount;[]
+INVOKE_PROPERTYPUT;VT_VOID ;PlayedCount;[{in-}VT_I4 LastParam]
+INVOKE_PROPERTYGET;VT_DATE ;PlayedDate;[]
+INVOKE_PROPERTYPUT;VT_VOID ;PlayedDate;[{in-}VT_DATE LastParam]
+INVOKE_PROPERTYGET;VT_I4 ;PlayOrderIndex;[]
+INVOKE_PROPERTYGET;VT_I4 ;Rating;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Rating;[{in-}VT_I4 LastParam]
+INVOKE_PROPERTYGET;VT_I4 ;SampleRate;[]
+INVOKE_PROPERTYGET;VT_I4 ;Size;[]
+INVOKE_PROPERTYGET;VT_I4 ;Start;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Start;[{in-}VT_I4 LastParam]
+INVOKE_PROPERTYGET;VT_BSTR ;Time;[]
+INVOKE_PROPERTYGET;VT_I4 ;TrackCount;[]
+INVOKE_PROPERTYPUT;VT_VOID ;TrackCount;[{in-}VT_I4 LastParam]
+INVOKE_PROPERTYGET;VT_I4 ;TrackNumber;[]
+INVOKE_PROPERTYPUT;VT_VOID ;TrackNumber;[{in-}VT_I4 LastParam]
+INVOKE_PROPERTYGET;VT_I4 ;VolumeAdjustment;[]
+INVOKE_PROPERTYPUT;VT_VOID ;VolumeAdjustment;[{in-}VT_I4 LastParam]
+INVOKE_PROPERTYGET;VT_I4 ;Year;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Year;[{in-}VT_I4 LastParam]
+INVOKE_PROPERTYGET;IITArtworkCollection ;Artwork;[]
+INVOKE_PROPERTYGET;VT_BSTR ;Location;[]
+INVOKE_FUNC;VT_VOID ;UpdateInfoFromFile;[]
+INVOKE_PROPERTYGET;VT_BOOL ;Podcast;[]
+INVOKE_FUNC;VT_VOID ;UpdatePodcastFeed;[]
+INVOKE_PROPERTYGET;VT_BOOL ;RememberBookmark;[]
+INVOKE_PROPERTYPUT;VT_VOID ;RememberBookmark;[{in-}VT_BOOL LastParam]
+INVOKE_PROPERTYGET;VT_BOOL ;ExcludeFromShuffle;[]
+INVOKE_PROPERTYPUT;VT_VOID ;ExcludeFromShuffle;[{in-}VT_BOOL LastParam]
+INVOKE_PROPERTYGET;VT_BSTR ;Lyrics;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Lyrics;[{in-}VT_BSTR LastParam]
+INVOKE_PROPERTYGET;VT_BSTR ;Category;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Category;[{in-}VT_BSTR LastParam]
+INVOKE_PROPERTYGET;VT_BSTR ;Description;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Description;[{in-}VT_BSTR LastParam]
+INVOKE_PROPERTYGET;VT_BSTR ;LongDescription;[]
+INVOKE_PROPERTYPUT;VT_VOID ;LongDescription;[{in-}VT_BSTR LastParam]
+INVOKE_PROPERTYGET;VT_I4 ;BookmarkTime;[]
+INVOKE_PROPERTYPUT;VT_VOID ;BookmarkTime;[{in-}VT_I4 LastParam]
+INVOKE_PROPERTYGET;ITVideoKind ;VideoKind;[]
+INVOKE_PROPERTYPUT;VT_VOID ;VideoKind;[{in-}ITVideoKind LastParam]
+INVOKE_PROPERTYGET;VT_I4 ;SkippedCount;[]
+INVOKE_PROPERTYPUT;VT_VOID ;SkippedCount;[{in-}VT_I4 LastParam]
+INVOKE_PROPERTYGET;VT_DATE ;SkippedDate;[]
+INVOKE_PROPERTYPUT;VT_VOID ;SkippedDate;[{in-}VT_DATE LastParam]
+INVOKE_PROPERTYGET;VT_BOOL ;PartOfGaplessAlbum;[]
+INVOKE_PROPERTYPUT;VT_VOID ;PartOfGaplessAlbum;[{in-}VT_BOOL LastParam]
+INVOKE_PROPERTYGET;VT_BSTR ;AlbumArtist;[]
+INVOKE_PROPERTYPUT;VT_VOID ;AlbumArtist;[{in-}VT_BSTR LastParam]
+INVOKE_PROPERTYGET;VT_BSTR ;Show;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Show;[{in-}VT_BSTR LastParam]
+INVOKE_PROPERTYGET;VT_I4 ;SeasonNumber;[]
+INVOKE_PROPERTYPUT;VT_VOID ;SeasonNumber;[{in-}VT_I4 LastParam]
+INVOKE_PROPERTYGET;VT_BSTR ;EpisodeID;[]
+INVOKE_PROPERTYPUT;VT_VOID ;EpisodeID;[{in-}VT_BSTR LastParam]
+INVOKE_PROPERTYGET;VT_I4 ;EpisodeNumber;[]
+INVOKE_PROPERTYPUT;VT_VOID ;EpisodeNumber;[{in-}VT_I4 LastParam]
+INVOKE_PROPERTYGET;VT_I4 ;Size64High;[]
+INVOKE_PROPERTYGET;VT_I4 ;Size64Low;[]
+INVOKE_PROPERTYGET;VT_BOOL ;Unplayed;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Unplayed;[{in-}VT_BOOL LastParam]
+INVOKE_PROPERTYGET;VT_BSTR ;SortAlbum;[]
+INVOKE_PROPERTYPUT;VT_VOID ;SortAlbum;[{in-}VT_BSTR LastParam]
+INVOKE_PROPERTYGET;VT_BSTR ;SortAlbumArtist;[]
+INVOKE_PROPERTYPUT;VT_VOID ;SortAlbumArtist;[{in-}VT_BSTR LastParam]
+INVOKE_PROPERTYGET;VT_BSTR ;SortArtist;[]
+INVOKE_PROPERTYPUT;VT_VOID ;SortArtist;[{in-}VT_BSTR LastParam]
+INVOKE_PROPERTYGET;VT_BSTR ;SortComposer;[]
+INVOKE_PROPERTYPUT;VT_VOID ;SortComposer;[{in-}VT_BSTR LastParam]
+INVOKE_PROPERTYGET;VT_BSTR ;SortName;[]
+INVOKE_PROPERTYPUT;VT_VOID ;SortName;[{in-}VT_BSTR LastParam]
+INVOKE_PROPERTYGET;VT_BSTR ;SortShow;[]
+INVOKE_PROPERTYPUT;VT_VOID ;SortShow;[{in-}VT_BSTR LastParam]
+CLASS IITPlaylistWindow;TKIND_DISPATCH
+EXTENDS;IDispatch
+INVOKE_FUNC;VT_VOID ;QueryInterface;[{in-}GUID riid,{out-}VT_PTR LastParam]
+INVOKE_FUNC;VT_UI4 ;AddRef;[]
+INVOKE_FUNC;VT_UI4 ;Release;[]
+INVOKE_FUNC;VT_VOID ;GetTypeInfoCount;[{out-}VT_UINT LastParam]
+INVOKE_FUNC;VT_VOID ;GetTypeInfo;[{in-}VT_UINT itinfo,{in-}VT_UI4 lcid,{out-}VT_PTR LastParam]
+INVOKE_FUNC;VT_VOID ;GetIDsOfNames;[{in-}GUID riid,{in-}VT_PTR rgszNames,{in-}VT_UINT cNames,{in-}VT_UI4 lcid,{out-}VT_I4 LastParam]
+INVOKE_FUNC;VT_VOID ;Invoke;[{in-}VT_I4 dispidMember,{in-}GUID riid,{in-}VT_UI4 lcid,{in-}VT_UI2 wFlags,{in-}DISPPARAMS pdispparams,{out-}VT_VARIANT pvarResult,{out-}EXCEPINFO pexcepinfo,{out-}VT_UINT LastParam]
+INVOKE_PROPERTYGET;VT_BSTR ;Name;[]
+INVOKE_PROPERTYGET;ITWindowKind ;Kind;[]
+INVOKE_PROPERTYGET;VT_BOOL ;Visible;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Visible;[{in-}VT_BOOL LastParam]
+INVOKE_PROPERTYGET;VT_BOOL ;Resizable;[]
+INVOKE_PROPERTYGET;VT_BOOL ;Minimized;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Minimized;[{in-}VT_BOOL LastParam]
+INVOKE_PROPERTYGET;VT_BOOL ;Maximizable;[]
+INVOKE_PROPERTYGET;VT_BOOL ;Maximized;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Maximized;[{in-}VT_BOOL LastParam]
+INVOKE_PROPERTYGET;VT_BOOL ;Zoomable;[]
+INVOKE_PROPERTYGET;VT_BOOL ;Zoomed;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Zoomed;[{in-}VT_BOOL LastParam]
+INVOKE_PROPERTYGET;VT_I4 ;Top;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Top;[{in-}VT_I4 LastParam]
+INVOKE_PROPERTYGET;VT_I4 ;Left;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Left;[{in-}VT_I4 LastParam]
+INVOKE_PROPERTYGET;VT_I4 ;Bottom;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Bottom;[{in-}VT_I4 LastParam]
+INVOKE_PROPERTYGET;VT_I4 ;Right;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Right;[{in-}VT_I4 LastParam]
+INVOKE_PROPERTYGET;VT_I4 ;Width;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Width;[{in-}VT_I4 LastParam]
+INVOKE_PROPERTYGET;VT_I4 ;Height;[]
+INVOKE_PROPERTYPUT;VT_VOID ;Height;[{in-}VT_I4 LastParam]
+INVOKE_PROPERTYGET;IITTrackCollection ;SelectedTracks;[]
+INVOKE_PROPERTYGET;IITPlaylist ;Playlist;[]
