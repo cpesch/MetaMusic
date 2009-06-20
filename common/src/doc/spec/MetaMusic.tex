@@ -1,0 +1,612 @@
+\documentclass[fleqn,12pt,a4paper,oneside]{article}
+\usepackage[isolatin]{inputenc}
+\usepackage[bookmarksnumbered=true]{hyperref}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{thumbpdf}
+
+\newcommand\cmtitle{MetaMusic}
+\newcommand\cmkeywords{\cmtitle}
+\newcommand\cmauthor{christian\_pesch@gmx.de}
+\newcommand\cmdate{2005-04-20}
+\newcommand\cmversion{0.3.2}
+\hypersetup{ 
+pdfauthor = {Christian Pesch},
+pdftitle = {MetaMusic},
+pdfsubject = {MP3 Project Spec},
+pdfkeywords = {MP3 Project Meta Music Spec}}
+
+\advance\textwidth 3cm
+\advance\oddsidemargin -1.5cm
+\advance\textheight 2\baselineskip
+\advance\topmargin -\baselineskip
+\renewcommand\bottomfraction{0.7}
+\setcounter{topnumber}{0}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{2}
+\pagestyle{fancy}
+\fancyhead{}
+% \fancyhead[r]{\includegraphics[scale=0.2]doc/spec/logo}\hspace*{-1cm}}
+\fancyfoot[l]{\today}
+\fancyfoot[c]{~\cmtitle}
+\fancyfoot[r]{\thepage}
+\renewcommand\headrulewidth{0pt}
+\advance\headheight 26pt
+\advance\topmargin -30pt
+\advance\headsep -10pt
+\renewcommand\rmdefault{cmss}
+\DeclareFontShape{OT1}{cmss}{bx}{sl}
+    {<5><6><7><8><9><10><10.95>%
+     <12><14.4><17.28><20.74><24.88>cmssbxo10}{}
+\def\rmdefault{cmss}
+\let\itshape=\slshape
+
+\begin{document}
+
+\title{\cmtitle}
+\author{\cmauthor}
+\date{\cmdate}
+
+\begin{center}
+  \bf\LARGE \cmtitle
+\end{center}
+
+\addvspace{1cm}
+
+\begin{center}
+\cmauthor\\
+\end{center}
+
+\addvspace{1cm}
+
+\begin{center}
+- internal draft -
+
+[version \cmversion{}]
+\end{center}
+
+\tableofcontents
+
+\section{Einführung}
+
+Konzipiert und implementiert werden soll eine Musikdatenbank, die die
+Vorteile gepflegter Metadaten bei der Verwaltung digitaler Musik
+nutzbar macht.
+
+Die Musikdatenbank erfüllt drei Funktionen: Sie soll
+\begin{itemize}
+\item beim Auffinden und Abspielen der gewünschten Musik helfen, 
+\item das Katalogisieren von Musik auf CDs und in Dateien unterstützen und
+\item Metadaten in digitalen Audiodateien verbessern.
+\end{itemize}
+
+Ziele für die Entwicklung sind:
+\begin{itemize}
+\item sorgfältige Planungsphase,
+\item kurze Entwicklungsphase und
+\item Konzentration auf wesentliche Features, um schnell Ergebnisse zu bekommen.
+\end{itemize}
+
+\section{Begriffsdefinitionen}
+
+Ein Künstler (artists) ist ein einzelner Mitarbeiter (contributor) an
+einer Komposition. Andere Rollen, wie Produzent, Texter, Komponist
+o.ä. werden nicht betrachtet. Ein Künstler hat einen Namen, manchmal
+einen Künstlernamen, ein Geschlecht, einen Lebenslauf, eine
+Discographie, d.h. eine Liste aller Alben, es gibt (Portrait-) Fotos
+von ihnen und die meisten haben eine Homepage im Internet. Viele
+Künstler produzieren überwiegend Musikstücke aus einem bestimmen
+Genre.
+
+Gruppen (groups) sind mehrere Künstler, die an einer Komposition
+arbeiten. 
+
+Genres kategorisieren Musik nach unterschiedliche Stilen.  Ein Genre
+(genre) klassifiziert Musik einer bestimmten Stilrichtung. Weitere
+Möglichkeiten zur Klassifikation von Musik sind ihr Tempo, ihre
+Stimmung, Möglichkeiten zum Spielen, Vorlieben, Bewertungen u.ä.
+Viele Genres lassen sich weiter untergliedern, d.h. sie sind
+Spezialisierungen eines oder mehrer anderer Genres.
+
+Eine Komposition (composition) ist ein beliebiges musikalisches Werk
+angefangen von einem einzelnen Stück auf einer CD, über ein Album bis
+zu vielen Stücken auf mehreren CDs. Kompositionen können wieder aus
+Kompositionen bestehen. Kompositionen haben einen Namen, ein
+Erstellungsdatum, eine Produktverpackung (Cover), ein Medium, ein
+Genre und eine Firma, die die Komposition veröffentlicht.
+
+Ein Medium (medium) ist der Träger von Kompositionen. Bekannte Medien
+sind CDs, DVDs, MP3 und OggVorbis. Diese lassen sich in zwei Klassen
+unterteilen: Physische und nicht-physische Medien. Es wird davon
+ausgegangen, daß alle physischen Medien in nicht-physische Medien
+transformiert werden und somit die Musikstücke beliebig oft kopierbar
+sind.
+
+Ein Musikstück (track) ist in einer oder mehreren Kompositionen
+enthalten. Ein Musikstück hat einen Namen, eine Abspiellänge und meist
+Texte (lyrics).  Innerhalb einer Komposition sind Musikstücke per
+Nummer geordnet.
+
+Ein Ort (location) bezeichnet innerhalb eines Mediums, wie ein
+Musikstück aufgefunden werden kann.
+
+Benutzer (user) wünschen, Musikstücke zu hören. Ihr Geschmack bewertet
+Künstler, Kompositionen und Musikstücke, indem sie Vorlieben (likes) und
+Abneigungen (dislikes) äußern.
+
+Benutzer besitzen eine Musiksammlung (track set), der aus einer Menge
+von Musikstücken besteht, die auf unterschiedlichen Medien
+untergebracht sind. Eine CD-Sammlung (cd set) umfaßt alle DVDs und CDs
+eines Benutzers.
+
+Mit den Medien läßt sich die Musiksammlung eines Benutzers abbilden.
+Ein Medium gehört dabei genau einem Benutzer.
+
+\subsection{Anforderungen}
+
+Folgende konkrete Anforderungen müssen abgedeckt werden:
+
+\begin{itemize} 
+\item Von den diversen Dire Straits Live-Bootlegs möchte ich kaum ein Stück
+noch hören, da die Qualität zu schlecht ist.
+
+\item Auf einer Party höre ich interessante Musik, kopiere mir die MP3s und
+suche die Tracks heraus, die ich behalten möchte. Diese importiere ich
+und lasse anmerken, von wem ich sie bekommen habe.
+
+\item Ich höre interessante Musik im Radio und merke mir das Musikstück,
+den Künstler oder das Album vor, um darauf aufmerksam gemacht zu werden,
+falls es in einer anderen Musiksammlung existiert.
+\end{itemize} 
+
+\section{Use Cases}
+
+\subsection{Katalogisieren}
+
+Medien können für die Musikdatenbank erfaßt, d.h. mit der
+Musikdatenbank synchronisiert, werden. Dazu gibt es je nach Medientyp
+zwei Möglichkeiten:
+
+\begin{itemize} 
+\item Für eine CD wird die DiscId bestimmt und eine CDDB-Abfrage durchgeführt.
+Danach erhält der Benutzer eine Übersicht über die Metadaten und ob
+die CD bereits in der Musikdatenbank erfaßt ist. Sofern die CD nicht
+erfaßt ist, kann sie erfaßt werden und die auf der CD enthaltenen
+Stücke ins MP3-Format kodiert werden. Bereits existierende MP3-Dateien
+von der CD werden angezeigt und werden übersprungen, um Duplikate zu
+vermeiden.  Ist die CD bereits erfaßt, kann der Benutzer Namen von
+Künstlern, Kompositionen, Musikstücken und andere Metadaten
+unterstützt durch Auswahlmöglichkeiten aus der Musikdatenbank direkt
+in der Musikdatenbank verbessern.  Besitzen mehrere Benutzer diesselbe
+CD, so wird dies vermerkt.
+
+\item Für MP3-Dateien wird eine TRM genannte bestimmt und eine MusicBrainz-Abfrage
+durchgeführt. Danach erhält der Benutzer eine Übersicht über die
+Metadaten und ob das Musikstück bereits in der Musikdatenbank erfaßt
+ist. Sofern das Musikstück nicht erfaßt ist, kann es erfaßt
+werden. Ist das Musikstück bereits erfaßt, kann der Benutzer Namen von
+Künstlern, Kompositionen, Musikstücken und andere Metadaten
+unterstützt durch Auswahlmöglichkeiten aus der Musikdatenbank sowohl
+in der Musikdatenbank als auch in der MP3-Datei verbessern. Dazu
+können in einm zweiten Schritt von den Änderungen an der
+Musikdatenbank betroffene MP3-Dateien aktualisiert werden.
+\end{itemize}
+
+Aus den erfaßten Medien lassen sich Reports ausgeben, die alle
+Medien oder alle Medien eines Medientyps für alle oder für einen
+Benutzer enthalten. Diese Reports können ausgedruckt oder an
+andere Benutzer verschickt werden.
+
+\subsection{Hören}
+
+Musikstücke werden nach den Kriterium
+
+\begin{itemize}
+\item alles von einem Künstler,
+\item ein komplettes Album,
+\item alles aus einem Genre,
+\item zufällig,
+\item besonders beliebt
+\end{itemize}
+
+gehört.
+
+\subsection{Abspielen}
+
+Musikstücke können aus der Musikdatenbank ausgewählt und in eine
+Warteschlange eingereiht werden, die Musikstück für Musikstück
+abgearbeitet, d.h.  abgespielt, wird. Ist die Warteschlange leer, wird
+zufällig Musik gespielt.
+
+Von den abgespielten Musikstücken wird eine Statistik erstellt, welche
+Stücke von welchem Benutzer wie häufig gewünscht und wann sie zuletzt
+gespielt werden. Es wird erfaßt, wann ein Musikstück von welchem
+Benutzer gewünscht wurde und wann das Musikstück dann gespielt wurde.
+
+Aus der Statistik kann eine Historie der letzten 100 gespielten
+Musikstücke sowie die Liste der 100 am häufigsten gespielten
+Musikstücke vom Benutzer eingesehen werden.
+
+Beim zufälligen Abspielen wird diese Statistik berücksichtigt und
+häufig gewünschte Musikstücke werden häufiger gespielt als selten
+gewünschte. Abgelehnte Musikstücke werden nicht gespielt.
+
+Vorlieben und Abneignen von Benutzer für oder gegen Musikstücke werden
+erfaßt und beim zufälligen Abspielen berücksichtigt. Bei Abspielen aus
+der Warteschlangen können sie ebenfalls berücksichtigt werden.
+
+Kompositionen können genauso wie Musikstücke aus der Musikdatenbank
+ausgewählt und in die Warteschlange eingereiht werden. Die Musikstücke
+werden dann in ihrer Reihenfolge innerhalb der Komposition abgespielt.
+
+\subsection{Auffinden}
+
+Es gibt eine Reihe von Möglichkeiten, Musikstücke herauszufinden:
+
+\begin{itemize}
+\item Man sucht ein Musikstück heraus, indem man den Künstler, aus den
+Kompositionen des Künstlers eine Komposition, beispielsweise ein
+Album, und dann das Musikstück aus der Komposition auswählt.
+
+\item Man sucht ein Musikstück heraus, indem man einen Suchstring 
+eingibt, eine Volltextsuche oder eine auf Künstler, Kompositionen oder
+Musikstücke eingeschränkte Suche durchführt und aus dem Suchergebnis
+sich entweder von gefundenen Künstlern oder Kompositionen zum
+Musikstück durchsucht oder gefundenene Musikstücke gleich direkt
+auswählt.
+
+\item Man sucht ein Musikstück heraus, indem man ein Genre auswählt 
+und aus dem Suchergebnis sich entweder von gefundenen Künstlern oder
+Kompositionen zum Musikstück durchsucht oder gefundenene Musikstücke
+gleich direkt auswählt.		
+
+\item Man sucht ein Musikstück heraus, indem man einen Typ von 
+Kompositionen wie Soundtracks, Compilations, Alben, Maxi-CDs oder
+Single-CDs auswählt und aus dem Suchergebnis sich entweder von
+gefundenen Künstlern oder Kompositionen zum Musikstück durchsucht oder
+gefundenene Musikstücke gleich direkt auswählt.
+
+\item Man sucht ein Musikstück heraus, indem man ein Musikstück aus der
+Historie der letzten 100 gespielten Musikstücke oder aus der Liste der
+100 am häufigsten gespielten Musikstücke auswählt.
+\end{itemize}
+
+\subsection{Bearbeiten}
+
+Benutzer können die Metadaten in der Musikdatenbank jederzeit
+genauso wie beim Katalogisieren bearbeiten.
+
+\subsection{Synchronisieren}
+
+Metadaten können synchronisiert werden zwischen:
+
+\begin{itemize}
+\item CDs, MP3s - abstrakter: Medien - und der Musikdatenbank,
+\item der Musikdatenbank und MP3s,
+\item zwei Musikdatenbanken.
+\end{itemize}
+
+Das Katalogisieren ist als Synchronisation zwischen CDs bzw. MP3s
+und der Musikdatenbank zu verstehen.
+
+\subsection{Externe Dienste einbinden}
+
+CDDB und FreeDB ordnen jeder CD eine weitgehend eindeutige DiscId
+zu. Mit Hilfe dieser Id können Metadaten zu der CD abgefragt werden.
+
+MusicBrainz berechnet für jedes MP3- oder OggVorbis Musikstück eine
+TRM genannte Id, mit deren Hilfe die Metadaten des Musikstücks
+vervollständigt werden können.
+
+Diverse Cover-Datenbanken bieten eingescannte Cover von Alben an.
+
+Einige Lyrics-Datenbanken bieten Texte zu Musikstücken an.
+
+\section{Design}
+
+\subsection{Architektur}
+
+Folgende Entscheidungen zur Architektur sind gefällt worden:
+
+\begin{itemize}
+\item Es wird keine verteilte Anwendung erstellt
+
+\item Zum Zugriff auf die Anwendung gibt es ein Web-GUI sowie später ein Web-Service
+
+\item Es wird eine XML-Repräsentation für die Business Objekte benötigt. Der Use Case
+dazu ist der Abgleich von Repositories, die keine Netzverbindung haben und z.B. per 
+Dateien auf Datenträgern wie CDs synchronisieren.
+\end{itemize}
+
+
+\subsection{Datenhaltung}
+
+Spontanes Musikhören vergleichbar mit einer Hifi-Anlage und Radio oder
+CDs muß möglich sein. Das lange Booten eines PCs ist nicht akzeptabel.
+
+Daraus folgt, daß umfangreiche Serverprozesse und Datenbanken nicht
+für jedes Musikhören gestartet werden können.
+
+Daraus folgt, daß die MP3-Daten nicht in der Datenbank gehalten werden
+können, sondern nur die Metadaten. Dies vermeidet auch bekannte
+Probleme mit großen Datenbanken. Außerdem ist das MP3-Dateiformat {\em
+das} Format, auf dem alle Programme arbeiten. Damit ist die Flexibilität
+größer als mit einer proprietären Datenbankschnittstelle.
+
+\subsection{Schnittstellen}
+
+Die WebDAV-Schnittstelle ist derzeit zu langsam und zu instabil,
+um sie zum Import von vielen MP3-Dateien nutzen zu können.
+
+Eine Browser-Schnittstelle für Bearbeitung und Verwaltung der
+Musikdatenbank ist wünschenswert.
+
+\subsection{Sicherheit}
+
+Eine Personalisierung der Verwaltungsfunktionen findet statt,
+jedoch ist Sicherheit von geringer Bedeutung.
+
+\subsection{Performance}
+
+Die Nutzer- und Zugriffszahlen sind gering, so daß Optimierungen nicht
+nötig sind. Funktionalität geht vor Performance.
+
+\subsection{Verteilung}
+
+Es sollte möglich sein, die Komponenten 
+
+\begin{itemize}
+\item Verwaltungsoberfläche im Browser,
+\item Musikdatenbank,
+\item Abspielfunktionalität
+\end{itemize}
+
+zu verteilen.
+
+\subsection{Domänenmodell}
+
+Beispiele, die im Domänenmodell abbildbar sein müssen:
+
+\begin{itemize}
+\item Einfaches Album
+\begin{itemize}
+   \item CD von Sting: Ten Summoner's Tales
+   \item 1 Artist, 1 Composition, 12 Tracks
+   \item Sting heißt bürgerlich Matthew Summers(?) 
+   \item werden Englische Nomen klein oder groß geschrieben(?)
+   \item von der CD gibt es MP3s
+\end{itemize}
+
+\item Best Of Zusammenstellen
+\begin{itemize}
+   \item CD von Sting: Fields of gold
+   \item CD heißt wie Track 3
+   \item Track 3 Fields of gold ist derselbe wie Track 3 auf Ten Summoner's Tales
+   \item Track 2 Love is stronger than justice (The Munificent Seven) ist derselbe wie Track 11 auf Ten Summoner's Tales
+   \item Track 2 hat einen mit 54 Zeichen recht langen Namen, der wohl häufig ohne den Zusatz in der Klammer vorkommen dürfte)
+   \item CD ist von 1994, Tracks sind von davor
+\end{itemize}
+
+\item Solo vs. Band 
+\begin{itemize}
+   \item CD von The Police: Greatest Hits
+   \item Sting ist ein Mitglied von The Police
+\end{itemize}
+
+\item CD, DVD und MP3
+\begin{itemize}
+   \item CD von Dire Straits: Sultans of Swing
+   \item unter gleichem Namen es eine Live-DVD mit ganz anderen Tracks
+   \item von der CD gibt es MP3s
+\end{itemize}
+
+\item Studio vs. Live 
+\begin{itemize}
+   \item CD von Dire Straits: Sultans of Swing
+   \item enthält eine Studioversion von Sultans of Swing als Track 6,
+   \item es gibt eine Liveversion auf dem Livealbum alchemy auf CD 1, Track 6
+   \item es gibt eine Liveversion auf dem Bootleg Live \& Alive, Track 1 
+   \item es gibt eine Liveversion auf dem Bootleg Solid Rock, Track 2 bei der Eric Clapton als Gastgitarrist spielt
+\end{itemize}
+
+\item Best Of CD und DVD
+\begin{itemize}
+\item CD von Depeche Mode: The Best of 86>98
+   als The Videoes 86>98 gibt es eine DVD
+   mit denselben Tracks
+   von der CD gibt es MP3s
+\end{itemize}
+   
+\item Sampler
+\begin{itemize}
+   \item Sampler Crossing all Over! \#8
+   \item 2 CDs mit 38 Tracks, 38 Contributors
+\end{itemize}
+
+\item Klassische Musik
+\begin{itemize}
+   \item Kurt Masur dirigiert Beethoven mit dem Gewandhausorchester Leipzig
+   \item 3 CDs mit 4 Symphonien (Compositions) bestehend jeweils aus 4 bis 5 Tracks, 1 Group
+\end{itemize}
+\end{itemize}
+
+\subsection{Designentscheidungen}
+
+Zur Identität von Objekten in der Musikdatenbank wird entschieden:
+
+\begin{itemize}
+\item Benutzer, Künstler und Genres haben innerhalb der Musikdatenbank
+      einen eindeutigen Namen.
+\item Medien haben für einen Benutzer einen eindeutigen Namen.
+\item Kompositionen mit demselben Künstler (performer) haben einen
+      eindeutigen Namen.
+\item Musikstücke und Kompositionen haben innerhalb einer Komposition
+      einen eindeutigen Namen.
+\item Orte haben innerhalb eines Mediums einen eindeutigen Namen.
+\end{itemize}
+
+Als weitere Beschränkungen gilt:
+
+\begin{itemize}
+\item Es gibt mindestens einen Benutzer in der Musikdatenbank.
+\item Orte können nur in Verbindung mit Medien existieren.
+\item Medien haben einen Besitzer.
+\item Musikstücke und Kompositionen haben einen Beteiligten (contributor).
+\item Musikstücke sind Bestandteil wenigstens einer Komposition.
+\end{itemize}
+
+\section{Implementierung}
+
+\subsection{langlebige Serialisierung}
+
+Eine langlebige Serialisierung ist wichtig für
+\begin{itemize}
+\item die Synchronisation zwischen Repositories,
+\item Schemaänderungen der Datenbank,
+\item Im- und Export und
+\item Backup.
+\end{itemize}
+
+Java Beans bieten hierfür den Vorteil einer klar definierten
+Schnittstelle, welche Eigenschaften ein Objekt ausmachen.
+Hinzugefügte Properties stellen kein Problem dar. Geänderte
+Properties müssen die alte Implementierung intakt lassen. Damit
+Eine Serialisierung sollte auf den Bean Properties aufsetzen und
+nicht etwa wie bei Java Serialization auf den
+Implementierungsobjekten selbst, um entsprechend robust gegen
+Änderungen zu sein.
+
+Denkbar wäre noch eine Zwischenschicht, um Änderungen der
+Schnittstelle der Java Beans abzufedern. Der Aufwand dafür
+ist jedoch recht hoch. Sobald ein stabiles Domänenmodell
+existiert und wesentliche Änderungen anstehen, läßt sich
+die Zwischenschicht immer noch implementieren.
+
+\subsection{Vorhandene Komponenten}
+
+Es gibt einen MP3-, WAV- und OggVorbis-Parser, der Metadaten aus
+Musikstücken extrahieren kann. Das Schreiben der Metadaten ist
+implementiert, aber wenig getestet.
+
+Es gibt zwei Importer, die in zwei bestehende Contentmodelle
+von CAP importieren können.
+
+Es gibt eine Anfrageschnittstelle, die zu einem gegebenen Namen
+Künstler, Alben oder Musikstücke findet, die in der FreeDB auf den
+Namen passen. Diese ließe sich erweitern, so daß sie Indices von
+Musikstücken, die DiscId und das Jahr zu einem Album herausfindet.
+
+Es gibt eine Anfrageschnittstelle, die zu einer gegebenen AudioCD
+die DiscId berechnet, mit der Abfragen gegen FreeDB möglich sind.
+
+Es gibt eine Anfrageschnittstelle, die zu einer gegebenen Audiodatei
+die TRM berechnet, mit der Abfragen gegen MusicBrainz möglich sind.
+
+Es gibt eine Anfrageschnittstelle, die zu einem gegebenen Künstler und
+Alben das passende Cover aus diversen Cover-Datenbanken versucht
+herunterzuladen.	
+
+Es gibt mehrere Algorithmen, um die Ähnlichkeit von Zeichenketten zu
+bestimmen.
+
+\subsection{Offene Punkte}
+
+Transaktionen:
+
+Vorbedingung
+
+Objektreferenzen nie lange halten, um bei abort keine dann ungültigen
+Objekte zu haben
+
+Variante 1
+
+tx = new Transaction()
+
+bei Veränderungen tx immer hineinreichen
+
+tx.commit()
+
+oder 
+
+tx.abort()
+
+Pros und Cons
+
+- Transaktionen überall im Interface zu sehen
+
++ gute Kontrolle
+
+Variante 2
+
+TransactionManager.getTransation() erzeugt neue Transaktion falls
+keine als ThreadLocal existent, reicht sonst bestehende Transaktion
+heraus
+
+alle Objekte benutzen TransactionManager.getTransation() intern für
+lock() bei Neuanlage, Änderung und für delete() bei Löschung
+
+- was ist mit Queries und Änderungen in derselben Transaktion?
+
+- nur eine Transaktion pro Thread zur Zeit
+
++ Transaktionen praktisch nicht zu sehen
+
+\subsection{CVS}
+
+Michael Stattmann (michael.stattmann@coremedia.com) hat ein
+CVS-Repository aufgesetzt:
+
+\begin{description}
+
+\item [Login] cvs -d:pserver:cpesch@cvs.stattmann.com:/cvs/metamusic login
+
+\item [Checkout] cvs -d:pserver:cpesch@cvs.stattmann.com:/cvs/metamusic co metamusic
+
+\end{description}
+
+
+
+
+
+\section{Ideen}
+
+Folgende Erweiterungen sind für den grundlegenden Betrieb nicht
+notwendig und könnten später realisiert werden:
+
+\begin{itemize}
+\item Aus der Warteschlange können Musikstücke entfernt werden.
+
+\item Musikstücke werden anhand einer eindeutigen Kennung identifiziert,
+auch wenn sie verschoben oder umbenannt wurden. Duplikate unter den
+Musikstücken werden erkannt und können entfernt werden.
+
+\item Externe Dienste werden zur Verbesserung der Metadaten eingebunden.
+Cover und Texte werden heruntergeladen und in Alben eingepflegt.
+Freedb wird anhand von DiscId, Künstlername, Albenname oder
+Musikstückname gefragt und die Alternativen dem Benutzer zur Auswahl
+angeboten, um sie in die Musikdatenbank zu übernehmen. Wurde ein Album
+aus Freedb identifiziert, können neben dem Namen des Albums, das Jahr
+der Produktion, die Musikstücke und ihre Indizes und Genres übernommen
+werden.
+
+\item Externe Musikstücke können mit Daten angereichert werden.
+
+\item Externe Musikstücke können umbewegt werden, so daß ihr Ablageort mit 
+den Daten aus der Musikdatenbank korrespondiert.
+
+\item Werden externe Musikstücke umbewegt, kann der Ablageort in der
+Musikdatenbank automatisch aktualisiert werden.
+
+\item Die Auswahl von Musikstücken für die Warteschlange kann über
+eine Fernbedienung erfolgen.
+
+\item Abspiellisten (playlists) können erzeugt, bearbeitet und abgespielt
+werden.
+
+\item Die Benutzungsoberfläche erlaubt unterschiedliche Skins.
+\end{itemize}
+
+
+
+\end{document}
+

@@ -1,0 +1,74 @@
+Parser:
+- set TPOS tag for discs with DiscIndexHelper	
+
+Cover:
+- doppelte Albennamen finden und entfernen
+- immer erst nach various_artists-<albenname> schauen?
+
+with noid3.mp3:
+- Tags that WMP writes
+- Tags that iTunes writes
+- Tags that mp3tag writes
+
+with files from Failures directory:
+- why do they fail?
+- why do players not fail?
+
+repair defects:
+- iTunes - Extra nullchar in COMM frame - iTunes adds an extra nullchar to the end of the Comments frame.
+- find extra ID3 tags before first FFFB - see MP3FileTest#testID3v30BeforeV20Header
+
+extend:
+- read ID from WMP tags to find corresponding AlbumArt_{ID}
+- logging to metamusic-0.xxx/var/log
+
+iTunes Hörspiel:
+		<key>958</key>
+		<dict>
+			<key>Track ID</key><integer>958</integer>
+			<key>Name</key><string>Terry sah vor allem verwirrt aus</string>
+			<key>Artist</key><string>Hannlore Hoger</string>
+			<key>Composer</key><string>Elizabeth George</string>
+			<key>Album</key><string>Vergiss nie, dass ich dich liebe CD (Disc 1)</string>
+-->			<key>Genre</key><string>Books &#38; Spoken</string>
+			<key>Kind</key><string>MPEG-Audiodatei</string>
+			<key>Size</key><integer>8034630</integer>
+			<key>Total Time</key><integer>424280</integer>
+-->			<key>Disc Number</key><integer>1</integer>
+-->			<key>Disc Count</key><integer>2</integer>
+-->			<key>Track Number</key><integer>10</integer>
+-->			<key>Track Count</key><integer>11</integer>
+			<key>Year</key><integer>2005</integer>
+			<key>Date Modified</key><date>2007-01-05T17:02:54Z</date>
+			<key>Date Added</key><date>2007-01-05T17:02:29Z</date>
+			<key>Bit Rate</key><integer>151</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Persistent ID</key><string>DEDF0D0D980B26D9</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/C:/Dokumente%20und%20Einstellungen/cpesch/Eigene%20Dateien/Eigene%20Musik/iTunes/iTunes%20Music/Hannlore%20Hoger/Vergiss%20nie,%20dass%20ich%20dich%20liebe%20CD%20(Dis/1-10%20Terry%20sah%20vor%20allem%20verwirrt%20au.mp3</string>
+-->			<key>File Folder Count</key><integer>4</integer>
+-->			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+
+
+Design:
+- Berkeley DB ausprobieren
+- jdoinstruments ausprobieren
+
+Workspace:
+- mm.exe, pre/post-config, jpifs loswerden
+- TRM unter Windows
+- Nachfolger/Ersatz für TRM
+
+Später:
+
+lame -p "Turn on CRC error protection. It  will add a cyclic redundancy
+  check (CRC) code in each frame, allowing to detect transmission errors
+  that could occur on the MP3 stream.  However, it takes 16 bits per frame
+  that would otherwise be used for encoding, and then will slightly reduce
+  the sound quality." gegen MP3-Parser testen
+
+Prototyp für Bearbeitungsschnittstelle erstellen
+Comments, Opinions implementieren
+Mehrere Bilder für Composition (Vorderseite, Innenseite(n), Rückseite)?
+Bei Gracenote registrieren und Konkurrenz für Relatable TRM ausprobieren

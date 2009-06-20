@@ -18,6 +18,7 @@ Unfortunately this information is lost if you move or rename your music files
 from the location that is store inside the library. And since manually updating 
 the locations and reimporting the XML version of the library is time-consuming 
 and error-prone, RatingSaver
+
 * stores 'My Rating', 'Counter' and 'Last Played' from your iTunes library as 
   [ID3v2](http://en.wikipedia.org/wiki/ID3) tags in 
   [MP3](http://en.wikipedia.org/wiki/MP3) files
@@ -33,6 +34,7 @@ MP3Tidy
 MP3Tidy processes the meta data of [MP3](http://en.wikipedia.org/wiki/MP3) files 
 stored in the [ID3v1](http://en.wikipedia.org/wiki/ID3), ID3v2 and the the file 
 name. It can
+
 * enrich the meta data by adding cover albums from several source, lyrics, 
   publisher and compilation information
 * remove unnecessary meta data that players like 
@@ -58,6 +60,7 @@ And more
 --------
 
 Besides these tools several command line tools exist:
+
 * RecursiveTagSetter allows manipulation the meta data of many MP3 files
 * MP3File shows the meta data of MP3 files on the command line
 * AmazonMusic fetches a cover from Amazon given an artist and an album name
@@ -92,28 +95,29 @@ Besides these tools several command line tools exist:
 FAQ
 ---
 
-Q: Why Java?
+Q: Why Java?  
 A: I like it. That is why I had more fun developing it.
 
-Q: Why Java 6?
+Q: Why Java 6?  
 A: It helped me to develop faster. 
 
-Q: Does my music collection need to have a structure?
+Q: Does my music collection need to have a structure?  
 A: A certain structure is not necessary. If however you'd like to use the option 
    to rename files from the meta date, MP3Tidy uses a scheme
-   > Name of the artist / Name of the album / Name of the title .mp3 
+       Name of the artist / Name of the album / Name of the title .mp3 
    If you're using RecursiveTagSetter you can declare files as an compilation 
    and MP3Tidy uses the scheme
-	 > Name of the compilation / Name of the title .mp3 
+	     Name of the compilation / Name of the title .mp3 
 	 
-Q: How do you develop?
+Q: How do you develop?  
 A: Currently, I'm using ant to build and IntelliJ IDEA to develop. There are
    plans to migrate the build process to Maven and get rid of the IDEA project
-   files and the thirdparty directory.	 
-Q: How do I compile it?
+   files and the thirdparty directory.	
+    
+Q: How do I compile it?  
 A: Set JAVA_HOME to a Java 6 SDK and call
-   > ant -f build/build.xml clean jar
+       ant -f build/build.xml clean jar
    and find lots of jars in build/output/
 	 
-I hope you like it, feedback is always welcome
+I hope you like it, feedback is always welcome  
 Christian
