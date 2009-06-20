@@ -1,0 +1,461 @@
+<project name="metamusic" default="compile" basedir="..">
+
+	<!-- Initializes properties -->
+	<target name="init">
+        <property name="javac.debug" value="false"/>
+		<property file="build.properties"/>
+		<property name="build.output.dir" location="build/output"/>
+		<property name="common.output" location="common/output"/>
+		<property name="mp3-parser.output" location="mp3-parser/output"/>
+        <property name="mp3-tidy.output" location="mp3-tidy/output"/>
+		<property name="mp3-tools.output" location="mp3-tools/output"/>
+        <property name="mp3-viewer.output" location="mp3-viewer/output"/>
+		<property name="playlist-creator.output" location="playlist-creator/output"/>
+		<property name="retrieval-tools.output" location="retrieval-tools/output"/>
+        <property name="rating-saver.output" location="rating-saver/output"/>
+		<property name="itunes-com-library.output" location="itunes-com-library/output"/>
+		<property name="itunes-xml-library.output" location="itunes-xml-library/output"/>
+
+		<property name="common.output.classes" location="${common.output}/classes"/>
+		<property name="mp3-parser.output.classes" location="${mp3-parser.output}/classes"/>
+        <property name="mp3-tidy.output.classes" location="${mp3-tidy.output}/classes"/>
+		<property name="mp3-tools.output.classes" location="${mp3-tools.output}/classes"/>
+        <property name="mp3-viewer.output.classes" location="${mp3-viewer.output}/classes"/>
+		<property name="playlist-creator.output.classes" location="${playlist-creator.output}/classes"/>
+		<property name="retrieval-tools.output.classes" location="${retrieval-tools.output}/classes"/>
+        <property name="rating-saver.output.classes" location="${rating-saver.output}/classes"/>
+		<property name="itunes-com-library.output.classes" location="${itunes-com-library.output}/classes"/>
+		<property name="itunes-xml-library.output.classes" location="${itunes-xml-library.output}/classes"/>
+
+		<property name="common.output.testclasses" location="${common.output}/testclasses"/>
+		<property name="mp3-parser.output.testclasses" location="${mp3-parser.output}/testclasses"/>
+		<property name="mp3-tidy.output.testclasses" location="${mp3-tidy.output}/testclasses"/>
+        <property name="mp3-tools.output.testclasses" location="${mp3-tools.output}/testclasses"/>
+        <property name="mp3-viewer.output.testclasses" location="${mp3-viewer.output}/testclasses"/>
+		<property name="playlist-creator.output.testclasses" location="${playlist-creator.output}/testclasses"/>
+		<property name="retrieval-tools.output.testclasses" location="${retrieval-tools.output}/testclasses"/>
+        <property name="rating-saver.output.testclasses" location="${rating-saver.output}/testclasses"/>
+		<property name="itunes-com-library.output.testclasses" location="${itunes-com-library.output}/testclasses"/>
+		<property name="itunes-xml-library.output.testclasses" location="${itunes-xml-library.output}/testclasses"/>
+
+		<property name="apache.commons.cli.lib" location="thirdparty/apache/commons-cli-1.0/lib/commons-cli.jar"/>
+		<property name="hp.jena.lib" location="thirdparty/ldodds/musicbrainz-beta-2/lib/jena.jar"/>
+        <property name="intellij.forms.lib" location="thirdparty/intellij/forms-rt/lib/forms-rt-6.0.5-stripped.jar"/>
+		<property name="jacob.jacob.lib" location="thirdparty/jacob/jacob-1.12pre5/lib/jacob.jar"/>
+		<property name="jacob.jacob.dll" location="thirdparty/jacob/jacob-1.12pre5/lib/jacob.dll"/>
+		<property name="jdom.jdom.lib" location="thirdparty/jdom/jdom-1.0/lib/jdom.jar"/>
+		<property name="tonicsystems.jarjar.lib" location="thirdparty/tonicsystems/jarjar-1.0rc3/lib/jarjar.jar"/>
+		<property name="jdom.jdom.lib" location="thirdparty/jdom/jdom-1.0/lib/jdom.jar"/>
+		<property name="ldodds.musicbrainz.lib" location="thirdparty/ldodds/musicbrainz-beta-2/lib/musicbrainz.jar"/>
+		<property name="sun.activation.lib" location="thirdparty/sun/activation-1.1/lib/activation.jar"/>
+		<property name="sun.jaxb.api.lib" location="thirdparty/sun/jaxb-api-2.0.4/lib/jaxb-api.jar"/>
+		<property name="sun.jaxb.impl.lib" location="thirdparty/sun/jaxb-impl-2.0.4/lib/jaxb-impl.jar"/>
+		<property name="sun.jsr173.api.lib" location="thirdparty/sun/jsr173-api-1.0/lib/jsr173-api.jar"/>
+		<path id="common.classpath">
+			<path location="${common.output.classes}"/>
+			<path location="${apache.commons.cli.lib}"/>
+			<path location="${sun.activation.lib}"/>
+		</path>
+		<path id="mp3-parser.classpath">
+			<path location="${common.output.classes}"/>
+			<path location="${apache.commons.cli.lib}"/>
+			<path location="${sun.activation.lib}"/>
+		</path>
+		<path id="mp3-tidy.classpath">
+			<path location="${common.output.classes}"/>
+			<path location="${mp3-parser.output.classes}"/>
+            <path location="${mp3-tools.output.classes}"/>
+            <path location="${intellij.forms.lib}"/>
+		</path>
+        <path id="mp3-tools.classpath">
+            <path location="${common.output.classes}"/>
+            <path location="${mp3-parser.output.classes}"/>
+            <path location="${retrieval-tools.output.classes}"/>
+            <path location="${apache.commons.cli.lib}"/>
+            <path location="${ldodds.musicbrainz.lib}"/>
+        </path>
+        <path id="mp3-viewer.classpath">
+            <path location="${common.output.classes}"/>
+            <path location="${mp3-parser.output.classes}"/>
+            <path location="${intellij.forms.lib}"/>
+        </path>
+		<path id="playlist-creator.classpath">
+			<path location="${common.output.classes}"/>
+			<path location="${mp3-parser.output.classes}"/>
+			<path location="${apache.commons.cli.lib}"/>
+		</path>
+		<path id="retrieval-tools.classpath">
+			<path location="${common.output.classes}"/>
+			<path location="${mp3-parser.output.classes}"/>
+            <path location="${apache.commons.cli.lib}"/>
+			<path location="${hp.jena.lib}"/>
+			<path location="${jdom.jdom.lib}"/>
+			<path location="${ldodds.musicbrainz.lib}"/>
+		</path>
+        <path id="rating-saver.classpath">
+            <path location="${common.output.classes}"/>
+            <path location="${mp3-parser.output.classes}"/>
+            <path location="${itunes-com-library.output.classes}"/>
+            <path location="${intellij.forms.lib}"/>
+        </path>
+        <path id="itunes-com-library.classpath">
+            <path location="${common.output.classes}"/>
+            <path location="${mp3-parser.output.classes}"/>
+            <path location="${apache.commons.cli.lib}"/>
+            <path location="${jacob.jacob.lib}"/>
+        </path>
+		<path id="itunes-xml-library.classpath">
+			<path location="${common.output.classes}"/>
+			<path location="${mp3-parser.output.classes}"/>
+			<path location="${apache.commons.cli.lib}"/>
+			<path location="${sun.jaxb.api.lib}"/>
+			<path location="${sun.jaxb.impl.lib}"/>
+			<path location="${sun.jsr173.api.lib}"/>
+		</path>
+	</target>
+
+    <target name="copy-native" depends="init">
+        <mkdir dir="${itunes-com-library.output.classes}"/>
+        <copy todir="${itunes-com-library.output.classes}">
+            <fileset file="${jacob.jacob.dll}"/>
+        </copy>
+    </target>
+
+    <target name="copy-resources" depends="init, copy-native">
+        <mkdir dir="${mp3-tidy.output.classes}"/>
+        <copy todir="${mp3-tidy.output.classes}">
+            <fileset dir="mp3-tidy/src/resources">
+                <include name="**/*.png"/>
+                <include name="**/*.properties"/>
+            </fileset>
+        </copy>
+
+        <mkdir dir="${mp3-viewer.output.classes}"/>
+        <copy todir="${mp3-viewer.output.classes}">
+            <fileset dir="mp3-viewer/src/resources">
+                <include name="**/*.png"/>
+                <include name="**/*.properties"/>
+            </fileset>
+        </copy>
+
+        <mkdir dir="${rating-saver.output.classes}"/>
+        <copy todir="${rating-saver.output.classes}">
+            <fileset dir="rating-saver/src/resources">
+                <include name="**/*.png"/>
+                <include name="**/*.properties"/>
+            </fileset>
+        </copy>
+
+        <mkdir dir="${itunes-xml-library.output.classes}"/>
+        <copy todir="${itunes-xml-library.output.classes}">
+            <fileset dir="itunes-xml-library/src/resources">
+                <include name="**/*.xsd"/>
+            </fileset>
+        </copy>
+    </target>
+
+    <!-- Compiles all java classes -->
+	<target name="compile" depends="init, copy-resources">
+		<mkdir dir="${common.output.classes}"/>
+		<javac destdir="${common.output.classes}" debug="${javac.debug}">
+			<src location="common/src/java"/>
+			<classpath refid="common.classpath"/>
+		</javac>
+
+		<mkdir dir="${mp3-parser.output.classes}"/>
+		<javac destdir="${mp3-parser.output.classes}" debug="${javac.debug}">
+			<src location="mp3-parser/src/java"/>
+			<classpath refid="mp3-parser.classpath"/>
+		</javac>
+
+		<mkdir dir="${retrieval-tools.output.classes}"/>
+		<javac destdir="${retrieval-tools.output.classes}" debug="${javac.debug}">
+			<src location="retrieval-tools/src/java"/>
+			<classpath refid="retrieval-tools.classpath"/>
+		</javac>
+
+		<mkdir dir="${mp3-tools.output.classes}"/>
+		<javac destdir="${mp3-tools.output.classes}" debug="${javac.debug}">
+			<src location="mp3-tools/src/java"/>
+			<classpath refid="mp3-tools.classpath"/>
+		</javac>
+
+        <mkdir dir="${mp3-tidy.output.classes}"/>
+        <javac destdir="${mp3-tidy.output.classes}" debug="${javac.debug}">
+            <src location="mp3-tidy/src/java"/>
+            <classpath refid="mp3-tidy.classpath"/>
+        </javac>
+
+        <mkdir dir="${mp3-viewer.output.classes}"/>
+        <javac destdir="${mp3-viewer.output.classes}" debug="${javac.debug}">
+            <src location="mp3-viewer/src/java"/>
+            <classpath refid="mp3-viewer.classpath"/>
+        </javac>
+
+        <mkdir dir="${playlist-creator.output.classes}"/>
+		<javac destdir="${playlist-creator.output.classes}" debug="${javac.debug}">
+			<src location="playlist-creator/src/java"/>
+			<classpath refid="playlist-creator.classpath"/>
+		</javac>
+
+        <mkdir dir="${itunes-com-library.output.classes}"/>
+        <javac destdir="${itunes-com-library.output.classes}" debug="${javac.debug}">
+            <src location="itunes-com-library/src/java"/>
+            <classpath refid="itunes-com-library.classpath"/>
+        </javac>
+
+        <mkdir dir="${rating-saver.output.classes}"/>
+        <javac destdir="${rating-saver.output.classes}" debug="${javac.debug}">
+            <src location="rating-saver/src/java"/>
+            <classpath refid="rating-saver.classpath"/>
+        </javac>
+
+		<mkdir dir="${itunes-xml-library.output.classes}"/>
+		<javac destdir="${itunes-xml-library.output.classes}" debug="${javac.debug}">
+			<src location="itunes-xml-library/src/java"/>
+			<classpath refid="itunes-xml-library.classpath"/>
+		</javac>
+	</target>
+
+    <target name="exe" depends="exe-MP3Tidy, exe-MP3Viewer, exe-RatingSaver"/>
+
+	<target name="jar" depends="jar-CoverDownloader, jar-iTunesSynchronizer, jar-MP3File,
+	    jar-PlaylistCreator, jar-MP3Tidy, jar-MP3Viewer, jar-RatingSaver, jar-RecursiveTagSetter"/>
+
+	<target name="jar-basic" depends="init,compile">
+		<mkdir dir="${build.output.dir}"/>
+
+		<jar destfile="${build.output.dir}/metamusic-common.jar">
+			<fileset dir="${common.output.classes}" includes="**/*.class"/>
+		</jar>
+
+		<jar destfile="${build.output.dir}/mp3-parser.jar">
+			<fileset dir="${mp3-parser.output.classes}" includes="**/*.class"/>
+		</jar>
+
+		<jar destfile="${build.output.dir}/mp3-tools.jar">
+			<fileset dir="${mp3-tools.output.classes}" includes="**/*.class"/>
+        </jar>
+
+        <jar destfile="${build.output.dir}/mp3-tidy.jar">
+            <fileset dir="${mp3-tidy.output.classes}">
+                <include name="**/*.class"/>
+                <include name="**/*.png"/>
+                <include name="**/*.properties"/>
+            </fileset>
+        </jar>
+
+        <jar destfile="${build.output.dir}/mp3-viewer.jar">
+            <fileset dir="${mp3-viewer.output.classes}">
+                <include name="**/*.class"/>
+                <include name="**/*.png"/>
+                <include name="**/*.properties"/>
+            </fileset>
+        </jar>
+
+        <jar destfile="${build.output.dir}/playlist-creator.jar">
+            <fileset dir="${playlist-creator.output.classes}" includes="**/*.class"/>
+        </jar>
+
+        <jar destfile="${build.output.dir}/retrieval-tools.jar">
+            <fileset dir="${retrieval-tools.output.classes}" includes="**/*.class"/>
+        </jar>
+
+        <jar destfile="${build.output.dir}/rating-saver.jar">
+            <fileset dir="${rating-saver.output.classes}">
+                <include name="**/*.class"/>
+                <include name="**/*.png"/>
+                <include name="**/*.properties"/>
+            </fileset>
+        </jar>
+
+        <jar destfile="${build.output.dir}/itunes-com-library.jar">
+            <fileset dir="${itunes-com-library.output.classes}">
+                <include name="**/*.class"/>
+                <include name="**/*.dll"/>
+            </fileset>
+        </jar>
+
+		<jar destfile="${build.output.dir}/itunes-xml-library.jar">
+			<fileset dir="${itunes-xml-library.output.classes}" includes="**/*.class"/>
+		</jar>
+
+		<copy todir="${build.output.dir}" file="${apache.commons.cli.lib}"/>
+		<copy todir="${build.output.dir}" file="${jacob.jacob.lib}"/>
+		<copy todir="${build.output.dir}" file="${jdom.jdom.lib}"/>
+	</target>
+
+	<target name="jar-standalone" depends="init">
+		<mkdir dir="${build.output.dir}/standalone/"/>
+		<taskdef name="jarjar" classname="com.tonicsystems.jarjar.JarJarTask" classpath="${tonicsystems.jarjar.lib}"/>
+	</target>
+
+	<target name="jar-CoverDownloader" depends="jar-basic, jar-standalone">
+		<jar destfile="${build.output.dir}/CoverDownloader.jar">
+			<manifest>
+				<attribute name="Main-Class" value="slash.metamusic.freedb.CoverDownloader"/>
+				<attribute name="Class-Path"
+				           value="commons-cli.jar jdom.jar metamusic-common.jar retrieval-tools.jar"/>
+			</manifest>
+		</jar>
+	</target>
+
+    <target name="jar-iTunesSynchronizer" depends="jar-basic, jar-standalone">
+        <jar destfile="${build.output.dir}/iTunesCOMSynchronizer.jar">
+            <manifest>
+                <attribute name="Main-Class" value="slash.metamusic.itunes.com.iTunesCOMSynchronizerCmdLine"/>
+                <attribute name="Class-Path"
+                           value="commons-cli.jar itunes-com-library.jar jacob.jar metamusic-common.jar mp3-parser.jar"/>
+            </manifest>
+        </jar>
+
+        <jar destfile="${build.output.dir}/iTunesXMLSynchronizer.jar">
+            <manifest>
+                <attribute name="Main-Class" value="slash.metamusic.itunes.xml.iTunesXMLSynchronizerCmdLine"/>
+                <attribute name="Class-Path"
+                           value="commons-cli.jar itunes-xml-library.jar metamusic-common.jar mp3-parser.jar"/>
+            </manifest>
+        </jar>
+    </target>
+
+	<target name="jar-MP3File" depends="jar-basic, jar-standalone">
+		<jarjar jarfile="${build.output.dir}/standalone/MP3File.jar">
+			<zipfileset src="${apache.commons.cli.lib}"/>
+			<zipfileset src="${build.output.dir}/metamusic-common.jar"/>
+			<zipfileset src="${build.output.dir}/mp3-parser.jar"/>
+            <zipfileset src="${build.output.dir}/mp3-tools.jar"/>
+			<manifest>
+				<attribute name="Main-Class" value="slash.metamusic.mp3.tools.MP3FileCmdLine"/>
+			</manifest>
+		</jarjar>
+	</target>
+
+	<target name="jar-PlaylistCreator" depends="jar-basic, jar-standalone">
+		<jar destfile="${build.output.dir}/M3UCreator.jar">
+			<manifest>
+				<attribute name="Main-Class" value="slash.metamusic.mp3.playlist.M3UCreator"/>
+				<attribute name="Class-Path"
+				           value="commons-cli.jar metamusic-common.jar mp3-parser.jar playlist-creator.jar"/>
+			</manifest>
+		</jar>
+
+		<jar destfile="${build.output.dir}/PLSCreator.jar">
+			<manifest>
+				<attribute name="Main-Class" value="slash.metamusic.mp3.playlist.PLSCreator"/>
+				<attribute name="Class-Path"
+				           value="commons-cli.jar metamusic-common.jar mp3-parser.jar playlist-creator.jar"/>
+			</manifest>
+		</jar>
+	</target>
+
+	<target name="jar-MP3Tidy" depends="jar-basic, jar-standalone">
+		<jarjar jarfile="${build.output.dir}/standalone/MP3Tidy.jar">
+			<zipfileset src="${apache.commons.cli.lib}">
+                <exclude name="META-INF/**"/>
+            </zipfileset>
+			<zipfileset src="${jdom.jdom.lib}">
+                <exclude name="META-INF/**"/>
+            </zipfileset>
+            <zipfileset src="${intellij.forms.lib}">
+                <exclude name="META-INF/**"/>
+            </zipfileset>
+            <zipfileset src="${build.output.dir}/metamusic-common.jar"/>
+			<zipfileset src="${build.output.dir}/mp3-parser.jar"/>
+			<zipfileset src="${build.output.dir}/mp3-tools.jar"/>
+			<zipfileset src="${build.output.dir}/mp3-tidy.jar"/>
+            <zipfileset src="${build.output.dir}/retrieval-tools.jar"/>
+			<manifest>
+                <attribute name="Created-By" value="Christian Pesch"/>
+				<attribute name="Main-Class" value="slash.metamusic.mp3.gui.MP3TidyGUI"/>
+			</manifest>
+		</jarjar>
+	</target>
+
+    <target name="jar-MP3Viewer" depends="jar-basic, jar-standalone">
+        <jarjar jarfile="${build.output.dir}/standalone/MP3Viewer.jar">
+            <zipfileset src="${apache.commons.cli.lib}">
+                <exclude name="META-INF/**"/>
+            </zipfileset>
+            <zipfileset src="${intellij.forms.lib}">
+                <exclude name="META-INF/**"/>
+            </zipfileset>
+            <zipfileset src="${build.output.dir}/metamusic-common.jar"/>
+            <zipfileset src="${build.output.dir}/mp3-parser.jar"/>
+            <zipfileset src="${build.output.dir}/mp3-viewer.jar"/>
+            <manifest>
+                <attribute name="Created-By" value="Christian Pesch"/>
+                <attribute name="Main-Class" value="slash.metamusic.mp3viewer.gui.MP3ViewerGUI"/>
+            </manifest>
+        </jarjar>
+    </target>
+
+    <target name="jar-RatingSaver" depends="jar-basic, jar-standalone">
+        <jarjar jarfile="${build.output.dir}/standalone/RatingSaver.jar">
+            <zipfileset src="${jacob.jacob.lib}">
+                <exclude name="version.properties"/>
+            </zipfileset>
+            <zipfileset src="${intellij.forms.lib}">
+                <exclude name="META-INF/**"/>
+            </zipfileset>
+            <zipfileset src="${build.output.dir}/itunes-com-library.jar"/>
+            <zipfileset src="${build.output.dir}/metamusic-common.jar"/>
+            <zipfileset src="${build.output.dir}/mp3-parser.jar"/>
+            <zipfileset src="${build.output.dir}/rating-saver.jar"/>
+            <manifest>
+                <attribute name="Created-By" value="Christian Pesch"/>
+                <attribute name="Main-Class" value="slash.metamusic.itunes.gui.RatingSaverGUI"/>
+            </manifest>
+        </jarjar>
+    </target>
+
+    <target name="jar-RecursiveTagSetter" depends="jar-basic, jar-standalone">
+        <jarjar jarfile="${build.output.dir}/standalone/RecursiveTagSetter.jar">
+            <zipfileset src="${apache.commons.cli.lib}"/>
+            <zipfileset src="${build.output.dir}/metamusic-common.jar"/>
+            <zipfileset src="${build.output.dir}/mp3-parser.jar"/>
+            <zipfileset src="${build.output.dir}/mp3-tools.jar"/>
+            <manifest>
+                <attribute name="Main-Class" value="slash.metamusic.mp3.tools.RecursiveTagSetter"/>
+            </manifest>
+        </jarjar>
+    </target>
+
+    <target name="exe-MP3Tidy" depends="jar-MP3Tidy">
+        <path id="jsmoothgen.classpath">
+            <path location="c:/Programme/JSmooth 0.9.9-7/lib/jsmoothgen-ant.jar"/>
+        </path>
+        <taskdef name="jsmoothgen" classname="net.charabia.jsmoothgen.ant.JSmoothGen" classpathref="jsmoothgen.classpath"/>
+        <jsmoothgen project="build/MP3Tidy.jsmooth" skeletonroot="c:/Programme/JSmooth 0.9.9-7/skeletons"/>
+    </target>
+
+    <target name="exe-MP3Viewer" depends="jar-MP3Viewer">
+        <path id="jsmoothgen.classpath">
+            <path location="c:/Programme/JSmooth 0.9.9-7/lib/jsmoothgen-ant.jar"/>
+        </path>
+        <taskdef name="jsmoothgen" classname="net.charabia.jsmoothgen.ant.JSmoothGen" classpathref="jsmoothgen.classpath"/>
+        <jsmoothgen project="build/MP3Viewer.jsmooth" skeletonroot="c:/Programme/JSmooth 0.9.9-7/skeletons"/>
+    </target>
+
+    <target name="exe-RatingSaver" depends="jar-RatingSaver">
+        <path id="jsmoothgen.classpath">
+            <path location="c:/Programme/JSmooth 0.9.9-7/lib/jsmoothgen-ant.jar"/>
+        </path>
+        <taskdef name="jsmoothgen" classname="net.charabia.jsmoothgen.ant.JSmoothGen" classpathref="jsmoothgen.classpath"/>
+        <jsmoothgen project="build/RatingSaver.jsmooth" skeletonroot="c:/Programme/JSmooth 0.9.9-7/skeletons"/>
+    </target>
+
+	<!-- Cleans up any temporary stuff -->
+	<target name="clean" depends="init">
+        <delete dir="${build.output.dir}"/>
+		<delete dir="${common.output}"/>
+        <delete dir="${itunes-com-library.output}"/>
+        <delete dir="${itunes-xml-library.output}"/>
+		<delete dir="${mp3-parser.output}"/>
+        <delete dir="${mp3-tidy.output}"/>
+		<delete dir="${mp3-tools.output}"/>
+        <delete dir="${mp3-viewer.output}"/>
+		<delete dir="${playlist-creator.output}"/>
+        <delete dir="${rating-saver.output}"/>
+        <delete dir="${retrieval-tools.output}"/>
+	</target>
+</project>
