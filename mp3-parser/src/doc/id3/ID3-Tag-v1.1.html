@@ -1,0 +1,210 @@
+<html><head><title>ID3-Tag V1.1 Specification by Michael Mutschler</title></head>
+<body>
+<h1>ID3-Tag Specification V1.1 by Michael Mutschler</h1>
+<h2>Overview</h2>
+Since I always missed a correct specification of the ID3-Tag for the MP3s, here is
+mine. I don't know where the original one came from, and there is noone who
+officially supports it, I want to make it with this page.
+<p>
+The ID3-Tag is an information field for MPEG Layer 3 audio files. Since a standalone
+MP3 doesn't provide a method of storing other information than MP3 related, the ID3
+allows to do this. This is no official standard, but I hope this file helps all you
+guys out there.
+</p><p>
+I have made an addition to the original ID3-Tag to store the information of the
+track. The <a href="#Track">below</a> for this feature. This is the reason why I
+set the version to 1.1!
+</p><p>
+</p><h2>Implementation</h2>
+The Information is stored in the last 128 bytes of an MP3. The Tag has got the following
+fields, and the offsets given here, are from 0-127
+<p>
+<table borderwidth="1" border="1">
+<tbody><tr><th>Field</th><th>Length</th><th>offsets</th></tr>
+<tr><td>Tag</td><td>3</td><td>0-2</td></tr>
+<tr><td>Songname</td><td>30</td><td>3-32</td></tr>
+<tr><td>Artist</td><td>30</td><td>33-62</td></tr>
+<tr><td>Album</td><td>30</td><td>63-92</td></tr>
+<tr><td>Year</td><td>4</td><td>93-96</td></tr>
+<tr><td>Comment</td><td>30</td><td>97-126</td></tr>
+<tr><td>Genre</td><td>1</td><td>127</td></tr>
+</tbody></table>
+</p><p>
+The string-fields contain ASCII-data, and the codepage used for it is ISO-Latin 1
+Strings which are smaller than the 30 (4) characters are padded with zero-bytes.
+</p><p>
+</p><ul>
+<li> <b>Tag</b>: the tag is valid if this field contains the string "TAG". This
+     has to be uppercase!
+</li><li> <b>Songname</b>: this field contains the title of the MP3. (string as above)
+</li><li> <b>Artist</b>: this field contains the artist of the MP3. (string as above)
+</li><li> <b>Album</b>: this field contains the album where the MP3 comes from. (string
+     as above)
+</li><li> <b>Year</b>: this field contains the year when this song has originally been
+     released. (string as above)
+</li><li> <b>Comment</b>: this field contains a comment for the MP3. (string as above)
+     I have made an <a href="#Track">addition</a> to this field, to store the track
+     number of this songs. See <a href="#Track">Track addition</a> below.
+</li><li> <b>Genre</b>: this byte contains the offset of a genre in a predefined list
+     the byte is treated as an unsigned byte. The offset is starting from 0. There
+     are currently defined 115 genres which I am <b><i>not</i></b> responsible for!
+     Because there is no default-Field, I use an unused value (255) to indicate this.
+     The current list is shown below.
+</li></ul>
+<p>
+</p><h3>Genre List:</h3>
+<ol>
+<li>Blues
+</li><li>Classic Rock
+</li><li>Country
+</li><li>Dance
+</li><li>Disco
+</li><li>Funk
+</li><li>Grunge
+</li><li>Hip-Hop
+</li><li>Jazz
+</li><li>Metal
+</li><li>New Age
+</li><li>Oldies
+</li><li>Other
+</li><li>Pop
+</li><li>R&amp;B
+</li><li>Rap
+</li><li>Reggae
+</li><li>Rock
+</li><li>Techno
+</li><li>Industrial
+</li><li>Alternative
+</li><li>Ska
+</li><li>Death Metal
+</li><li>Pranks
+</li><li>Soundtrack
+</li><li>Euro-Techno
+</li><li>Ambient
+</li><li>Trip-Hop
+</li><li>Vocal
+</li><li>Jazz+Funk
+</li><li>Fusion
+</li><li>Trance
+</li><li>Classical
+</li><li>Instrumental
+</li><li>Acid
+</li><li>House
+</li><li>Game
+</li><li>Sound Clip
+</li><li>Gospel
+</li><li>Noise
+</li><li>AlternRock
+</li><li>Bass
+</li><li>Soul
+</li><li>Punk
+</li><li>Space
+</li><li>Meditative
+</li><li>Instrumental Pop
+</li><li>Instrumental Rock
+</li><li>Ethnic
+</li><li>Gothic
+</li><li>Darkwave
+</li><li>Techno-Industrial
+</li><li>Electronic
+</li><li>Pop-Folk
+</li><li>Eurodance
+</li><li>Dream
+</li><li>Southern Rock
+</li><li>Comedy
+</li><li>Cult
+</li><li>Gangsta
+</li><li>Top 40
+</li><li>Christian Rap
+</li><li>Pop/Funk
+</li><li>Jungle
+</li><li>Native American
+</li><li>Cabaret
+</li><li>New Wave
+</li><li>Psychadelic
+</li><li>Rave
+</li><li>Showtunes
+</li><li>Trailer
+</li><li>Lo-Fi
+</li><li>Tribal
+</li><li>Acid Punk
+</li><li>Acid Jazz
+</li><li>Polka
+</li><li>Retro
+</li><li>Musical
+</li><li>Rock &amp; Roll
+</li><li>Hard Rock
+</li><li>Folk
+</li><li>Folk/Rock
+</li><li>National Folk
+</li><li>Swing
+</li><li>Bebob
+</li><li>Latin
+</li><li>Revival
+</li><li>Celtic
+</li><li>Bluegrass
+</li><li>Avantgarde
+</li><li>Gothic Rock
+</li><li>Progressive Rock
+</li><li>Psychedelic Rock
+</li><li>Symphonic Rock
+</li><li>Slow Rock
+</li><li>Big Band
+</li><li>Chorus
+</li><li>Easy Listening
+</li><li>Acoustic
+</li><li>Humour
+</li><li>Speech
+</li><li>Chanson
+</li><li>Opera
+</li><li>Chamber Music
+</li><li>Sonata
+</li><li>Symphony
+</li><li>Booty Bass
+</li><li>Primus
+</li><li>Porn Groove
+</li><li>Satire
+</li><li>Slow Jam
+</li><li>Club
+</li><li>Tango
+</li><li>Samba
+</li><li>Folklore
+</li></ol>
+<p>
+<a name="Track">
+<h3> Track addition</h3></a>
+I always missed the feature of specifying the track of the module from the album
+it originally comes from. Or how to obtain the original order of all MP3s of an
+Album.<br>
+Now I found a solution, which is compatible to the ID3-Tag, and let&#65533;s you add a
+track-number: This is done due to the cost of the comment field beeing reduced
+to 28 characters, or leaving the full 30 characters to the comment, and having
+no track-info. I use the comment-field, because a) it is rarely used, b) comment
+is too short to be useful, so it doesn&#65533;t matter if it&#65533;s 30 or 28 chars long.
+</p><p>
+For all of you programmers, this is the method of doing it:<br>
+You simply need to check if character 28 in the comment-field is zero, then
+character 29 contains the track-number. Treat this byte as an unsigned integer.
+Here is some pseudo code to do this:
+</p><p>
+</p><pre>	Comment: Array [0..29] of unsigned byte;
+	Track: unsigned byte;
+
+	if (Comment[28] = 0) then
+		Track := Comment[29];
+	else Track := 0;
+</pre>
+<p>
+This will get a track of zero even if the track cannot be read. And a track of
+zero should be treated as the unknown Track. It even works correct, if the
+comment is 30 chars long!
+</p><p>
+</p><h2>Author</h2>
+If you want to contact me: my email is:
+<a href="mailto:amiga2@info2.rus.uni-stuttgart.de">amiga2@info2.rus.uni-stuttgart.de</a><p>
+The official place of this document is: <a href="http://tick.informatik.uni-stuttgart.de/%7Emutschml/MP3ext/ID3-Tag.html">http://tick.informatik.uni-stuttgart.de/~mutschml/MP3ext/ID3-Tag.html</a>
+<br>And if you want a tool for windows, to display and edit the ID3-Tag, then
+you can get my MP3-Info Extension from the Home-Page <a href="http://tick.informatik.uni-stuttgart.de/%7Emutschml/MP3ext/MP3ext.html">http://tick.informatik.uni-stuttgart.de/~mutschml/MP3ext/MP3ext.html</a>.
+</p><p>
+last update: 17.01.1998
+</p></body></html>

@@ -1,0 +1,231 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html dir="ltr" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en"><head>
+
+	
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="generator" content="MediaWiki 1.13.3">
+		<meta name="keywords" content="APE Tags Header,APEv2 specification,Ape Tags Flags">
+		<link rel="shortcut icon" href="http://www.hydrogenaudio.org/forums/favicon.ico">
+		<link rel="search" type="application/opensearchdescription+xml" href="http://wiki.hydrogenaudio.org/opensearch_desc.php" title="Hydrogenaudio Knowledgebase (en)">
+		<link title="Creative Commons" type="application/rdf+xml" href="http://wiki.hydrogenaudio.org/index.php?title=APE_Tags_Header&amp;action=creativecommons" rel="meta">
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html">
+		<link rel="alternate" type="application/rss+xml" title="Hydrogenaudio Knowledgebase RSS Feed" href="http://wiki.hydrogenaudio.org/index.php?title=Special:RecentChanges&amp;feed=rss">
+		<link rel="alternate" type="application/atom+xml" title="Hydrogenaudio Knowledgebase Atom Feed" href="http://wiki.hydrogenaudio.org/index.php?title=Special:RecentChanges&amp;feed=atom">
+		<title>APE Tags Header - Hydrogenaudio Knowledgebase</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/skins/common/shared.css?164";
+			@import "/skins/monobook/main.css?164";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="APE%20Tags%20Header-Dateien/commonPrint.css">
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins/monobook/IE50Fixes.css?164";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins/monobook/IE55Fixes.css?164";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins/monobook/IE60Fixes.css?164";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins/monobook/IE70Fixes.css?164";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins/common/IEFixes.js?164"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type="text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins";
+var wgArticlePath = "/index.php?title=$1";
+var wgScriptPath = "";
+var wgScript = "/index.php";
+var wgVariantArticlePath = false;
+var wgActionPaths = [];
+var wgServer = "http://wiki.hydrogenaudio.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "APE_Tags_Header";
+var wgTitle = "APE Tags Header";
+var wgAction = "view";
+var wgArticleId = "1385";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "en";
+var wgContentLanguage = "en";
+var wgBreakFrames = false;
+var wgCurRevisionId = "13436";
+var wgVersion = "1.13.3";
+var wgEnableAPI = true;
+var wgEnableWriteAPI = false;
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="APE%20Tags%20Header-Dateien/wikibits.js"><!-- wikibits js --></script>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="APE%20Tags%20Header-Dateien/ajax.js"></script>
+		<script type="text/javascript" src="APE%20Tags%20Header-Dateien/index.php"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=18000";
+@import "/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=18000";
+@import "/index.php?title=-&action=raw&gen=css&maxage=18000&useskin=monobook";
+/*]]>*/</style>
+	</head><div FirebugVersion="1.3.3" style="display: none;" id="_firebugConsole"></div><body class="mediawiki ns-0 ltr page-APE_Tags_Header">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">APE Tags Header</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From Hydrogenaudio Knowledgebase</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<p>APE Tag Header/Footer Version 2.0
+</p><p>Contains number, length and attributes of all tag items 
+</p><p>Header and Footer are different in 1 bit in the Tags Flags to distinguish between them. 
+</p><p>Member of <a href="http://wiki.hydrogenaudio.org/index.php?title=APEv2_specification" title="APEv2 specification">APE Tag 2.0</a>
+</p>
+<table border="1" cellspacing="0">
+<tbody><tr>
+<td width="210"> Preamble </td><td width="50"> 64 bits </td><td width="300">{ 'A', 'P', 'E', 'T', 'A', 'G', 'E', 'X' }
+</td></tr>
+<tr>
+<td>
+<p>Version Number, Bits 0...7<br>
+Version Number, Bits 8...15<br>
+Version Number, Bits 16...23<br>
+Version Number, Bits 24...31
+</p>
+</td><td>32 bits
+</td><td>
+<p>1000 = Version 1.000 (old)<br>
+2000 = Version 2.000 (new)
+</p>
+</td></tr>
+<tr>
+<td>
+<p>Tag Size, Bits  0... 7 <br>
+Tag Size, Bits  8...15 <br>
+Tag Size, Bits 16...23 <br>
+Tag Size, Bits 24...31
+</p>
+</td><td>32 bits
+</td><td>Tag size in bytes including footer and all tag items excluding the header to be as compatible as possible with APE Tags 1.000
+</td></tr>
+<tr>
+<td>
+<p>Item Count, Bits  0... 7 <br>
+Item Count, Bits  8...15 <br>
+Item Count, Bits 16...23 <br>
+Item Count, Bits 24...31
+</p>
+</td><td>32 bits
+</td><td>Number of items in the Tag (n)
+</td></tr>
+<tr>
+<td>
+<p><a href="http://wiki.hydrogenaudio.org/index.php?title=Ape_Tags_Flags" title="Ape Tags Flags">Tags Flags</a>, Bits  0... 7 <br>
+<a href="http://wiki.hydrogenaudio.org/index.php?title=Ape_Tags_Flags" title="Ape Tags Flags">Tags Flags</a>, Bits  8...15 <br>
+<a href="http://wiki.hydrogenaudio.org/index.php?title=Ape_Tags_Flags" title="Ape Tags Flags">Tags Flags</a>, Bits 16...23 <br>
+<a href="http://wiki.hydrogenaudio.org/index.php?title=Ape_Tags_Flags" title="Ape Tags Flags">Tags Flags</a>, Bits 24...31
+</p>
+</td><td>32 bits
+</td><td>
+<p>Global flags of all items <br>
+(there are also private flags for every item)
+</p>
+</td></tr>
+<tr>
+<td>Reserved
+</td><td>64 bits
+</td><td>Must be zero
+</td></tr></tbody></table>
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 15/1000000
+Post-expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key hydrogen_wiki:pcache:idhash:1385-0!1!0!!en!2!edit=0 and timestamp 20090228105826 -->
+<div class="printfooter">
+Retrieved from "<a href="http://wiki.hydrogenaudio.org/index.php?title=APE_Tags_Header">http://wiki.hydrogenaudio.org/index.php?title=APE_Tags_Header</a>"</div>
+			<div id="catlinks" class="catlinks"><div id="mw-normal-catlinks"><a href="http://wiki.hydrogenaudio.org/index.php?title=Special:Categories" title="Special:Categories">Category</a>: <span dir="ltr"><a href="http://wiki.hydrogenaudio.org/index.php?title=Category:Metadata" title="Category:Metadata">Metadata</a></span></div></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+	
+				 <li id="ca-nstab-main" class="selected"><a href="http://wiki.hydrogenaudio.org/index.php?title=APE_Tags_Header" title="View the content page [alt-shift-c]" accesskey="c">Page</a></li>
+				 <li id="ca-talk" class="new"><a href="http://wiki.hydrogenaudio.org/index.php?title=Talk:APE_Tags_Header&amp;action=edit" title="Discussion about the content page [alt-shift-t]" accesskey="t">Discussion</a></li>
+				 <li id="ca-viewsource"><a href="http://wiki.hydrogenaudio.org/index.php?title=APE_Tags_Header&amp;action=edit" title="This page is protected.
+You can view its source. [alt-shift-e]" accesskey="e">View source</a></li>
+				 <li id="ca-history"><a href="http://wiki.hydrogenaudio.org/index.php?title=APE_Tags_Header&amp;action=history" title="Past versions of this page. [alt-shift-h]" accesskey="h">History</a></li>			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="http://wiki.hydrogenaudio.org/index.php?title=Special:UserLogin&amp;returnto=APE_Tags_Header" title="You are encouraged to log in, it is not mandatory however. [alt-shift-o]" accesskey="o">Log in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(/skins/common/images/ha_logo.png);" href="http://wiki.hydrogenaudio.org/index.php?title=Main_Page" title="Visit the Main Page [alt-shift-z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+	<div class="generated-sidebar portlet" id="p-navigation">
+		<h5>Navigation</h5>
+		<div class="pBody">
+			<ul>
+				<li id="n-mainpage"><a href="http://wiki.hydrogenaudio.org/index.php?title=Main_Page" title="Visit the Main Page [alt-shift-z]" accesskey="z">Main Page</a></li>
+				<li id="n-topicindex"><a href="http://wiki.hydrogenaudio.org/index.php?title=Topic_Index">Topic Index</a></li>
+				<li id="n-portal"><a href="http://wiki.hydrogenaudio.org/index.php?title=Hydrogenaudio_Knowledgebase:Community_Portal" title="About the project, what you can do, where to find things">HAK Community</a></li>
+				<li id="n-currentevents"><a href="http://wiki.hydrogenaudio.org/index.php?title=Hydrogenaudio_Knowledgebase:Current_events" title="Find background information on current events">Current events</a></li>
+				<li id="n-recentchanges"><a href="http://wiki.hydrogenaudio.org/index.php?title=Special:RecentChanges" title="The list of recent changes in the wiki. [alt-shift-r]" accesskey="r">Recent changes</a></li>
+				<li id="n-randompage"><a href="http://wiki.hydrogenaudio.org/index.php?title=Special:Random" title="Load a random page [alt-shift-x]" accesskey="x">Random page</a></li>
+				<li id="n-help"><a href="http://wiki.hydrogenaudio.org/index.php?title=Help:Contents" title="The place to find out.">Help</a></li>
+				<li id="n-sitesupport"><a href="http://wiki.hydrogenaudio.org/index.php?title=Sitesupport-url">sitesupport</a></li>
+			</ul>
+		</div>
+	</div>
+	<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/index.php?title=Special:Search" id="searchform"><div>
+				<input id="searchInput" name="search" title="Search Hydrogenaudio Knowledgebase [alt-shift-f]" accesskey="f" value="" type="text">
+				<input name="go" class="searchButton" id="searchGoButton" value="Go" title="Go to a page with this exact name if exists" type="submit">&nbsp;
+				<input name="fulltext" class="searchButton" id="mw-searchButton" value="Search" title="Search the pages for this text" type="submit">
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="http://wiki.hydrogenaudio.org/index.php?title=Special:WhatLinksHere/APE_Tags_Header" title="List of all wiki pages that link here [alt-shift-j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="http://wiki.hydrogenaudio.org/index.php?title=Special:RecentChangesLinked/APE_Tags_Header" title="Recent changes in pages linked from this page [alt-shift-k]" accesskey="k">Related changes</a></li>
+<li id="t-upload"><a href="http://wiki.hydrogenaudio.org/index.php?title=Special:Upload" title="Upload files [alt-shift-u]" accesskey="u">Upload file</a></li>
+<li id="t-specialpages"><a href="http://wiki.hydrogenaudio.org/index.php?title=Special:SpecialPages" title="List of all special pages [alt-shift-q]" accesskey="q">Special pages</a></li>
+				<li id="t-print"><a href="http://wiki.hydrogenaudio.org/index.php?title=APE_Tags_Header&amp;printable=yes" title="Printable version of this page [alt-shift-p]" accesskey="p">Printable version</a></li>				<li id="t-permalink"><a href="http://wiki.hydrogenaudio.org/index.php?title=APE_Tags_Header&amp;oldid=13436" title="Permanent link to this version of the page">Permanent link</a></li>			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="APE%20Tags%20Header-Dateien/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki"></a></div>
+				<div id="f-copyrightico"><a href="http://www.gnu.org/copyleft/fdl.html"><img src="APE%20Tags%20Header-Dateien/gnu-fdl.png" alt="GNU Free Documentation License 1.2"></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> This page was last modified on 11 September 2006, at 21:18.</li>
+				<li id="viewcount">This page has been accessed 6,315 times.</li>
+				<li id="copyright">Content is available under <a href="http://www.gnu.org/copyleft/fdl.html" class="external" title="http://www.gnu.org/copyleft/fdl.html" rel="nofollow">GNU Free Documentation License 1.2</a>.</li>
+				<li id="privacy"><a href="http://wiki.hydrogenaudio.org/index.php?title=Hydrogenaudio_Knowledgebase:Privacy_policy" title="Hydrogenaudio Knowledgebase:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="http://wiki.hydrogenaudio.org/index.php?title=Hydrogenaudio_Knowledgebase:About" title="Hydrogenaudio Knowledgebase:About">About Hydrogenaudio Knowledgebase</a></li>
+				<li id="disclaimer"><a href="http://wiki.hydrogenaudio.org/index.php?title=Hydrogenaudio_Knowledgebase:General_disclaimer" title="Hydrogenaudio Knowledgebase:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+</div>
+
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+<!-- Served in 0.093 secs. --></body></html>

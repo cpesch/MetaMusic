@@ -1,0 +1,545 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="slash.metamusic.mp3.gui.MP3TidyGUI">
+  <grid id="cbd77" binding="contentPane" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="0" left="0" bottom="0" right="0"/>
+    <constraints>
+      <xy x="48" y="54" width="784" height="310"/>
+      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <tabbedpane id="4c235">
+        <constraints>
+          <xy x="0" y="0" width="784" height="310"/>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3">
+            <preferred-size width="200" height="200"/>
+          </grid>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <grid id="8e7aa" row-count="4" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="10" left="10" bottom="10" right="10"/>
+            <constraints>
+              <tabbedpane title-resource-bundle="slash/metamusic/mp3/gui/MP3TidyGUI" title-key="tidy"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <grid id="94766" row-count="1" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                <margin top="0" left="0" bottom="0" right="0"/>
+                <constraints>
+                  <xy x="10" y="250" width="758" height="25"/>
+                  <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="3" anchor="4" fill="1"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <hspacer id="98af6">
+                    <constraints>
+                      <xy x="0" y="7" width="626" height="11"/>
+                      <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="1" hsize-policy="6" anchor="0" fill="1"/>
+                    </constraints>
+                  </hspacer>
+                  <grid id="9538f" row-count="1" column-count="2" same-size-horizontally="true" same-size-vertically="false" hgap="-1" vgap="-1">
+                    <margin top="0" left="0" bottom="0" right="0"/>
+                    <constraints>
+                      <xy x="626" y="0" width="132" height="25"/>
+                      <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3"/>
+                    </constraints>
+                    <properties/>
+                    <border type="none"/>
+                    <children>
+                      <component id="e7465" class="javax.swing.JButton" binding="buttonStart">
+                        <constraints>
+                          <xy x="0" y="0" width="61" height="25"/>
+                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1"/>
+                        </constraints>
+                        <properties>
+                          <text resource-bundle="slash/metamusic/mp3/gui/MP3TidyGUI" key="start"/>
+                        </properties>
+                      </component>
+                      <component id="5723f" class="javax.swing.JButton" binding="buttonExit">
+                        <constraints>
+                          <xy x="71" y="0" width="61" height="25"/>
+                          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1"/>
+                        </constraints>
+                        <properties>
+                          <text resource-bundle="slash/metamusic/mp3/gui/MP3TidyGUI" key="exit"/>
+                        </properties>
+                      </component>
+                    </children>
+                  </grid>
+                </children>
+              </grid>
+              <grid id="31646" row-count="2" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                <margin top="0" left="0" bottom="0" right="0"/>
+                <constraints>
+                  <xy x="10" y="115" width="758" height="130"/>
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="3" anchor="8" fill="3"/>
+                </constraints>
+                <properties>
+                  <visible value="true"/>
+                </properties>
+                <border type="none"/>
+                <children>
+                  <component id="5ef31" class="javax.swing.JProgressBar" binding="progressBar">
+                    <constraints>
+                      <xy x="65" y="111" width="693" height="18"/>
+                      <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="7" anchor="8" fill="1"/>
+                    </constraints>
+                    <properties/>
+                  </component>
+                  <component id="fa397" class="javax.swing.JLabel">
+                    <constraints>
+                      <xy x="0" y="113" width="50" height="14"/>
+                      <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0"/>
+                    </constraints>
+                    <properties>
+                      <text resource-bundle="slash/metamusic/mp3/gui/MP3TidyGUI" key="progress"/>
+                    </properties>
+                  </component>
+                  <component id="46a01" class="javax.swing.JLabel">
+                    <constraints>
+                      <xy x="0" y="0" width="55" height="14"/>
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0"/>
+                    </constraints>
+                    <properties>
+                      <text resource-bundle="slash/metamusic/mp3/gui/MP3TidyGUI" key="messages"/>
+                    </properties>
+                  </component>
+                  <scrollpane id="66917">
+                    <constraints>
+                      <xy x="65" y="0" width="693" height="105"/>
+                      <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3"/>
+                    </constraints>
+                    <properties/>
+                    <border type="none"/>
+                    <children>
+                      <component id="1176" class="javax.swing.JList" binding="listMessages">
+                        <constraints/>
+                        <properties/>
+                      </component>
+                    </children>
+                  </scrollpane>
+                </children>
+              </grid>
+              <grid id="a086b" row-count="3" column-count="6" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                <margin top="0" left="0" bottom="0" right="0"/>
+                <constraints>
+                  <xy x="10" y="40" width="758" height="70"/>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="3" anchor="0" fill="3"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="86f30" class="javax.swing.JLabel">
+                    <constraints>
+                      <xy x="0" y="28" width="79" height="14"/>
+                      <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0"/>
+                    </constraints>
+                    <properties>
+                      <text resource-bundle="slash/metamusic/mp3/gui/MP3TidyGUI" key="processed-files"/>
+                    </properties>
+                  </component>
+                  <component id="e6da2" class="javax.swing.JLabel" binding="labelProcessedFiles">
+                    <constraints>
+                      <xy x="158" y="28" width="8" height="14"/>
+                      <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0"/>
+                    </constraints>
+                    <properties>
+                      <horizontalAlignment value="2"/>
+                      <horizontalTextPosition value="2"/>
+                      <text value="-"/>
+                    </properties>
+                  </component>
+                  <component id="90a71" class="javax.swing.JLabel">
+                    <constraints>
+                      <xy x="513" y="53" width="78" height="14"/>
+                      <grid row="2" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0"/>
+                    </constraints>
+                    <properties>
+                      <text resource-bundle="slash/metamusic/mp3/gui/MP3TidyGUI" key="extended-tags"/>
+                    </properties>
+                  </component>
+                  <component id="f1896" class="javax.swing.JLabel" binding="labelExtendedTags">
+                    <constraints>
+                      <xy x="670" y="53" width="8" height="14"/>
+                      <grid row="2" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0"/>
+                    </constraints>
+                    <properties>
+                      <text value="-"/>
+                    </properties>
+                  </component>
+                  <component id="9ee5f" class="javax.swing.JLabel">
+                    <constraints>
+                      <xy x="257" y="28" width="70" height="14"/>
+                      <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0"/>
+                    </constraints>
+                    <properties>
+                      <text resource-bundle="slash/metamusic/mp3/gui/MP3TidyGUI" key="modified-files"/>
+                    </properties>
+                  </component>
+                  <component id="4a531" class="javax.swing.JLabel" binding="labelModifiedFiles">
+                    <constraints>
+                      <xy x="410" y="28" width="8" height="14"/>
+                      <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0"/>
+                    </constraints>
+                    <properties>
+                      <text value="-"/>
+                    </properties>
+                  </component>
+                  <component id="5a84" class="javax.swing.JLabel">
+                    <constraints>
+                      <xy x="257" y="53" width="71" height="14"/>
+                      <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0"/>
+                    </constraints>
+                    <properties>
+                      <text resource-bundle="slash/metamusic/mp3/gui/MP3TidyGUI" key="cleaned-tags"/>
+                    </properties>
+                  </component>
+                  <component id="6d8d1" class="javax.swing.JLabel" binding="labelCleanedTags">
+                    <constraints>
+                      <xy x="410" y="53" width="8" height="14"/>
+                      <grid row="2" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0"/>
+                    </constraints>
+                    <properties>
+                      <inheritsPopupMenu value="true"/>
+                      <text value="-"/>
+                    </properties>
+                  </component>
+                  <component id="ac372" class="javax.swing.JLabel">
+                    <constraints>
+                      <xy x="0" y="3" width="54" height="14"/>
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0"/>
+                    </constraints>
+                    <properties>
+                      <text resource-bundle="slash/metamusic/mp3/gui/MP3TidyGUI" key="file-count"/>
+                    </properties>
+                  </component>
+                  <component id="c1126" class="javax.swing.JLabel" binding="labelFileCount">
+                    <constraints>
+                      <xy x="158" y="3" width="8" height="14"/>
+                      <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0"/>
+                    </constraints>
+                    <properties>
+                      <horizontalAlignment value="2"/>
+                      <text value="-"/>
+                    </properties>
+                  </component>
+                  <component id="4a3a0" class="javax.swing.JLabel">
+                    <constraints>
+                      <xy x="257" y="3" width="74" height="14"/>
+                      <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0"/>
+                    </constraints>
+                    <properties>
+                      <text resource-bundle="slash/metamusic/mp3/gui/MP3TidyGUI" key="file-extension"/>
+                    </properties>
+                  </component>
+                  <component id="d1c57" class="javax.swing.JLabel">
+                    <constraints>
+                      <xy x="410" y="3" width="24" height="14"/>
+                      <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0"/>
+                    </constraints>
+                    <properties>
+                      <text value="mp3"/>
+                    </properties>
+                  </component>
+                  <component id="bcab3" class="javax.swing.JLabel">
+                    <constraints>
+                      <xy x="0" y="53" width="58" height="14"/>
+                      <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0"/>
+                    </constraints>
+                    <properties>
+                      <text resource-bundle="slash/metamusic/mp3/gui/MP3TidyGUI" key="failed-files"/>
+                    </properties>
+                  </component>
+                  <component id="588c6" class="javax.swing.JLabel" binding="labelFailedFiles">
+                    <constraints>
+                      <xy x="158" y="53" width="8" height="14"/>
+                      <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0"/>
+                    </constraints>
+                    <properties>
+                      <text value="-"/>
+                    </properties>
+                  </component>
+                  <component id="1bdaf" class="javax.swing.JLabel">
+                    <constraints>
+                      <xy x="513" y="28" width="75" height="14"/>
+                      <grid row="1" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0"/>
+                    </constraints>
+                    <properties>
+                      <text resource-bundle="slash/metamusic/mp3/gui/MP3TidyGUI" key="renamed-files"/>
+                    </properties>
+                  </component>
+                  <component id="2cac8" class="javax.swing.JLabel" binding="labelRenamedFiles">
+                    <constraints>
+                      <xy x="670" y="28" width="8" height="14"/>
+                      <grid row="1" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0"/>
+                    </constraints>
+                    <properties>
+                      <text value="-"/>
+                    </properties>
+                  </component>
+                </children>
+              </grid>
+              <grid id="24269" row-count="1" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                <margin top="0" left="0" bottom="0" right="0"/>
+                <constraints>
+                  <xy x="10" y="10" width="758" height="25"/>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="45dea" class="javax.swing.JLabel">
+                    <constraints>
+                      <xy x="0" y="5" width="52" height="14"/>
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0"/>
+                    </constraints>
+                    <properties>
+                      <text resource-bundle="slash/metamusic/mp3/gui/MP3TidyGUI" key="directory"/>
+                    </properties>
+                  </component>
+                  <component id="63034" class="javax.swing.JButton" binding="buttonSelectTidyDirectory">
+                    <constraints>
+                      <xy x="681" y="0" width="77" height="25"/>
+                      <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0"/>
+                    </constraints>
+                    <properties>
+                      <text resource-bundle="slash/metamusic/mp3/gui/MP3TidyGUI" key="select"/>
+                    </properties>
+                  </component>
+                  <component id="61fb4" class="javax.swing.JTextField" binding="textFieldTidyDirectory">
+                    <constraints>
+                      <xy x="62" y="2" width="609" height="20"/>
+                      <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="7" anchor="8" fill="1">
+                        <preferred-size width="150" height="-1"/>
+                      </grid>
+                    </constraints>
+                    <properties>
+                      <horizontalAlignment value="2"/>
+                    </properties>
+                  </component>
+                </children>
+              </grid>
+            </children>
+          </grid>
+          <grid id="be521" row-count="4" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="10" left="10" bottom="10" right="10"/>
+            <constraints>
+              <tabbedpane title-resource-bundle="slash/metamusic/mp3/gui/MP3TidyGUI" title-key="options"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <grid id="3aeda" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                <margin top="0" left="0" bottom="0" right="0"/>
+                <constraints>
+                  <xy x="10" y="10" width="758" height="55"/>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <grid id="2cd4" row-count="2" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                    <margin top="0" left="0" bottom="0" right="0"/>
+                    <constraints>
+                      <xy x="0" y="0" width="758" height="55"/>
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3"/>
+                    </constraints>
+                    <properties/>
+                    <border type="none"/>
+                    <children>
+                      <component id="8b47f" class="javax.swing.JLabel">
+                        <constraints>
+                          <xy x="0" y="35" width="81" height="14"/>
+                          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0"/>
+                        </constraints>
+                        <properties>
+                          <text resource-bundle="slash/metamusic/mp3/gui/MP3TidyGUI" key="lyrics-directory"/>
+                        </properties>
+                      </component>
+                      <component id="71bf0" class="javax.swing.JTextField" binding="textFieldLyricsDirectory">
+                        <constraints>
+                          <xy x="93" y="32" width="578" height="20"/>
+                          <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1">
+                            <preferred-size width="150" height="-1"/>
+                          </grid>
+                        </constraints>
+                        <properties/>
+                      </component>
+                      <component id="73b4f" class="javax.swing.JButton" binding="buttonSelectLyricsDirectory">
+                        <constraints>
+                          <xy x="681" y="30" width="77" height="25"/>
+                          <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1"/>
+                        </constraints>
+                        <properties>
+                          <text resource-bundle="slash/metamusic/mp3/gui/MP3TidyGUI" key="select"/>
+                        </properties>
+                      </component>
+                      <component id="e288d" class="javax.swing.JLabel">
+                        <constraints>
+                          <xy x="0" y="5" width="83" height="14"/>
+                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0"/>
+                        </constraints>
+                        <properties>
+                          <text resource-bundle="slash/metamusic/mp3/gui/MP3TidyGUI" key="cover-directory"/>
+                        </properties>
+                      </component>
+                      <component id="f088b" class="javax.swing.JTextField" binding="textFieldCoverDirectory">
+                        <constraints>
+                          <xy x="93" y="2" width="578" height="20"/>
+                          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1">
+                            <preferred-size width="150" height="-1"/>
+                          </grid>
+                        </constraints>
+                        <properties/>
+                      </component>
+                      <component id="b8c29" class="javax.swing.JButton" binding="buttonSelectCoverDirectory">
+                        <constraints>
+                          <xy x="681" y="0" width="77" height="25"/>
+                          <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1"/>
+                        </constraints>
+                        <properties>
+                          <text resource-bundle="slash/metamusic/mp3/gui/MP3TidyGUI" key="select"/>
+                        </properties>
+                      </component>
+                    </children>
+                  </grid>
+                </children>
+              </grid>
+              <grid id="3646f" row-count="6" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                <margin top="0" left="0" bottom="0" right="0"/>
+                <constraints>
+                  <xy x="10" y="95" width="758" height="157"/>
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="a92e4" class="javax.swing.JCheckBox" binding="checkBoxRemoveiTunesTags">
+                    <constraints>
+                      <xy x="360" y="0" width="123" height="22"/>
+                      <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0"/>
+                    </constraints>
+                    <properties>
+                      <text resource-bundle="slash/metamusic/mp3/gui/MP3TidyGUI" key="remove-itunes-tags"/>
+                    </properties>
+                  </component>
+                  <component id="9290d" class="javax.swing.JCheckBox" binding="checkBoxRemoveWindowsMediaPlayerTags">
+                    <constraints>
+                      <xy x="360" y="81" width="199" height="22"/>
+                      <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0"/>
+                    </constraints>
+                    <properties>
+                      <text resource-bundle="slash/metamusic/mp3/gui/MP3TidyGUI" key="remove-windows-media-player-tags"/>
+                    </properties>
+                  </component>
+                  <component id="631f8" class="javax.swing.JCheckBox" binding="checkBoxRemoveMusicMatchTags">
+                    <constraints>
+                      <xy x="360" y="54" width="150" height="22"/>
+                      <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0"/>
+                    </constraints>
+                    <properties>
+                      <text resource-bundle="slash/metamusic/mp3/gui/MP3TidyGUI" key="remove-music-match-tags"/>
+                    </properties>
+                  </component>
+                  <component id="77ad1" class="javax.swing.JCheckBox" binding="checkBoxRemoveMusicBrainzTags">
+                    <constraints>
+                      <xy x="360" y="27" width="150" height="22"/>
+                      <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0"/>
+                    </constraints>
+                    <properties>
+                      <text resource-bundle="slash/metamusic/mp3/gui/MP3TidyGUI" key="remove-music-brainz-tags"/>
+                    </properties>
+                  </component>
+                  <component id="e9f2d" class="javax.swing.JCheckBox" binding="checkBoxAddMetaData">
+                    <constraints>
+                      <xy x="0" y="54" width="151" height="22"/>
+                      <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0"/>
+                    </constraints>
+                    <properties>
+                      <text resource-bundle="slash/metamusic/mp3/gui/MP3TidyGUI" key="add-metadata"/>
+                    </properties>
+                  </component>
+                  <component id="f932d" class="javax.swing.JCheckBox" binding="checkBoxUnifyTags">
+                    <constraints>
+                      <xy x="360" y="108" width="166" height="22"/>
+                      <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0"/>
+                    </constraints>
+                    <properties>
+                      <text resource-bundle="slash/metamusic/mp3/gui/MP3TidyGUI" key="unify-tags"/>
+                    </properties>
+                  </component>
+                  <component id="69fd4" class="javax.swing.JCheckBox" binding="checkBoxRenameFileToTags">
+                    <constraints>
+                      <xy x="0" y="81" width="119" height="22"/>
+                      <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0"/>
+                    </constraints>
+                    <properties>
+                      <text resource-bundle="slash/metamusic/mp3/gui/MP3TidyGUI" key="rename-file-to-tags"/>
+                    </properties>
+                  </component>
+                  <component id="b7f5c" class="javax.swing.JCheckBox" binding="checkBoxWriteID3v1Tags">
+                    <constraints>
+                      <xy x="0" y="108" width="108" height="22"/>
+                      <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0"/>
+                    </constraints>
+                    <properties>
+                      <text resource-bundle="slash/metamusic/mp3/gui/MP3TidyGUI" key="write-id3v1-tags"/>
+                    </properties>
+                  </component>
+                  <component id="a829a" class="javax.swing.JCheckBox" binding="checkBoxWriteID3v2Tags">
+                    <constraints>
+                      <xy x="0" y="135" width="108" height="22"/>
+                      <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0"/>
+                    </constraints>
+                    <properties>
+                      <text resource-bundle="slash/metamusic/mp3/gui/MP3TidyGUI" key="write-id3v2-tags"/>
+                    </properties>
+                  </component>
+                  <component id="e4cb8" class="javax.swing.JCheckBox" binding="checkBoxAddCover">
+                    <constraints>
+                      <xy x="0" y="0" width="75" height="22"/>
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0"/>
+                    </constraints>
+                    <properties>
+                      <text resource-bundle="slash/metamusic/mp3/gui/MP3TidyGUI" key="add-cover"/>
+                    </properties>
+                  </component>
+                  <component id="c7457" class="javax.swing.JCheckBox" binding="checkBoxAddLyrics">
+                    <constraints>
+                      <xy x="0" y="27" width="72" height="22"/>
+                      <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0"/>
+                    </constraints>
+                    <properties>
+                      <text resource-bundle="slash/metamusic/mp3/gui/MP3TidyGUI" key="add-lyrics"/>
+                    </properties>
+                  </component>
+                </children>
+              </grid>
+              <vspacer id="fb38c">
+                <constraints>
+                  <xy x="383" y="252" width="11" height="23"/>
+                  <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2"/>
+                </constraints>
+              </vspacer>
+              <xy id="ff0f3" hgap="-1" vgap="-1">
+                <margin top="0" left="0" bottom="0" right="0"/>
+                <constraints>
+                  <xy x="10" y="70" width="758" height="20"/>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children/>
+              </xy>
+            </children>
+          </grid>
+        </children>
+      </tabbedpane>
+    </children>
+  </grid>
+</form>
