@@ -1,0 +1,32 @@
+<!-- DTD for MetaMusic repository XML im- and exports -->
+
+<!ELEMENT repository ( artist | user )*>
+
+<!ELEMENT artist ( creationUser | modificationUser )*>
+<!ATTLIST artist creationDate CDATA #IMPLIED
+                 id ID #REQUIRED
+                 modificationDate CDATA #IMPLIED
+                 musicBrainzId CDATA #IMPLIED
+                 name CDATA #IMPLIED
+>
+
+<!ELEMENT creationUser EMPTY>
+<!ATTLIST creationUser ref IDREF #REQUIRED
+>
+
+<!ELEMENT modificationUser EMPTY>
+<!ATTLIST modificationUser ref IDREF #REQUIRED
+>
+
+<!ELEMENT user ( creationUser | modificationUser )*>
+<!ATTLIST user EMail CDATA #IMPLIED
+               creationDate CDATA #IMPLIED
+               enabled CDATA #IMPLIED
+               fullName CDATA #IMPLIED
+               id ID #REQUIRED
+               locale CDATA #IMPLIED
+               modificationDate CDATA #IMPLIED
+               name CDATA #IMPLIED
+               password CDATA #IMPLIED
+>
+

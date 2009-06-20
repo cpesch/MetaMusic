@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="ISO-8859-15" ?>
+<!DOCTYPE repository SYSTEM "metamusic-repository.dtd">
+
+<!-- MetaMusic repository XML export of the ID3 genres -->
+
+<repository>
+
+  <!-- predefined genres -->
+  <genre id="_1027"
+    name="Unknown"/>
+
+  <genre id="_1028"
+    name="Speech"/>
+
+  <genre id="_1000"
+    name="H&#x00f6;rbuch">
+    <exportGenre ref="_1028"/>
+  </genre>
+
+  <genre id="_1001"
+    name="Lesung">
+    <exportGenre ref="_1028"/>
+    <specialisation ref="_1002"/>
+  </genre>
+
+  <genre id="_1002"
+    name="Lesung (de)">
+    <exportGenre ref="_1028"/>
+  </genre>
+
+  <genre id="_1018"
+    name="Folk">
+    <specialisation ref="_1019"/>
+  </genre>
+
+  <!-- music brainz II genres -->
+  <genre id="_1017"
+    name="Rock">
+    <specialisation ref="_1019"/>
+  </genre>
+  <genre id="_1021"
+    name="Classic">
+    <specialisation ref="_1016"/>
+    <specialisation ref="_1015"/>
+  </genre>
+  <genre id="_1022"
+    name="Jazz"/>
+  <genre id="_1023"
+    name="Blues"/>
+  <genre id="_1024"
+    name="Country"/>
+
+  <genre id="_1016"
+    name="Piano"/>
+  <genre id="_1015"
+    name="Symphony"/>
+  <genre id="_1014"
+    name="Heavy Metal"/>
+  <genre id="_1013"
+    name="Punk"/>
+  <genre id="_1012"
+    name="Acoustic"/>
+
+  <!-- specialisations -->
+  <genre id="_1019"
+    name="Folk-Rock"/>
+
+  <user id="_1999"
+    name="cpesch"/>
+</repository>

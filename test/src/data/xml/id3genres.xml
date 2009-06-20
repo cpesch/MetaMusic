@@ -1,0 +1,1063 @@
+<?xml version="1.0" encoding="ISO-8859-15" ?>
+<!DOCTYPE repository SYSTEM "metamusic-repository.dtd">
+
+<!-- MetaMusic repository XML export of the ID3 genres -->
+
+<repository>
+
+  <genre creationDate="11.12.2003 18:47:45"
+         id="_123"
+         modificationDate="11.12.2003 18:47:45"
+         name="Acapella">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:42"
+         id="_034"
+         modificationDate="11.12.2003 18:47:42"
+         name="Acid">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:44"
+         id="_074"
+         modificationDate="11.12.2003 18:47:44"
+         name="Acid Jazz">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:44"
+         id="_073"
+         modificationDate="11.12.2003 18:47:44"
+         name="Acid Punk">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:44"
+         id="_099"
+         modificationDate="11.12.2003 18:47:44"
+         name="Acoustic">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:42"
+         id="_020"
+         modificationDate="11.12.2003 18:47:42"
+         name="Alternative">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:43"
+         id="_040"
+         modificationDate="11.12.2003 18:47:43"
+         name="Alt. Rock">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:42"
+         id="_026"
+         modificationDate="11.12.2003 18:47:42"
+         name="Ambient">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:45"
+         id="_145"
+         modificationDate="11.12.2003 18:47:45"
+         name="Anime">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:44"
+         id="_090"
+         modificationDate="11.12.2003 18:47:44"
+         name="Avantgarde">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:45"
+         id="_116"
+         modificationDate="11.12.2003 18:47:45"
+         name="Ballad">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:43"
+         id="_041"
+         modificationDate="11.12.2003 18:47:43"
+         name="Bass">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:45"
+         id="_135"
+         modificationDate="11.12.2003 18:47:45"
+         name="Beat">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:44"
+         id="_085"
+         modificationDate="11.12.2003 18:47:44"
+         name="Bebob">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:44"
+         id="_096"
+         modificationDate="11.12.2003 18:47:44"
+         name="Big Band">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:45"
+         id="_138"
+         modificationDate="11.12.2003 18:47:45"
+         name="Black Metal">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:44"
+         id="_089"
+         modificationDate="11.12.2003 18:47:44"
+         name="Bluegrass">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:41"
+         id="_000"
+         modificationDate="11.12.2003 18:47:41"
+         name="Blues">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:45"
+         id="_107"
+         modificationDate="11.12.2003 18:47:45"
+         name="Booty Bass">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:45"
+         id="_132"
+         modificationDate="11.12.2003 18:47:45"
+         name="BritPop">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:43"
+         id="_065"
+         modificationDate="11.12.2003 18:47:43"
+         name="Cabaret">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:44"
+         id="_088"
+         modificationDate="11.12.2003 18:47:44"
+         name="Celtic">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:45"
+         id="_104"
+         modificationDate="11.12.2003 18:47:45"
+         name="Chamber Music">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:45"
+         id="_102"
+         modificationDate="11.12.2003 18:47:45"
+         name="Chanson">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:44"
+         id="_097"
+         modificationDate="11.12.2003 18:47:44"
+         name="Chorus">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:45"
+         id="_136"
+         modificationDate="11.12.2003 18:47:45"
+         name="Christian Gangsta Rap">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:43"
+         id="_061"
+         modificationDate="11.12.2003 18:47:43"
+         name="Christian Rap">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:45"
+         id="_141"
+         modificationDate="11.12.2003 18:47:45"
+         name="Christian Rock">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:41"
+         id="_001"
+         modificationDate="11.12.2003 18:47:41"
+         name="Classic Rock">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:42"
+         id="_032"
+         modificationDate="11.12.2003 18:47:42"
+         name="Classical">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:45"
+         id="_112"
+         modificationDate="11.12.2003 18:47:45"
+         name="Club">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:45"
+         id="_128"
+         modificationDate="11.12.2003 18:47:45"
+         name="Club-House">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:43"
+         id="_057"
+         modificationDate="11.12.2003 18:47:43"
+         name="Comedy">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:45"
+         id="_140"
+         modificationDate="11.12.2003 18:47:45"
+         name="Contemporary Christian">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:42"
+         id="_002"
+         modificationDate="11.12.2003 18:47:42"
+         name="Country">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:45"
+         id="_139"
+         modificationDate="11.12.2003 18:47:45"
+         name="Crossover">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:43"
+         id="_058"
+         modificationDate="11.12.2003 18:47:43"
+         name="Cult">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:42"
+         id="_003"
+         modificationDate="11.12.2003 18:47:42"
+         name="Dance">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:45"
+         id="_125"
+         modificationDate="11.12.2003 18:47:45"
+         name="Dance Hall">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:43"
+         id="_050"
+         modificationDate="11.12.2003 18:47:43"
+         name="Darkwave">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:42"
+         id="_022"
+         modificationDate="11.12.2003 18:47:42"
+         name="Death Metal">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:42"
+         id="_004"
+         modificationDate="11.12.2003 18:47:42"
+         name="Disco">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:43"
+         id="_055"
+         modificationDate="11.12.2003 18:47:43"
+         name="Dream">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:45"
+         id="_127"
+         modificationDate="11.12.2003 18:47:45"
+         name="Drum &amp; Bass">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:45"
+         id="_122"
+         modificationDate="11.12.2003 18:47:45"
+         name="Drum Solo">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:45"
+         id="_120"
+         modificationDate="11.12.2003 18:47:45"
+         name="Duet">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:44"
+         id="_098"
+         modificationDate="11.12.2003 18:47:44"
+         name="Easy Listening">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:43"
+         id="_052"
+         modificationDate="11.12.2003 18:47:43"
+         name="Electronic">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:43"
+         id="_048"
+         modificationDate="11.12.2003 18:47:43"
+         name="Ethnic">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:45"
+         id="_124"
+         modificationDate="11.12.2003 18:47:45"
+         name="Euro-House">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:42"
+         id="_025"
+         modificationDate="11.12.2003 18:47:42"
+         name="Euro-Techno">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:43"
+         id="_054"
+         modificationDate="11.12.2003 18:47:43"
+         name="Eurodance">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:44"
+         id="_084"
+         modificationDate="11.12.2003 18:47:44"
+         name="Fast Fusion">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:44"
+         id="_080"
+         modificationDate="11.12.2003 18:47:44"
+         name="Folk">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:44"
+         id="_081"
+         modificationDate="11.12.2003 18:47:44"
+         name="Folk-Rock">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:45"
+         id="_115"
+         modificationDate="11.12.2003 18:47:45"
+         name="Folklore">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:45"
+         id="_119"
+         modificationDate="11.12.2003 18:47:45"
+         name="Freestyle">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:42"
+         id="_005"
+         modificationDate="11.12.2003 18:47:42"
+         name="Funk">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:42"
+         id="_030"
+         modificationDate="11.12.2003 18:47:42"
+         name="Fusion">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:42"
+         id="_036"
+         modificationDate="11.12.2003 18:47:42"
+         name="Game">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:43"
+         id="_059"
+         modificationDate="11.12.2003 18:47:43"
+         name="Gangsta">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:45"
+         id="_126"
+         modificationDate="11.12.2003 18:47:45"
+         name="Goa">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:43"
+         id="_038"
+         modificationDate="11.12.2003 18:47:43"
+         name="Gospel">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:43"
+         id="_049"
+         modificationDate="11.12.2003 18:47:43"
+         name="Gothic">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:44"
+         id="_091"
+         modificationDate="11.12.2003 18:47:44"
+         name="Gothic Rock">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:42"
+         id="_006"
+         modificationDate="11.12.2003 18:47:42"
+         name="Grunge">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:44"
+         id="_079"
+         modificationDate="11.12.2003 18:47:44"
+         name="Hard Rock">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:45"
+         id="_129"
+         modificationDate="11.12.2003 18:47:45"
+         name="Hardcore">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:45"
+         id="_137"
+         modificationDate="11.12.2003 18:47:45"
+         name="Heavy Metal">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:42"
+         id="_007"
+         modificationDate="11.12.2003 18:47:42"
+         name="Hip-Hop">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:42"
+         id="_035"
+         modificationDate="11.12.2003 18:47:42"
+         name="House">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:44"
+         id="_100"
+         modificationDate="11.12.2003 18:47:44"
+         name="Humour">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:45"
+         id="_131"
+         modificationDate="11.12.2003 18:47:45"
+         name="Indie">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:42"
+         id="_019"
+         modificationDate="11.12.2003 18:47:42"
+         name="Industrial">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:42"
+         id="_033"
+         modificationDate="11.12.2003 18:47:42"
+         name="Instrumental">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:43"
+         id="_046"
+         modificationDate="11.12.2003 18:47:43"
+         name="Instrumental Pop">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:43"
+         id="_047"
+         modificationDate="11.12.2003 18:47:43"
+         name="Instrumental Rock">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:42"
+         id="_008"
+         modificationDate="11.12.2003 18:47:42"
+         name="Jazz">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:42"
+         id="_029"
+         modificationDate="11.12.2003 18:47:42"
+         name="Jazz+Funk">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:46"
+         id="_146"
+         modificationDate="11.12.2003 18:47:46"
+         name="Jpop">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:43"
+         id="_063"
+         modificationDate="11.12.2003 18:47:43"
+         name="Jungle">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:44"
+         id="_086"
+         modificationDate="11.12.2003 18:47:44"
+         name="Latin">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:44"
+         id="_071"
+         modificationDate="11.12.2003 18:47:44"
+         name="Lo-Fi">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:43"
+         id="_045"
+         modificationDate="11.12.2003 18:47:43"
+         name="Meditative">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:45"
+         id="_142"
+         modificationDate="11.12.2003 18:47:45"
+         name="Merengue">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:42"
+         id="_009"
+         modificationDate="11.12.2003 18:47:42"
+         name="Metal">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:44"
+         id="_077"
+         modificationDate="11.12.2003 18:47:44"
+         name="Musical">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:44"
+         id="_082"
+         modificationDate="11.12.2003 18:47:44"
+         name="National Folk">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:43"
+         id="_064"
+         modificationDate="11.12.2003 18:47:43"
+         name="Native American">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:45"
+         id="_133"
+         modificationDate="11.12.2003 18:47:45"
+         name="Negerpunk">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:42"
+         id="_010"
+         modificationDate="11.12.2003 18:47:42"
+         name="New Age">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:43"
+         id="_066"
+         modificationDate="11.12.2003 18:47:43"
+         name="New Wave">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:43"
+         id="_039"
+         modificationDate="11.12.2003 18:47:43"
+         name="Noise">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:42"
+         id="_011"
+         modificationDate="11.12.2003 18:47:42"
+         name="Oldies">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:45"
+         id="_103"
+         modificationDate="11.12.2003 18:47:45"
+         name="Opera">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:42"
+         id="_012"
+         modificationDate="11.12.2003 18:47:42"
+         name="Other">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:44"
+         id="_075"
+         modificationDate="11.12.2003 18:47:44"
+         name="Polka">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:45"
+         id="_134"
+         modificationDate="11.12.2003 18:47:45"
+         name="Polsk Punk">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:42"
+         id="_013"
+         modificationDate="11.12.2003 18:47:42"
+         name="Pop">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:43"
+         id="_053"
+         modificationDate="11.12.2003 18:47:43"
+         name="Pop-Folk">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:43"
+         id="_062"
+         modificationDate="11.12.2003 18:47:43"
+         name="Pop/Funk">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:45"
+         id="_109"
+         modificationDate="11.12.2003 18:47:45"
+         name="Porn Groove">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:45"
+         id="_117"
+         modificationDate="11.12.2003 18:47:45"
+         name="Power Ballad">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:42"
+         id="_023"
+         modificationDate="11.12.2003 18:47:42"
+         name="Pranks">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:45"
+         id="_108"
+         modificationDate="11.12.2003 18:47:45"
+         name="Primus">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:44"
+         id="_092"
+         modificationDate="11.12.2003 18:47:44"
+         name="Progressive Rock">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:43"
+         id="_067"
+         modificationDate="11.12.2003 18:47:43"
+         name="Psychadelic">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:44"
+         id="_093"
+         modificationDate="11.12.2003 18:47:44"
+         name="Psychedelic Rock">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:43"
+         id="_043"
+         modificationDate="11.12.2003 18:47:43"
+         name="Punk">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:45"
+         id="_121"
+         modificationDate="11.12.2003 18:47:45"
+         name="Punk Rock">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:42"
+         id="_014"
+         modificationDate="11.12.2003 18:47:42"
+         name="R&amp;B">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:42"
+         id="_015"
+         modificationDate="11.12.2003 18:47:42"
+         name="Rap">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:43"
+         id="_068"
+         modificationDate="11.12.2003 18:47:43"
+         name="Rave">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:42"
+         id="_016"
+         modificationDate="11.12.2003 18:47:42"
+         name="Reggae">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:44"
+         id="_076"
+         modificationDate="11.12.2003 18:47:44"
+         name="Retro">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:44"
+         id="_087"
+         modificationDate="11.12.2003 18:47:44"
+         name="Revival">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:45"
+         id="_118"
+         modificationDate="11.12.2003 18:47:45"
+         name="Rhythmic Soul">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:42"
+         id="_017"
+         modificationDate="11.12.2003 18:47:42"
+         name="Rock">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:44"
+         id="_078"
+         modificationDate="11.12.2003 18:47:44"
+         name="Rock &amp; Roll">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:45"
+         id="_143"
+         modificationDate="11.12.2003 18:47:45"
+         name="Salsa">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:45"
+         id="_114"
+         modificationDate="11.12.2003 18:47:45"
+         name="Samba">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:45"
+         id="_110"
+         modificationDate="11.12.2003 18:47:45"
+         name="Satire">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:44"
+         id="_069"
+         modificationDate="11.12.2003 18:47:44"
+         name="Showtunes">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:42"
+         id="_021"
+         modificationDate="11.12.2003 18:47:42"
+         name="Ska">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:45"
+         id="_111"
+         modificationDate="11.12.2003 18:47:45"
+         name="Slow Jam">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:44"
+         id="_095"
+         modificationDate="11.12.2003 18:47:44"
+         name="Slow Rock">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:45"
+         id="_105"
+         modificationDate="11.12.2003 18:47:45"
+         name="Sonata">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:43"
+         id="_042"
+         modificationDate="11.12.2003 18:47:43"
+         name="Soul">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:43"
+         id="_037"
+         modificationDate="11.12.2003 18:47:43"
+         name="Sound Clip">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:42"
+         id="_024"
+         modificationDate="11.12.2003 18:47:42"
+         name="Soundtrack">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:43"
+         id="_056"
+         modificationDate="11.12.2003 18:47:43"
+         name="Southern Rock">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:43"
+         id="_044"
+         modificationDate="11.12.2003 18:47:43"
+         name="Space">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:44"
+         id="_101"
+         modificationDate="11.12.2003 18:47:44"
+         name="Speech">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:44"
+         id="_083"
+         modificationDate="11.12.2003 18:47:44"
+         name="Swing">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:44"
+         id="_094"
+         modificationDate="11.12.2003 18:47:44"
+         name="Symphonic Rock">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:45"
+         id="_106"
+         modificationDate="11.12.2003 18:47:45"
+         name="Symphony">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:46"
+         id="_147"
+         modificationDate="11.12.2003 18:47:46"
+         name="Synthpop">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:45"
+         id="_113"
+         modificationDate="11.12.2003 18:47:45"
+         name="Tango">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:42"
+         id="_018"
+         modificationDate="11.12.2003 18:47:42"
+         name="Techno">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:43"
+         id="_051"
+         modificationDate="11.12.2003 18:47:43"
+         name="Techno-Industrial">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:45"
+         id="_130"
+         modificationDate="11.12.2003 18:47:45"
+         name="Terror">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:45"
+         id="_144"
+         modificationDate="11.12.2003 18:47:45"
+         name="Thrash Metal">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:43"
+         id="_060"
+         modificationDate="11.12.2003 18:47:43"
+         name="Top 40">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:44"
+         id="_070"
+         modificationDate="11.12.2003 18:47:44"
+         name="Trailer">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:42"
+         id="_031"
+         modificationDate="11.12.2003 18:47:42"
+         name="Trance">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:44"
+         id="_072"
+         modificationDate="11.12.2003 18:47:44"
+         name="Tribal">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:42"
+         id="_027"
+         modificationDate="11.12.2003 18:47:42"
+         name="Trip-Hop">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre creationDate="11.12.2003 18:47:42"
+         id="_028"
+         modificationDate="11.12.2003 18:47:42"
+         name="Vocal">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+
+  <user creationDate="09.09.2003 19:25:12"
+    EMail="root@localhost"
+    fullName="Administrator"
+    id="_2000"
+    locale="en"
+    modificationDate="09.09.2003 19:25:12"
+    name="admin"
+    password="admin"/>
+  <user creationDate="26.04.1972 20:34:45"
+    EMail="cpesch@localhost"
+    fullName="Christian Pesch"
+    id="_1999"
+    locale="en"
+    modificationDate="09.09.2003 20:34:45"
+    name="cpesch"
+    password="cpesch">
+    <creationUser ref="_2000"/>
+  </user>
+</repository>

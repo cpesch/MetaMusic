@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-15" ?>
+<!DOCTYPE repository SYSTEM "metamusic-repository.dtd">
+
+<!-- MetaMusic repository XML export of duplicates -->
+
+<repository>
+  <track id="_1"
+         name="Track"/>
+
+  <composition id="_2" 
+               name="Composition">
+    <part index="3">
+      <portion ref="_1"/>
+      <whole ref="_2"/>
+    </part>
+  </composition>
+  
+  <media id="_4" name="Media">
+    <location ref="_5"/>
+  </media>
+
+  <location id="_5"
+            name="Location">
+    <composition ref="_2"/>
+    <track ref="_1"/>
+  </location>
+</repository>

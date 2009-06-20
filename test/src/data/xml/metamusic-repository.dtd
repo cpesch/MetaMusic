@@ -1,0 +1,150 @@
+<!--
+
+   DTD for MetaMusic repository XML im- and exports
+
+   @author Christian Pesch
+   @version $Id: metamusic-repository.dtd 477 2005-01-19 18:03:59Z cpesch $
+
+ -->
+
+<!ELEMENT repository ( artist | composition | genre | group | location | media | track | user )*>
+
+<!ELEMENT artist ( creationUser | genre | modificationUser )*>
+<!ATTLIST artist musicBrainzId CDATA #IMPLIED
+                 creationDate CDATA #IMPLIED
+                 homepage CDATA #IMPLIED
+                 id ID #REQUIRED
+                 modificationDate CDATA #IMPLIED
+                 name CDATA #IMPLIED
+>
+
+<!ELEMENT composition ( contribution | creationUser | genre | modificationUser | part )*>
+<!ATTLIST composition musicBrainzId CDATA #IMPLIED
+                      cover CDATA #IMPLIED
+                      creationDate CDATA #IMPLIED
+                      id ID #IMPLIED
+                      modificationDate CDATA #IMPLIED
+                      name CDATA #IMPLIED
+                      ref IDREF #IMPLIED
+                      seconds CDATA #IMPLIED
+                      recordingDate CDATA #IMPLIED
+>
+
+<!ELEMENT contribution ( contributor, piece, role )>
+
+<!ELEMENT contributor EMPTY>
+<!ATTLIST contributor ref IDREF #REQUIRED
+>
+
+<!ELEMENT creationUser EMPTY>
+<!ATTLIST creationUser ref IDREF #REQUIRED
+>
+
+<!ELEMENT exportGenre EMPTY>
+<!ATTLIST exportGenre ref IDREF #REQUIRED
+>
+
+<!ELEMENT genre ( creationUser | modificationUser | exportGenre | specialisation )*>
+<!ATTLIST genre creationDate CDATA #IMPLIED
+                id ID #IMPLIED
+                modificationDate CDATA #IMPLIED
+                name CDATA #IMPLIED
+                ref IDREF #IMPLIED
+>
+
+<!ELEMENT group ( creationUser | genre | member | membership | modificationUser )*>
+<!ATTLIST group musicBrainzId CDATA #IMPLIED
+                creationDate CDATA #IMPLIED
+                homepage CDATA #IMPLIED
+                id ID #IMPLIED
+                modificationDate CDATA #IMPLIED
+                name CDATA #IMPLIED
+                ref IDREF #IMPLIED
+>
+
+<!ELEMENT location ( composition | creationUser | modificationUser | track )*>
+<!ATTLIST location musicBrainzId CDATA #IMPLIED
+                   VBR CDATA #IMPLIED
+                   bitRate CDATA #IMPLIED
+                   creationDate CDATA #IMPLIED
+                   format CDATA #IMPLIED
+                   id ID #IMPLIED
+                   modificationDate CDATA #IMPLIED
+                   name CDATA #IMPLIED
+                   ref IDREF #IMPLIED
+                   sampleFrequency CDATA #IMPLIED
+                   tagDate CDATA #IMPLIED
+>
+
+<!ELEMENT media ( creationUser | location | modificationUser | owner )*>
+<!ATTLIST media available CDATA #IMPLIED
+                creationDate CDATA #IMPLIED
+                id ID #REQUIRED
+                modificationDate CDATA #IMPLIED
+                name CDATA #IMPLIED
+                type CDATA #IMPLIED
+>
+
+<!ELEMENT member EMPTY>
+<!ATTLIST member ref IDREF #REQUIRED
+>
+
+<!ELEMENT membership ( group, member )>
+
+<!ELEMENT modificationUser EMPTY>
+<!ATTLIST modificationUser ref IDREF #REQUIRED
+>
+
+<!ELEMENT owner EMPTY>
+<!ATTLIST owner ref IDREF #REQUIRED
+>
+
+<!ELEMENT part ( portion, whole )>
+<!ATTLIST part index CDATA #IMPLIED
+>
+
+<!ELEMENT piece EMPTY>
+<!ATTLIST piece ref IDREF #REQUIRED
+>
+
+<!ELEMENT portion EMPTY>
+<!ATTLIST portion ref IDREF #REQUIRED
+>
+
+<!ELEMENT role EMPTY>
+<!ATTLIST role name ID #IMPLIED
+               ref IDREF #IMPLIED
+>
+
+<!ELEMENT specialisation EMPTY>
+<!ATTLIST specialisation ref IDREF #REQUIRED
+>
+
+<!ELEMENT track ( contribution | creationUser | genre | modificationUser )*>
+<!ATTLIST track musicBrainzId CDATA #IMPLIED
+                creationDate CDATA #IMPLIED
+                id ID #IMPLIED
+                lyrics CDATA #IMPLIED
+                modificationDate CDATA #IMPLIED
+                name CDATA #IMPLIED
+                ref IDREF #IMPLIED
+                seconds CDATA #IMPLIED
+                recordingDate CDATA #IMPLIED
+>
+
+<!ELEMENT user ( creationUser | modificationUser )*>
+<!ATTLIST user EMail CDATA #IMPLIED
+               creationDate CDATA #IMPLIED
+	       enabled CDATA #IMPLIED
+               fullName CDATA #IMPLIED
+               id ID #REQUIRED
+               locale CDATA #IMPLIED
+               modificationDate CDATA #IMPLIED
+               name CDATA #IMPLIED
+               password CDATA #IMPLIED
+>
+
+<!ELEMENT whole EMPTY>
+<!ATTLIST whole ref IDREF #REQUIRED
+>
+

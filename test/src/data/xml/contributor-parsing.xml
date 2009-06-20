@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="ISO-8859-15" ?>
+<!DOCTYPE repository SYSTEM "metamusic-repository.dtd">
+
+<!-- MetaMusic repository XML export of duplicates -->
+
+<repository>
+  <artist id="_1"
+          name="A VERY LONG AND STUPID NAME IN UPPERCASE"/>
+  <artist id="_2"
+          name="a very long but silly name in lowercase"/>
+  <artist id="_3"
+          name="REM"/> <!-- an abbreviation -->
+
+  <artist id="_10"
+          name="A &amp; B"/>
+  <artist id="_11"
+          name="C&amp; D"/>
+  <artist id="_12"
+          name="E &amp;F"/>
+  <artist id="_13"
+          name="G and H"/>
+  <artist id="_14"
+          name="I And J"/>
+  <artist id="_15"
+          name="K und L"/>
+  <artist id="_16"
+          name="M Und N"/>
+  <artist id="_17"
+          name="Mundstuhl"/> <!-- a name -->
+
+  <artist id="_20"
+          name="O feat P"/>
+  <artist id="_21"
+          name="Q feat.R"/>
+  <artist id="_22"
+          name="S Featuring T"/>
+  <artist id="_23"
+          name="UfeaturingSomebody"/> <!-- a name -->
+
+  <track id="_30"
+         name="T1 (feat U)"/>
+  <track id="_31"
+         name="T2 (feat. V)"/>
+  <track id="_32"
+         name="T3 (Featuring W)"/>
+
+  <track id="_40"
+         name="T4 (with X)"/>
+  <track id="_41"
+         name="T5 (With Y)"/>
+</repository>

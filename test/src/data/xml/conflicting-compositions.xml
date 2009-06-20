@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="ISO-8859-15" ?>
+<!DOCTYPE repository SYSTEM "metamusic-repository.dtd">
+
+<repository>
+
+  <artist creationDate="01.01.1998 01:02:03"
+          homepage="http://www.anartist.com"
+          id="_2005"
+          modificationDate="01.08.2003 01:02:03"
+          name="An artist"/>
+
+  <artist creationDate="02.02.1999 02:03:05"
+          homepage="http://www.anotherartist.com"
+          id="_2006"
+          modificationDate="02.09.2003 02:03:05"
+          name="Another artist"/>
+
+  <!-- this the original -->
+  <composition creationDate="10.12.2003 15:45:09"
+               id="_3476"
+               modificationDate="10.12.2004 19:39:40"
+               name="Album"
+               recordingDate="20.02.2002 20:22:02">
+    <contribution>
+      <contributor ref="_2005"/>
+      <piece ref="_3476"/>
+      <role name="performer"/>
+    </contribution>
+  </composition>
+
+  <!-- this one is conflicting -->
+  <composition creationDate="20.12.2003 15:05:15"
+               id="_3611"
+               modificationDate="24.01.2004 17:49:42"
+               name="Album"
+               recordingDate="01.02.1999 03:04:05">
+    <contribution>
+      <contributor ref="_2005"/>
+      <piece ref="_3611"/>
+      <role ref="performer"/>
+    </contribution>
+  </composition>
+
+  <!-- this one is conflicting -->
+  <composition creationDate="15.12.2003 15:25:13"
+               id="_3635"
+               modificationDate="24.01.2004 17:59:31"
+               name="Album"
+               recordingDate="06.07.2000 08:09:10">
+    <contribution>
+      <contributor ref="_2005"/>
+      <piece ref="_3635"/>
+      <role ref="performer"/>
+    </contribution>
+  </composition>
+
+  <!-- this one is ok -->
+  <composition creationDate="10.12.2003 15:45:11"
+               id="_3671"
+               modificationDate="24.01.2004 18:23:12"
+               name="Album"
+               recordingDate="11.12.2001 13:14:15">
+    <contribution>
+      <contributor ref="_2006"/>
+      <piece ref="_3671"/>
+      <role ref="performer"/>
+    </contribution>
+  </composition>
+</repository>

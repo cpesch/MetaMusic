@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="ISO-8859-15" ?>
+<!DOCTYPE repository SYSTEM "metamusic-repository.dtd">
+
+<!-- MetaMusic repository XML export of duplicates -->
+
+<repository>
+  <genre id="_1"
+         name="AGenre"/>
+  <genre id="_2"
+         name="AGenre"/>
+  <genre id="_3"
+         name="aGenre"/>
+</repository>

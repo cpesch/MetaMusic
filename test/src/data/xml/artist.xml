@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ISO-8859-15" ?>
+<!DOCTYPE repository SYSTEM "artistdtd">
+
+<!-- MetaMusic repository XML export 29.12.2006 14:06:55 -->
+
+<repository>
+
+  <artist creationDate="29.12.2006 14:06:55"
+          id="_6124896660621489856"
+          modificationDate="29.12.2006 14:06:55"
+          musicBrainzId="a-music-brainz-id"
+          name="ADefinitelyNotCompliantNameForAnArtist">
+    <creationUser ref="_6124896659528609481"/>
+    <modificationUser ref="_6124896659528609481"/>
+  </artist>
+  <user EMail="root@localhost"
+        creationDate="01.01.1970 01:00:00"
+        enabled="true"
+        fullName="Administrator"
+        id="_6124896659528609481"
+        locale="en"
+        modificationDate="16.12.2006 22:32:14"
+        name="admin"
+        password="admin">
+    <creationUser ref="_6124896659528609481"/>
+    <modificationUser ref="_6124896659528609481"/>
+  </user>
+
+</repository>

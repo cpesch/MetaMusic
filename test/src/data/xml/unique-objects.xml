@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ISO-8859-15" ?>
+<!DOCTYPE repository SYSTEM "metamusic-repository.dtd">
+
+<!-- MetaMusic repository XML export of duplicates -->
+
+<repository>
+  <track id="_1"
+         name="Track"/>
+  <track id="_2"
+         name="Track"/>
+  <track id="_3"
+         name="Track"/>
+  <track id="_4"
+         name="Track"/>
+  <track id="_5"
+         name="Track"/>
+
+  <media id="_11" name="Media">
+    <location ref="_31"/>
+    <location ref="_32"/>
+    <location ref="_33"/>
+    <location ref="_34"/>
+    <location ref="_35"/>
+  </media>
+
+  <location id="_31"
+            name="Location.mp3"/>
+  <location id="_32"
+            name="Location.mp3"/>
+  <location id="_33"
+            name="Location.mp3"/>
+  <location id="_34"
+            name="Location.mp3"/>
+  <location id="_35"
+            name="Location.mp3"/>
+</repository>

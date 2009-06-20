@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="ISO-8859-15" ?>
+<!DOCTYPE repository SYSTEM "metamusic-repository.dtd">
+
+<!-- MetaMusic repository XML export -->
+
+<repository>
+
+  <genre id="_1052"
+         name="Electronic">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre id="_1017"
+         name="Rock">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+  <genre id="_1019"
+         name="Folk-Rock">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </genre>
+
+  <artist id="_1009"
+          name="Brian Adams">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+    <genre ref="_1017"/>
+  </artist>
+
+  <artist id="_1008"
+          name="Dave Gahan">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </artist>
+  <group id="_1001"
+         name="Depeche Mode">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+    <genre ref="_1052"/>
+    <member ref="_1008"/>
+  </group>
+
+  <artist id="_1007"
+          name="Mark Knopfler">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+    <genre ref="_1019"/>
+  </artist>
+  <group id="_1004"
+         name="Dire Straits">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+    <genre ref="_1017"/>
+    <member ref="_1007"/>
+  </group>
+
+  <artist id="_1006"
+          name="Michael Stipe">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </artist>
+  <group homepage="http://www.rem.org"
+         id="_1003"
+         name="R.E.M.">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+    <genre ref="_1017"/>
+    <member ref="_1006"/>
+  </group>
+
+  <group id="_1010"
+          name="Various"
+          musicBrainzId="89ad4ac3-39f7-470e-963a-56509c546377">
+    <creationUser ref="_1999"/>
+    <modificationUser ref="_1999"/>
+  </group>
+
+  <user id="_1999"
+    name="cpesch"/>
+</repository>

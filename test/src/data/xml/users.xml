@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="ISO-8859-15" ?>
+<!DOCTYPE repository SYSTEM "metamusic-repository.dtd">
+
+<!-- MetaMusic repository XML export of the users -->
+
+<repository>
+
+  <user creationDate="09.09.2003 19:25:12"
+        EMail="root@localhost"
+        fullName="Administrator"
+        id="_2000"
+        locale="en"
+        modificationDate="09.09.2003 19:25:12"
+        name="admin"
+        password="admin"/>
+  <user creationDate="26.04.1972 20:34:45"
+        EMail="Christian_Pesch@gmx.de"
+        fullName="Christian Pesch"
+        id="_2150"
+        locale="en"
+        modificationDate="11.12.2003 17:39:41"
+        name="cpesch"
+        password="cpesch">
+    <creationUser ref="_2000"/>
+    <modificationUser ref="_2000"/>
+  </user>
+  <user creationDate="07.07.1977 16:45:07"
+        fullName="Michael Stattmann"
+        id="_2325"
+        locale="at"
+        modificationDate="11.12.2003 17:49:49"
+        name="mstattma"
+        password="mstattma">
+    <creationUser ref="_2150"/>
+    <modificationUser ref="_2150"/>
+  </user>
+
+</repository>
