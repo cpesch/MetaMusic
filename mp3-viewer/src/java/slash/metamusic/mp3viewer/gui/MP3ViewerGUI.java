@@ -85,11 +85,12 @@ public class MP3ViewerGUI extends BaseDialogGUI {
     private String setFile(File selected) {
         String file = selected.getAbsolutePath();
         textFieldFile.setText(file);
+        preferences.put(VIEW_DIRECTORY_PREFERENCE, file);
         return file;
     }
 
     private void selectFile(File selected) {               // TODO clean up this mess of a method
-        String fileName = setFile(selected);
+        setFile(selected);
         listModel.clear();
         MP3File mp3 = new MP3File();
         try {
@@ -224,7 +225,6 @@ public class MP3ViewerGUI extends BaseDialogGUI {
     }
 
     protected void onExit() {
-        preferences.put(VIEW_DIRECTORY_PREFERENCE, textFieldFile.getText());
         closeFrame();
         System.exit(0);
     }

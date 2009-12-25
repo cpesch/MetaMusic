@@ -53,11 +53,12 @@ public class APETail implements ID3MetaData {
      * Reads the APEv2Tail tail from the InputStream.
      *
      * @param in the InputStream to read
+     * @param bufferSize the buffer on the tail
      * @return if the read tail is valid
      * @throws NoAPEv2TailException if no tail can be found or exists
      * @throws IOException          if an error occurs
      */
-    public boolean read(InputStream in) throws NoAPEv2TailException, IOException {
+    public boolean read(InputStream in, int bufferSize) throws NoAPEv2TailException, IOException {
         valid = false;
         readSize = 0;
 
@@ -65,7 +66,7 @@ public class APETail implements ID3MetaData {
 
         // search for a valid tail
         boolean tailFound = false;
-        while (checkForAPEv2Tail(in)) {
+        while (checkForAPEv2Tail(in, bufferSize)) {
             tailFound = parse(in);
             if (tailFound) {
                 valid = true;
@@ -83,29 +84,31 @@ public class APETail implements ID3MetaData {
      * Check if APEv2 tail is present
      *
      * @param in the InputStream to read
+     * @param bufferSize the buffer on the tail
      * @return true if tail is present
      * @throws IOException if an error occurs
      */
-    protected boolean checkForAPEv2Tail(InputStream in) throws IOException {
+    protected boolean checkForAPEv2Tail(InputStream in, int bufferSize) throws IOException {
         byte tag[] = APEV2TAG.getBytes(ENCODING);
+        int readSize = 0;
 
         while (true) {
             // read through stream until first byte of the tag is read
-            int read = in.read();
-            while (read != tag[0] && read != -1) {
-                read = in.read();
+            int read = in.read(); readSize++;
+            while (read != tag[0] && read != -1 && readSize < bufferSize) {
+                read = in.read(); readSize++;
             }
 
-            if (read == -1) {
+            if (read == -1 || readSize >= bufferSize) {
                 // first tag byte not found but stream finished
                 return false;
             }
 
             // check if rest of the tag matches
             int count = 1;
-            while (count < tag.length) {
-                read = in.read();
-                if (read == -1) {
+            while (count < tag.length && readSize < bufferSize) {
+                read = in.read(); readSize++;
+                if (read == -1 || readSize >= bufferSize) {
                     // tag byte not found but stream finished
                     return false;
                 }

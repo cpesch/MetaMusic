@@ -162,7 +162,7 @@ public class MP3File implements ID3MetaData {
             }
 
             buffer.mark(READ_BUFFER_SIZE);
-            readTail(buffer);
+            readTail(buffer, READ_BUFFER_SIZE);
 
             properties.setMetaDataSize(getReadSize());
 
@@ -197,10 +197,10 @@ public class MP3File implements ID3MetaData {
         }
     }
 
-    private void readTail(InputStream buffer) throws IOException {
+    private void readTail(InputStream buffer, int bufferSize) throws IOException {
         ape = new APETail();
         try {
-            ape.read(buffer);
+            ape.read(buffer, bufferSize);
         } catch (NoAPEv2TailException e) {
             log.fine("No APEv2 tail found");
             buffer.reset();
