@@ -681,9 +681,9 @@ public class MP3File implements ID3MetaData {
         DateFormat shortFormat = DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT);
         getTail().setComment("MetaMusic on " + shortFormat.format(date.getTime()));
 
-        // normalizes genre tag to "name(id)" if it is not "Unknown(-1"
+        // normalizes genre tag to "name(id)" if it is not "Unknown(-1)"
         ID3Genre genre = getGenre();
-        if (!ID3Genre.UNKNOWN.equals(genre.getName())) {
+        if (genre != null && !genre.getName().equals(ID3Genre.UNKNOWN)) {
             getHead().setGenre(genre);
             getTail().setGenre(genre);
         }
