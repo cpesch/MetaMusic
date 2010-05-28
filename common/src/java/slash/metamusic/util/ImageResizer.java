@@ -74,17 +74,5 @@ public class ImageResizer {
             return -1;
         }
     }
-
-    File storeAsTempFile(byte[] value) throws IOException {
-        ByteArrayInputStream input = new ByteArrayInputStream(value);
-        File file = File.createTempFile("resized", ".jpg");
-
-        OutputStream out = new FileOutputStream(file);
-        InputOutput inout = new InputOutput(input, out);
-        inout.start();
-        inout.close();
-
-        return file;
-    }
 }
 

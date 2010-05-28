@@ -15,7 +15,6 @@ import slash.metamusic.util.ZipCache;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 import java.util.logging.Logger;
 
@@ -64,10 +63,6 @@ public class LyricsDBCache {
         } catch (IOException e) {
             log.warning("Could not serialize dowload failures: " + e.getMessage());
         }
-    }
-
-    public List<File> getCachedFiles() {
-        return fileCache.values();
     }
 
     public File getCachedFile(String artist, String track) throws IOException {

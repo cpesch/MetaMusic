@@ -139,8 +139,10 @@ public class FileCache {
 
     public synchronized File remove(String key) {
         File file = get(key);
-        if (file != null)
-            file.delete();
+        if (file != null) {
+            if(!file.delete())
+                throw new IllegalArgumentException("Could not delete " + file);
+        }
         return file;
     }
 }
