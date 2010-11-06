@@ -151,7 +151,7 @@ public class AmazonMusicClient {
             if (result != null)
                 return result.getLargestAvailableImage();
         } catch (IOException e) {
-            log.severe("Cannot search cover for '" + artist + "' and '" + album + ": " + e.getMessage());
+            log.severe("Cannot search cover for '" + artist + "' and '" + album + "': " + e.getMessage());
         }
         return null;
     }
