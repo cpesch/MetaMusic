@@ -66,6 +66,7 @@ public class ID3v2Frame {
 
     /**
      * Created while reading ID3v2Header
+     * @param version the version to use
      */
     ID3v2Frame(ID3v2Version version) {
         this(null, version, null);
@@ -73,6 +74,8 @@ public class ID3v2Frame {
 
     /**
      * Created while adding new frames
+     * @param tagName the name of the {@link ID3v2Tag}
+     * @param version the version to use
      */
     ID3v2Frame(String tagName, ID3v2Version version) {
         this(new ID3v2Tag(tagName), version, null);
@@ -104,6 +107,8 @@ public class ID3v2Frame {
      *
      * @param data   the frame data
      * @param offset the offset from which to read
+     * @return the number of bytes read
+     * @throws IOException if parsing fails due to IO problems
      */
     public int parse(byte[] data, int offset) throws IOException {
         valid = false;
@@ -245,6 +250,7 @@ public class ID3v2Frame {
      * Parse the content of the frame.
      *
      * @param content the frame content
+     * @return true, if the content was parse successfully
      * @throws IOException if parsing failed
      */
     protected boolean parseContent(byte[] content) throws IOException {
@@ -481,6 +487,7 @@ public class ID3v2Frame {
     }
 
 
+    @SuppressWarnings({"unchecked"})
     public <T extends AbstractSection> T findSection(Class<T> sectionClass) {
         List<T> abstractSections = (List<T>) sections;
         for (T section : abstractSections) {
