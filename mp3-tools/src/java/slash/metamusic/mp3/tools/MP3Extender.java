@@ -145,7 +145,7 @@ public class MP3Extender extends BaseMP3Modifier {
         boolean extended = addedMusicBrainzId || addedAttachedPicture || addedLyrics || addedPublisher ||
                 addedCompilationName || addedIndexCount;
 
-        log.fine("extended: " + extended + " MusicBrainzId: " + addedMusicBrainzId +
+        log.info("extended: " + extended + " MusicBrainzId: " + addedMusicBrainzId +
                 " cover: " + addedAttachedPicture + " lyrics: " + addedLyrics +
                 " publisher: " + addedPublisher + " compilation name: " + addedCompilationName +
                 " index count: " + addedIndexCount);
@@ -217,8 +217,7 @@ public class MP3Extender extends BaseMP3Modifier {
 
             // store in file if better
             byte[] transformedCover = foundCover != null ? new ImageResizer().resize(foundCover, "jpg", 200, 200) : null;
-            if ((transformedCover != null && fileCover != null && fileCover.length > 20000) ||
-                    (transformedCover != null && isFirstBetterThanSecond(transformedCover, fileCover))) {
+            if (transformedCover != null && fileCover != null && isFirstBetterThanSecond(transformedCover, fileCover)) {
                 log.fine("Adding cover (" + transformedCover.length + " bytes) to " + file.getFile().getAbsolutePath());
                 file.getHead().setCover(transformedCover);
                 return true;
