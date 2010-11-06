@@ -68,6 +68,10 @@ public class MP3Tidy {
         extender.setAddCover(addCover);
     }
 
+    public void setAddCoverToFolder(boolean addCoverToFolder) {
+        extender.setAddCoverToFolder(addCoverToFolder);
+    }
+
     public void setCoverDirectoryName(String coverDirectoryName) {
         extender.setCoverDirectoryName(coverDirectoryName);
     }

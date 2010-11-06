@@ -350,6 +350,7 @@ public class MP3TidyGUI extends BaseDialogGUI {
         tidyer.setLyricsDirectoryName(lyricsDirectory);
 
         tidyer.setAddCover(checkBoxAddCover.isSelected());
+        tidyer.setAddCoverToFolder(false); // TODO make this configurable later
         tidyer.setAddLyrics(checkBoxAddLyrics.isSelected());
         tidyer.setAddMetaData(checkBoxAddMetaData.isSelected());
         tidyer.setRenameFileToTags(checkBoxRenameFileToTags.isSelected());
