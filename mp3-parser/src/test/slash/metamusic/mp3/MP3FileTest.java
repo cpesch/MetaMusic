@@ -51,6 +51,7 @@ public class MP3FileTest extends AbstractFileTest {
         setID3WithoutGenreAndCount(mp3);
         mp3.setGenre(new ID3Genre("Freestyle"));
         mp3.setCount(84);
+        mp3.setSeconds(14);
     }
 
     private void checkID3WithoutGenreAndCommentAndCount(MP3File mp3) {

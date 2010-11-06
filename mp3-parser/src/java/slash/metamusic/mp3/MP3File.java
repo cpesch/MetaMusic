@@ -307,14 +307,6 @@ public class MP3File implements ID3MetaData {
         write(getFile());
     }
 
-    long skipNullBytes(InputStream in) throws IOException {
-        long count = 0;
-        while (in.read() == 0) {
-            count++;
-        }
-        return count;
-    }
-
     private void copyID3MetaData(ID3MetaData from, ID3MetaData to) {
         to.setArtist(from.getArtist());
         to.setComment(from.getComment());
@@ -683,7 +675,7 @@ public class MP3File implements ID3MetaData {
 
         // normalizes genre tag to "name(id)" if it is not "Unknown(-1)"
         ID3Genre genre = getGenre();
-        if (genre != null && !genre.getName().equals(ID3Genre.UNKNOWN)) {
+        if (genre != null && genre.getName() != null && !genre.getName().equals(ID3Genre.UNKNOWN)) {
             getHead().setGenre(genre);
             getTail().setGenre(genre);
         }
@@ -692,6 +684,10 @@ public class MP3File implements ID3MetaData {
         int count = getHead().getCount();
         if (count != -1)
             getHead().setCount(count);
+
+        int seconds = getProperties().getSeconds();
+        if (seconds != -1)
+            getHead().setSeconds(seconds);
     }
 
     // --- overwrites Object -----------------------------------
