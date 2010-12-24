@@ -111,7 +111,7 @@ public class WindowsMediaPlayerCoverClient extends FileSystemCoverClient {
     private byte[] load(File file) throws IOException {
         byte[] result = URLLoader.getContents(file);
         if (result.length > 1) {
-            // sometimes !%#&§! WMP does not add FFD8 prefix
+            // sometimes !%#&! WMP does not add FFD8 prefix
             if (result[0] == (byte) 0xFF && result[1] == (byte) 0xE0) {
                 byte[] copy = new byte[result.length + 2];
                 System.arraycopy(result, 0, copy, 2, result.length);
