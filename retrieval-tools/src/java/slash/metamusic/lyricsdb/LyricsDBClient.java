@@ -53,8 +53,8 @@ public class LyricsDBClient {
     }
 
     protected String fetchLyrics(String artist, String track, boolean download) {
-        if (artist == null || artist.length() == 0 || artist.toLowerCase().indexOf("unknown") != -1 ||
-                track == null || track.length() == 0 || track.toLowerCase().indexOf("unknown") != -1) {
+        if (artist == null || artist.length() == 0 || artist.toLowerCase().contains("unknown") ||
+                track == null || track.length() == 0 || track.toLowerCase().contains("unknown")) {
             log.severe("Cannot download lyrics for unknown artist '" + artist + "' or unknown track '" + track + "'");
             return null;
         }
