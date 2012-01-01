@@ -1,0 +1,1 @@
+java -cp lib\axis-ant.jar;lib\axis.jar;lib\commons-discovery-0.2.jar;lib\commons-logging-1.0.4.jar;lib\log4j.properties;lib\saaj.jar;lib\wsdl4j-1.5.1.jar;lib\jaxrpc.jar org.apache.axis.wsdl.WSDL2Java -p slash.metamusic.lyricwiki -o target C:\Development\MetaMusic\retrieval-tools\src\doc\lyricwiki\lyricwiki.wsdl

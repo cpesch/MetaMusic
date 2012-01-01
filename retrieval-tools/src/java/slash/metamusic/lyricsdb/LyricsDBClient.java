@@ -8,17 +8,15 @@
 
 package slash.metamusic.lyricsdb;
 
-import slash.metamusic.distance.Levenshtein;
+import slash.metamusic.lyricwiki.LyricWikiLocator;
+import slash.metamusic.lyricwiki.LyricWikiPortType;
+import slash.metamusic.lyricwiki.LyricsResult;
 import slash.metamusic.util.StringHelper;
-import slash.metamusic.util.URLLoader;
 
 import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-import java.net.URL;
 import java.net.URLEncoder;
-import java.util.LinkedHashMap;
-import java.util.Map;
 import java.util.logging.Logger;
 
 /**
@@ -40,7 +38,7 @@ public class LyricsDBClient {
     }
 
     private static String encode(String request) throws UnsupportedEncodingException {
-        return URLEncoder.encode(request, "UTF-8");
+        return URLEncoder.encode(request.toLowerCase().replace(" ", "-"), "UTF-8");
     }
 
     public File getCachedFile(String artist, String track) {
@@ -94,7 +92,6 @@ public class LyricsDBClient {
         }
     }
 
-
     protected String downloadLyrics(String artist, String track) {
         if (lyricsDBCache.hasDownloadAlreadyFailed(artist, track)) {
             log.fine("Lyrics download already failed for artist '" + artist + "' and track '" + track + "'");
@@ -102,41 +99,12 @@ public class LyricsDBClient {
         }
 
         try {
-            URL url = new URL("http://lyrc.com.ar/en/tema1en.php?artist=" + encode(artist) + "&songname=" + encode(track));
-            String html = URLLoader.getContents(url, false);
-            String[] resultList = html.split("</font><br>");
-            if (resultList.length != 1) {
-                String lyrics = parseHtml(html);
-                log.fine("Lyrics search for '" + artist + "' and '" + track + "' has exact match: " + lyrics);
-                return lyrics;
-            } else {
-                String[] suggestions = html.split("Suggestions : <br><a href=\"");
-                if (suggestions.length != 1) {
-                    String[] backslash = suggestions[suggestions.length - 1].split("\"");
-                    Map<String, URL> suggestedLyricsMap = new LinkedHashMap<String, URL>();
-                    for (int i = 1; i < backslash.length; i = i + 2) {
-                        String[] font = backslash[i].split("><font color='white'>");
-                        String[] artistAndTitle;
-                        if (font.length != 1) {
-                            artistAndTitle = font[1].split("</font>");
-                            suggestedLyricsMap.put(artistAndTitle[0], new URL("http://lyrc.com.ar/en/" + backslash[i - 1]));
-                        }
-                    }
-                    log.fine("Lyrics search for '" + artist + "' and '" + track + "' has several matches: " + suggestedLyricsMap.keySet());
-
-                    for (String artistAndTitle : suggestedLyricsMap.keySet()) {
-                        if (Levenshtein.distance(artist + " - " + track, artistAndTitle) < 5) {
-                            html = URLLoader.getContents(suggestedLyricsMap.get(artistAndTitle), false);
-                            String lyrics = parseHtml(html);
-                            log.fine("Lyrics search for '" + artist + "' and '" + track + "' choosing match: " + lyrics);
-                            return lyrics;
-                        } else
-                            log.fine("Skipping result for '" + artist + "' and '" + track + "': " + artistAndTitle);
-                    }
-                }
-
-            }
-        } catch (IOException e) {
+            LyricWikiLocator service = new LyricWikiLocator();
+            LyricWikiPortType port = service.getLyricWikiPort();
+            LyricsResult lyrics = port.getSong(artist, track);
+            if(lyrics != null)
+                return lyrics.getLyrics();
+        } catch (Exception e) {
             log.severe("Cannot download lyrics: " + e.getMessage());
         }
 
@@ -144,22 +112,6 @@ public class LyricsDBClient {
         lyricsDBCache.addFailedDownload(artist, track);
         return null;
     }
-
-    String parseHtml(String htmlCode) {
-        String lyrics = "";
-        String[] table = htmlCode.split("</script></td></tr></table>");
-        String[] br = table[1].split("<br />");
-        String[] smaller = br[br.length - 1].split("<");
-        for (int i = 0; i < br.length - 1; i++) {
-            lyrics = lyrics + br[i] + "\n";
-        }
-        br[br.length - 1] = smaller[0];
-        lyrics = lyrics + smaller[0];
-        lyrics = StringHelper.trimButKeepLineFeeds(lyrics);
-        lyrics = StringHelper.decodeEntities(lyrics);
-        return lyrics;
-    }
-
 
     public static void main(String[] args) throws Exception {
         if (args.length != 2) {
