@@ -108,7 +108,7 @@ public class LyricsDBClient {
     String extractLyrics(String html) {
         String[] before = html.split("width='16' height='17'/></a></div>");
         if (before.length > 1) {
-            String[] after = before[1].split("<!-- \n--><div class='rtMatcher'>");
+            String[] after = before[1].split("<!-- --><div class='rtMatcher'>");
             if (after.length > 0) {
                 String lyrics = after[0];
                 lyrics = lyrics.replaceAll("<br />", "\n");
