@@ -81,10 +81,6 @@ public class LyricsDBClient {
         return trimButKeepLineFeeds(lyrics);
     }
 
-    public String peekLyrics(String artist, String track) {
-        return fetchLyrics(artist, track, false);
-    }
-
     public String fetchLyrics(String artist, String track) {
         return fetchLyrics(artist, track, true);
     }
