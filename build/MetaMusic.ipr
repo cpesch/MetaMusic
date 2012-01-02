@@ -21,6 +21,9 @@
       </map>
     </option>
   </component>
+  <component name="ClearCaseSharedConfig">
+    <option name="myUseUcmModel" value="true" />
+  </component>
   <component name="CodeStyleProjectProfileManger">
     <option name="PROJECT_PROFILE" />
     <option name="USE_PROJECT_LEVEL_SETTINGS" value="false" />
@@ -57,8 +60,6 @@
           <option name="LABEL_INDENT_SIZE" value="0" />
           <option name="LABEL_INDENT_ABSOLUTE" value="false" />
           <option name="USE_RELATIVE_INDENTS" value="false" />
-<<<<<<< HEAD
-=======
         </ADDITIONAL_INDENT_OPTIONS>
         <ADDITIONAL_INDENT_OPTIONS fileType="haml">
           <option name="INDENT_SIZE" value="2" />
@@ -69,7 +70,6 @@
           <option name="LABEL_INDENT_SIZE" value="0" />
           <option name="LABEL_INDENT_ABSOLUTE" value="false" />
           <option name="USE_RELATIVE_INDENTS" value="false" />
->>>>>>> new IntelliJ project files
         </ADDITIONAL_INDENT_OPTIONS>
         <ADDITIONAL_INDENT_OPTIONS fileType="java">
           <option name="INDENT_SIZE" value="4" />
@@ -83,7 +83,7 @@
         </ADDITIONAL_INDENT_OPTIONS>
         <ADDITIONAL_INDENT_OPTIONS fileType="js">
           <option name="INDENT_SIZE" value="4" />
-          <option name="CONTINUATION_INDENT_SIZE" value="8" />
+          <option name="CONTINUATION_INDENT_SIZE" value="4" />
           <option name="TAB_SIZE" value="4" />
           <option name="USE_TAB_CHARACTER" value="false" />
           <option name="SMART_TABS" value="false" />
@@ -100,8 +100,6 @@
           <option name="LABEL_INDENT_SIZE" value="0" />
           <option name="LABEL_INDENT_ABSOLUTE" value="false" />
           <option name="USE_RELATIVE_INDENTS" value="false" />
-<<<<<<< HEAD
-=======
         </ADDITIONAL_INDENT_OPTIONS>
         <ADDITIONAL_INDENT_OPTIONS fileType="php">
           <option name="INDENT_SIZE" value="4" />
@@ -122,7 +120,6 @@
           <option name="LABEL_INDENT_SIZE" value="0" />
           <option name="LABEL_INDENT_ABSOLUTE" value="false" />
           <option name="USE_RELATIVE_INDENTS" value="false" />
->>>>>>> new IntelliJ project files
         </ADDITIONAL_INDENT_OPTIONS>
         <ADDITIONAL_INDENT_OPTIONS fileType="sql">
           <option name="INDENT_SIZE" value="2" />
@@ -207,10 +204,6 @@
     <option name="OUTPUT_DIRECTORY" />
   </component>
   <component name="IdProvider" IDEtalkID="758DA1E3E168EA2BADAA2ADDBB0F2E83" />
-<<<<<<< HEAD
-  <component name="JavacSettings">
-    <option name="ADDITIONAL_OPTIONS_STRING" value="-Xlint:unchecked" />
-=======
   <component name="InspectionProjectProfileManager">
     <profiles>
       <profile version="1.0" is_locked="false">
@@ -222,7 +215,9 @@
     <option name="PROJECT_PROFILE" value="Project Default" />
     <option name="USE_PROJECT_PROFILE" value="true" />
     <version value="1.0" />
->>>>>>> remove unused methods
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_STRING" value="-Xlint:unchecked" />
   </component>
   <component name="JavadocGenerationManager">
     <option name="OUTPUT_DIRECTORY" />
@@ -422,6 +417,14 @@
     </option>
   </component>
   <component name="libraryTable">
+    <library name="apache-axis">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/../thirdparty/apache/axis-1.4/lib/axis.jar!/" />
+        <root url="jar://$PROJECT_DIR$/../thirdparty/sun/jaxrpc-1.0/lib/jaxrpc.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+    </library>
     <library name="apache-commons-cli">
       <CLASSES>
         <root url="jar://$PROJECT_DIR$/../thirdparty/apache/commons-cli-1.0/lib/commons-cli.jar!/" />

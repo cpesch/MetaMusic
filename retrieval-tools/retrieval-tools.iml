@@ -23,6 +23,7 @@
     <orderEntry type="library" name="apache-commons-logging" level="project" />
     <orderEntry type="library" name="apache-commons-discovery" level="project" />
     <orderEntry type="library" name="sun-wsdl4j" level="project" />
+    <orderEntry type="library" name="apache-axis" level="project" />
   </component>
   <component name="org.twodividedbyzero.idea.findbugs">
     <option name="_basePreferences">

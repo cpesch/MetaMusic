@@ -11,13 +11,17 @@ package slash.metamusic.lyricsdb;
 import slash.metamusic.lyricwiki.LyricWikiLocator;
 import slash.metamusic.lyricwiki.LyricWikiPortType;
 import slash.metamusic.lyricwiki.LyricsResult;
-import slash.metamusic.util.StringHelper;
+import slash.metamusic.util.URLLoader;
 
 import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.net.URL;
 import java.net.URLEncoder;
 import java.util.logging.Logger;
+
+import static slash.metamusic.util.StringHelper.decodeEntities;
+import static slash.metamusic.util.StringHelper.trimButKeepLineFeeds;
 
 /**
  * A client that queries lyrics databases.
@@ -38,7 +42,7 @@ public class LyricsDBClient {
     }
 
     private static String encode(String request) throws UnsupportedEncodingException {
-        return URLEncoder.encode(request.toLowerCase().replace(" ", "-"), "UTF-8");
+        return URLEncoder.encode(request.replace(" ", "-"), "UTF-8");
     }
 
     public File getCachedFile(String artist, String track) {
@@ -65,14 +69,16 @@ public class LyricsDBClient {
             if (lyrics != null) {
                 log.info("Lyrics for artist '" + artist + "' and track '" + track + "' (" + lyrics.length() + " bytes) is cached");
             } else if (download) {
-                lyrics = downloadLyrics(artist, track);
+                lyrics = scrapeLyrics(artist, track);
+                if (lyrics == null)
+                    lyrics = downloadLyrics(artist, track);
                 if (lyrics != null)
                     storeLyrics(artist, track, lyrics);
             }
         } catch (IOException e) {
             log.severe("Cannot fetch lyrics for artist '" + artist + "' and track '" + track + "': " + e.getMessage());
         }
-        return StringHelper.trimButKeepLineFeeds(lyrics);
+        return trimButKeepLineFeeds(lyrics);
     }
 
     public String peekLyrics(String artist, String track) {
@@ -92,6 +98,32 @@ public class LyricsDBClient {
         }
     }
 
+    protected String scrapeLyrics(String artist, String track) {
+        try {
+            URL url = new URL("http://lyrics.wikia.com/" + encode(artist) + ":" + encode(track));
+            String html = URLLoader.getContents(url, false);
+            return extractLyrics(html);
+        } catch (Exception e) {
+            log.severe("Cannot scrape lyrics: " + e.getMessage());
+        }
+        return null;
+    }
+
+    String extractLyrics(String html) {
+        String[] before = html.split("width='16' height='17'/></a></div>");
+        if (before.length > 1) {
+            String[] after = before[1].split("<!-- \n--><div class='rtMatcher'>");
+            if (after.length > 0) {
+                String lyrics = after[0];
+                lyrics = lyrics.replaceAll("<br />", "\n");
+                lyrics = decodeEntities(lyrics);
+                lyrics = trimButKeepLineFeeds(lyrics);
+                return lyrics;
+            }
+        }
+        return null;
+    }
+
     protected String downloadLyrics(String artist, String track) {
         if (lyricsDBCache.hasDownloadAlreadyFailed(artist, track)) {
             log.fine("Lyrics download already failed for artist '" + artist + "' and track '" + track + "'");
@@ -102,7 +134,7 @@ public class LyricsDBClient {
             LyricWikiLocator service = new LyricWikiLocator();
             LyricWikiPortType port = service.getLyricWikiPort();
             LyricsResult lyrics = port.getSong(artist, track);
-            if(lyrics != null)
+            if (lyrics != null)
                 return lyrics.getLyrics();
         } catch (Exception e) {
             log.severe("Cannot download lyrics: " + e.getMessage());
