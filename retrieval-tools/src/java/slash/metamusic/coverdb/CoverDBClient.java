@@ -68,10 +68,6 @@ public class CoverDBClient {
         return portrait;
     }
 
-    public byte[] peekPortrait(String artist) {
-        return fetchPortrait(artist, false);
-    }
-
     public byte[] fetchPortrait(String artist) {
         return fetchPortrait(artist, true);
     }
@@ -121,10 +117,6 @@ public class CoverDBClient {
     }
 
 
-    public byte[] peekAlbumCover(String artist, String album) {
-        return fetchCover(artist, album, false);
-    }
-
     public byte[] fetchAlbumCover(String artist, String album) {
         return fetchCover(artist, album, true);
     }
@@ -133,10 +125,6 @@ public class CoverDBClient {
         storeCover(artist, album, cover);
     }
 
-
-    public byte[] peekCompilationCover(String compilation) {
-        return fetchCover(VARIOUS_ARTISTS, compilation, false);
-    }
 
     public byte[] fetchCompilationCover(String compilation) {
         return fetchCover(VARIOUS_ARTISTS, compilation, true);
@@ -153,8 +141,8 @@ public class CoverDBClient {
     }
 
     protected byte[] downloadCover(String artist, String album) {
-        if (artist == null || artist.length() == 0 || artist.toLowerCase().indexOf("unknown") != -1 ||
-                album == null || album.length() == 0 || album.toLowerCase().indexOf("unknown") != -1) {
+        if (artist == null || artist.length() == 0 || artist.toLowerCase().contains("unknown") ||
+                album == null || album.length() == 0 || album.toLowerCase().contains("unknown")) {
             log.severe("Cannot download cover for unknown artist '" + artist + "' or unknown album '" + album + "'");
             return null;
         }
@@ -270,17 +258,17 @@ public class CoverDBClient {
             reader = new BufferedReader(new StringReader(new String(bytes)));
             String data;
             while ((data = reader.readLine()) != null) {
-                if (data.toLowerCase().indexOf("html>") != -1)
+                if (data.toLowerCase().contains("html>"))
                     return true;
-                if (data.toLowerCase().indexOf("head>") != -1)
+                if (data.toLowerCase().contains("head>"))
                     return true;
-                if (data.toLowerCase().indexOf("meta>") != -1)
+                if (data.toLowerCase().contains("meta>"))
                     return true;
-                if (data.toLowerCase().indexOf("title>") != -1)
+                if (data.toLowerCase().contains("title>"))
                     return true;
-                if (data.toLowerCase().indexOf("body>") != -1)
+                if (data.toLowerCase().contains("body>"))
                     return true;
-                if (data.toLowerCase().indexOf("HTTP") != -1)
+                if (data.toLowerCase().contains("HTTP"))
                     return true;
             }
         } finally {
