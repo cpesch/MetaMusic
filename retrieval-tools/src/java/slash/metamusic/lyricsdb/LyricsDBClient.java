@@ -111,10 +111,12 @@ public class LyricsDBClient {
             String[] after = before[1].split("<!-- --><div class='rtMatcher'>");
             if (after.length > 0) {
                 String lyrics = after[0];
-                lyrics = lyrics.replaceAll("<br />", "\n");
+                lyrics = lyrics.replaceAll("<br />", "\r\n");
+                lyrics = lyrics.replaceAll("<i>", "").replaceAll("</i>", "");
                 lyrics = decodeEntities(lyrics);
                 lyrics = trimButKeepLineFeeds(lyrics);
-                return lyrics;
+                if (!lyrics.contains("<div class='lyricsbreak'>"))
+                    return lyrics;
             }
         }
         return null;
