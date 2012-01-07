@@ -256,7 +256,7 @@ public class MP3Extender extends BaseMP3Modifier {
             fileLyrics = null;
 
         // find best source
-        String foundLyrics = fetchLyrics;
+        String foundLyrics = lyricsClient.cleanLyrics(fetchLyrics);
         if (isFirstBetterThanSecond(fileLyrics, foundLyrics))
             foundLyrics = fileLyrics;
 

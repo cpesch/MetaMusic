@@ -442,6 +442,9 @@
       <CLASSES>
         <root url="jar://$PROJECT_DIR$/../thirdparty/apache/axis-1.4/lib/axis.jar!/" />
         <root url="jar://$PROJECT_DIR$/../thirdparty/sun/jaxrpc-1.0/lib/jaxrpc.jar!/" />
+        <root url="jar://$PROJECT_DIR$/../thirdparty/apache/commons-logging-1.0.4/lib/commons-logging-api.jar!/" />
+        <root url="jar://$PROJECT_DIR$/../thirdparty/apache/commons-discovery-0.2/lib/commons-discovery-0.2.jar!/" />
+        <root url="jar://$PROJECT_DIR$/../thirdparty/sun/wsdl4j-1.5.1/lib/wsdl4j-1.5.1.jar!/" />
       </CLASSES>
       <JAVADOC />
       <SOURCES />

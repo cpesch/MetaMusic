@@ -201,6 +201,8 @@ public class StringHelper {
         entities.put("aring", "\u00E5");
         // Small ae ligature
         entities.put("aelig", "\u00E6");
+        // double low-9 quotation mark
+        entities.put("bdquo", "\u201E");
         // Small c, cedilla
         entities.put("ccedil", "\u00E7");
         // Small e, grave accent

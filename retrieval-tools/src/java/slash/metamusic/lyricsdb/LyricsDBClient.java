@@ -42,7 +42,7 @@ public class LyricsDBClient {
     }
 
     private static String encode(String request) throws UnsupportedEncodingException {
-        return URLEncoder.encode(request.replace(" ", "-"), "UTF-8");
+        return URLEncoder.encode(request.replace(" ", "_"), "UTF-8");
     }
 
     public File getCachedFile(String artist, String track) {
@@ -96,7 +96,8 @@ public class LyricsDBClient {
 
     protected String scrapeLyrics(String artist, String track) {
         try {
-            URL url = new URL("http://lyrics.wikia.com/" + encode(artist) + ":" + encode(track));
+            String spec = "http://lyrics.wikia.com/" + encode(artist) + ":" + encode(track);
+            URL url = new URL(spec);
             String html = URLLoader.getContents(url, false);
             return extractLyrics(html);
         } catch (Exception e) {
@@ -105,17 +106,27 @@ public class LyricsDBClient {
         return null;
     }
 
+    public String cleanLyrics(String lyrics) {
+        if (lyrics == null || lyrics.contains("{{A"))
+            return null;
+        lyrics = lyrics.replaceAll("\r\n", "\n");
+        lyrics = lyrics.replaceAll("<br />", "\n");
+        lyrics = lyrics.replaceAll("\n", "\r\n");
+        lyrics = lyrics.replaceAll("<b>", "").replaceAll("</b>", "");
+        lyrics = lyrics.replaceAll("<i>", "").replaceAll("</i>", "");
+        lyrics = decodeEntities(lyrics);
+        lyrics = trimButKeepLineFeeds(lyrics);
+        return lyrics;
+    }
+
     String extractLyrics(String html) {
         String[] before = html.split("width='16' height='17'/></a></div>");
         if (before.length > 1) {
-            String[] after = before[1].split("<!-- --><div class='rtMatcher'>");
+            String[] after = before[1].split("<!--");
             if (after.length > 0) {
                 String lyrics = after[0];
-                lyrics = lyrics.replaceAll("<br />", "\r\n");
-                lyrics = lyrics.replaceAll("<i>", "").replaceAll("</i>", "");
-                lyrics = decodeEntities(lyrics);
-                lyrics = trimButKeepLineFeeds(lyrics);
-                if (!lyrics.contains("<div class='lyricsbreak'>"))
+                lyrics = cleanLyrics(lyrics);
+                if (lyrics != null && !lyrics.contains("<div class='lyricsbreak'>"))
                     return lyrics;
             }
         }
@@ -131,9 +142,23 @@ public class LyricsDBClient {
         try {
             LyricWikiLocator service = new LyricWikiLocator();
             LyricWikiPortType port = service.getLyricWikiPort();
-            LyricsResult lyrics = port.getSong(artist, track);
-            if (lyrics != null)
-                return lyrics.getLyrics();
+            LyricsResult lyricsResult = port.getSong(artist, track);
+            if (lyricsResult != null) {
+                String lyrics = lyricsResult.getLyrics();
+                lyrics = new String(lyrics.getBytes());
+                lyrics = cleanLyrics(lyrics);
+                if (lyrics != null) {
+                    int shortened = lyrics.indexOf("[...]");
+                    if (shortened != -1)
+                        lyrics = lyrics.substring(0, shortened + 5);
+                    int notLicensed = lyrics.indexOf("Unfortunately, we are not licensed to display the full lyrics");
+                    if (notLicensed != -1)
+                        lyrics = lyrics.substring(0, notLicensed);
+                    lyrics = new String(lyrics.getBytes());
+                    if (!lyrics.startsWith("Not found"))
+                        return lyrics;
+                }
+            }
         } catch (Exception e) {
             log.severe("Cannot download lyrics: " + e.getMessage());
         }

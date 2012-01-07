@@ -43,69 +43,69 @@ public class LyricsDBClientTest extends TestCase {
             "</body>\n" +
             "</html>";
 
-    private static final String PLAIN = "Oh, how 'bout a round of applause?\n" +
-            "Yeah, standin' ovation\n" +
-            "Oooh, oh yeah, yeah y-yeah yeah\n" +
-            "\n" +
-            "You look so dumb right now\n" +
-            "Standin' outside my house\n" +
-            "Tryin' to apologize\n" +
-            "You're so ugly when you cry\n" +
-            "Please, just cut it out\n" +
-            "\n" +
-            "Don't tell me you're sorry 'cause you're not\n" +
-            "Baby when I know you're only sorry you got caught\n" +
-            "\n" +
-            "But you put on quite a show (ooh)\n" +
-            "Really had me going\n" +
-            "But now it's time to go (ooh)\n" +
-            "Curtains finally closing\n" +
-            "\n" +
-            "That was quite a show (ooh)\n" +
-            "Very entertaining\n" +
-            "But it's over now\n" +
-            "(But it's over now)\n" +
-            "Go on and take a bow\n" +
-            "Oh oh oh\n" +
-            "\n" +
-            "Grab your clothes and get gone (Get gone)\n" +
-            "Ya better hurry up before the sprinklers come on (Come on)\n" +
-            "Talkin' 'bout, \"Girl I love you, you're the one.\"\n" +
-            "This just looks like a rerun\n" +
-            "Please, what else is on?\n" +
-            "\n" +
-            "And don't tell me you're sorry cause you're not (mhmm)\n" +
-            "Baby when I know you're only sorry you got caught\n" +
-            "\n" +
-            "But you put on quite a show (ooh)\n" +
-            "Really had me going\n" +
-            "But now it's time to go\n" +
-            "Curtains finally closing\n" +
-            "\n" +
-            "That was quite a show\n" +
-            "Very entertaining\n" +
-            "But it's over now\n" +
-            "(But it's over now)\n" +
-            "Go on and take a bow\n" +
-            "\n" +
-            "Ohh, and the award for the best liar goes to you\n" +
-            "For making me believe that you could be faithful to me\n" +
-            "Let's hear your speech out\n" +
-            "\n" +
-            "How 'bout a round of applause?\n" +
-            "A standin' ovation\n" +
-            "\n" +
-            "But you put on quite a show\n" +
-            "Really had me going\n" +
-            "Now it's time to go\n" +
-            "Curtains finally closing\n" +
-            "\n" +
-            "That was quite a show\n" +
-            "Very entertaining\n" +
-            "But it's over now\n" +
-            "(But it's over now)\n" +
-            "Go on and take a bow\n" +
-            "\n" +
+    private static final String PLAIN = "Oh, how 'bout a round of applause?\r\n" +
+            "Yeah, standin' ovation\r\n" +
+            "Oooh, oh yeah, yeah y-yeah yeah\r\n" +
+            "\r\n" +
+            "You look so dumb right now\r\n" +
+            "Standin' outside my house\r\n" +
+            "Tryin' to apologize\r\n" +
+            "You're so ugly when you cry\r\n" +
+            "Please, just cut it out\r\n" +
+            "\r\n" +
+            "Don't tell me you're sorry 'cause you're not\r\n" +
+            "Baby when I know you're only sorry you got caught\r\n" +
+            "\r\n" +
+            "But you put on quite a show (ooh)\r\n" +
+            "Really had me going\r\n" +
+            "But now it's time to go (ooh)\r\n" +
+            "Curtains finally closing\r\n" +
+            "\r\n" +
+            "That was quite a show (ooh)\r\n" +
+            "Very entertaining\r\n" +
+            "But it's over now\r\n" +
+            "(But it's over now)\r\n" +
+            "Go on and take a bow\r\n" +
+            "Oh oh oh\r\n" +
+            "\r\n" +
+            "Grab your clothes and get gone (Get gone)\r\n" +
+            "Ya better hurry up before the sprinklers come on (Come on)\r\n" +
+            "Talkin' 'bout, \"Girl I love you, you're the one.\"\r\n" +
+            "This just looks like a rerun\r\n" +
+            "Please, what else is on?\r\n" +
+            "\r\n" +
+            "And don't tell me you're sorry cause you're not (mhmm)\r\n" +
+            "Baby when I know you're only sorry you got caught\r\n" +
+            "\r\n" +
+            "But you put on quite a show (ooh)\r\n" +
+            "Really had me going\r\n" +
+            "But now it's time to go\r\n" +
+            "Curtains finally closing\r\n" +
+            "\r\n" +
+            "That was quite a show\r\n" +
+            "Very entertaining\r\n" +
+            "But it's over now\r\n" +
+            "(But it's over now)\r\n" +
+            "Go on and take a bow\r\n" +
+            "\r\n" +
+            "Ohh, and the award for the best liar goes to you\r\n" +
+            "For making me believe that you could be faithful to me\r\n" +
+            "Let's hear your speech out\r\n" +
+            "\r\n" +
+            "How 'bout a round of applause?\r\n" +
+            "A standin' ovation\r\n" +
+            "\r\n" +
+            "But you put on quite a show\r\n" +
+            "Really had me going\r\n" +
+            "Now it's time to go\r\n" +
+            "Curtains finally closing\r\n" +
+            "\r\n" +
+            "That was quite a show\r\n" +
+            "Very entertaining\r\n" +
+            "But it's over now\r\n" +
+            "(But it's over now)\r\n" +
+            "Go on and take a bow\r\n" +
+            "\r\n" +
             "But it's over now...";
 
     protected void setUp() throws Exception {

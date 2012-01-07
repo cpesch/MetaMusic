@@ -166,6 +166,8 @@ public class CoverDBClient {
             http://www.cdpochettes.net/audio/e/Ema_burton_a_girl_like_me_1.jpg
             http://www.babilomnia.it/Cover/S/Santana-Supernatural-Front.jpg
             http://www.babilomnia.it/Cover/B/BackStreet_Boys_Millenium_front.jpg
+            http://cdcovers.iespana.es/cdcovers/CoversA/AC_DC-HighWay_To_Hell-Front.jpg
+            http://www.fredo-covers.com/jaquettes/audio/cher_heart_of_stone_avant.jpg
             does not work anymore, service stopped
             */
 
@@ -175,28 +177,6 @@ public class CoverDBClient {
                 cover = downloadCover(new URL("http://www.coveralia.com/audio/" + artistChar +
                         "/" + StringHelper.toMixedCase(StringHelper.replaceForURI(artist)) +
                         "-" + StringHelper.toMixedCase(StringHelper.replaceForURI(album)) + "-Frontal.jpg"), artist, album);
-            }
-
-            // http://cdcovers.iespana.es/cdcovers/CoversA/AC_DC-HighWay_To_Hell-Front.jpg
-            if (cover == null) {
-                char artistChar = Character.toUpperCase(artist.charAt(0));
-                cover = downloadCover(new URL("http://cdcovers.iespana.es/cdcovers/Covers" + artistChar +
-                        "/" + StringHelper.replaceForURI(artist) +
-                        "-" + StringHelper.replaceForURI(album) + "-Front.jpg"), artist, album);
-            }
-
-            if (cover == null) {
-                char artistChar = Character.toUpperCase(artist.charAt(0));
-                cover = downloadCover(new URL("http://cdcovers.iespana.es/cdcovers/Covers" + artistChar +
-                        "/" + StringHelper.replaceForURI(StringHelper.toMixedCase(artist)) +
-                        "-" + StringHelper.replaceForURI(StringHelper.toMixedCase(album)) + "-Front.jpg"), artist, album);
-            }
-
-            // http://www.fredo-covers.com/jaquettes/audio/cher_heart_of_stone_avant.jpg
-            if (cover == null) {
-                cover = downloadCover(new URL("http://www.fredo-covers.com/jaquettes/audio/" +
-                        StringHelper.replaceWhitespaces(artist.toLowerCase()) +
-                        "_" + StringHelper.replaceWhitespaces(album.toLowerCase()) + "_avant.jpg"), artist, album);
             }
 
             // http://coverlandia.altervista.org/Copertine%20cd/D/Depeche_Mode_Ultra.jpg
