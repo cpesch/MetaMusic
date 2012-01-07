@@ -13,13 +13,17 @@ import slash.metamusic.mp3.ID3v2Frame;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 
+import static slash.metamusic.mp3.sections.PictureType.DEFAULT_PICTURE_TYPE;
+import static slash.metamusic.mp3.sections.PictureType.getPictureType;
+import static slash.metamusic.mp3.sections.PictureType.isKnownPictureType;
+
 /**
  * My instances represent the ID3v2Frame picture type byte
  * of the ID3v2 header as described in
  * http://www.id3.org/id3v2.3.0.html#sec4.14.
  *
  * @author Christian Pesch
- * @version $Id: PictureTypeSection.java 460 2005-01-03 12:17:32Z cpesch $
+ * @version $Id: PictureTypeSection.java 461 2012-01-07 12:17:32Z cpesch $
  */
 
 public class PictureTypeSection extends AbstractSection {
@@ -32,7 +36,9 @@ public class PictureTypeSection extends AbstractSection {
     // --- read/write object ------------------------------------
 
     public int parse(byte[] data, int offset, ID3v2Frame frame) throws IOException {
-        setPictureType(data[offset]);
+        byte pictureTypeCode = data[offset];
+        if (isKnownPictureType(pictureTypeCode))
+            setPictureType(pictureTypeCode);
         return TYPE_SIZE;
     }
 
@@ -51,7 +57,7 @@ public class PictureTypeSection extends AbstractSection {
     }
 
     public void setPictureType(int pictureTypeCode) {
-        if (!PictureType.isKnownPictureType(pictureTypeCode))
+        if (!isKnownPictureType(pictureTypeCode))
             throw new IllegalArgumentException("Picture type code " + pictureTypeCode + " is not known");
         setPictureType(PictureType.getPictureType(pictureTypeCode));
     }
@@ -70,5 +76,5 @@ public class PictureTypeSection extends AbstractSection {
 
     // --- member variables ------------------------------------
 
-    protected PictureType type = PictureType.DEFAULT_PICTURE_TYPE;
+    protected PictureType type = DEFAULT_PICTURE_TYPE;
 }

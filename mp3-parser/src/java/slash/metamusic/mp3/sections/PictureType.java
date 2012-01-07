@@ -12,7 +12,7 @@ package slash.metamusic.mp3.sections;
  * Defines the type of pictures in APIC frames.
  *
  * @author Christian Pesch
- * @version $Id: PictureType.java 225 2004-03-23 11:24:50Z cpesch $
+ * @version $Id: PictureType.java 226 2012-01-07 11:24:50Z cpesch $
  */
 
 public class PictureType {
@@ -46,8 +46,7 @@ public class PictureType {
     }
 
     public static PictureType getPictureType(int pictureTypeCode) {
-        for (int i = 0; i < PICTURE_TYPES.length; i++) {
-            PictureType pictureType = PICTURE_TYPES[i];
+        for (PictureType pictureType : PICTURE_TYPES) {
             if (pictureType.getCode() == pictureTypeCode)
                 return pictureType;
         }
