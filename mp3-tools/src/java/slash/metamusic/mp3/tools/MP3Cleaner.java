@@ -322,12 +322,14 @@ public class MP3Cleaner extends BaseMP3Modifier {
 
         ID3v2Header head = file.getHead();
         for (ID3v2Frame f : head.getFrames()) {
-            if (f.getTagName().equals("COMM")) {
-                if ("iTunNORM".equals(f.getDescription())) {
+            String name = f.getTagName();
+            if (name.equals("COMM")) {
+                String description = f.getDescription();
+                if (description.startsWith("iTun")) {
                     removeHeaders.add(f);
                 }
             }
-            if (ITUNES_TAGS_TO_REMOVE.contains(f.getTagName())) {
+            if (ITUNES_TAGS_TO_REMOVE.contains(name)) {
                 removeHeaders.add(f);
             }
         }
