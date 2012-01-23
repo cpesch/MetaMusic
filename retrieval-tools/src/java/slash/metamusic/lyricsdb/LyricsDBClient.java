@@ -11,7 +11,6 @@ package slash.metamusic.lyricsdb;
 import slash.metamusic.lyricwiki.LyricWikiLocator;
 import slash.metamusic.lyricwiki.LyricWikiPortType;
 import slash.metamusic.lyricwiki.LyricsResult;
-import slash.metamusic.util.StringHelper;
 import slash.metamusic.util.URLLoader;
 
 import java.io.File;
@@ -20,9 +19,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URL;
 import java.util.logging.Logger;
 
-import static slash.metamusic.util.StringHelper.decodeEntities;
-import static slash.metamusic.util.StringHelper.toMixedCase;
-import static slash.metamusic.util.StringHelper.trimButKeepLineFeeds;
+import static slash.metamusic.util.StringHelper.*;
 
 /**
  * A client that queries lyrics databases.
@@ -118,6 +115,12 @@ public class LyricsDBClient {
         lyrics = lyrics.replaceAll("<i>", "").replaceAll("</i>", "");
         lyrics = decodeEntities(lyrics);
         lyrics = trimButKeepLineFeeds(lyrics);
+        int shortened = lyrics.indexOf("[...]");
+        if (shortened != -1)
+            lyrics = lyrics.substring(0, shortened + 5);
+        int notLicensed = lyrics.indexOf("not licensed to display the full lyrics");
+        if (notLicensed != -1)
+            lyrics = lyrics.substring(0, notLicensed);
         return lyrics;
     }
 
@@ -149,17 +152,8 @@ public class LyricsDBClient {
                 String lyrics = lyricsResult.getLyrics();
                 lyrics = new String(lyrics.getBytes("ISO-8859-1"), "UTF-8");
                 lyrics = cleanLyrics(lyrics);
-                if (lyrics != null) {
-                    int shortened = lyrics.indexOf("[...]");
-                    if (shortened != -1)
-                        lyrics = lyrics.substring(0, shortened + 5);
-                    int notLicensed = lyrics.indexOf("Unfortunately, we are not licensed to display the full lyrics");
-                    if (notLicensed != -1)
-                        lyrics = lyrics.substring(0, notLicensed);
-                    lyrics = new String(lyrics.getBytes());
-                    if (!lyrics.startsWith("Not found"))
-                        return lyrics;
-                }
+                if (lyrics != null && !lyrics.startsWith("Not found"))
+                    return lyrics;
             }
         } catch (Exception e) {
             log.severe("Cannot download lyrics: " + e.getMessage());

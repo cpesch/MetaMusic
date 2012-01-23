@@ -329,6 +329,9 @@ public class MP3TidyGUI extends BaseDialogGUI {
         synchronized (mutex) {
             if (running) {
                 running = false;
+                textFieldTidyDirectory.setEditable(false);
+                textFieldCoverDirectory.setEditable(false);
+                textFieldLyricsDirectory.setEditable(false);
                 buttonStart.setEnabled(false);
                 return;
             } else
@@ -367,6 +370,9 @@ public class MP3TidyGUI extends BaseDialogGUI {
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
                 startWaitCursor(frame.getRootPane());
+                textFieldTidyDirectory.setEditable(false);
+                textFieldCoverDirectory.setEditable(false);
+                textFieldLyricsDirectory.setEditable(false);
                 buttonSelectTidyDirectory.setEnabled(false);
                 buttonExit.setEnabled(false);
                 buttonStart.setText(BUNDLE.getString("cancel"));
@@ -391,6 +397,9 @@ public class MP3TidyGUI extends BaseDialogGUI {
                 SwingUtilities.invokeLater(new Runnable() {
                     public void run() {
                         stopWaitCursor(frame.getRootPane());
+                        textFieldTidyDirectory.setEditable(true);
+                        textFieldCoverDirectory.setEditable(true);
+                        textFieldLyricsDirectory.setEditable(true);
                         buttonSelectTidyDirectory.setEnabled(true);
                         buttonStart.setEnabled(true);
                         buttonExit.setEnabled(true);
@@ -799,6 +808,7 @@ public class MP3TidyGUI extends BaseDialogGUI {
             }
         }
 
+        @SuppressWarnings("unchecked")
         public boolean importData(TransferSupport support) {
             if (!canImport(support)) {
                 return false;
@@ -806,9 +816,7 @@ public class MP3TidyGUI extends BaseDialogGUI {
 
             Transferable t = support.getTransferable();
             try {
-                Object data = t.getTransferData(javaFileListFlavor);
-                //noinspection unchecked
-                List<File> directories = (List<File>) data;
+                List<File> directories = (List<File>) t.getTransferData(javaFileListFlavor);
                 selectTidyDirectories(directories);
                 preferences.put(TIDY_DIRECTORY_PREFERENCE, textFieldTidyDirectory.getText());
             } catch (UnsupportedFlavorException e) {
