@@ -256,18 +256,18 @@ public class StringHelper {
     }
 
     public static String decodeEntities(String str) {
-        StringBuffer result = new StringBuffer();
+        StringBuilder builder = new StringBuilder();
         int semicolonIndex = 0;
         while (semicolonIndex < str.length()) {
             int ampersandIndex = str.indexOf("&", semicolonIndex);
             if (ampersandIndex == -1) {
-                result.append(str.substring(semicolonIndex, str.length()));
+                builder.append(str.substring(semicolonIndex, str.length()));
                 break;
             }
-            result.append(str.substring(semicolonIndex, ampersandIndex));
+            builder.append(str.substring(semicolonIndex, ampersandIndex));
             semicolonIndex = str.indexOf(";", ampersandIndex);
             if (semicolonIndex == -1) {
-                result.append(str.substring(ampersandIndex, str.length()));
+                builder.append(str.substring(ampersandIndex, str.length()));
                 break;
             }
 
@@ -280,20 +280,20 @@ public class StringHelper {
                         radix = 16;
                         tok = tok.substring(1, tok.length());
                     }
-                    result.append((char) Integer.parseInt(tok, radix));
+                    builder.append((char) Integer.parseInt(tok, radix));
                 } catch (NumberFormatException exp) {
-                    result.append('?');
+                    builder.append('?');
                 }
             } else {
                 tok = entities.get(tok);
                 if (tok != null)
-                    result.append(tok);
+                    builder.append(tok);
                 else
-                    result.append('?');
+                    builder.append('?');
             }
             semicolonIndex++;
         }
-        return result.toString();
+        return builder.toString();
     }
 
     /**
@@ -302,76 +302,52 @@ public class StringHelper {
      *
      * @param string the string to create a mixed mode string from
      * @return a mixed mode string out of a string. Each space separated
-     *         substring will have an uppercase first letter and a lowercase rest.
+     *         substring will have an uppercase first letter and a lowercase rest
      */
     public static String toMixedCase(String string) {
-        StringBuffer buffer = new StringBuffer();
+        StringBuilder builder = new StringBuilder();
         StringTokenizer tokenizer = new StringTokenizer(string, "_ ", true);
         while (tokenizer.hasMoreTokens()) {
             String token = tokenizer.nextToken();
             if (token.length() > 1)
-                buffer.append(token.substring(0, 1).toUpperCase()).append(token.substring(1).toLowerCase());
+                builder.append(token.substring(0, 1).toUpperCase()).append(token.substring(1).toLowerCase());
             else
-                buffer.append(token);
+                builder.append(token);
         }
-        return buffer.toString();
+        return builder.toString();
     }
 
     public static String replaceWhitespaces(String string) {
-        StringBuffer buffer = new StringBuffer(string);
-        for (int i = 0; i < buffer.length(); i++) {
-            char c = buffer.charAt(i);
+        StringBuilder builder = new StringBuilder(string);
+        for (int i = 0; i < builder.length(); i++) {
+            char c = builder.charAt(i);
             if (Character.isWhitespace(c))
-                buffer.setCharAt(i, '_');
+                builder.setCharAt(i, '_');
         }
-        return buffer.toString();
+        return builder.toString();
     }
 
     public static String removeAdjacentUnderscores(String string) {
-        StringBuffer buffer = new StringBuffer(string);
-        for (int i = 0; i < buffer.length() - 1; i++) {
-            if (buffer.charAt(i) == '_' && buffer.charAt(i + 1) == '_') {
-                buffer.deleteCharAt(i);
+        StringBuilder builder = new StringBuilder(string);
+        for (int i = 0; i < builder.length() - 1; i++) {
+            if (builder.charAt(i) == '_' && builder.charAt(i + 1) == '_') {
+                builder.deleteCharAt(i);
                 i--;
             }
         }
-        return buffer.toString();
+        return builder.toString();
     }
 
     public static String removeNonLetterOrDigits(String string) {
-        StringBuffer buffer = new StringBuffer(string);
-        for (int i = 0; i < buffer.length(); i++) {
-            char c = buffer.charAt(i);
+        StringBuilder builder = new StringBuilder(string);
+        for (int i = 0; i < builder.length(); i++) {
+            char c = builder.charAt(i);
             if (!(Character.isLetterOrDigit(c) || Character.isWhitespace(c)) || c == '\'') {
-                buffer.deleteCharAt(i);
+                builder.deleteCharAt(i);
                 i--;
             }
         }
-        return buffer.toString();
-    }
-
-    public static String removeWhitespaces(String string) {
-        StringBuffer buffer = new StringBuffer(string);
-        for (int i = 0; i < buffer.length(); i++) {
-            char c = buffer.charAt(i);
-            if (Character.isWhitespace(c)) {
-                buffer.deleteCharAt(i);
-                i--;
-            }
-        }
-        return buffer.toString();
-    }
-
-    public static String removeSlashes(String string) {
-        StringBuffer buffer = new StringBuffer(string);
-        for (int i = 0; i < buffer.length(); i++) {
-            char c = buffer.charAt(i);
-            if (c == '/' || c == '\\') {
-                buffer.deleteCharAt(i);
-                i--;
-            }
-        }
-        return buffer.toString();
+        return builder.toString();
     }
 
     public static String formatNumber(long number, int digits) {
@@ -383,14 +359,14 @@ public class StringHelper {
     }
 
     public static String formatString(String string, int length, char fill, boolean rightAligned) {
-        StringBuffer buffer = new StringBuffer(string);
-        while (buffer.length() < length) {
+        StringBuilder builder = new StringBuilder(string);
+        while (builder.length() < length) {
             if (rightAligned)
-                buffer.insert(0, fill);
+                builder.insert(0, fill);
             else
-                buffer.append(fill);
+                builder.append(fill);
         }
-        return buffer.toString();
+        return builder.toString();
     }
 
     public static String shortenString(String string, int minimumLength, int lengthToShortenBy) {
@@ -414,17 +390,5 @@ public class StringHelper {
         string = replaceWhitespaces(string);
         string = removeAdjacentUnderscores(string);
         return string.trim();
-    }
-
-    public static int countMatches(String string, String match) {
-        int count = 0, index = 0;
-        while (index < string.length()) {
-            int found = string.indexOf(match, index);
-            if (found == -1)
-                break;
-            count++;
-            index = found + 1;
-        }
-        return count;
     }
 }

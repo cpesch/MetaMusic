@@ -18,15 +18,22 @@ public class LyricsDBClientTest extends TestCase {
     private LyricsDBClient client = new LyricsDBClient();
     private File tempDir;
 
-    private static final String PLAIN_TRIMMED = "Oh, how 'bout a round of applause?\n" +
-            "Yeah, standin' ovation\n" +
-            "Oooh, oh yeah, yeah y-yeah yeah\n" +
-            "\n" +
-            "You look so dumb right now\n" +
-            "Standin' outside my house\n" +
-            "Tryin' to apologize\n" +
-            "You're so ugly when you cry\n" +
+    private static final String PLAIN_TRIMMED = "Oh, how 'bout a round of applause?\r\n" +
+            "Yeah, standin' ovation\r\n" +
+            "Oooh, oh yeah, yeah y-yeah yeah\r\n" +
+            "\r\n" +
+            "You look so dumb right now\r\n" +
+            "Standin' outside my house\r\n" +
+            "Tryin' to apologize\r\n" +
+            "You're so ugly when you cry\r\n" +
             "Please, just cu[...]";
+
+    private static final String UMLAUTS_TRIMMED = "Das war ein Super Sommer in jedem Augenblick.\r\n" +
+            "Wir ließen uns're Träume einfach schweben\r\n" +
+            "und wenn mich heute einer fragt\r\n" +
+            "wie definierst du Glück\r\n" +
+            "\r\n" +
+            "dann brauch ich gar nicht lang zu überleg[...]";
 
     private static final String HTML = "\n" +
             "<!doctype html>\n" +
@@ -108,6 +115,94 @@ public class LyricsDBClientTest extends TestCase {
             "\r\n" +
             "But it's over now...";
 
+    private static final String UMLAUTS = "Das war ein Super Sommer in jedem Augenblick.\r\n" +
+            "Wir ließen uns're Träume einfach schweben\r\n" +
+            "und wenn mich heute einer fragt\r\n" +
+            "wie definierst du Glück\r\n" +
+            "\r\n" +
+            "dann brauch ich gar nicht lang zu überlegen:\r\n" +
+            "\r\n" +
+            "Die Sonne\r\n" +
+            "die Sonne und du\r\n" +
+            "\r\n" +
+            "uh uh uh uh\r\n" +
+            "gehör'n dazu\r\n" +
+            "\r\n" +
+            "die Sonne\r\n" +
+            "die Sonne und du\r\n" +
+            "\r\n" +
+            "uh uh uh uh\r\n" +
+            "gehör'n dazu.\r\n" +
+            "\r\n" +
+            "La la la la la la\r\n" +
+            "la la la la la la\r\n" +
+            "la la la la la la und du.\r\n" +
+            "\r\n" +
+            "La la la la la la\r\n" +
+            "la la la la la la\r\n" +
+            "la la la la la la und du.\r\n" +
+            "\r\n" +
+            "Das wird ein Super Sommer\r\n" +
+            "wenn wir uns wiedersehn.\r\n" +
+            "Die Aussicht läßt mich Frost und Streß ertragen\r\n" +
+            "und wenn mich heute einer fragt\r\n" +
+            "sie definierst du schön\r\n" +
+            "\r\n" +
+            "dann werde ich ihm selbstverständlich sagen:\r\n" +
+            "\r\n" +
+            "Die Sonne\r\n" +
+            "die Sonne und du\r\n" +
+            "\r\n" +
+            "uh uh uh uh\r\n" +
+            "gehör'n dazu\r\n" +
+            "\r\n" +
+            "die Sonne\r\n" +
+            "die Sonne und du\r\n" +
+            "\r\n" +
+            "uh uh uh uh\r\n" +
+            "gehör'n dazu.\r\n" +
+            "\r\n" +
+            "La la la la la la\r\n" +
+            "la la la la la la\r\n" +
+            "la la la la la la und du.\r\n" +
+            "\r\n" +
+            "La la la la la la\r\n" +
+            "la la la la la la\r\n" +
+            "la la la la la la und du.\r\n" +
+            "\r\n" +
+            "Ibiza\r\n" +
+            "Saint Tropez\r\n" +
+            "Sylt und der Wörthersee\r\n" +
+            "\r\n" +
+            "Las Palmas\r\n" +
+            "Rimini und du.\r\n" +
+            "Cannes und Venezia\r\n" +
+            "Ascona\r\n" +
+            "Korsika\r\n" +
+            "\r\n" +
+            "Malorca\r\n" +
+            "Timmendorf und du.\r\n" +
+            "\r\n" +
+            "La la la la la la\r\n" +
+            "la la la la la la\r\n" +
+            "la la la la la la und du.\r\n" +
+            "\r\n" +
+            "Hawaii und Martinique\r\n" +
+            "Jamaica\r\n" +
+            "Mozambique\r\n" +
+            "\r\n" +
+            "Rio und Malibu und du.\r\n" +
+            "La la la la la la\r\n" +
+            "la la la la la la\r\n" +
+            "la la la la la la la la.\r\n" +
+            "\r\n" +
+            "La la la la la la\r\n" +
+            "la la la la la la\r\n" +
+            "la la la la la la und du.\r\n" +
+            "a-ha\r\n" +
+            "\r\n" +
+            "doch wir sind gleich wieder zur";
+
     protected void setUp() throws Exception {
         super.setUp();
         tempDir = File.createTempFile("lyrics", ".cache");
@@ -129,11 +224,20 @@ public class LyricsDBClientTest extends TestCase {
         assertEquals(PLAIN_TRIMMED, client.downloadLyrics("Rihanna", "Take a bow"));
     }
 
+    public void testDownloadLyricsWithUmlauts() throws IOException {
+        client.setLyricsDirectoryName(tempDir.getAbsolutePath());
+        assertEquals(UMLAUTS_TRIMMED, client.downloadLyrics("Udo Jürgens", "Die Sonne und Du"));
+    }
+
     public void testExtractLyrics() {
         assertEquals(PLAIN, client.extractLyrics(HTML));
     }
 
     public void testScrapeLyrics() throws IOException {
         assertEquals(PLAIN, client.scrapeLyrics("Rihanna", "Take a bow"));
+    }
+
+    public void testScrapeLyricsWithUmlauts() throws IOException {
+        assertEquals(UMLAUTS, client.scrapeLyrics("Udo Jürgens", "Die Sonne und Du"));
     }
 }

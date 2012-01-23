@@ -11,16 +11,17 @@ package slash.metamusic.lyricsdb;
 import slash.metamusic.lyricwiki.LyricWikiLocator;
 import slash.metamusic.lyricwiki.LyricWikiPortType;
 import slash.metamusic.lyricwiki.LyricsResult;
+import slash.metamusic.util.StringHelper;
 import slash.metamusic.util.URLLoader;
 
 import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URL;
-import java.net.URLEncoder;
 import java.util.logging.Logger;
 
 import static slash.metamusic.util.StringHelper.decodeEntities;
+import static slash.metamusic.util.StringHelper.toMixedCase;
 import static slash.metamusic.util.StringHelper.trimButKeepLineFeeds;
 
 /**
@@ -42,7 +43,7 @@ public class LyricsDBClient {
     }
 
     private static String encode(String request) throws UnsupportedEncodingException {
-        return URLEncoder.encode(request.replace(" ", "_"), "UTF-8");
+        return toMixedCase(request).replace(" ", "_");
     }
 
     public File getCachedFile(String artist, String track) {
@@ -99,6 +100,7 @@ public class LyricsDBClient {
             String spec = "http://lyrics.wikia.com/" + encode(artist) + ":" + encode(track);
             URL url = new URL(spec);
             String html = URLLoader.getContents(url, false);
+            html = new String(html.getBytes(), "ISO-8859-1");
             return extractLyrics(html);
         } catch (Exception e) {
             log.severe("Cannot scrape lyrics: " + e.getMessage());
@@ -145,7 +147,7 @@ public class LyricsDBClient {
             LyricsResult lyricsResult = port.getSong(artist, track);
             if (lyricsResult != null) {
                 String lyrics = lyricsResult.getLyrics();
-                lyrics = new String(lyrics.getBytes());
+                lyrics = new String(lyrics.getBytes("ISO-8859-1"), "UTF-8");
                 lyrics = cleanLyrics(lyrics);
                 if (lyrics != null) {
                     int shortened = lyrics.indexOf("[...]");

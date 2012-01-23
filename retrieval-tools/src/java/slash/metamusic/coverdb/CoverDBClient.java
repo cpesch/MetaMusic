@@ -18,6 +18,9 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.logging.Logger;
 
+import static slash.metamusic.util.StringHelper.replaceForURI;
+import static slash.metamusic.util.StringHelper.toMixedCase;
+
 /**
  * A client that queries cover databases.
  *
@@ -175,32 +178,32 @@ public class CoverDBClient {
             if (cover == null) {
                 char artistChar = Character.toLowerCase(artist.charAt(0));
                 cover = downloadCover(new URL("http://www.coveralia.com/audio/" + artistChar +
-                        "/" + StringHelper.toMixedCase(StringHelper.replaceForURI(artist)) +
-                        "-" + StringHelper.toMixedCase(StringHelper.replaceForURI(album)) + "-Frontal.jpg"), artist, album);
+                        "/" + toMixedCase(replaceForURI(artist)) +
+                        "-" + toMixedCase(replaceForURI(album)) + "-Frontal.jpg"), artist, album);
             }
 
             // http://coverlandia.altervista.org/Copertine%20cd/D/Depeche_Mode_Ultra.jpg
             if (cover == null) {
                 char artistChar = Character.toUpperCase(artist.charAt(0));
                 cover = downloadCover(new URL("http://coverlandia.altervista.org/Copertine%20cd/" + artistChar +
-                        "/" + StringHelper.toMixedCase(StringHelper.replaceForURI(artist)) +
-                        "_" + StringHelper.toMixedCase(StringHelper.replaceForURI(album)) + ".jpg"), artist, album);
+                        "/" + toMixedCase(replaceForURI(artist)) +
+                        "_" + toMixedCase(replaceForURI(album)) + ".jpg"), artist, album);
             }
 
             // http://coverlandia.altervista.org/Copertine%20cd/D/Doors_-_Greatest_hits.jpg
             if (cover == null) {
                 char artistChar = Character.toUpperCase(artist.charAt(0));
                 cover = downloadCover(new URL("http://coverlandia.altervista.org/Copertine%20cd/" + artistChar +
-                        "/" + StringHelper.toMixedCase(StringHelper.replaceForURI(artist)) +
-                        "_-_" + StringHelper.toMixedCase(StringHelper.replaceForURI(album)) + ".jpg"), artist, album);
+                        "/" + toMixedCase(replaceForURI(artist)) +
+                        "_-_" + toMixedCase(replaceForURI(album)) + ".jpg"), artist, album);
             }
 
             // http://coverlandia.altervista.org/Copertine%20cd/D/def_leppard_-_euphoria.JPG
             if (cover == null) {
                 char artistChar = Character.toUpperCase(artist.charAt(0));
                 cover = downloadCover(new URL("http://coverlandia.altervista.org/Copertine%20cd/" + artistChar +
-                        "/" + StringHelper.replaceForURI(artist).toLowerCase() +
-                        "_-_" + StringHelper.replaceForURI(album).toLowerCase() + ".JPG"), artist, album);
+                        "/" + replaceForURI(artist).toLowerCase() +
+                        "_-_" + replaceForURI(album).toLowerCase() + ".JPG"), artist, album);
             }
         } catch (MalformedURLException e) {
             log.severe("Could not create url for artist " + artist + " and album " + album + ":" + e.getMessage());

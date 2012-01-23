@@ -19,7 +19,6 @@ import javax.swing.*;
 import javax.swing.event.ListDataEvent;
 import javax.swing.event.ListDataListener;
 import java.awt.*;
-import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.Transferable;
 import java.awt.datatransfer.UnsupportedFlavorException;
 import java.awt.event.ActionEvent;
@@ -30,6 +29,8 @@ import java.text.DateFormat;
 import java.text.MessageFormat;
 import java.util.*;
 import java.util.List;
+
+import static java.awt.datatransfer.DataFlavor.javaFileListFlavor;
 
 /**
  * A small graphical user interface for the tidying of MP3 files.
@@ -250,14 +251,14 @@ public class MP3TidyGUI extends BaseDialogGUI {
     }
 
     private String formatDirectories(List<File> directories) {
-        StringBuffer buffer = new StringBuffer();
+        StringBuilder builder = new StringBuilder();
         for (int i = 0; i < directories.size(); i++) {
             File directory = directories.get(i);
             if (i > 0 && i < directories.size())
-                buffer.append(",");
-            buffer.append(directory.getAbsolutePath());
+                builder.append(",");
+            builder.append(directory.getAbsolutePath());
         }
-        return buffer.toString();
+        return builder.toString();
     }
 
 
@@ -309,8 +310,9 @@ public class MP3TidyGUI extends BaseDialogGUI {
         if (selected == null || selected.length == 0)
             return;
 
-        final List<File> directories = Arrays.asList(selected);
+        List<File> directories = Arrays.asList(selected);
         selectTidyDirectories(directories);
+        preferences.put(TIDY_DIRECTORY_PREFERENCE, textFieldTidyDirectory.getText());
     }
 
     private String createDirectory(String directory) {
@@ -742,32 +744,32 @@ public class MP3TidyGUI extends BaseDialogGUI {
                     labelRenamedFiles.setText(Integer.toString(renamedFileCount));
                     labelCleanedTags.setText(Integer.toString(cleanedTagCount));
                     labelExtendedTags.setText(Integer.toString(extendedTagCount));
-                    StringBuffer buffer = new StringBuffer();
+                    StringBuilder builder = new StringBuilder();
                     if (modifiedFile)
-                        buffer.append(BUNDLE.getString("modified"));
+                        builder.append(BUNDLE.getString("modified"));
                     if (modifiedFile && renamedFile)
-                        buffer.append(" & ");
+                        builder.append(" & ");
                     if (renamedFile)
-                        buffer.append(BUNDLE.getString("renamed"));
+                        builder.append(BUNDLE.getString("renamed"));
 
                     if ((modifiedFile || renamedFile) && (cleanedTags || extendedTags))
-                        buffer.append(", ");
+                        builder.append(", ");
                     else
-                        buffer.append(" ");
+                        builder.append(" ");
 
                     if (cleanedTags)
-                        buffer.append(BUNDLE.getString("cleaned"));
+                        builder.append(BUNDLE.getString("cleaned"));
                     if (cleanedTags && extendedTags)
-                        buffer.append(" & ");
+                        builder.append(" & ");
                     if (extendedTags)
-                        buffer.append(BUNDLE.getString("extended"));
+                        builder.append(BUNDLE.getString("extended"));
 
                     if (cleanedTags || extendedTags)
-                        buffer.append(" ");
+                        builder.append(" ");
 
-                    buffer.append(file.getAbsolutePath());
-                    buffer.replace(0, 1, buffer.substring(0, 1).toUpperCase());
-                    listModel.addElement(buffer.toString());
+                    builder.append(file.getAbsolutePath());
+                    builder.replace(0, 1, builder.substring(0, 1).toUpperCase());
+                    listModel.addElement(builder.toString());
                 }
             });
         }
@@ -793,7 +795,7 @@ public class MP3TidyGUI extends BaseDialogGUI {
     private class FileDropHandler extends TransferHandler {
         public boolean canImport(TransferSupport support) {
             synchronized (mutex) {
-                return !running && support.isDataFlavorSupported(DataFlavor.javaFileListFlavor);
+                return !running && support.isDataFlavorSupported(javaFileListFlavor);
             }
         }
 
@@ -804,10 +806,11 @@ public class MP3TidyGUI extends BaseDialogGUI {
 
             Transferable t = support.getTransferable();
             try {
-                Object data = t.getTransferData(DataFlavor.javaFileListFlavor);
+                Object data = t.getTransferData(javaFileListFlavor);
                 //noinspection unchecked
                 List<File> directories = (List<File>) data;
                 selectTidyDirectories(directories);
+                preferences.put(TIDY_DIRECTORY_PREFERENCE, textFieldTidyDirectory.getText());
             } catch (UnsupportedFlavorException e) {
                 return false;
             } catch (IOException e) {

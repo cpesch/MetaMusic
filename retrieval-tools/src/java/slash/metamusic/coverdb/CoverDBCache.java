@@ -17,6 +17,8 @@ import java.io.IOException;
 import java.util.*;
 import java.util.logging.Logger;
 
+import static slash.metamusic.util.StringHelper.toMixedCase;
+
 /**
  * Caches queries to cover databases.
  *
@@ -36,6 +38,7 @@ public class CoverDBCache {
     private Set<String> downloadFailures = new HashSet<String>();
 
 
+    @SuppressWarnings("unchecked")
     public synchronized void setCacheDirectoryName(String cacheDirectoryName) {
         fileCache.setCacheDirectoryName(cacheDirectoryName);
         zipCache.setCacheFileName(cacheDirectoryName + ".zip");
@@ -126,7 +129,7 @@ public class CoverDBCache {
 
     private String toImportName(String name) {
         name = name.replaceAll("_", " ");
-        return StringHelper.toMixedCase(name);
+        return toMixedCase(name);
     }
 
     protected String createArtistFor(String name) {

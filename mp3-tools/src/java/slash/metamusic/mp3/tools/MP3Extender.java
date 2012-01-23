@@ -248,6 +248,7 @@ public class MP3Extender extends BaseMP3Modifier {
 
     protected boolean addLyrics(MP3File file) {
         String fileLyrics = file.getHead() != null ? file.getHead().getLyrics() : null;
+        fileLyrics = lyricsClient.cleanLyrics(fileLyrics);
         String fetchLyrics = lyricsClient.fetchLyrics(file.getArtist(), file.getTrack());
         File cachedFile = lyricsClient.getCachedFile(file.getArtist(), file.getTrack());
 
