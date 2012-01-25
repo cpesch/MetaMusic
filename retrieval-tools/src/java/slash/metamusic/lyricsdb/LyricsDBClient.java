@@ -122,6 +122,8 @@ public class LyricsDBClient {
         int notLicensed = lyrics.indexOf("not licensed to display the full lyrics");
         if (notLicensed != -1)
             lyrics = lyrics.substring(0, notLicensed);
+        if (lyrics.startsWith("Not found"))
+            return null;
         return lyrics;
     }
 
@@ -153,7 +155,7 @@ public class LyricsDBClient {
                 String lyrics = lyricsResult.getLyrics();
                 lyrics = new String(lyrics.getBytes("ISO-8859-1"), "UTF-8");
                 lyrics = cleanLyrics(lyrics);
-                if (lyrics != null && !lyrics.startsWith("Not found"))
+                if (lyrics != null)
                     return lyrics;
             }
         } catch (Exception e) {
