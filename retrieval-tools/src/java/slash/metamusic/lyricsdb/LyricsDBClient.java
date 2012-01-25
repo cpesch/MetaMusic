@@ -108,6 +108,7 @@ public class LyricsDBClient {
     public String cleanLyrics(String lyrics) {
         if (lyrics == null || lyrics.contains("{{A"))
             return null;
+        lyrics = lyrics.replaceAll("�", "'");
         lyrics = lyrics.replaceAll("\r\n", "\n");
         lyrics = lyrics.replaceAll("<br />", "\n");
         lyrics = lyrics.replaceAll("\n", "\r\n");
