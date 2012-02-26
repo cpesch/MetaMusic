@@ -250,6 +250,7 @@ public class MP3Extender extends BaseMP3Modifier {
         String fileLyrics = file.getHead() != null ? file.getHead().getLyrics() : null;
         fileLyrics = lyricsClient.cleanLyrics(fileLyrics);
         String fetchLyrics = lyricsClient.fetchLyrics(file.getArtist(), file.getTrack());
+        fetchLyrics = lyricsClient.cleanLyrics(fetchLyrics);
         File cachedFile = lyricsClient.getCachedFile(file.getArtist(), file.getTrack());
 
         // in case the cached file has been modified but may be shorter
@@ -257,7 +258,7 @@ public class MP3Extender extends BaseMP3Modifier {
             fileLyrics = null;
 
         // find best source
-        String foundLyrics = lyricsClient.cleanLyrics(fetchLyrics);
+        String foundLyrics = fetchLyrics;
         if (isFirstBetterThanSecond(fileLyrics, foundLyrics))
             foundLyrics = fileLyrics;
 
@@ -281,7 +282,7 @@ public class MP3Extender extends BaseMP3Modifier {
             return false;
         if (second == null)
             return true;
-        return first.lastModified() > second.lastModified();
+        return (first.lastModified() / 1000) > (second.lastModified() / 1000);
     }
 
     private boolean isFirstBetterThanSecond(String first, String second) {
