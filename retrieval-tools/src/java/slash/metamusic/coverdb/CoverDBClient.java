@@ -10,7 +10,6 @@ package slash.metamusic.coverdb;
 
 import slash.metamusic.util.DiscIndexHelper;
 import slash.metamusic.util.InputOutput;
-import slash.metamusic.util.StringHelper;
 
 import java.io.*;
 import java.net.MalformedURLException;
