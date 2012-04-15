@@ -39,6 +39,7 @@
 		<property name="itunes-xml-library.output.testclasses" location="${itunes-xml-library.output}/testclasses"/>
 
 		<property name="apache.commons.cli.lib" location="thirdparty/apache/commons-cli-1.0/lib/commons-cli.jar"/>
+        <property name="apache.axis.lib" location="thirdparty/apache/axis-1.4/lib/axis.jar"/>
 		<property name="hp.jena.lib" location="thirdparty/ldodds/musicbrainz-beta-2/lib/jena.jar"/>
         <property name="intellij.forms.lib" location="thirdparty/intellij/forms-rt/lib/forms-rt-6.0.5-stripped.jar"/>
 		<property name="jacob.jacob.lib" location="thirdparty/jacob/jacob-1.12pre5/lib/jacob.jar"/>
@@ -50,6 +51,7 @@
 		<property name="sun.activation.lib" location="thirdparty/sun/activation-1.1/lib/activation.jar"/>
 		<property name="sun.jaxb.api.lib" location="thirdparty/sun/jaxb-api-2.0.4/lib/jaxb-api.jar"/>
 		<property name="sun.jaxb.impl.lib" location="thirdparty/sun/jaxb-impl-2.0.4/lib/jaxb-impl.jar"/>
+        <property name="sun.jaxrpc.lib" location="thirdparty/sun/jaxrpc-1.0/lib/jaxrpc.jar"/>
 		<property name="sun.jsr173.api.lib" location="thirdparty/sun/jsr173-api-1.0/lib/jsr173-api.jar"/>
 		<path id="common.classpath">
 			<path location="${common.output.classes}"/>
@@ -88,9 +90,11 @@
 			<path location="${common.output.classes}"/>
 			<path location="${mp3-parser.output.classes}"/>
             <path location="${apache.commons.cli.lib}"/>
+            <path location="${apache.axis.lib}"/>
 			<path location="${hp.jena.lib}"/>
 			<path location="${jdom.jdom.lib}"/>
 			<path location="${ldodds.musicbrainz.lib}"/>
+            <path location="${sun.jaxrpc.lib}"/>
 		</path>
         <path id="rating-saver.classpath">
             <path location="${common.output.classes}"/>
