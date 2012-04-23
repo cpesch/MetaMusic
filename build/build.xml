@@ -152,7 +152,7 @@
 
         <mkdir dir="${itunes-xml-library.output.classes}"/>
         <copy todir="${itunes-xml-library.output.classes}">
-            <fileset dir="itunes-xml-library/src/resources">
+            <fileset dir="../itunes-xml-library/src/main/resources">
                 <include name="**/*.xsd"/>
             </fileset>
         </copy>
@@ -204,7 +204,7 @@
 
         <mkdir dir="${itunes-com-library.output.classes}"/>
         <javac destdir="${itunes-com-library.output.classes}" debug="${javac.debug}">
-            <src location="itunes-com-library/src/java"/>
+            <src location="../itunes-com-library/src/main/java"/>
             <classpath refid="itunes-com-library.classpath"/>
         </javac>
 
@@ -216,7 +216,7 @@
 
 		<mkdir dir="${itunes-xml-library.output.classes}"/>
 		<javac destdir="${itunes-xml-library.output.classes}" debug="${javac.debug}">
-			<src location="itunes-xml-library/src/java"/>
+			<src location="../itunes-xml-library/src/main/java"/>
 			<classpath refid="itunes-xml-library.classpath"/>
 		</javac>
 	</target>

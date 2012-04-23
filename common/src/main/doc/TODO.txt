@@ -1,3 +1,17 @@
+- MediaMonkey Classifications:
+  Tempo: Very slow, Slow, Moderate, Fast, Very fast, None
+  Mood: Wild, Upbeat Mellow, Tranquil, Morose, Comatose, None
+  Occasion: Background, Dance, Dinner, Party, Rave, Romantic, Seasonal, None
+  Quality: Excellent copy, Very good copy, Good copy, Fair copy, Poor copy, None
+  Rating: 0 to 6 stars
+  Comment: <...>
+
+- MediaMonkey Playlists:
+  Accessible Tracks
+  Last 50 played
+  New Tracks (per Date)
+  Top 50
+
 Parser:
 - set TPOS tag for discs with DiscIndexHelper	
 
