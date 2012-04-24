@@ -2,9 +2,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>slash.metamusic</groupId>
-    <artifactId>rating-saver</artifactId>
+    <artifactId>mp3-tools</artifactId>
     <packaging>jar</packaging>
-    <name>Syncs ratings between MP3 files and iTunes</name>
+    <name>Command line tools for MP3 files</name>
     <parent>
         <groupId>slash.metamusic</groupId>
         <artifactId>MetaMusic</artifactId>
@@ -20,14 +20,20 @@
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>itunes-com-library</artifactId>
+            <artifactId>common</artifactId>
+            <version>${project.version}</version>
+            <type>test-jar</type>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>mp3-parser</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.intellij</groupId>
-            <artifactId>forms-rt</artifactId>
-            <version>6.0.5</version>
-            <classifier>stripped</classifier>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>retrieval-tools</artifactId>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>
 </project>

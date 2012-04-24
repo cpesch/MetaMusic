@@ -1,141 +1,146 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>slash.metamusic</groupId>
-  <artifactId>MetaMusic</artifactId>
-  <version>1.1-SNAPSHOT</version>
-  <packaging>pom</packaging>
-  <name>MetaMusic</name>
-  <url>https://github.com/cpesch/MetaMusic</url>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>slash.metamusic</groupId>
+    <artifactId>MetaMusic</artifactId>
+    <version>1.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>MetaMusic</name>
+    <url>https://github.com/cpesch/MetaMusic</url>
 
-  <developers>
-    <developer>
-      <id>cpesch</id>
-      <name>Christian Pesch</name>
-      <email>Christian underscore Pesch at gmx dot de</email>
-      <timezone>+1</timezone>
-    </developer>
-  </developers>
+    <developers>
+        <developer>
+            <id>cpesch</id>
+            <name>Christian Pesch</name>
+            <email>Christian underscore Pesch at gmx dot de</email>
+            <timezone>+1</timezone>
+        </developer>
+    </developers>
 
-  <repositories>
-    <repository>
-      <id>routeconverter-thirdparty</id>
-      <url>http://www.routeconverter.com/svn/RouteThirdParty</url>
-    </repository>
-  </repositories>
+    <repositories>
+        <repository>
+            <id>routeconverter-thirdparty</id>
+            <url>http://www.routeconverter.com/svn/RouteThirdParty</url>
+        </repository>
+    </repositories>
 
-  <scm>
-    <connection>scm:git:https://github.com/cpesch/MetaMusic</connection>
-    <developerConnection>scm:git:git@github.com:cpesch/MetaMusic.git</developerConnection>
-  </scm>
+    <scm>
+        <connection>scm:git:https://github.com/cpesch/MetaMusic</connection>
+        <developerConnection>scm:git:git@github.com:cpesch/MetaMusic.git</developerConnection>
+    </scm>
 
-  <build>
-    <extensions>
-      <extension>
-        <groupId>org.apache.maven.wagon</groupId>
-        <artifactId>wagon-ssh-external</artifactId>
-        <version>1.0</version>
-      </extension>
-      <extension>
-        <groupId>org.apache.maven.wagon</groupId>
-        <artifactId>wagon-scm</artifactId>
-        <version>1.0</version>
-      </extension>
-      <extension>
-        <groupId>org.apache.maven.scm</groupId>
-        <artifactId>maven-scm-manager-plexus</artifactId>
-        <version>1.6</version>
-      </extension>
-      <extension>
-        <groupId>org.apache.maven.scm</groupId>
-        <artifactId>maven-scm-provider-gitexe</artifactId>
-        <version>1.6</version>
-      </extension>
-    </extensions>
+    <build>
+        <extensions>
+            <extension>
+                <groupId>org.apache.maven.wagon</groupId>
+                <artifactId>wagon-ssh-external</artifactId>
+                <version>1.0</version>
+            </extension>
+            <extension>
+                <groupId>org.apache.maven.wagon</groupId>
+                <artifactId>wagon-scm</artifactId>
+                <version>1.0</version>
+            </extension>
+            <extension>
+                <groupId>org.apache.maven.scm</groupId>
+                <artifactId>maven-scm-manager-plexus</artifactId>
+                <version>1.6</version>
+            </extension>
+            <extension>
+                <groupId>org.apache.maven.scm</groupId>
+                <artifactId>maven-scm-provider-gitexe</artifactId>
+                <version>1.6</version>
+            </extension>
+        </extensions>
 
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>2.3.2</version>
-        <configuration>
-          <source>1.6</source>
-          <target>1.6</target>
-          <encoding>Cp1252</encoding>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-resources-plugin</artifactId>
-        <version>2.5</version>
-        <configuration>
-          <encoding>Cp1252</encoding>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-jar-plugin</artifactId>
-        <version>2.3.2</version>
-        <configuration>
-          <archive>
-            <addMavenDescriptor>false</addMavenDescriptor>
-          </archive>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-javadoc-plugin</artifactId>
-        <version>2.8</version>
-        <configuration>
-          <doctitle>MetaMusic ${project.version} API</doctitle>
-          <windowtitle>MetaMusic ${project.version} API</windowtitle>
-          <encoding>Cp1252</encoding>
-          <header>MetaMusic API</header>
-          <bottom>Created by Christian Pesch</bottom>
-          <links>
-            <link href="http://download.oracle.com/javaee/6/api/"/>
-            <link href="http://jakarta.apache.org/commons/logging/apidocs/"/>
-          </links>
-          <groups>
-            <group>
-              <title>Base</title>
-              <packages>slash.metamusic.common</packages>
-            </group>
-            <group>
-              <title>Programs</title>
-              <packages>slash.metamusic.itunes</packages>
-            </group>
-          </groups>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-release-plugin</artifactId>
-        <version>2.2.2</version>
-      </plugin>
-      <plugin>
-        <groupId>com.vineetmanohar</groupId>
-        <artifactId>maven-twitter-plugin</artifactId>
-        <version>0.1</version>
-      </plugin>
-    </plugins>
-  </build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                    <encoding>Cp1252</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>2.5</version>
+                <configuration>
+                    <encoding>Cp1252</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <archive>
+                        <addMavenDescriptor>false</addMavenDescriptor>
+                    </archive>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.8</version>
+                <configuration>
+                    <doctitle>MetaMusic ${project.version} API</doctitle>
+                    <windowtitle>MetaMusic ${project.version} API</windowtitle>
+                    <encoding>Cp1252</encoding>
+                    <header>MetaMusic API</header>
+                    <bottom>Created by Christian Pesch</bottom>
+                    <links>
+                        <link href="http://download.oracle.com/javaee/6/api/"/>
+                        <link href="http://jakarta.apache.org/commons/logging/apidocs/"/>
+                    </links>
+                    <groups>
+                        <group>
+                            <title>Base</title>
+                            <packages>slash.metamusic.common</packages>
+                        </group>
+                        <group>
+                            <title>Programs</title>
+                            <packages>slash.metamusic.itunes</packages>
+                        </group>
+                    </groups>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>2.2.2</version>
+            </plugin>
+            <plugin>
+                <groupId>com.vineetmanohar</groupId>
+                <artifactId>maven-twitter-plugin</artifactId>
+                <version>0.1</version>
+            </plugin>
+        </plugins>
+    </build>
 
-  <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.10</version>
-      <scope>test</scope>
-    </dependency>
-  </dependencies>
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.10</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 
-  <modules>
-    <module>common</module>
-    <module>itunes-com-library</module>
-    <module>itunes-xml-library</module>
-    <module>mp3-parser</module>
-    <module>rating-saver</module>
-  </modules>
+    <modules>
+        <module>common</module>
+        <module>itunes-com-library</module>
+        <module>itunes-xml-library</module>
+        <module>mp3-parser</module>
+        <module>mp3-tidy</module>
+        <module>mp3-tools</module>
+        <module>mp3-viewer</module>
+        <module>playlist-creator</module>
+        <module>rating-saver</module>
+        <module>retrieval-tools</module>
+    </modules>
 </project>

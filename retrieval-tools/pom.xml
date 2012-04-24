@@ -2,9 +2,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>slash.metamusic</groupId>
-    <artifactId>rating-saver</artifactId>
+    <artifactId>retrieval-tools</artifactId>
     <packaging>jar</packaging>
-    <name>Syncs ratings between MP3 files and iTunes</name>
+    <name>Encapsulating access to service which fetch meta data for MP3 files</name>
     <parent>
         <groupId>slash.metamusic</groupId>
         <artifactId>MetaMusic</artifactId>
@@ -20,14 +20,23 @@
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>itunes-com-library</artifactId>
+            <artifactId>mp3-parser</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.intellij</groupId>
-            <artifactId>forms-rt</artifactId>
-            <version>6.0.5</version>
-            <classifier>stripped</classifier>
+            <groupId>axis</groupId>
+            <artifactId>axis</artifactId>
+            <version>1.4</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.xml</groupId>
+            <artifactId>jaxrpc-api</artifactId>
+            <version>1.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jdom</groupId>
+            <artifactId>jdom</artifactId>
+            <version>1.1.3</version>
         </dependency>
     </dependencies>
 </project>

@@ -2,9 +2,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>slash.metamusic</groupId>
-    <artifactId>rating-saver</artifactId>
+    <artifactId>mp3-tidy</artifactId>
     <packaging>jar</packaging>
-    <name>Syncs ratings between MP3 files and iTunes</name>
+    <name>Tidies ID3 tags of MP3 files</name>
     <parent>
         <groupId>slash.metamusic</groupId>
         <artifactId>MetaMusic</artifactId>
@@ -20,7 +20,7 @@
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>itunes-com-library</artifactId>
+            <artifactId>mp3-tools</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>

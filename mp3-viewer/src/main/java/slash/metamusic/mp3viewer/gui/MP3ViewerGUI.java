@@ -155,19 +155,19 @@ public class MP3ViewerGUI extends BaseDialogGUI {
                 if (mp3.isID3v2()) {
                     listModel.addElement("ID3v2 rel: " + mp3.getHead().getVersion().getVersionString());
                     for (ID3v2Frame f : mp3.getHead().getFrames()) {
-                        StringBuffer buffer = new StringBuffer();
-                        buffer.append(f.getTagName());
+                        StringBuilder builder = new StringBuilder();
+                        builder.append(f.getTagName());
                         String description = f.getTagDescription();
                         if (description != null) {
-                            buffer.append(" [").append(description).append("]");
+                            builder.append(" [").append(description).append("]");
                         }
                         String stringContent = f.getStringContent();
                         if (stringContent == null || stringContent.length() < 1000)
-                            buffer.append(": ").append(stringContent);
+                            builder.append(": ").append(stringContent);
                         else {
-                            buffer.append(": [").append(stringContent.length()).append(" bytes]");
+                            builder.append(": [").append(stringContent.length()).append(" bytes]");
                         }
-                        listModel.addElement(buffer.toString());
+                        listModel.addElement(builder.toString());
                     }
                 }
                 listModel.addElement("track: " + mp3.getTrack());

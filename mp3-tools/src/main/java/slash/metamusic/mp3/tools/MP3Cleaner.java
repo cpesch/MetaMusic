@@ -8,7 +8,6 @@
 
 package slash.metamusic.mp3.tools;
 
-import com.ldodds.musicbrainz.MusicBrainz;
 import slash.metamusic.coverdb.LastFmCoverClient;
 import slash.metamusic.coverdb.WindowsMediaPlayerCoverClient;
 import slash.metamusic.mp3.ID3Genre;
@@ -45,8 +44,12 @@ public class MP3Cleaner extends BaseMP3Modifier {
     protected static final Logger log = Logger.getLogger(MP3Cleaner.class.getName());
 
     private static final String MUSICBRAINZ_TRM_ID_PREFIX = "\u0000musicbrainz trm id\u0000";
+    /**
+     * Length of a MusicBrain Artist/Album/Track Id
+     */
+    private static final int MB_ID_LENGTH = 36;
     private static final int MUSICBRAINZ_TAG_ID_REQUIRED_LENGTH =
-            MUSICBRAINZ_TRM_ID_PREFIX.length() + MusicBrainz.MB_ID_LENGTH;
+            MUSICBRAINZ_TRM_ID_PREFIX.length() + MB_ID_LENGTH;
     private static final String WMP_PROVIDER_PREFIX = "WM/Provider";
 
     private static final Set<String> ITUNES_TAGS_TO_REMOVE = new TreeSet<String>();

@@ -8,12 +8,12 @@
 
 package slash.metamusic.itunes.xml.util;
 
-import com.sun.xml.bind.marshaller.NamespacePrefixMapper;
+import com.sun.xml.internal.bind.marshaller.NamespacePrefixMapper;
 
 import java.util.Map;
 
 public class NamespacePrefixMapperImpl extends NamespacePrefixMapper {
-    Map<String, String> uriToPrefix;
+    private Map<String, String> uriToPrefix;
 
     public NamespacePrefixMapperImpl(Map<String, String> uriToPrefix) {
         this.uriToPrefix = uriToPrefix;

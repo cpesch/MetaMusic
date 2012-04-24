@@ -321,20 +321,22 @@ public class MP3Extender extends BaseMP3Modifier {
 
         // search on same directory level for albums 
         File[] files = directory.listFiles();
-        for (File file : files) {
-            MP3File mp3 = MP3File.readValidFile(file);
-            if (mp3 == null)
-                continue;
+        if (files != null) {
+            for (File file : files) {
+                MP3File mp3 = MP3File.readValidFile(file);
+                if (mp3 == null)
+                    continue;
 
-            int discIndex = DiscIndexHelper.parseDiscIndex(mp3.getAlbum());
-            if (discIndex == -1)
-                discIndex = mp3.getPartOfSetIndex();
-            if (discIndex > 0)
-                maxima.checkIfMaximumDiscIndex(mp3.getArtist(), mp3.getAlbum(), discIndex);
+                int discIndex = DiscIndexHelper.parseDiscIndex(mp3.getAlbum());
+                if (discIndex == -1)
+                    discIndex = mp3.getPartOfSetIndex();
+                if (discIndex > 0)
+                    maxima.checkIfMaximumDiscIndex(mp3.getArtist(), mp3.getAlbum(), discIndex);
 
-            int albumIndex = mp3.getIndex();
-            if (albumIndex > 0)
-                maxima.checkIfMaximumAlbumIndex(mp3.getArtist(), mp3.getAlbum(), discIndex, albumIndex);
+                int albumIndex = mp3.getIndex();
+                if (albumIndex > 0)
+                    maxima.checkIfMaximumAlbumIndex(mp3.getArtist(), mp3.getAlbum(), discIndex, albumIndex);
+            }
         }
         return maxima;
     }
