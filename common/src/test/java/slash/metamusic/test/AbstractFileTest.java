@@ -13,15 +13,17 @@ import slash.metamusic.util.Files;
 import java.io.File;
 import java.io.IOException;
 
+import static java.io.File.separator;
+
 /**
  * Base class for tests with test files
  */
 
 public abstract class AbstractFileTest extends TestCase {
-    public static final String PATH_TO_TEST_IMAGE_FILES = "../test/src/data/image/";
-    public static final String PATH_TO_TEST_TEXT_FILES = "../test/src/data/text/";
-    public static final String PATH_TO_TEST_MP3_FILES = "../test/src/data/mp3/";
-    public static final String PATH_TO_TEST_XML_FILES = "../test/src/data/xml/";
+    public static final String SAMPLES_PATH = System.getProperty("samples", "test" + separator + "src" + separator);
+    public static final String PATH_TO_TEST_IMAGE_FILES = SAMPLES_PATH + separator + "data" + separator + "image" + separator;
+    public static final String PATH_TO_TEST_TEXT_FILES = SAMPLES_PATH + separator + "data" + separator + "text" + separator;
+    public static final String PATH_TO_TEST_MP3_FILES = SAMPLES_PATH + separator + "data" + separator + "mp3" + separator;
     protected static boolean cleanup = true;
     protected File tempFile = null;
 

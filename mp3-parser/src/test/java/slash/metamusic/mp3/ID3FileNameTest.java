@@ -14,6 +14,8 @@ import slash.metamusic.util.Files;
 import java.io.File;
 import java.io.IOException;
 
+import static slash.metamusic.mp3.ID3FileName.WINDOWS_PATH_LENGTH_LIMIT;
+
 /**
  * Tests for ID3FileName
  */
@@ -156,10 +158,10 @@ public class ID3FileNameTest extends AbstractFileTest {
         File file = File.createTempFile("renametest", ".mp3");
         assertTrue(file.exists());
         int pathLength = file.getAbsolutePath().length();
-        assertTrue(pathLength < ID3FileName.WINDOWS_PATH_LENGTH_LIMIT);
+        assertTrue(pathLength < WINDOWS_PATH_LENGTH_LIMIT);
         ID3FileName id3 = new ID3FileName(file);
         id3.setAlbum("B");
-        String artist = createString(ID3FileName.WINDOWS_PATH_LENGTH_LIMIT - pathLength);
+        String artist = createString(WINDOWS_PATH_LENGTH_LIMIT - pathLength);
         assertTrue(artist.length() > 0);
         id3.setArtist(artist);
         id3.setIndex(4711);
@@ -168,17 +170,17 @@ public class ID3FileNameTest extends AbstractFileTest {
         assertNotEquals(renamed.getAbsolutePath(), file.getAbsolutePath());
         int fileNameLengthAfterRename = renamed.getAbsolutePath().length();
         assertTrue(renamed.delete());
-        assertEquals(ID3FileName.WINDOWS_PATH_LENGTH_LIMIT, fileNameLengthAfterRename);
+        assertEquals(WINDOWS_PATH_LENGTH_LIMIT, fileNameLengthAfterRename);
     }
 
     public void testAboveWindowsFileNameLengthLimits() throws IOException {
         File file = File.createTempFile("renametest", ".mp3");
         assertTrue(file.exists());
         int pathLength = file.getAbsolutePath().length();
-        assertTrue(pathLength < ID3FileName.WINDOWS_PATH_LENGTH_LIMIT);
+        assertTrue(pathLength < WINDOWS_PATH_LENGTH_LIMIT);
         ID3FileName id3 = new ID3FileName(file);
         id3.setAlbum("B");
-        String artist = createString(ID3FileName.WINDOWS_PATH_LENGTH_LIMIT - pathLength + 1);
+        String artist = createString(WINDOWS_PATH_LENGTH_LIMIT - pathLength + 1);
         assertTrue(artist.length() > 0);
         id3.setArtist(artist);
         id3.setIndex(4711);
@@ -187,6 +189,6 @@ public class ID3FileNameTest extends AbstractFileTest {
         assertNotEquals(renamed.getAbsolutePath(), file.getAbsolutePath());
         int fileNameLengthAfterRename = renamed.getAbsolutePath().length();
         assertTrue(renamed.delete());
-        assertEquals(ID3FileName.WINDOWS_PATH_LENGTH_LIMIT, fileNameLengthAfterRename);
+        assertEquals(WINDOWS_PATH_LENGTH_LIMIT, fileNameLengthAfterRename);
     }
 }

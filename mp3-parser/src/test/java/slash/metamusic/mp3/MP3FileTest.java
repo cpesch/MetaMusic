@@ -110,7 +110,7 @@ public class MP3FileTest extends AbstractFileTest {
     }
 
     public void testReadNoID3() throws IOException {
-        File src = new File(AbstractFileTest.PATH_TO_TEST_MP3_FILES + "noid3.mp3");
+        File src = new File(PATH_TO_TEST_MP3_FILES + "noid3.mp3");
         copyToTempFile(src);
 
         MP3File mp3 = new MP3File();
