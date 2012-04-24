@@ -8,7 +8,11 @@
 
 package slash.metamusic.util;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 
 /**
  * Load a library for the class path. This avoids setting
@@ -21,31 +25,29 @@ import java.io.*;
  */
 
 public class LibraryLoader {
+  public static int getBits() {
+    return Integer.parseInt(System.getProperty("sun.arch.data.model"));
+  }
 
-    /**
-     * Load the native library with the given name from the classpath.
-     *
-     * @param classLoader the class loader to use for loading
-     * @param libname     the name of the native library to load
-     * @throws IOException if loading fails for some reason
-     */
-    public static void loadLibrary(ClassLoader classLoader, String libname) throws IOException {
-        String platformLibName = System.mapLibraryName(libname);
-        InputStream in = classLoader.getResourceAsStream(platformLibName);
-        if (in == null)
-            throw new FileNotFoundException("Native library " + platformLibName + " not in class path");
-
-        String prefix = Files.removeExtension(platformLibName);
-        String suffix = Files.getExtension(platformLibName);
-
-        File f = File.createTempFile(prefix, "." + suffix);
-        f.deleteOnExit();
-
-        FileOutputStream out = new FileOutputStream(f);
-        InputOutput inout = new InputOutput(in, out);
-        inout.start();
-        inout.close();
-
-        System.load(f.getAbsolutePath());
+  public static String loadLibrary(ClassLoader classLoader, String libname) throws IOException {
+    String platformLibName = System.mapLibraryName(libname);
+    InputStream in = classLoader.getResourceAsStream(platformLibName);
+    if (in == null) {
+      throw new FileNotFoundException("Native library " + platformLibName + " not in class path");
     }
+
+    String prefix = Files.removeExtension(platformLibName);
+    String suffix = Files.getExtension(platformLibName);
+
+    File f = File.createTempFile(prefix, "." + suffix);
+    f.deleteOnExit();
+
+    FileOutputStream out = new FileOutputStream(f);
+    InputOutput inout = new InputOutput(in, out);
+    inout.start();
+    inout.close();
+
+    System.load(f.getAbsolutePath());
+    return f.getAbsolutePath();
+  }
 }

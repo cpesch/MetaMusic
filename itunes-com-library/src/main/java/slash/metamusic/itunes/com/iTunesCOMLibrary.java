@@ -28,8 +28,10 @@ public class iTunesCOMLibrary {
 
     static {
         try {
-            LibraryLoader.loadLibrary(iTunesCOMLibrary.class.getClassLoader(), "jacob");
-            libraryLoaded = true;
+          String jacobDllPath = LibraryLoader.loadLibrary(iTunesCOMLibrary.class.getClassLoader(),
+                  "jacob-1.14.3-" + (LibraryLoader.getBits() == 64 ? "x64" : "x86"));
+          System.setProperty(com.jacob.com.LibraryLoader.JACOB_DLL_PATH, jacobDllPath);
+          libraryLoaded = true;
         } catch (IOException e) {
             log.severe("Cannot load native library 'jacob': " + e.getMessage());
         }

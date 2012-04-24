@@ -310,7 +310,7 @@ public class iTunesCOMSynchronizer extends BaseMP3Modifier {
 
         public void started(int trackCount, int playlistCount) {
             this.trackCount = trackCount;
-            log.info("Library contains " + trackCount + "  tracks and " + playlistCount + " playlists");
+            log.info("Library contains " + trackCount + " tracks and " + playlistCount + " playlists");
         }
 
         public void processing(int processedTracks) {
