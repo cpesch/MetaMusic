@@ -1,0 +1,78 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>slash.metamusic</groupId>
+    <artifactId>metamusic-build</artifactId>
+    <packaging>pom</packaging>
+    <name>The build parent module</name>
+    <parent>
+        <groupId>slash.metamusic</groupId>
+        <artifactId>MetaMusic</artifactId>
+        <version>1.1-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>vineetmanohar-release-repo</id>
+            <name>Vineet Manohar Release Repo</name>
+            <url>http://repo.vineetmanohar.com/releases</url>
+        </pluginRepository>
+    </pluginRepositories>
+
+    <properties>
+        <maven.build.timestamp.format>yyyy-MM-dd HH:mm:ss</maven.build.timestamp.format>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>buildnumber-maven-plugin</artifactId>
+                <version>1.0</version>
+                <executions>
+                    <execution>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>create</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <buildNumberPropertyName>maven.build.number</buildNumberPropertyName>
+                    <format>{0,number}</format>
+                    <items>
+                        <item>buildNumber0</item>
+                    </items>
+                    <doCheck>false</doCheck>
+                    <doUpdate>false</doUpdate>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>com.vineetmanohar</groupId>
+                <artifactId>maven-twitter-plugin</artifactId>
+                <version>0.1</version>
+                <executions>
+                    <execution>
+                        <configuration>
+                            <twitterStatus>Version ${project.version} of MetaMusic released to https://github.com/cpesch/MetaMusic</twitterStatus>
+                        </configuration>
+                        <id>deploy</id>
+                        <phase>deploy</phase>
+                        <goals>
+                            <goal>tweet</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>metamusic-license</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+    </dependencies>
+</project>

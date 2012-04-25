@@ -135,6 +135,8 @@
         <module>common</module>
         <module>itunes-com-library</module>
         <module>itunes-xml-library</module>
+        <module>metamusic-build</module>
+        <module>metamusic-license</module>
         <module>mp3-parser</module>
         <module>mp3-tidy</module>
         <module>mp3-tools</module>
@@ -142,5 +144,6 @@
         <module>playlist-creator</module>
         <module>rating-saver</module>
         <module>retrieval-tools</module>
+        <module>RatingSaver</module>
     </modules>
 </project>

@@ -115,9 +115,8 @@ A: Currently, I'm using ant to build and IntelliJ IDEA to develop. There are
    files and the thirdparty directory.	
     
 Q: How do I compile it?  
-A: Set JAVA_HOME to a Java 6 SDK and call
-       ant -f build/build.xml clean jar
-   and find lots of jars in build/output/
+A: Set JAVA_HOME to a Java 6 SDK, put Maven into your PATH and call
+       mvn clean package
 	 
 I hope you like it, feedback is always welcome  
 Christian
