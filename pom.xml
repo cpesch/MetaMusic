@@ -21,7 +21,7 @@
     <repositories>
         <repository>
             <id>routeconverter-thirdparty</id>
-            <url>http://www.routeconverter.com/svn/RouteThirdParty</url>
+            <url>http://subversion.routeconverter.com/public/RouteThirdParty</url>
         </repository>
     </repositories>
 
@@ -45,12 +45,12 @@
             <extension>
                 <groupId>org.apache.maven.scm</groupId>
                 <artifactId>maven-scm-manager-plexus</artifactId>
-                <version>1.6</version>
+                <version>1.9.2</version>
             </extension>
             <extension>
                 <groupId>org.apache.maven.scm</groupId>
                 <artifactId>maven-scm-provider-gitexe</artifactId>
-                <version>1.6</version>
+                <version>1.9</version>
             </extension>
         </extensions>
 
@@ -126,7 +126,7 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.10</version>
+            <version>4.12</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
