@@ -61,10 +61,6 @@ public class iTunesCOMSynchronizer extends BaseMP3Modifier {
         return notifiers.add(notifier);
     }
 
-    public boolean removeNotifier(Notifier notifier) {
-        return notifiers.remove(notifier);
-    }
-
 
     public boolean isiTunesSupported() {
         return iTunesCOMLibrary.isSupported();
@@ -103,7 +99,8 @@ public class iTunesCOMSynchronizer extends BaseMP3Modifier {
                 for (Notifier notifier : notifiers)
                     notifier.processing(processedTrackCount);
 
-                location = processNext(true);
+                location = getNextLocation();
+                processNext(true, location);
             }
             catch (Throwable t) {
                 t.printStackTrace();
@@ -117,11 +114,14 @@ public class iTunesCOMSynchronizer extends BaseMP3Modifier {
         }
     }
 
-    private String processNext(boolean firstTime) {
-        String location = null;
+    private String getNextLocation() {
+        IITFileOrCDTrack track = tracks.getFileOrCDTrack(processedTrackCount);
+        return track.getLocation();
+    }
+
+    private void processNext(boolean firstTime, String location) {
         try {
             IITFileOrCDTrack track = tracks.getFileOrCDTrack(processedTrackCount);
-            location = track.getLocation();
             if (!canProcess(track)) {
                 remove(track);
             } else {
@@ -137,7 +137,7 @@ public class iTunesCOMSynchronizer extends BaseMP3Modifier {
         }
         catch (Exception e) {
             e.printStackTrace();
-            log.severe("Error while processing track " + processedTrackCount + ": " + e.getMessage());
+            log.severe("Error while processing track " + processedTrackCount + " at " + location + ": " + e.getMessage());
 
             // wait and have one more chance
             try {
@@ -148,12 +148,11 @@ public class iTunesCOMSynchronizer extends BaseMP3Modifier {
 
             // one more chance
             if (firstTime)
-                return processNext(false);
+                processNext(false, location);
             else
                 // avoids endless loops I've seen accessing the same track again and again
                 processedTrackCount++;
         }
-        return location;
     }
 
     protected boolean canProcess(IITFileOrCDTrack track) {
