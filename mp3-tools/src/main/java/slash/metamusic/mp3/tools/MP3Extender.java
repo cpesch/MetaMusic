@@ -41,6 +41,7 @@ public class MP3Extender extends BaseMP3Modifier {
      * Logging output
      */
     protected static final Logger log = Logger.getLogger(MP3Extender.class.getName());
+    private static final int RESIZE_PIXELS = 256;
 
     private CoverDBClient coverClient = new CoverDBClient();
     private LyricsDBClient lyricsClient = new LyricsDBClient();
@@ -216,7 +217,7 @@ public class MP3Extender extends BaseMP3Modifier {
             }
 
             // store in file if better
-            byte[] transformedCover = foundCover != null ? new ImageResizer().resize(foundCover, "jpg", 200, 200) : null;
+            byte[] transformedCover = foundCover != null ? new ImageResizer().resize(foundCover, "jpg", RESIZE_PIXELS, RESIZE_PIXELS) : null;
             if (transformedCover != null && fileCover != null && isFirstBetterThanSecond(transformedCover, fileCover)) {
                 log.fine("Adding cover (" + transformedCover.length + " bytes) to " + file.getFile().getAbsolutePath());
                 file.getHead().setCover(transformedCover);
