@@ -18,6 +18,8 @@ import java.text.DateFormat;
 import java.util.*;
 import java.util.logging.Logger;
 
+import static java.lang.Math.abs;
+
 /**
  * Syncs the iTunes library rating, play count and play time with the tags
  * of the MP3 files contained in the library.
@@ -33,10 +35,10 @@ public class iTunesCOMSynchronizer extends BaseMP3Modifier {
     protected static final Logger log = Logger.getLogger(iTunesCOMSynchronizer.class.getName());
 
     private static DateFormat DATE_FORMAT = DateFormat.getDateTimeInstance();
-
     static {
         DATE_FORMAT.setTimeZone(TimeZone.getTimeZone("UTC"));
     }
+    private static final int MILLISECONDS_PER_HOUR = 1000 * 60 * 60;
 
     private iTunesCOMLibrary library = new iTunesCOMLibrary();
     private List<Notifier> notifiers = new ArrayList<Notifier>();
@@ -206,6 +208,17 @@ public class iTunesCOMSynchronizer extends BaseMP3Modifier {
         }
     }
 
+    private boolean needToUpdateMP3(Date iTunesPlayTime, Date mp3PlayTime) {
+        if(iTunesPlayTime == null)
+            return false;
+        if(mp3PlayTime == null)
+            return true;
+
+        long diff = abs(iTunesPlayTime.getTime() - mp3PlayTime.getTime());
+        // avoid updates if the difference is exactly one or two hours
+        return iTunesPlayTime.after(mp3PlayTime) && (diff != MILLISECONDS_PER_HOUR && diff != 2 * MILLISECONDS_PER_HOUR);
+    }
+
     protected void process(IITFileOrCDTrack track, MP3File mp3) {
         boolean fileModified = false, trackModified = false;
 
@@ -262,7 +275,7 @@ public class iTunesCOMSynchronizer extends BaseMP3Modifier {
         }
 
         Date iTunesPlayTime = track.getPlayedDate();
-        if (iTunesPlayTime != null && (mp3PlayTime == null || iTunesPlayTime.after(mp3PlayTime))) {
+        if (needToUpdateMP3(iTunesPlayTime, mp3PlayTime)) {
             log.info("Modifying play time from '" + mp3.getFile().getAbsolutePath() + "' to " + DATE_FORMAT.format(iTunesPlayTime.getTime()) +
                     " from " + (mp3PlayTime != null ? DATE_FORMAT.format(mp3PlayTime.getTime()) : "<null>"));
             GregorianCalendar calendar = new GregorianCalendar();
