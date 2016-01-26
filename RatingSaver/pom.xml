@@ -43,63 +43,57 @@
                     </execution>
                 </executions>
             </plugin>
+
+            <plugin>
+                <groupId>com.akathist.maven.plugins.launch4j</groupId>
+                <artifactId>launch4j-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>ratingsaver-exe</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>launch4j</goal>
+                        </goals>
+                        <configuration>
+                            <headerType>gui</headerType>
+                            <outfile>target/RatingSaver.exe</outfile>
+                            <jar>target/RatingSaver.jar</jar>
+                            <errTitle>RatingSaver</errTitle>
+                            <icon>RatingSaver.ico</icon>
+                            <!--
+                            <splash>
+                                <file>RatingSaver.bmp</file>
+                                <timeout>10</timeout>
+                            </splash>
+                            -->
+                            <classPath>
+                                <mainClass>slash.metamusic.itunes.gui.RatingSaverGUI</mainClass>
+                            </classPath>
+                            <jre>
+                                <minVersion>1.6.0</minVersion>
+                                <maxHeapSize>256</maxHeapSize>
+                            </jre>
+                            <versionInfo>
+                                <fileVersion>1.1.${maven.build.number}.0</fileVersion>
+                                <txtFileVersion>${project.version} ${maven.build.number} ${maven.build.timestamp}
+                                </txtFileVersion>
+                                <fileDescription>RatingSaver syncs 'My Rating', 'Counter' and 'Last Played' between MP3
+                                    files and iTunes
+                                </fileDescription>
+                                <copyright>Christian Pesch</copyright>
+                                <productName>RatingSaver</productName>
+                                <productVersion>1.1.${maven.build.number}.0</productVersion>
+                                <txtProductVersion>${project.version} ${maven.build.number} ${maven.build.timestamp}
+                                </txtProductVersion>
+                                <internalName>RatingSaver for Windows as 32/64 Bit Executable</internalName>
+                                <originalFilename>RatingSaver.exe</originalFilename>
+                            </versionInfo>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
-
-    <profiles>
-        <profile>
-            <id>launcher</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.bluestemsoftware.open.maven.plugin</groupId>
-                        <artifactId>launch4j-plugin</artifactId>
-                        <version>1.5.0.0</version>
-                        <executions>
-                            <execution>
-                                <id>ratingsaver-exe</id>
-                                <phase>package</phase>
-                                <goals>
-                                    <goal>launch4j</goal>
-                                </goals>
-                                <configuration>
-                                    <headerType>gui</headerType>
-                                    <outfile>target/RatingSaver.exe</outfile>
-                                    <jar>target/RatingSaver.jar</jar>
-                                    <errTitle>RatingSaver</errTitle>
-                                    <icon>RatingSaver.ico</icon>
-                                    <!--
-                                    <splash>
-                                        <file>RatingSaver.bmp</file>
-                                        <timeout>10</timeout>
-                                    </splash>
-                                    -->
-                                    <classPath>
-                                        <mainClass>slash.metamusic.itunes.gui.RatingSaverGUI</mainClass>
-                                    </classPath>
-                                    <jre>
-                                        <minVersion>1.6.0</minVersion>
-                                        <maxHeapSize>256</maxHeapSize>
-                                    </jre>
-                                    <versionInfo>
-                                        <fileVersion>1.1.${maven.build.number}.0</fileVersion>
-                                        <txtFileVersion>${project.version} ${maven.build.number} ${maven.build.timestamp}</txtFileVersion>
-                                        <fileDescription>RatingSaver syncs 'My Rating', 'Counter' and 'Last Played' between MP3 files and iTunes</fileDescription>
-                                        <copyright>Christian Pesch</copyright>
-                                        <productName>RatingSaver</productName>
-                                        <productVersion>1.1.${maven.build.number}.0</productVersion>
-                                        <txtProductVersion>${project.version} ${maven.build.number} ${maven.build.timestamp}</txtProductVersion>
-                                        <internalName>RatingSaver for Windows as 32/64 Bit Executable</internalName>
-                                        <originalFilename>RatingSaver.exe</originalFilename>
-                                    </versionInfo>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
 
     <dependencies>
         <dependency>
