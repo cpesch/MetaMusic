@@ -103,7 +103,7 @@ public class RecursiveTagSetter {
                 if (mp3 != null) {
                     if (album != null) mp3.setAlbum(album);
                     if (artist != null) mp3.setArtist(artist);
-                    if (band != null) mp3.getHead().setBand(band);
+                    if (band != null) mp3.getHead().setAlbumArtist(band);
                     if (comment != null) mp3.setComment(comment);
                     if (genre != null) mp3.setGenre(genre);
                     if (year != null) mp3.setYear(year);

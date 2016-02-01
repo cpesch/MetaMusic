@@ -373,22 +373,26 @@ public class MP3Cleaner extends BaseMP3Modifier {
             }
         }
 
-        for (ID3v2Frame f : removeHeaders) {
-            head.remove(f);
-        }
-
         String artist = file.getArtist();
-        String band = file.getHead().getBand();
-        if (artist != null && band != null && artist.equals(band)) {
-            log.info("Removing band " + band + " since its the same as artist");
-            head.removeID3v2Frame("TPE2");
+        String albumArtist = file.getHead().getAlbumArtist();
+        if (artist != null && albumArtist != null && artist.equals(albumArtist)) {
+            log.info("Removing album artist " + albumArtist + " since its the same as artist");
+            removeHeaders.add(new ID3v2Frame("TPE2"));
         }
 
         String track = file.getTrack();
         String group = file.getHead().getStringContent("TIT1");
         if (track != null && group != null && track.equals(group)) {
             log.info("Removing content group description " + group + " since its the same as track");
-            head.removeID3v2Frame("TIT1");
+            removeHeaders.add(new ID3v2Frame("TIT1"));
+        }
+
+        if (file.getPartOfSetCount() == 1 && file.getPartOfSetIndex() == 1) {
+            removeHeaders.add(new ID3v2Frame("TPOS"));
+        }
+
+        for (ID3v2Frame f : removeHeaders) {
+            head.remove(f);
         }
 
         boolean result = removeHeaders.size() > 0;

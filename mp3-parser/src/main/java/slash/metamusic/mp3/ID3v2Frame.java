@@ -558,8 +558,6 @@ public class ID3v2Frame {
         bytesSection.setBytes(bytes);
     }
 
-    // --- overwrites Object -----------------------------------
-
     public String toString() {
         return "ID3v2Frame[" +
                 "valid=" + isValid() + ", " +

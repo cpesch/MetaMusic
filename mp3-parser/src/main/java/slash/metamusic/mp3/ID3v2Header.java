@@ -57,7 +57,7 @@ public class ID3v2Header implements ID3MetaData {
 
     private static final String TRACK_TAG_NAME = "TIT2";
     private static final String ARTIST_TAG_NAME = "TPE1";
-    private static final String BAND_TAG_NAME = "TPE2";
+    private static final String ALBUM_ARTIST_TAG_NAME = "TPE2";
     private static final String COMPILATION_TAG_NAME = "TCMP";
     private static final String ALBUM_TAG_NAME = "TALB";
     private static final String COMMENT_TAG_NAME = "COMM";
@@ -77,7 +77,7 @@ public class ID3v2Header implements ID3MetaData {
     private static final String ENCODER_TAG_NAME = "TENC";
 
     private static final String COVER_FORMAT = "jpg";
-    private static final int COVER_SIZE_LIMIT = 200;
+    private static final int COVER_SIZE_LIMIT = 600;
     private static final String LYRICS_DESCRIPTION = "Lyrics from http://www.lyrc.com.ar";
     private static final String LYRICS_LANGUAGE = "English";
 
@@ -578,8 +578,8 @@ public class ID3v2Header implements ID3MetaData {
         return getStringContent(ARTIST_TAG_NAME);
     }
 
-    public String getBand() {
-        return getStringContent(BAND_TAG_NAME);
+    public String getAlbumArtist() {
+        return getStringContent(ALBUM_ARTIST_TAG_NAME);
     }
 
     public boolean isCompilation() {
@@ -691,8 +691,8 @@ public class ID3v2Header implements ID3MetaData {
         setContent(ARTIST_TAG_NAME, newArtist);
     }
 
-    public void setBand(String newBand) {
-        setContent(BAND_TAG_NAME, newBand);
+    public void setAlbumArtist(String newAlbumArtist) {
+        setContent(ALBUM_ARTIST_TAG_NAME, newAlbumArtist);
     }
 
     public void setCompilation(boolean isCompilation) {
@@ -870,12 +870,17 @@ public class ID3v2Header implements ID3MetaData {
     }
 
     /**
-     * Remove a ID3v2Frame
+     * Remove the given ID3v2Frame
      *
      * @param frame the ID3v2Frame to remove
      */
     public void remove(ID3v2Frame frame) {
-        frames.remove(frame);
+        List<ID3v2Frame> toRemove = new ArrayList<ID3v2Frame>();
+        for(ID3v2Frame f : frames) {
+            if(f.getTagName().equals(frame.getTagName()))
+                toRemove.add(f);
+        }
+        frames.removeAll(toRemove);
     }
 
     // --- overwrites Object -----------------------------------

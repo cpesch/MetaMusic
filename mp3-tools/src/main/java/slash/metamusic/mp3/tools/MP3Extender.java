@@ -41,7 +41,7 @@ public class MP3Extender extends BaseMP3Modifier {
      * Logging output
      */
     protected static final Logger log = Logger.getLogger(MP3Extender.class.getName());
-    private static final int RESIZE_PIXELS = 256;
+    private static final int RESIZE_PIXELS = 600;
 
     private CoverDBClient coverClient = new CoverDBClient();
     private LyricsDBClient lyricsClient = new LyricsDBClient();
@@ -308,10 +308,10 @@ public class MP3Extender extends BaseMP3Modifier {
     }
 
     protected boolean addCompilationName(MP3File file) {
-        if (file.getHead().isCompilation() && file.getHead().getBand() == null) {
+        if (file.getHead().isCompilation() && file.getHead().getAlbumArtist() == null) {
             String compilationName = file.getFile().getParentFile().getName();
             log.info("Adding compilation name '" + compilationName + "' for " + file.getFile().getAbsolutePath());
-            file.getHead().setBand(compilationName);
+            file.getHead().setAlbumArtist(compilationName);
             return true;
         }
         return false;
@@ -328,15 +328,19 @@ public class MP3Extender extends BaseMP3Modifier {
                 if (mp3 == null)
                     continue;
 
+                String artistName = mp3.getHead().getAlbumArtist();
+                if(artistName == null)
+                    artistName = mp3.getArtist();
+
                 int discIndex = DiscIndexHelper.parseDiscIndex(mp3.getAlbum());
                 if (discIndex == -1)
                     discIndex = mp3.getPartOfSetIndex();
                 if (discIndex > 0)
-                    maxima.checkIfMaximumDiscIndex(mp3.getArtist(), mp3.getAlbum(), discIndex);
+                    maxima.checkIfMaximumDiscIndex(artistName, mp3.getAlbum(), discIndex);
 
                 int albumIndex = mp3.getIndex();
                 if (albumIndex > 0)
-                    maxima.checkIfMaximumAlbumIndex(mp3.getArtist(), mp3.getAlbum(), discIndex, albumIndex);
+                    maxima.checkIfMaximumAlbumIndex(artistName, mp3.getAlbum(), discIndex, albumIndex);
             }
         }
         return maxima;
