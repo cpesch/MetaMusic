@@ -106,7 +106,7 @@ public class iTunesCOMSynchronizer extends BaseMP3Modifier {
             }
             catch (Throwable t) {
                 t.printStackTrace();
-                log.severe("Error while processing " + location + ": " + t.getMessage());
+                log.severe("Error while processing track " + processedTrackCount + " at " + location + ": " + t.getMessage());
                 failedTrackCount++;
                 for (Notifier notifier : notifiers)
                     notifier.failed(failedTrackCount, location);
