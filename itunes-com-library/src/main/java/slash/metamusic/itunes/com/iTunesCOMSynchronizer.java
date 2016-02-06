@@ -96,20 +96,29 @@ public class iTunesCOMSynchronizer extends BaseMP3Modifier {
             return false;
 
         } else {
+            for (Notifier notifier : notifiers)
+                notifier.processing(processedTrackCount);
+
             String location = null;
             try {
-                for (Notifier notifier : notifiers)
-                    notifier.processing(processedTrackCount);
-
                 location = getNextLocation();
-                processNext(true, location);
             }
             catch (Throwable t) {
-                t.printStackTrace();
-                log.severe("Error while processing track " + processedTrackCount + " at " + location + ": " + t.getMessage());
-                failedTrackCount++;
-                for (Notifier notifier : notifiers)
-                    notifier.failed(failedTrackCount, location);
+                log.severe("Track " + processedTrackCount + " has no location: " + t.getMessage());
+                // avoids endless loops when the track has no location
+                processedTrackCount++;
+            }
+
+            if(location != null) {
+                try {
+                    processNext(true, location);
+                } catch (Throwable t) {
+                    t.printStackTrace();
+                    log.severe("Error while processing track " + processedTrackCount + " at " + location + ": " + t.getMessage());
+                    failedTrackCount++;
+                    for (Notifier notifier : notifiers)
+                        notifier.failed(failedTrackCount, location);
+                }
             }
 
             return true;
