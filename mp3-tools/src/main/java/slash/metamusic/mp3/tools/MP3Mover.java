@@ -65,13 +65,19 @@ public class MP3Mover extends BaseMP3Modifier {
 
     public boolean renameFileToTags(MP3File mp3) {
         File before = mp3.getFile();
-        File after = renameFile(before, mp3.getArtist(), mp3.getAlbum(), mp3.getTrack(), mp3.getIndex(), mp3.getPartOfSetIndex(), false);
+        String artist = mp3.getHead().getAlbumArtist();
+        if(artist == null)
+            artist = mp3.getArtist();
+        File after = renameFile(before, artist, mp3.getAlbum(), mp3.getTrack(), mp3.getIndex(), mp3.getPartOfSetIndex(), false);
         return after != null && !after.equals(before);
     }
 
     public boolean moveFileToTags(MP3File mp3) {
         File before = mp3.getFile();
-        File after = moveFile(before, mp3.getArtist(), mp3.getAlbum(), mp3.getTrack(), mp3.getIndex(), mp3.getPartOfSetIndex(), false);
+        String artist = mp3.getHead().getAlbumArtist();
+        if(artist == null)
+            artist = mp3.getArtist();
+        File after = moveFile(before, artist, mp3.getAlbum(), mp3.getTrack(), mp3.getIndex(), mp3.getPartOfSetIndex(), false);
         return after != null && !after.equals(before);
     }
 

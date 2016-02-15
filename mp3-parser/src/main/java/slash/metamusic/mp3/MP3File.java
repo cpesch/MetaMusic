@@ -27,14 +27,7 @@ import java.util.logging.Logger;
  */
 
 public class MP3File implements ID3MetaData {
-
-    /**
-     * Logging output
-     */
     protected static final Logger log = Logger.getLogger(MP3File.class.getName());
-
-    protected static final String FILE_PARAMETER = "f";
-    protected static final String FILE_PARAMETER_LONG = "file";
 
     private static final int READ_BUFFER_SIZE = 64 * 1024;
 
@@ -693,7 +686,7 @@ public class MP3File implements ID3MetaData {
     // --- overwrites Object -----------------------------------
 
     public String toString() {
-        StringBuffer buffer = new StringBuffer();
+        StringBuilder buffer = new StringBuilder();
         if (getFile() != null) {
             buffer.append("file:        ").append(getFile().getAbsolutePath()).append("\n").
                     append("size:        ").append(getFileSize()).append(" bytes\n").

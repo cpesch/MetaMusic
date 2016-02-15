@@ -8,10 +8,12 @@
 
 package slash.metamusic.util;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import static java.util.Collections.singletonList;
 
 /**
  * Parses additional contributors from artist or track names.
@@ -20,6 +22,16 @@ import java.util.regex.Pattern;
  */
 
 public class ContributorHelper {
+    private static List<String> createContributorList(String lead, String featuring) {
+        List<String> result = new ArrayList<String>();
+        result.add(lead);
+        for (String contributor : featuring.split(",")) {
+            String trimmed = contributor.trim();
+            if (trimmed.length() > 0)
+                result.add(trimmed);
+        }
+        return result;
+    }
 
     /**
      * Parses additional contributors from an artist name like
@@ -38,7 +50,7 @@ public class ContributorHelper {
         if (matches) {
             String lead = matcher.group(1).trim();
             String featuring = matcher.group(6).trim();
-            return Arrays.asList(lead, featuring);
+            return createContributorList(lead, featuring);
         }
 
         pattern = Pattern.compile("(.+)(( (A|a|U|u)nd )|&)(.+)");
@@ -47,10 +59,10 @@ public class ContributorHelper {
         if (matches) {
             String lead = matcher.group(1).trim();
             String featuring = matcher.group(5).trim();
-            return Arrays.asList(lead, featuring);
+            return createContributorList(lead, featuring);
         }
 
-        return Arrays.asList(artist);
+        return singletonList(artist);
     }
 
     /**
@@ -70,7 +82,7 @@ public class ContributorHelper {
         if (matches) {
             String title = matcher.group(1).trim();
             String featuring = matcher.group(5).trim();
-            return Arrays.asList(title, featuring);
+            return createContributorList(title, featuring);
         }
 
         pattern = Pattern.compile("(.+)(\\((W|w)ith(.+))\\)");
@@ -79,9 +91,23 @@ public class ContributorHelper {
         if (matches) {
             String title = matcher.group(1).trim();
             String featuring = matcher.group(4).trim();
-            return Arrays.asList(title, featuring);
+            return createContributorList(title, featuring);
         }
 
-        return Arrays.asList(track);
+        return singletonList(track);
+    }
+
+    public static String formatContributors(String artist, List<String> contributors) {
+        StringBuilder buffer = new StringBuilder();
+        buffer.append(artist);
+        if (contributors.size() > 0)
+            buffer.append(" featuring ");
+        for (int i = 0, c = contributors.size(); i < c; i++) {
+            String contributor = contributors.get(i);
+            buffer.append(contributor);
+            if (i < c - 1)
+                buffer.append(", ");
+        }
+        return buffer.toString();
     }
 }

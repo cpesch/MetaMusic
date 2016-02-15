@@ -8,27 +8,46 @@
 
 package slash.metamusic.util;
 
-import junit.framework.TestCase;
+import org.junit.Test;
 
-import java.util.Arrays;
+import java.util.Collections;
 
-public class ContributorHelperTest extends TestCase {
+import static java.util.Arrays.asList;
+import static java.util.Collections.singletonList;
+import static org.junit.Assert.assertEquals;
+import static slash.metamusic.util.ContributorHelper.*;
+
+public class ContributorHelperTest {
+
+    @Test
     public void testParseArtist() {
-        assertEquals(Arrays.asList("A"), ContributorHelper.parseArtist("A"));
-        assertEquals(Arrays.asList("A", "B"), ContributorHelper.parseArtist("A and B"));
-        assertEquals(Arrays.asList("A", "B"), ContributorHelper.parseArtist("A feat. B"));
-        assertEquals(Arrays.asList("A", "B"), ContributorHelper.parseArtist("A Feat. B"));
-        assertEquals(Arrays.asList("A", "B"), ContributorHelper.parseArtist("A featuring B"));
-        assertEquals(Arrays.asList("A", "B"), ContributorHelper.parseArtist("A Featuring B"));
+        assertEquals(singletonList("A"), parseArtist("A"));
+        assertEquals(asList("A", "B"), parseArtist("A and B"));
+        assertEquals(asList("A", "B"), parseArtist("A feat. B"));
+        assertEquals(asList("A", "B"), parseArtist("A Feat. B"));
+        assertEquals(asList("A", "B"), parseArtist("A featuring B"));
+        assertEquals(asList("A", "B"), parseArtist("A Featuring B"));
+        assertEquals(singletonList("A"), parseArtist(formatContributors("A", Collections.<String>emptyList())));
+        assertEquals(asList("A", "B"), parseArtist(formatContributors("A", singletonList("B"))));
+        assertEquals(asList("A", "B", "C"), parseArtist(formatContributors("A", asList("B", "C"))));
     }
 
+    @Test
     public void testParseTrack() {
-        assertEquals(Arrays.asList("A"), ContributorHelper.parseTrack("A"));
-        assertEquals(Arrays.asList("A", "B"), ContributorHelper.parseTrack("A (feat. B)"));
-        assertEquals(Arrays.asList("A", "B"), ContributorHelper.parseTrack("A (Feat. B)"));
-        assertEquals(Arrays.asList("A", "B"), ContributorHelper.parseTrack("A (featuring B)"));
-        assertEquals(Arrays.asList("A", "B"), ContributorHelper.parseTrack("A (Featuring B)"));
-        assertEquals(Arrays.asList("A", "B"), ContributorHelper.parseTrack("A (with B)"));
-        assertEquals(Arrays.asList("A", "B"), ContributorHelper.parseTrack("A (With B)"));
+        assertEquals(singletonList("A"), parseTrack("A"));
+        assertEquals(asList("A", "B"), parseTrack("A (feat. B)"));
+        assertEquals(asList("A", "B"), parseTrack("A (Feat. B)"));
+        assertEquals(asList("A", "B"), parseTrack("A (featuring B)"));
+        assertEquals(asList("A", "B"), parseTrack("A (Featuring B)"));
+        assertEquals(asList("A", "B"), parseTrack("A (with B)"));
+        assertEquals(asList("A", "B"), parseTrack("A (With B)"));
+    }
+
+    @Test
+    public void testFormatContributors() {
+        assertEquals("A", formatContributors("A", Collections.<String>emptyList()));
+        assertEquals("A featuring B", formatContributors("A", singletonList("B")));
+        assertEquals("A featuring B, C", formatContributors("A", asList("B", "C")));
+        assertEquals("A featuring B, C, D", formatContributors("A", asList("B", "C", "D")));
     }
 }

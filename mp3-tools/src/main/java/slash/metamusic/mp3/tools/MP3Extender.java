@@ -17,9 +17,10 @@ import slash.metamusic.util.ImageResizer;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 import java.util.logging.Logger;
+
+import static slash.metamusic.util.ContributorHelper.*;
 
 /**
  * A class to add
@@ -138,18 +139,19 @@ public class MP3Extender extends BaseMP3Modifier {
         boolean addedLyrics = isAddLyrics() && addLyrics(file);
         boolean addedPublisher = isAddMetaData() && addPublisher(file);
         boolean addedCompilationName = isAddMetaData() && addCompilationName(file);
+        boolean addedContributors = isAddMetaData() && addContributors(file);
         boolean addedIndexCount = isAddMetaData() && addIndexCount(file);
 
         if (isAddCoverToFolder())
             addCoverToFolder(file);
 
         boolean extended = addedMusicBrainzId || addedAttachedPicture || addedLyrics || addedPublisher ||
-                addedCompilationName || addedIndexCount;
+                addedCompilationName || addedContributors || addedIndexCount;
 
         log.info("extended: " + extended + " MusicBrainzId: " + addedMusicBrainzId +
                 " cover: " + addedAttachedPicture + " lyrics: " + addedLyrics +
                 " publisher: " + addedPublisher + " compilation name: " + addedCompilationName +
-                " index count: " + addedIndexCount);
+                " contributors: " + addedContributors + " index count: " + addedIndexCount);
         return extended;
     }
 
@@ -232,6 +234,7 @@ public class MP3Extender extends BaseMP3Modifier {
     private boolean isFirstBetterThanSecond(byte[] first, byte[] second) {
         if (first == null)
             return false;
+        //noinspection SimplifiableIfStatement
         if (second == null)
             return true;
         return first.length > second.length;
@@ -281,6 +284,7 @@ public class MP3Extender extends BaseMP3Modifier {
     private boolean isFirstNewerThanSecond(File first, File second) {
         if (first == null)
             return false;
+        //noinspection SimplifiableIfStatement
         if (second == null)
             return true;
         return (first.lastModified() / 1000) > (second.lastModified() / 1000);
@@ -289,6 +293,7 @@ public class MP3Extender extends BaseMP3Modifier {
     private boolean isFirstBetterThanSecond(String first, String second) {
         if (first == null)
             return false;
+        //noinspection SimplifiableIfStatement
         if (second == null)
             return true;
         return first.length() > second.length();
@@ -317,6 +322,26 @@ public class MP3Extender extends BaseMP3Modifier {
         return false;
     }
 
+    protected boolean addContributors(MP3File file) {
+        Set<String> contributors = new LinkedHashSet<String>();
+
+        List<String> artists = parseArtist(file.getArtist());
+        contributors.addAll(artists.subList(1, artists.size()));
+        List<String> trackArtists = parseTrack(file.getTrack());
+        contributors.addAll(trackArtists.subList(1, trackArtists.size()));
+
+        String albumArtist = artists.get(0);
+        String artist = formatContributors(file.getArtist(), new ArrayList<String>(contributors));
+        if (contributors.size() > 0 && (!file.getArtist().equals(artist) && !(file.getHead().getAlbumArtist() != null &&
+                file.getHead().getAlbumArtist().equals(albumArtist)))) {
+            log.info("Adding contributors '" + contributors + "' for " + file.getFile().getAbsolutePath());
+            file.getHead().setAlbumArtist(albumArtist);
+            file.getHead().setArtist(artist);
+            return true;
+        }
+        return false;
+    }
+
     private Maxima determineMaximumIndices(File directory) {
         Maxima maxima = new Maxima();
 
@@ -329,7 +354,7 @@ public class MP3Extender extends BaseMP3Modifier {
                     continue;
 
                 String artistName = mp3.getHead().getAlbumArtist();
-                if(artistName == null)
+                if (artistName == null)
                     artistName = mp3.getArtist();
 
                 int discIndex = DiscIndexHelper.parseDiscIndex(mp3.getAlbum());
