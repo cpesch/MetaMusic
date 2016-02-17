@@ -29,9 +29,6 @@ import static java.lang.Math.abs;
  */
 
 public class iTunesCOMSynchronizer extends BaseMP3Modifier {
-    /**
-     * Logging output
-     */
     protected static final Logger log = Logger.getLogger(iTunesCOMSynchronizer.class.getName());
 
     private static DateFormat DATE_FORMAT = DateFormat.getDateTimeInstance();
@@ -39,6 +36,7 @@ public class iTunesCOMSynchronizer extends BaseMP3Modifier {
         DATE_FORMAT.setTimeZone(TimeZone.getTimeZone("UTC"));
     }
     private static final int MILLISECONDS_PER_HOUR = 1000 * 60 * 60;
+    private static final long MP3_SIZE_LIMIT_BYTES = 16 * 1024 * 1024;
 
     private iTunesCOMLibrary library = new iTunesCOMLibrary();
     private List<Notifier> notifiers = new ArrayList<Notifier>();
@@ -206,6 +204,9 @@ public class iTunesCOMSynchronizer extends BaseMP3Modifier {
             log.info("Library modified after file modification " + iTunesModificationDate +
                     " diff: " + (fileModificationTime - iTunesModificationTime) + " seconds");
         }
+
+        if (file.length() > MP3_SIZE_LIMIT_BYTES)
+            return;
 
         MP3File mp3 = MP3File.readValidFile(file);
         if (mp3 != null)
