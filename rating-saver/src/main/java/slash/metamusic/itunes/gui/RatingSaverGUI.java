@@ -8,22 +8,24 @@
 
 package slash.metamusic.itunes.gui;
 
-import com.intellij.uiDesigner.core.GridConstraints;
-import com.intellij.uiDesigner.core.GridLayoutManager;
-import com.intellij.uiDesigner.core.Spacer;
-import slash.metamusic.gui.BaseDialogGUI;
-import slash.metamusic.itunes.com.iTunesCOMSynchronizer;
+import static javax.swing.SwingUtilities.invokeLater;
 
-import javax.swing.*;
-import javax.swing.event.ListDataEvent;
-import javax.swing.event.ListDataListener;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.text.DateFormat;
 import java.text.MessageFormat;
 import java.util.Date;
 import java.util.ResourceBundle;
+
+import javax.swing.*;
+import javax.swing.event.ListDataEvent;
+import javax.swing.event.ListDataListener;
+
+import com.intellij.uiDesigner.core.GridConstraints;
+import com.intellij.uiDesigner.core.GridLayoutManager;
+import com.intellij.uiDesigner.core.Spacer;
+
+import slash.metamusic.gui.BaseDialogGUI;
+import slash.metamusic.itunes.com.iTunesCOMSynchronizer;
 
 /**
  * A small graphical user interface for the rating saving.
@@ -48,10 +50,10 @@ public class RatingSaverGUI extends BaseDialogGUI {
   private JLabel labelModifiedTracks;
   private JLabel labelRemovedTracks;
   private JProgressBar progressBar;
-  private JList listMessages;
+  private JList<String> listMessages;
 
   private iTunesCOMSynchronizer synchronizer = new iTunesCOMSynchronizer();
-  private DefaultListModel listModel = new DefaultListModel();
+  private DefaultListModel<String> listModel = new DefaultListModel<>();
   private boolean running = false;
   private final Object mutex = new Object();
 
@@ -61,17 +63,9 @@ public class RatingSaverGUI extends BaseDialogGUI {
 
     createFrame(BUNDLE.getString("title"), "/slash/metamusic/itunes/gui/RatingSaver.png", contentPane, buttonStart);
 
-    buttonStart.addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent e) {
-        onStart();
-      }
-    });
+    buttonStart.addActionListener(e -> onStart());
 
-    buttonExit.addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent e) {
-        onExit();
-      }
-    });
+    buttonExit.addActionListener(e -> onExit());
 
     progressBar.setMinimum(0);
     progressBar.setStringPainted(true);
@@ -111,15 +105,13 @@ public class RatingSaverGUI extends BaseDialogGUI {
 
   private void scrollToBottom() {
     // put in AWT Eventqueue to act after changes of the model
-    SwingUtilities.invokeLater(new Runnable() {
-      public void run() {
-        final int lines = listModel.getSize() - 1;
-        if (lines > 0) {
-          // workaround to ensure visiblity on startup
-          int count = 0;
-          while (listMessages.getLastVisibleIndex() != lines && count++ < 10) {
-            listMessages.ensureIndexIsVisible(lines);
-          }
+    invokeLater(() -> {
+      final int lines = listModel.getSize() - 1;
+      if (lines > 0) {
+        // workaround to ensure visiblity on startup
+        int count = 0;
+        while (listMessages.getLastVisibleIndex() != lines && count++ < 10) {
+          listMessages.ensureIndexIsVisible(lines);
         }
       }
     });
@@ -135,38 +127,32 @@ public class RatingSaverGUI extends BaseDialogGUI {
       }
     }
 
-    SwingUtilities.invokeLater(new Runnable() {
-      public void run() {
-        startWaitCursor(frame.getRootPane());
-        buttonExit.setEnabled(false);
-        buttonStart.setText(BUNDLE.getString("cancel"));
-      }
+    invokeLater(() -> {
+      startWaitCursor(frame.getRootPane());
+      buttonExit.setEnabled(false);
+      buttonStart.setText(BUNDLE.getString("cancel"));
     });
 
-    Thread runner = new Thread(new Runnable() {
-      public void run() {
-        synchronizer.start();
+    Thread runner = new Thread(() -> {
+      synchronizer.start();
 
-        while (synchronizer.next()) {
-          synchronized (mutex) {
-            if (!running) {
-              break;
-            }
-          }
-        }
-
+      while (synchronizer.next()) {
         synchronized (mutex) {
-          running = false;
-        }
-
-        SwingUtilities.invokeLater(new Runnable() {
-          public void run() {
-            stopWaitCursor(frame.getRootPane());
-            buttonExit.setEnabled(true);
-            buttonStart.setText(BUNDLE.getString("start"));
+          if (!running) {
+            break;
           }
-        });
+        }
       }
+
+      synchronized (mutex) {
+        running = false;
+      }
+
+      invokeLater(() -> {
+        stopWaitCursor(frame.getRootPane());
+        buttonExit.setEnabled(true);
+        buttonStart.setText(BUNDLE.getString("start"));
+      });
     });
     runner.start();
   }
@@ -357,103 +343,89 @@ public class RatingSaverGUI extends BaseDialogGUI {
     private Date startDate;
 
     public void opened(final String version, final String libraryPath, final int trackCount, final int playlistCount) {
-      SwingUtilities.invokeLater(new Runnable() {
-        public void run() {
-          labelVersion.setText(version);
-          labelPlaylistCount.setText(Integer.toString(playlistCount));
-          labelFileCount.setText(Integer.toString(trackCount));
-          listModel.addElement(MessageFormat.format(BUNDLE.getString("opened"), libraryPath));
-          buttonStart.setEnabled(true);
-          stopWaitCursor(frame.getRootPane());
-        }
+      invokeLater(() -> {
+        labelVersion.setText(version);
+        labelPlaylistCount.setText(Integer.toString(playlistCount));
+        labelFileCount.setText(Integer.toString(trackCount));
+        listModel.addElement(MessageFormat.format(BUNDLE.getString("opened"), libraryPath));
+        buttonStart.setEnabled(true);
+        stopWaitCursor(frame.getRootPane());
       });
     }
 
     public void started(final int trackCount, final int playlistCount) {
-      SwingUtilities.invokeLater(new Runnable() {
-        public void run() {
-          labelPlaylistCount.setText(Integer.toString(playlistCount));
-          labelFileCount.setText(Integer.toString(trackCount));
-          labelProcessedTracks.setText("0");
-          labelFailedTracks.setText("0");
-          labelModifiedFiles.setText("0");
-          labelModifiedTracks.setText("0");
-          labelRemovedTracks.setText("0");
-          startDate = new Date();
-          listModel.clear();
-          listModel.addElement(MessageFormat.format(BUNDLE.getString("started"), DateFormat.getDateTimeInstance().format(startDate)));
-          progressBar.setMaximum(trackCount);
-          progressBar.setValue(0);
-        }
+      invokeLater(() -> {
+        labelPlaylistCount.setText(Integer.toString(playlistCount));
+        labelFileCount.setText(Integer.toString(trackCount));
+        labelProcessedTracks.setText("0");
+        labelFailedTracks.setText("0");
+        labelModifiedFiles.setText("0");
+        labelModifiedTracks.setText("0");
+        labelRemovedTracks.setText("0");
+        startDate = new Date();
+        listModel.clear();
+        listModel.addElement(MessageFormat.format(BUNDLE.getString("started"), DateFormat.getDateTimeInstance().format(startDate)));
+        progressBar.setMaximum(trackCount);
+        progressBar.setValue(0);
       });
     }
 
     public void processing(final int processedTracks) {
-      SwingUtilities.invokeLater(new Runnable() {
-        public void run() {
-          labelProcessedTracks.setText(Integer.toString(processedTracks));
-          progressBar.setValue(processedTracks);
-        }
+      invokeLater(() -> {
+        labelProcessedTracks.setText(Integer.toString(processedTracks));
+        progressBar.setValue(processedTracks);
       });
     }
 
     public void failed(final int failedTrackCount, final String location) {
-      SwingUtilities.invokeLater(new Runnable() {
-        public void run() {
-          labelFailedTracks.setText(Integer.toString(failedTrackCount));
-          if (location != null) {
-            listModel.addElement(MessageFormat.format(BUNDLE.getString("failed"), location));
-          }
+      invokeLater(() -> {
+        labelFailedTracks.setText(Integer.toString(failedTrackCount));
+        if (location != null) {
+          listModel.addElement(MessageFormat.format(BUNDLE.getString("failed"), location));
         }
       });
     }
 
     public void removed(final int removedTrackCount, final String location) {
-      SwingUtilities.invokeLater(new Runnable() {
-        public void run() {
-          labelRemovedTracks.setText(Integer.toString(removedTrackCount));
-          listModel.addElement(MessageFormat.format(BUNDLE.getString("removed"), location));
-        }
+      invokeLater(() -> {
+        labelRemovedTracks.setText(Integer.toString(removedTrackCount));
+        listModel.addElement(MessageFormat.format(BUNDLE.getString("removed"), location));
       });
     }
 
     public void processed(final int modifiedFileCount, final int modifiedTrackCount, final String location,
                           final boolean fileModified, final boolean trackModified) {
-      SwingUtilities.invokeLater(new Runnable() {
-        public void run() {
-          labelModifiedTracks.setText(Integer.toString(modifiedTrackCount));
-          labelModifiedFiles.setText(Integer.toString(modifiedFileCount));
-          StringBuffer buffer = new StringBuffer();
-          if (fileModified || trackModified) {
-            buffer.append(BUNDLE.getString("modified")).append(" ");
-          }
-          if (fileModified) {
-            buffer.append(BUNDLE.getString("file")).append(" ");
-          }
-          if (fileModified && trackModified) {
-            buffer.append("& ");
-          }
-          if (trackModified) {
-            buffer.append(BUNDLE.getString("track")).append(" ");
-          }
-          buffer.append(location);
-          listModel.addElement(buffer.toString());
+      invokeLater(() -> {
+        labelModifiedTracks.setText(Integer.toString(modifiedTrackCount));
+        labelModifiedFiles.setText(Integer.toString(modifiedFileCount));
+        StringBuffer buffer = new StringBuffer();
+        if (fileModified || trackModified) {
+          buffer.append(BUNDLE.getString("modified")).append(" ");
         }
+        if (fileModified) {
+          buffer.append(BUNDLE.getString("file")).append(" ");
+        }
+        if (fileModified && trackModified) {
+          buffer.append("& ");
+        }
+        if (trackModified) {
+          buffer.append(BUNDLE.getString("track")).append(" ");
+        }
+        buffer.append(location);
+        listModel.addElement(buffer.toString());
       });
     }
 
     public void finished(final int modifiedFileCount, final int modifiedTrackCount, final int removedTrackCount) {
-      SwingUtilities.invokeLater(new Runnable() {
-        public void run() {
-          labelModifiedTracks.setText(Integer.toString(modifiedTrackCount));
-          labelModifiedFiles.setText(Integer.toString(modifiedFileCount));
-          labelRemovedTracks.setText(Integer.toString(removedTrackCount));
-          Date endDate = new Date();
-          listModel.addElement(MessageFormat.format(BUNDLE.getString("finished"), DateFormat.getDateTimeInstance().format(endDate)));
-          long runtime = (endDate.getTime() - startDate.getTime()) / 1000;
-          listModel.addElement(MessageFormat.format(BUNDLE.getString("runtime"), runtime));
-          progressBar.setValue(progressBar.getMaximum());
-        }
+      invokeLater(() -> {
+        labelModifiedTracks.setText(Integer.toString(modifiedTrackCount));
+        labelModifiedFiles.setText(Integer.toString(modifiedFileCount));
+        labelRemovedTracks.setText(Integer.toString(removedTrackCount));
+        Date endDate = new Date();
+        listModel.addElement(MessageFormat.format(BUNDLE.getString("finished"), DateFormat.getDateTimeInstance().format(endDate)));
+        long runtime = (endDate.getTime() - startDate.getTime()) / 1000;
+        listModel.addElement(MessageFormat.format(BUNDLE.getString("runtime"), runtime));
+        progressBar.setValue(progressBar.getMaximum());
       });
     }
   }
